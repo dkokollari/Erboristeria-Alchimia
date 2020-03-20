@@ -1,60 +1,124 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
+    <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+                          <!-- DA RIVEDERE TITOLO E ICONA  -->
+      <title>Informazioni - Erboristeria Alchimia</title>
 
-  <head>
+      <meta name="description" content="In questa pagina è possibile trovare tutte le informazioni necessarie per contattarci"/>
+      <meta name="keywords" content="orari,apertura,posta,telefono,indirizzo,informazioni,te ,infusi,erboristeria,alchimia"/>
+      <meta name="language" content="italian it"/>
+      <meta name="author" content="Erboristeria Alchimia"/>
 
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>erboristeria alchimia</title>
-    <meta name="author" content="..."/>
-    <meta name="description" content="..."/>
-    <meta name="keywords" content=" ..."/>
-    <meta name="language" content="italian it"/>
+      <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png"/>
+      <link rel="stylesheet" href="stylesheet.css"/>
+      <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,600&display=swap" rel="stylesheet"/>
 
-  </head>
+      <link href="https://fonts.googleapis.com/css?family=Material+Icons%7CMaterial+Icons+Outlined%7CMaterial+Icons+Two+Tone%7CMaterial+Icons+Round%7CMaterial+Icons+Sharp" rel="stylesheet"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-  <body>
+      <!--<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>-->
 
-    <div id="header">
-      <img src="" alt="logo erboristeria alchimia"/>
-      <h1>Erboristeria Alchimia</h1>
+
+    </head>
+
+  <body id= "informazioni">
+                <!--          HEADER             -->
+    <!-- <div id="menu">
+
+    </div> -->
+    <button><i id="menu_icon" class="material-icons-round" tabindex="1">menu</i></button>
+    <div id="topbar">
+      <h1 id="topbar_title">Informazioni</h1>
     </div>
 
-    <div id="menu">
-      <ul>
-        <li><a href="erboristeria.html" tabindex="1"><span xml:lang="en">Home</span></a></li>
-        <li><a href="infusi.html" tabindex="2" >I miei T&egrave; e infusi</a></li>
-        <li><a href="regalo.html" tabindex="3">Le mie idee regalo</a></li>
-        <li><a href="prodotti.html" tabindex="4">I miei prodotti</a></li>
-        <li><a href="eventi.html" tabindex="5">Eventi</a></li>
-        <li>Informazioni</li>
-      </ul>
-    </div>
-
-    <div id="content">
-      <div>
-        <h1>Info</h1>
-        <p>
-          ...
-        </p>
-      </div>
-
-      <div>
-        <img src="" alt="posizione del negozio sulla mappa"/>
-      </div>
+    <div id="header_image"></div>
+    <h1>Informazioni</h1>
+    <div id= "content">
+      <h2>Info</h2>
+      <p>
+        In questa pagina &egrave; possibile trovare tutte le informazioni necessarie per contattarci,
+        conoscere gli orari di apertura e raggiungerci. Vieni a trovarci !
+      </p>
+      <h3 >Mappa</h3>
+      <span>Ci trovi qui</span><a id= "linkMappa" href= "https://www.google.com/maps/place/Erboristeria+Alchimia/@45.922557,12.5720543,17z" tabindex="2">Piazza S. Anna, 15, 33070 Tamai PN</a>
+      <h3>Contatti</h3>
+        <ul id= "contatti">
+          <li><span>Telefono</span> <span class= "contenutoInfo">345 879 0235</span></li>
+          <li><span>Email</span> <span class= "contenutoInfo"><a href="mailto:erbalchimia@gmail.com" tabindex="3">erbalchimia@gmail.com</a></span></li>
+        </ul>
+      <h3>Orari di apertura</h3>
+          <ul id= "orari">
+            <li><span>Lun</span>Chiuso</li>
+            <li><span>Mar</span> <p><span>08:45 - 12:00</span> <span class= "orarioPom">15:30 - 19:30</span></p></li>
+            <li><span>Mer</span> <p><span>08:45 - 12:00</span> <span class= "orarioPom">15:30 - 19:30</span></p></li>
+            <li><span>Gio</span> <p><span>08:45 - 12:00</span> <span class= "orarioPom">15:30 - 19:30</span></p></li>
+            <li><span>Ven</span> <p><span>08:45 - 12:00</span> <span class= "orarioPom">15:30 - 19:30</span></p></li>
+            <li><span>Sab</span> <p><span>08:45 - 12:00</span> <span class= "orarioPom">15:30 - 19:30</span></p></li>
+            <li><span>Dom</span>Chiuso</li>
+          </ul>
     </div>
 
     <div id="footer">
-      <ul>
-        <li><img src="./images/contatto.png" alt="icona di un telefono"/>Telefono: +39 ... ... ....</li>
-        <li><img src="./images/posta.png" alt="icona di posta elettronica"/>Email:<a href="mailto:unamail@mail.com" tabindex="6">Email</a></li>
-        <li><img src="./images/indirizzo.png" alt="pagina valida xhtml1.0 strict"/>Posizione:<a href="https://www.google.com/maps/place/Torre+Archimede,+Via+Trieste,+63,+35121+Padova+PD/@45.4113787,11.8852839,17z/data=!3m1!4b1!4m5!3m4!1s0x477eda58b44676df:0xfacae5884fca17f5!8m2!3d45.4113787!4d11.8874726" tabindex="7">nonsodove</a></li>
-      </ul>
-
-      <img src="./images/valid-xhtml10.png" alt="pagina valida xhtml1.0 strict"/><span xml:lang="en"> All Rigths Reserverd </span><img src="./images/vcss-blue.gif" alt="pagina valida css"/>
-
+      Fare l'elicottero per asciugarsi il membro appena usciti dalla doccia
     </div>
 
+    <script>
+
+      const headerImg = document.querySelector("#informazioni #header_image");
+      const content = document.querySelector("#content");
+      const topbar = document.querySelector("#informazioni #topbar");
+      const topbarTitle = document.querySelector("#topbar_title");
+      const marginTop = document.documentElement.clientWidth*0.63;  // 75vw di margin-top del content - 12vw di altezza topbar
+      var yScrollPosition;
+      var i;
+      var j;
+
+      window.addEventListener("DOMContentLoaded", scrollLoop, false);
+
+      function scrollLoop() {
+          yScrollPosition = window.scrollY;
+          headerImg.style.transform = "translate3d(" + 0 + ", " + yScrollPosition*-0.45 + "px, 0)";
+          // yScrollPosition > margintop ? topbar.style.zIndex = "2" : topbar.style.zIndex = "-2"; //   INEFFICIENTE
+          requestAnimationFrame(scrollLoop);
+      }
+       window.addEventListener('scroll', showTopbar);
+       function showTopbar() {
+          if (document.documentElement.scrollTop > marginTop) {
+            topbar.style.zIndex = "2";
+            topbarTitle.classList.add("nopacity");
+          } else {
+            topbar.style.zIndex = "-2";
+            topbarTitle.classList.remove("nopacity");
+          }
+       }
+
+    </script>
 
   </body>
+<!--
+   -->
+
+<!--MAPPA GOOGLE  -->
+<!--
+  <script>
+function myMap() {
+var mapProp= {
+  center:new google.maps.LatLng(45.922555, 12.574254),
+  zoom:5,
+};
+var map = new google.maps.Map(document.getElementById("erboristeria-alchimia"),mapProp);
+}
+</script> -->
+
+<!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCWc93ppPiYMJp6Rbh2Ebpt0Yfy39SIqtU&callback=myMap"></script> -->
+
+<!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCWc93ppPiYMJp6Rbh2Ebpt0Yfy39SIqtU&callback=myMap" type="text/javascript"></script> -->
+
+<!--
+<script async defer
+   src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=mMap">
+ </script> -->
 
 </html>
