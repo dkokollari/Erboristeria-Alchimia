@@ -119,27 +119,6 @@
     </div>
   </body>
 
-  <script>
-
-    const col = document.getElementsByClassName("collapsible");
-    var i;
-
-    for (i = 0; i < col.length; i++) {
-      col[i].addEventListener('click', expand);
-      col[i].addEventListener('keydown', (event) => {
-        // event.target.classList.add("focused");
-        if (event.code === 'Space' || event.code === 'Enter') {
-            event.target.click();
-          }
-      });
-    }
-
-    function expand(){
-      this.firstElementChild.lastElementChild.classList.toggle("expandedcard");
-      this.firstElementChild.firstElementChild.classList.toggle("expandedimg");
-      this.lastElementChild.classList.toggle("rotate");
-    }
-
-  </script>
+  <script src="js/design.js"></script>
 
 </html>
