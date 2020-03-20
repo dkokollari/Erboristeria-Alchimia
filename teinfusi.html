@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en" >
+  <head>
+                        <!-- da rivedere  -->
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <title>Te e Infusi - Erboristeria Alchimia</title>
+    <link rel="stylesheet" href="stylesheet.css"></link>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,600&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+  </head>
+
+  <body>
+    <div id="container">
+
+
+                          <!--          HEADER             -->
+
+      <div id="menu">
+        <button><i class="material-icons-round" onclick="showMenu()">cancel</i></button>
+
+        <ul>
+          <li><a href="homepage.html">Homepage</a></li>
+          <li><a href="eventi.html">Eventi</a></li>
+          <li class="selected_page"><p>T&egrave; e Infusi</p></li>
+          <li><a href="prodotti.html">Prodotti</a></li>
+          <li><a href="pagina_informazioni">Informazioni</a></li>
+        </ul>
+        <!-- <h4>Erboristeria <span>Alchimia</span></h4> -->        <!-- non c'e' spazio nei dispositivi piu' vecchi come iPhone 4, magari da implementare in futuro -->
+      </div>
+
+      <button id="right-of-menu" onclick="showMenu()"></button>
+
+      <button><i id="menu_icon" class="material-icons-round" onclick="showMenu()">menu</i></button>
+
+      <div id="topbar">
+        <h1 id="topbar_title">T&egrave; & infusi</h1>
+      </div>
+
+      <div id="header_image" class="fit"></div>
+      <h1>T&egrave; e Infusi</h1>
+
+                          <!--         CONTENT            -->
+
+      <div id="content">
+
+        <h2>Una passione per gli infusi</h2>
+        <p>
+          In questa pagina potete trovare le mie composizioni di t&egrave; e infusi che ho preparato per voi ponendo attenzione alle varie propriet&agrave; e sapori.
+
+        </p>
+
+                          <!--          CONSIGLI DI MARIKA            -->
+
+        <button class="tips_and_tricks collapsed">
+          <!-- <i class="material-icons-round">emoji_food_beverage</i> -->
+          <h3>Il consiglio di Marika</h3>
+          <!-- <i class="material-icons-round">emoji_food_beverage</i> -->
+          <h4>Le 5 regole d'oro per preparare un buon t&egrave;</h4>
+          <p>Preparare un buon t&egrave; &egrave; semplice se si tengono a mente alcune regole:</p>
+          <ul>
+            <li><span>La qualita dell'acqua &egrave; importante ai fini del gusto</span>: utilizzare acqua a basso residuo fisso, dolce, poco calcarea</li>
+            <li><span>Utilizzare un infusore ad immersione capiente,</span> in modo che le foglie di t&egrave; possano aprirsi e liberare il profumo ed il gusto o in alternativa filtrare in una seconda teiera</li>
+            <li><span>Utilizzare l'acqua alla giusta temperatura secondo le categorie del t&egrave;.</span> Attenzione i t&egrave; verdi e bianchi vogliono una temperatura di unfusione tra i 70 e gli 80 &#8451;. In questo modo risultano morbidi e soavi in tazza</li>
+            <li><span>Versare l'acqua sulle foglie di t&egrave;</span></li>
+            <li><span>Lasciare il te in infusione per il corretto tempo,</span> secondo le indicazioni relative alla categoria (chiedetemi pure in erboristeria)</li>
+          </ul>
+          <i class="material-icons-round">expand_more</i>
+        </button>
+        <p>Queste sono solo alcune delle mie proposte, ma &egrave; sempre possibile richiedere un mix personalizzato che pi&ugrave; si addice ai vostri gusti.</p>
+
+                          <!--          LISTA DI INFUSI            -->
+        <dl>
+
+          <button class="card collapsed">
+            <img src="img/te_oolong_frutta.jpg"/>
+           <h3><dt>T&egrave; Oolong alla frutta</dt></h3>      <!-- ricontrollare sintassi -->
+            <dd>
+              <h4>Ingredienti</h4>
+              <p>Th&egrave; Oolong, frutta candita in proporzione variabile (Goji, papaya, pesca, fichi), calendula fiori, fiordaliso fiori, aromi.</p>
+              <h4>Descrizione</h4>
+              <p>Il fascino dell'antica Cina rivive in questa miscela che unisce il t&egrave; Oolong, semi-ossidato alla frutta.</p>
+              <p>Il t&egrave; Oolong essendo un semi-ossidato conserva parte delle qualit&agrave; antiossidanti del t&egrave; verde, &egrave; ricco di minerali come il calcio ed ha poca teina.</p>
+              <p>Colore giallo paglierino, profumo delicato fruttato.</p>
+              <h4>Preparazione</h4>
+              <p>3-4g per tazza da 200ml acqua a 90 gradi per 5 minuti.</p>
+            </dd>
+            <i class="material-icons-round">expand_more</i>
+          </button>
+
+          <button class="card collapsed">
+            <img src="img/te_rosso_africa_bio.jpg"/>
+           <h3><dt>T&egrave; Rosso Africa Bio</dt></h3>      <!-- ricontrollare sintassi -->
+            <dd>
+              <h4>Ingredienti</h4>
+              <p>Miscela di Rooibos, scorza di arancia, lampone, mirtilli e fiori al profumo di agrumi. Da agricoltura Bio</p>
+              <h4>Descrizione</h4>
+              <p>Il t&egrave; rosso proviene dalla lavorazione dell'Asphalatus linearis ed &egrave; naturalmente privo di caffeina oltre che ricco di minerali.</p>
+              <p>Ottimo come infuso del pomeriggio per i bambini e per gli adulti che svolgono attivit&agrave; sportiva.</p>
+              <h4>Preparazione</h4>
+              <p>3-4g per tazza da 200ml acqua a 90 gradi per 5 minuti.</p>
+            </dd>
+            <i class="material-icons-round">expand_more</i>
+          </button>
+
+        </dl>
+      </div>
+
+
+
+                          <!--          FOOTER            -->
+      <div id="footer">
+        I piedi in doccia si lavano da soli con l'acqua che cade
+      </div>
+
+    </div>
+  </body>
+
+  <script>
+
+    const col = document.getElementsByClassName("collapsible");
+    var i;
+
+    for (i = 0; i < col.length; i++) {
+      col[i].addEventListener('click', expand);
+      col[i].addEventListener('keydown', (event) => {
+        // event.target.classList.add("focused");
+        if (event.code === 'Space' || event.code === 'Enter') {
+            event.target.click();
+          }
+      });
+    }
+
+    function expand(){
+      this.firstElementChild.lastElementChild.classList.toggle("expandedcard");
+      this.firstElementChild.firstElementChild.classList.toggle("expandedimg");
+      this.lastElementChild.classList.toggle("rotate");
+    }
+
+  </script>
+
+</html>
