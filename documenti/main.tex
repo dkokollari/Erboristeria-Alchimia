@@ -1,0 +1,81 @@
+%!TEX output_directory = .cache
+% ---------------------------
+%	  [ NOME DOCUMENTO ]
+%	----------------------
+%	    Red Round Robin
+%  Progetto di SWE (2019-20)
+%    Template by Maxelweb
+% ---------------------------
+
+% Configurazione primaria del documento
+
+% --------------
+
+\newcommand{\docNome}{ Relazione del progetto di tecnologie web }
+\newcommand{\docNomeProgetto}{ Erboristeria Alchimia }
+
+% --------------
+
+\newcommand{\docDestinatari}{
+	prof. Ombretta Gaggi  \\&
+    prof. Marco Ciman
+}
+\newcommand{\docRedattori}{
+	Fouad Mouad  \\&
+    Andrea Dorigo \\&
+    Dardan Kokollari \\&
+    Marcel Wandji 
+}
+
+% ----- NON MODIFICARE SOTTO QUESTA RIGA -----
+
+% ---------------------------
+% Configurazioni
+% ---------------------------
+
+\documentclass[11pt,a4paper,table]{article}
+
+\input{res/configurazione}    
+
+% ---------------------------
+% Dati frontespizio
+% ---------------------------
+
+\title{\hr \huge \textsc{\docNome} \\ 
+        \vspace{11pt} \large \textsc{\docNomeProgetto} \hr}
+
+\author{} % Non toccare
+\date{} % Non toccare
+
+% ---------------------------
+% Composizione del documento
+% ---------------------------
+
+\begin{document} 
+
+% Frontespizio
+
+\pagenumbering{gobble}
+\DeactivateBG
+\include{res/frontespizio}
+
+% Registro delle modifiche
+
+
+
+% Tabella dei contenuti
+
+\newpage
+\ActivateBG
+\pagenumbering{arabic}
+\tableofcontents
+
+% Sezioni
+
+\newpage
+\input{res/sezioni}
+
+\end{document}
+
+
+% EOF
