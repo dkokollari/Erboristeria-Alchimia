@@ -1,0 +1,826 @@
+@font-face {font-family: 'Velvetberries'; src: url(fonts/velvetberries.woff);}
+* { margin: 0; padding: 0;}
+
+                            /* doesn't validate with older css versions */
+:root {
+
+  --green-dark: #00796b;
+  --green-main: #009688;
+  --green-light: #e0f2f1;
+
+  --red-dark: #b9463e;
+  --red-main: #fe5f55;
+  --red-light: #fec4c1;
+
+  --orange-dark: #d17a48;
+  --orange-main: #ff9557;
+  --orange-light: #ffe2d1;
+
+  --yellow-dark: #ba954b;
+  --yellow-main: #ffcc67;
+  --yellow-light: #fff1d5;
+
+  --grey-dark: #404354;
+  --grey-main: #4e5166;
+  --grey-light: #aeafb9;
+
+}
+                                /* overwite default a rules */
+a {
+  text-decoration: none;
+  color: inherit;
+
+}
+body {
+  font: 300 1em 'Poppins', sans-serif;
+  background-color:#ffffef;
+
+}
+                                  /* overwrite default button rules */
+button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  text-align: left;
+  font: 300 1em 'Poppins', sans-serif;
+  display: block;    /* resolves other elements margin problem (I am looking at YOU, menu button)*/
+  background: inherit;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-tap-highlight-color: transparent;
+}
+
+
+                                  /*       HEADER       */
+
+h1 {
+  text-align: center;
+  width: 100%;
+  color: white;
+  font-family: 'Velvetberries', serif;
+  font-weight: lighter;
+  font-size: 25vw;
+  position: fixed;
+  z-index: -1;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.9);
+}
+h1 span {
+  margin-left: 40vw;
+}
+
+#header_image {
+  background-image: url(img/home_background.jpg);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 100vw;
+  z-index: -1;
+  filter: brightness(0.8);
+}
+
+
+                                        /*       CONTENT       */
+
+#content {
+  padding: 1.8em 8% 1em 8%;
+  background-color: #fff;
+  margin-bottom: 9em;
+}
+h2 {
+  text-transform: capitalize;
+  font-size: 2em;
+  letter-spacing: 0.1em;
+  font-weight: 300;
+  text-align: center;
+  color: var(--yellow-dark);
+}
+h3 {
+  text-align: center;
+  font-size: 1.1em;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--yellow-dark);
+}
+#content h4, #menu li {                                     /*       DA RIVERE         */
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-align: center;
+  color: var(--yellow-dark);
+  margin:1em;
+  font-weight: bold;
+  list-style-type: none;
+}
+#content p {
+  line-height: 1.6em;
+  margin: 1.5em 0 1.5em 0;
+}
+.rotated {
+transform: rotate(-180deg);
+transition: transform 1s ease;
+}
+
+
+                                  /*   ----------------  MOBILE   ------------------   */
+
+@media screen and (max-width:599px) {
+
+             #menu {
+              z-index: 5;
+              position: fixed;
+              opacity: 1;
+              width: 65vw;
+              height: 100vh;
+              background-color: white;
+              transform: translateX(-65vw);
+              transition: all 0.5s ease;
+            }
+            #menu.showmenu {
+              transform: translateX(0vw);
+              transition: all 0.5s ease;
+            }
+            #right-of-menu {
+              position: fixed;
+              opacity: 0;
+              width: 100vw;
+              height: 100vh;
+              z-index: 4;
+              background-color: black;
+              transform: translateX(-100vw);
+              transition: opacity 0.2s ease;
+            }
+            #right-of-menu.hidemenu {
+              transform: translateX(0);
+              opacity: 0.5;
+            }
+            #menu > button > i {
+              font-size: 2.2em;
+              line-height: 12vw;
+              margin-left: 2vw;
+              color: var(--red-main);
+              filter: brightness(1.6);
+            }
+            #menu ul li a{
+              font-size: 1.1em;
+              line-height: 2.5em;
+              margin: 5vh auto 5vh auto;
+              display: block;
+              width: 85%;
+              /* border: 2px solid var(--yellow-dark); */
+              border-radius: 7px;
+              background-color: var(--yellow-light);
+              box-shadow: 0 3px 6px rgba(0,0,0,0.10), 0 3px 6px rgba(0,0,0,0.17);
+            }
+            #menu ul .selected_page {
+              color: var(--grey-light);
+            }
+            #menu_icon {
+              position: fixed;
+              top: 0;
+              z-index: 3;
+              color: white;
+              font-size: 2.2em;
+              line-height: 12vw;
+              margin-left: 2vw;
+            }
+            #topbar:before {              /* necessary element to correctly apply filter:brightness() only to the image, not the text */
+              content: "";
+              background-image: url(img/home_background.jpg);
+              background-size: cover;
+              background-position: 0 -28.4vw;
+              background-repeat: no-repeat;
+              filter: brightness(0.8);
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+            }
+            #topbar {
+              width: 100vw;
+              height: 12vw;
+              top: 0;
+              position: fixed;
+              z-index: -2;
+            }
+            #topbar h1 {
+              padding-top: 0;
+            }
+            #topbar_title {
+              background-color: rgba(0,0,0,0.2);
+              text-transform: capitalize;
+              font-size: 7vw;
+              padding-left: 15vw;
+              line-height: 12vw;
+              letter-spacing: 0.06em;
+              font-family: 'Poppins', sans-serif;
+              font-weight: 300;
+              opacity: 0;
+              transition: opacity 0.6s ease;
+              text-align: left;       /* overwrite h1 property */
+              position: static;       /* overwrite h1 property */
+              text-shadow: none;      /* overwrite h1 property */
+              position: relative;
+              z-index: 2;
+            }
+            #topbar_title.nopacity{
+              opacity: 1;
+            }
+            h1 {
+              line-height: 75vw;
+              top:0;
+              padding-top:10vw;
+            }
+            #content {
+              margin-top: 75vw;
+            }
+            #footer {
+                width: 100%;
+            }
+
+}
+
+
+
+                        /*        TABLET MODE HEADER          */
+
+@media screen and (min-width:600px)   {
+
+      #right-of-menu, #menu_icon, #topbar, #menu button:first-child {
+         display: none;
+       }
+       #container {
+         width:100vw;
+       }
+
+       #content {
+         margin-top: 0;
+       }
+       #menu {
+         z-index: 5;
+         width: 100%;
+         display: block;
+         height: 2.8em;
+         margin-top: 37vw;
+         position: sticky;
+         top:0;
+         background-color: var(--yellow-dark);
+         transform: translateX(0);
+         text-align: center;
+       }
+       #menu ul {
+         text-align: center;
+       }
+       #menu li {
+         display: inline-block;
+         color: white;
+         padding: 0.7em 1.5% 0.7em 1.5%;
+         margin: 0;
+       }
+       #menu .selected_page {
+         background-color: white;
+         color: var(--grey-light);
+         border-radius: 10px 10px 0 0;
+       }
+       /*  for those that use the tablet with a mouse :) */
+       #menu li a:hover {
+         color: var(--orange-light);
+         border-bottom: var(--orange-light) dashed;
+       }
+       #footer {
+           width: 100%;
+       }
+
+}
+
+@media screen and (min-width:600px) and (max-width:1024px) {
+
+        #header_image {
+          top: -30vw;
+        }
+        h1 {
+          top: 3vw;
+        }
+
+}
+                        /*        DESKTOP MODE HEADER          */
+
+/* added "body" to almost every rule to increase specificity, but instead I should just create a different @media for mobile */
+
+@media screen and (min-width: 1025px) {
+
+
+      #container {
+        margin: 0 auto 0 auto;
+        box-shadow: 0 3px 6px rgba(0,0,0,0.10), 0 3px 6px rgba(0,0,0,0.17);
+      }
+      #container, #header_image, h1, body #footer {
+        width: 1000px;
+      }
+      #header_image {
+        top: -300px;
+      }
+      h1 {
+        font-size: 11em;
+        top: 20px;
+      }
+      body #content {
+        margin-top: 0;
+      }
+      body #menu {
+        z-index: 5;
+        width: 100%;
+        display: block;
+        height: 2.8em;
+        margin-top: 250px;
+        position: sticky;
+        top:0;
+        background-color: var(--yellow-dark);
+        transform: translateX(0);
+        text-align: center;
+      }
+      body #menu li {
+        display: inline-block;
+        color: white;
+        padding: 0.8em 1em 0.7em 1em;
+        margin:0;
+      }
+      body #menu .selected_page {
+        background-color: white;
+        color: var(--grey-light);
+        border-radius: 10px 10px 0 0;
+      }
+      body #menu li a:hover {
+        color: var(--orange-light);
+        border-bottom: var(--orange-light) dashed;
+      }
+      body #menu ul {
+        text-align: center;
+        height: 100%;
+      }
+      body .card {
+        cursor: default;
+      }
+
+}
+
+
+                            /*     CONSIGLI DI MARIKA       */
+
+
+.tips_and_tricks {
+  background-color: var(--orange-light);
+  color: var(--orange-dark);
+  margin: 0 -9.5% 2em -9.5%;
+  padding: 0.6em 9% 1.5em 9%;
+  transition: max-height 0.8s ease;
+  max-height: 50em;
+  position: relative;
+}
+.tips_and_tricks * {
+  transition: opacity 0.6s ease 0.3s;
+}
+.tips_and_tricks.collapsed{
+  max-height: 3.8em;
+  overflow: hidden;
+}
+.tips_and_tricks.collapsed *{
+  opacity: 0;
+}
+.tips_and_tricks h3:first-of-type {
+  clear: none;
+  color: var(--orange-dark);
+  margin:0;
+  opacity: 1;
+  width: 100%;
+  float: left;
+}
+.tips_and_tricks h3 {
+  clear: both;
+  margin-top: 3em;
+}
+#content .tips_and_tricks h4 {
+  margin-top: 3em;
+  color: var(--orange-dark);
+}
+.tips_and_tricks i {
+  width: 10%;
+  float: left;
+  text-align: center;
+  line-height: 1.2em;
+}
+.tips_and_tricks.collapsed i{
+  opacity: 1;
+}
+.tips_and_tricks i:last-child {
+  position: absolute;
+  bottom: 0;
+  line-height: 1.2em;
+  width: 82%;            /* 100 - padding tips and tricks sopra*/
+  text-align: center;
+  transition: transform 1s ease;
+}
+.tips_and_tricks ul {
+  padding-left: 1.5em;
+}
+.tips_and_tricks ul span {
+  font-weight: 600;
+}
+
+
+                          /*       LISTA DI INFUSI      */
+
+
+.card {
+  border-radius: 7px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.10), 0 3px 6px rgba(0,0,0,0.17);
+  position: relative;
+  font-size: 1em;
+  margin-bottom: 1.5em;
+  background-color: var(--yellow-light);
+  max-height: 80em;
+  overflow: hidden;
+  transition: max-height 0.8s ease;
+  opacity: 1;
+  padding-bottom: 1em;
+}
+.card.collapsed {
+  max-height: 11.6em;
+}
+.card.collapsed img {
+  max-height: 7em;
+}
+.card img {
+  width: 100%;
+  border-radius: 7px 7px 0 0;
+  max-height: 11.5em;
+  object-fit: cover;
+  transition: max-height 0.4s ease;
+}
+.card h3 {
+  margin: 0.3em 0.6em 1.2em 0.6em;
+  line-height: 1.1em;
+  display: flex;
+  height: 2em;
+  align-items: center;
+}
+.card dt {
+  width: 100%;
+}
+.card i:last-child {
+  position: absolute;
+  bottom: 0;
+  line-height: 1.2em;
+  text-align: center;
+  width: 100%;
+  transition: transform 1s ease;
+  color: var(--yellow-dark);
+}
+#content .card p, #eventi #linkMappa {
+  margin: 0.7em 7% 0.7em 7%;
+  font-size: 0.9em;
+}
+
+
+                          /*        EVENTI      */
+
+/* .card span {} */
+#eventi #prenotazione span {
+  font-weight: bold;
+  text-transform: uppercase;
+  color: var(--red-dark);
+}
+
+#eventi #dataEvento {
+  font-weight: bold;
+  color: var(--grey-dark);
+}
+
+#eventi ul {
+  list-style: none;
+  margin-left: 5%;
+  margin-right: 7%;
+}
+
+#eventi ul li {
+  background-image: url('img/ampolla.jpeg');
+  background-position: top left;
+  background-size: 1.5em;
+  background-repeat: no-repeat;
+  padding-left: 1.6em;
+}
+
+#eventi #org {
+  font-style: italic;
+  margin-top: 2em;
+}
+
+#eventi .card {  /*in questo modo eredito il colore di sfondo dal body, quindi il bianco!(da verificare su tutti i browser)*/
+  background-color: initial;
+}
+.data span {
+  font-size: 2.5em;
+}
+
+.databox {
+  float: left;
+}
+
+.data {
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  width: 7em;
+  height: 7em;
+  display: table-cell; /*DEVO CAPIRE COSA FACCIA  (FOUAD)*/
+  vertical-align: middle;
+  color: white;
+  background-color: #8F250C;
+  border-top-left-radius: 10px;
+}
+#eventi .eventi img {
+  max-width: 100%;
+  object-fit: cover;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 0px;
+}
+.eventi .titoletto {
+  clear:both;
+}
+.eventi .testo {
+ margin: 1em;
+}
+.imgwrap {
+ display: flex;
+ height: 7em;
+}
+
+
+                          /*       FOOTER       */
+#footer {
+  font-size: 0.9em;
+  height: 9em;
+  color: var(--grey-light);
+  background: var(--grey-main);
+  position: fixed;
+  bottom: 0;
+  z-index: -2;
+
+  text-align: center;
+  padding: 1em 0 0 0;
+}
+
+
+
+
+
+
+
+
+/* old css with old parallax (lags A LOT)*/
+
+
+
+
+/* .parallax {
+  perspective: 1px;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  width: 100%;
+}
+.parallax_layer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.parallax_back {
+  transform: translateZ(-2px) scale(3);
+} */
+
+/* #topbar {
+  height: 3.8em;
+  background: url(img/home_background_resized.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 0 -6.4em;
+  z-index: 997;
+  position: fixed;
+  width: 100%;
+}
+
+#topbar_title {
+  letter-spacing: 0.05em;
+  transform: translate(1.3em,0.32em);
+  font-family: AntipastoPro regular;
+  font-size: 2.3em;
+  clear: both;
+  color: white;
+  text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.8);
+  float: left;
+  position: fixed;
+  z-index: 998;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+#menu {
+  float: left;
+  position: fixed;
+  transform: translate(0.5em,0.6em) scale(1.25,1.35 );
+  color: white;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.6);
+  z-index: 998;
+}
+#accedi {
+  float: right;
+  position: fixed;
+  top: 1.1em;
+  right: 0.8em;
+  font-family: AntipastoPro demibold;
+  font-size: 1.2em;
+  text-transform: uppercase;
+  color: white;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.6);
+  z-index: 998;
+}
+#header {
+  background:url(img/home_background_resized.jpg);
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100vh;
+  background-size: contain;
+  top: -6em;
+}
+#content {
+  padding: 0 3.5% 0 3.5%;
+  margin-top: 17em;
+  height: 2000px;
+  background-color:white;
+}
+#footer {
+  z-index: -10;
+}
+*/
+                                /* FORMATTAZIONE TESTO E TITOLI */
+
+/* h1 {
+  height: 100vh;
+  line-height: 0.9em;
+  padding: 30vw 0 0 0.2em;
+  font-family: Velvetberries;
+  color: white;
+  font-size: 21vw;
+  width: 100%;
+  font-weight: normal;
+  clear: both;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.9);
+  opacity: 1;
+  transition: opacity 0.3s ease;
+
+  transform: translateZ(-3px) scale(4);
+}
+h1 span {
+  margin-left: 1.8em;
+} */
+/* .titoletto {
+text-transform: uppercase;
+font-size: 1.4em;
+letter-spacing: 0.1em;
+font-family: AntipastoPro demibold;
+text-align: center;
+margin: 0.9em;
+color: #8F250C;
+}
+.sottotitoletto {
+text-transform: uppercase;
+text-align: center;
+letter-spacing: 0.1em;
+font-family: AntipastoPro demibold;
+margin: 1em;
+font-size: 1.3em;
+color: #8F250C;
+}
+                        /* **********************************************
+.card {
+border-radius: 10px;
+box-shadow: 0 3px 6px rgba(0,0,0,0.10), 0 3px 6px rgba(0,0,0,0.17);
+position: relative;
+padding-bottom: 1em;
+font-size: 0.9em;
+outline: none;
+margin-bottom: 1em;
+}
+/* .focus:focus {
+  border: 1px solid red;
+}
+.cardwrapper {
+margin-bottom: 2em;
+}
+.card ul {
+columns: 2;
+list-style-position: inside;
+margin: 0em 1.3em 0em 1.3em;
+}
+.card ul li {
+line-height: 1.5em;
+}
+
+/* .focused:focus {
+border: 5px solid red;
+}
+
+                                                  /* PAGINA INFUSI
+.infusi i {
+position: absolute;
+bottom:0.5em;
+width: 100%;
+text-align: center;
+color: #8F250C;
+transform: rotate(0);
+transition: transform 0.6s ease-in;
+}
+
+.infusi img {
+width: 100%;
+border-radius: 8px 8px 0 0;
+max-height: 5.5em;
+object-fit: cover;
+transition: max-height 0.4s ease;
+}
+
+.infusi dd {
+margin:1.3em 1.3em 0em 1.3em;
+}
+
+                                              /* TEST ANIMAZIONI
+.hide {
+  z-index: -999 !important;
+}
+/* .nopacity {
+  transition: opacity 0.2s ease;
+  opacity: 0;
+}
+#topbar_title.opacity {
+  transition: opacity 0.2s ease;
+  opacity: 1;
+}
+.hidden {
+max-height: 0;
+transition: opacity 0.3s ease, max-height 0.5s ease;
+opacity: 0;
+}
+.expandedcard {
+transition: opacity 0.4s ease 0.3s, max-height 0.5s ease ;
+max-height: 20em;
+opacity: 1;
+}
+
+.rotate {
+transform: rotate(-180deg) !important;
+transition: transform 0.6s ease;
+}
+.expandedimg {
+max-height: 12em !important;
+} */
+
+    /* PAGINA EVENTI */
+/*
+.data span {
+font-size: 2.5em;
+}
+.databox {
+float: left;
+}
+.data {
+text-transform: uppercase;
+text-align: center;
+font-weight: bold;
+letter-spacing: 0.1em;
+width: 7em;
+height: 7em;
+display: table-cell;
+vertical-align: middle;
+color: white;
+background-color: #8F250C;
+border-top-left-radius: 10px;
+}
+.eventi img {
+max-width: 100%;
+object-fit: cover;
+border-top-right-radius: 10px;
+}
+.eventi .titoletto {
+clear:both;
+}
+.eventi .testo {
+margin: 1em;
+}
+.imgwrap {
+display: flex;
+height: 7em;
+} */
