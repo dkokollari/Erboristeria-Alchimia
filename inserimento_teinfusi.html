@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
+    <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+                          <!-- DA RIVEDERE TITOLO E ICONA  -->
+      <title>Inserimento te e infusi - Erboristeria Alchimia</title>
+
+      <meta name="description" content="Form di inserimento te e infusi"/>
+      <meta name="language" content="italian it"/>
+      <meta name="author" content="Erboristeria Alchimia"/>
+
+      <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png"/>
+    <!--  <link rel="stylesheet" href="stylesheet.css"/> -->
+      <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,600&display=swap" rel="stylesheet"/>
+
+      <link href="https://fonts.googleapis.com/css?family=Material+Icons%7CMaterial+Icons+Outlined%7CMaterial+Icons+Two+Tone%7CMaterial+Icons+Round%7CMaterial+Icons+Sharp" rel="stylesheet"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+      <!--<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>-->
+
+
+    </head>
+
+    <body>
+      <h1>Inserimento t&egrave; e infusi</h1>
+
+      <form method="post" action="inserimento_teinfusi.php" enctype="multipart/form-data">
+      <fieldset>
+        <p>
+          <label for="nome">Nome</label>
+          <input type="text" name="Nome" maxlength="15" />
+        </p>
+        <p>
+          <label for="tipo">Tipo</label>
+          <input type="text" name="Tipo" maxlength="10"/>
+        </p>
+        <p>
+          <label>Ingredienti</label>
+          <textarea rows="3" cols="50" name="Ingredienti" maxlength="100"></textarea>
+        </p>
+        <p>
+          <label>Descrizione</label>
+          <textarea rows="4" cols="50" name="Descrizione" maxlength="100"></textarea>
+        </p>
+        <p>
+          <label>Preparazione</label>
+          <textarea rows="5" cols="80" name="Preparazione" maxlength="100"></textarea>
+        </p>
+        <p>
+          <label>Immagine</label>
+          <input type="file" name="immagine" />
+        </p>
+        <p>
+          <input type="submit" value="Aggiungi">
+        </p>
+      </fieldset>
+    </body>
+</html>
