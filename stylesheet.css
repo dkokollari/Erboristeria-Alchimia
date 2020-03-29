@@ -33,7 +33,6 @@ a {
 }
 body {
   font: 300 1em 'Poppins', sans-serif;
-    background-color: #222;
 }
                                   /* overwrite default button rules */
 button {
@@ -579,18 +578,18 @@ transition: transform 1s ease;
 
 }
 #log_in_box {
+  width: 100%;
   padding: 3em;
-  margin: auto;
+  margin: auto 25px auto 25px;
   display: flex;
   justify-content: center;
   text-align: center;
   border-radius: 7px;
   box-shadow: 0 3px 6px rgba(0,0,0,0.10), 0 3px 6px rgba(0,0,0,0.17);
-  background-color: #333; /* TODO remove dark mode testing */
 }
 @media screen and (min-width:600px) {
   #log_in_box {
-      width: 500px;
+    width: 500px;
   }
   #log_in_box form {
     width: 250px;
@@ -603,7 +602,7 @@ transition: transform 1s ease;
   font-weight: bold;
 }
 #log_in_box.card {
-  background-color: #333;
+  background-color: white;
   border-radius: 15px;
 }
 #log_in_box fieldset {
@@ -631,11 +630,11 @@ transition: transform 1s ease;
 }
 .form_field input {
   line-height: 2em;
-  background-color: #333; /* TODO remove dark mode testing */
   border-bottom: 2px solid black;
   border-top: none;
   border-left: none;
   border-right: none;
+  outline:none;
 }
 #log_in {
   width: 100%;

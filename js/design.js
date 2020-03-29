@@ -37,7 +37,6 @@ function showMenu() {
 
     /*        function that moves the label in the login page     */
 $("#username, #password").on("blur", function() {
-  console.log($(this.previousElementSibling));
   $(this.previousElementSibling).removeClass("filled");
   if($(this).val() != "") {
     $(this.previousElementSibling).addClass("filled");
