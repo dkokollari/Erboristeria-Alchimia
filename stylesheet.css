@@ -573,20 +573,20 @@ transition: transform 1s ease;
 }
 
                               /*       LOGIN       */
-#login_container {
-  width: 500px;
-	height: 500px;
-	position: absolute;
-	top:0;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	margin: auto;
-  padding: 4em;
+#login_box_container {
+  display: flex;
+  min-height: 100vh;
+  justify-content: center;
 }
-#login_container.card {
+#login_box {
+  padding: 3em;
+  margin: auto 32px auto 32px;
+  max-width: 500px;
+}
+#login_box.card {
   background-color: white;
+  border-radius: 15px;
 }
-#login_container fieldset {
+#login_box fieldset {
   border:none;
 }
