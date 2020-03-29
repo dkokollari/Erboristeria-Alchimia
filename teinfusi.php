@@ -88,7 +88,7 @@
             while ($row = mysqli_fetch_assoc($result)) {
               print (
                 '<div class="card collapsed">'."\n".
-                ' <img src="'.(($row["immagine_te_e_infusi"]) ? 'data:image/jpeg;base64,'.base64_encode($row["immagine_te_e_infusi"]) : 'img/null.jpg').'"/>'."\n".
+                //' <img src="'.(($row["immagine_te_e_infusi"]) ? 'data:image/jpeg;base64,'.base64_encode($row["immagine_te_e_infusi"]) : 'img/null.jpg').'"/>'."\n".
                 ' <h3>'.htmlentities($row["nome_te_e_infusi"], ENT_NOQUOTES).'</h3>'."\n".
                 '   <h4>Ingredienti</h4>'."\n".
                 '   <p>'.nl2p(htmlentities($row["ingredienti_te_e_infusi"], ENT_NOQUOTES)).'</p>'."\n".
