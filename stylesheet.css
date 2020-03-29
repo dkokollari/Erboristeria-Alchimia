@@ -33,8 +33,7 @@ a {
 }
 body {
   font: 300 1em 'Poppins', sans-serif;
-  background-color:#ffffff;
-
+    background-color: #222;
 }
                                   /* overwrite default button rules */
 button {
@@ -573,20 +572,74 @@ transition: transform 1s ease;
 }
 
                               /*       LOGIN       */
-#login_box_container {
+#log_in_box_container {
   display: flex;
   min-height: 100vh;
   justify-content: center;
+
 }
-#login_box {
+#log_in_box {
   padding: 3em;
-  margin: auto 32px auto 32px;
-  max-width: 500px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  border-radius: 7px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.10), 0 3px 6px rgba(0,0,0,0.17);
+  background-color: #333; /* TODO remove dark mode testing */
 }
-#login_box.card {
-  background-color: white;
+@media screen and (min-width:600px) {
+  #log_in_box {
+      width: 500px;
+  }
+  #log_in_box form {
+    width: 250px;
+  }
+}
+
+#log_in_form legend {
+  width: 100%;
+  font-size: 2em;
+  font-weight: bold;
+}
+#log_in_box.card {
+  background-color: #333;
   border-radius: 15px;
 }
-#login_box fieldset {
+#log_in_box fieldset {
   border:none;
+}
+#username, #password {
+  width: 100%;
+}
+.form_field {
+  position: relative;
+  margin-top: 2.5em;
+}
+.form_field label {
+  position: absolute;
+  top: 0;
+  left:0;
+  transition: ease 0.3s;
+  transform-origin: left;
+  cursor: text;
+}
+.form_field:focus-within label, .filled {
+  transform: translateY(-1.7em) scale(0.8);
+  transform-origin: left;
+  transition: ease 0.3s;
+}
+.form_field input {
+  line-height: 2em;
+  background-color: #333; /* TODO remove dark mode testing */
+  border-bottom: 2px solid black;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+#log_in {
+  width: 100%;
+}
+.form_remember_me{
+  margin: 1em 0 1em 0;
 }
