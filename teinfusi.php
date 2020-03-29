@@ -82,7 +82,7 @@
               exit();
           }
 
-          $query_visualizza_te_e_infusi = "SELECT tipo_te_e_infusi, nome_te_e_infusi, ingredienti_te_e_infusi, descrizione_te_e_infusi, preparazione_te_e_infusi FROM te_e_infusi";
+          $query_visualizza_te_e_infusi = "SELECT id_te_e_infusi, nome_te_e_infusi, ingredienti_te_e_infusi, descrizione_te_e_infusi, preparazione_te_e_infusi FROM te_e_infusi";
 
           if ($result = mysqli_query($con, $query_visualizza_te_e_infusi)) {
             while ($row = mysqli_fetch_assoc($result)) {
