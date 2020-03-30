@@ -580,19 +580,22 @@ transition: transform 1s ease;
 #log_in_box {
   width: 100%;
   padding: 3em;
-  margin: auto 25px auto 25px;
+  margin: auto 20px auto 20px;
   display: flex;
   justify-content: center;
   text-align: center;
   border-radius: 7px;
   box-shadow: 0 3px 6px rgba(0,0,0,0.10), 0 3px 6px rgba(0,0,0,0.17);
 }
+#log_in_box form {
+  width: 100%;
+}
 @media screen and (min-width:600px) {
   #log_in_box {
-    width: 500px;
+    width: 400px;
   }
   #log_in_box form {
-    width: 250px;
+    width: 330px;
   }
 }
 
@@ -600,11 +603,13 @@ transition: transform 1s ease;
   width: 100%;
   font-size: 2em;
   font-weight: bold;
+    color: var(--yellow-dark);
 }
 #log_in_box.card {
   background-color: white;
   border-radius: 15px;
 }
+
 #log_in_box fieldset {
   border:none;
 }
@@ -616,26 +621,33 @@ transition: transform 1s ease;
   margin-top: 2.5em;
 }
 .form_field label {
+  color: #aaa;
   position: absolute;
   top: 0;
   left:0;
-  transition: ease 0.3s;
+  transition: ease 0.2s;
   transform-origin: left;
   cursor: text;
+  font: 400 1.5em 'Poppins', sans-serif;
 }
-.form_field:focus-within label, .filled {
-  transform: translateY(-1.7em) scale(0.8);
+.form_field:focus-within label,
+.form_field .filled {
+  transform: translateY(-1.4em) scale(0.8);
   transform-origin: left;
-  transition: ease 0.3s;
+  transition: ease 0.2s;
+  color: var(--yellow-dark);
 }
 .form_field input {
-  line-height: 2em;
-  border-bottom: 2px solid black;
+  line-height: 2.5em;
+  border-bottom: 1px solid #aaa;
   border-top: none;
   border-left: none;
   border-right: none;
-  outline:none;
+  padding: 0.2em 0 0.2em 0;
+  outline: none;
+  font: 300 1.3em 'Poppins', sans-serif;
 }
+
 #log_in {
   width: 100%;
 }

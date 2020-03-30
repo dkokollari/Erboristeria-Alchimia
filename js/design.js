@@ -15,6 +15,10 @@ const menu = document.querySelector("#menu");
 const rightofmenu= document.querySelector("#right-of-menu");
 const tips = document.getElementsByClassName("tips_and_tricks");
 const card = document.getElementsByClassName("card");
+
+
+const username = document.querySelector("#username");
+
 const marginTop = document.documentElement.clientWidth*0.63;  // 75vw di margin-top del #content - 12vw di altezza #topbar
 var yScrollPosition;
 var i;
@@ -35,6 +39,13 @@ function showMenu() {
 }
 
 
+
+$( document ).ready(function() {
+    if($("#username").val() != "") {
+      console.log("asdasdasd");
+      $(username.previousElementSibling).addClass("filled");
+    }
+});
     /*        function that moves the label in the login page     */
 $("#username, #password").on("blur", function() {
   $(this.previousElementSibling).removeClass("filled");
@@ -49,6 +60,7 @@ $("#username, #password").on("blur", function() {
 
                     /* adds an event listener to create the parallax effect */
 window.addEventListener("DOMContentLoaded", scrollFix, false);
+
 
 /* function that actually creates the parallax effect by "slowing" the background movement while scrolling */
 function scrollFix() {
