@@ -42,7 +42,6 @@ function showMenu() {
 
 $( document ).ready(function() {
     if($("#username").val() != "") {
-      console.log("asdasdasd");
       $(username.previousElementSibling).addClass("filled");
     }
 });
