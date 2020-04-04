@@ -32,8 +32,11 @@
           <input type="text" name="Nome" maxlength="15" />
         </p>
         <p>
-          <label for="tipo">Tipo</label>
-          <input type="text" name="Tipo" maxlength="10"/>
+        	<label for="tipo">Tipo</label>
+        	<select name="Tipo">
+              <option value="T&egrave;">T&egrave;</option>
+              <option value="Infuso">Infuso</option>
+            </select>
         </p>
         <p>
           <label>Ingredienti</label>
@@ -50,6 +53,10 @@
         <p>
           <label>Immagine</label>
           <input type="file" name="immagine" />
+        </p>
+        <p>
+          <label>Descrizione immagine</label>
+          <input type="text" name="desc_img" />
         </p>
         <p>
           <input type="submit" value="Aggiungi">

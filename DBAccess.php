@@ -1,5 +1,5 @@
 <?php
-class DBAcess{
+class DBAccess{
   const HOST_DB = 'localhost';
   const USER_NAME = 'erboristeriatest';
   const PASSWORD = '';
@@ -15,8 +15,32 @@ class DBAcess{
     return false;
   }
 
-  public function getTeInfusi() {}
-      
+  public function InsertTeInfusi($descImg,$tipo,$nome,$ingre,$descr,$prepa) {
+    $query = "";
+    if($descImg != ""){
+      $query = "INSERT INTO `te_e_infusi` (`descrizione_immagine_te_e_infusi`,`tipo_te_e_infusi`, `nome_te_e_infusi`, `ingredienti_te_e_infusi`, `descrizione_te_e_infusi`, `preparazione_te_e_infusi`) VALUES ('".$descImg."','".$tipo."','".$nome."','".$ingre."','".$descr."','".$prepa."')";
+    }
+    else {
+      $query = "INSERT INTO `te_e_infusi` (`tipo_te_e_infusi`, `nome_te_e_infusi`, `ingredienti_te_e_infusi`, `descrizione_te_e_infusi`, `preparazione_te_e_infusi`) VALUES ('".$tipo."','".$nome."','".$ingre."','".$descr."','".$prepa."')";
+    }
+
+    if($res = mysqli_query($this->connection,$query)){
+      return true;
+    }
+    return false;
+
+  }
+
+  public function getId($name){
+    $result="";
+    $query="SELECT id_te_e_infusi FROM te_e_infusi WHERE nome_te_e_infusi= '".$nome."'";
+    if($res = mysqli_query($this->connection,$query)){
+      $row = mysqli_fetch_array($res);
+      $result = $row['id_te_e_infusi'];
+    }
+    return $result;
+  }
+
 
 }
 
