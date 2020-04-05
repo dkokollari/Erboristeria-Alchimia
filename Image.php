@@ -12,7 +12,9 @@ class Image {
   public function uploadImage($name , $temp, $id){
     $dir = "img/te_e_infusi/";
     move_uploaded_file($temp, $dir.$name);
-    if($id!="" && rename($dir.$name,$dir.$id.".jpg")){
+    $split = explode('.',$name);
+    $ext = array_pop($split);
+    if($id!="errore" && rename($dir.$name,$dir.$id.".".$ext)){
       return true;
     }
     else{

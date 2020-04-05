@@ -40,7 +40,7 @@ class DBAccess{
   }
 
   public function getId($name){
-    $result="";
+    $result="errore"
     $query="SELECT id_te_e_infusi FROM te_e_infusi WHERE nome_te_e_infusi= '".$name."'";
     if($res = mysqli_query($this->connection,$query)){
       $row = mysqli_fetch_array($res);

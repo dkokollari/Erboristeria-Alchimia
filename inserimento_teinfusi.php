@@ -36,12 +36,12 @@ if(isset($_POST['submit'])){
       //se non ci sono errori
       if($errori==0){
         if($imgpresent && $con->InsertTeInfusi($descImg,$tipo,$nome,$ingre,$descr,$prepa)){
-          $id = $con->getId($name);
+          $id = $con->getId($nome);
           if($image->uploadImage($_FILES['immagine']['name'],$_FILES['immagine']['tmp_name'],$id)){
             $messaggio = "";
           } else {
             $messaggio = '<p class="error-msg">Errore: immagine non salvata</p>';
-            $con->deleteTeInfusi($name);
+            $con->deleteTeInfusi($nome);
           }
         } else if(!$imgpresent && $con->InsertTeInfusi($descImg,$tipo,$nome,$ingre,$descr,$prepa)){
           $messaggio = "";
@@ -50,7 +50,7 @@ if(isset($_POST['submit'])){
         }
       }
       else {
-        $messaggio = '<p class="error-msg">Errore: ci sono'. $errori.' errori</p>';
+        $messaggio = '<p class="error-msg">Errore: ci sono '. $errori.' errori</p>';
         $valnome = $_POST['Nome'];
         $valingre = $_POST['Ingredienti'];
         $valdescr = $_POST['Descrizione'];
