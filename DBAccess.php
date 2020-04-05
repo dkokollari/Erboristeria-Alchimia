@@ -16,7 +16,7 @@ class DBAccess{
   }
 
   public function InsertTeInfusi($descImg,$tipo,$nome,$ingre,$descr,$prepa) {
-    $query = "";
+
     if($descImg != ""){
       $query = "INSERT INTO `te_e_infusi` (`descrizione_immagine_te_e_infusi`,`tipo_te_e_infusi`, `nome_te_e_infusi`, `ingredienti_te_e_infusi`, `descrizione_te_e_infusi`, `preparazione_te_e_infusi`) VALUES ('".$descImg."','".$tipo."','".$nome."','".$ingre."','".$descr."','".$prepa."')";
     }
@@ -31,14 +31,26 @@ class DBAccess{
 
   }
 
+  public function deleteTeInfusi($name){
+    $query="DELETE FROM `te_e_infusi` WHERE `nome_te_e_infusi` = '".$name."'";
+    if($res = mysqli_query($this->connection,$query)){
+      return true;
+    }
+    return false;
+  }
+
   public function getId($name){
     $result="";
-    $query="SELECT id_te_e_infusi FROM te_e_infusi WHERE nome_te_e_infusi= '".$nome."'";
+    $query="SELECT id_te_e_infusi FROM te_e_infusi WHERE nome_te_e_infusi= '".$name."'";
     if($res = mysqli_query($this->connection,$query)){
       $row = mysqli_fetch_array($res);
       $result = $row['id_te_e_infusi'];
     }
     return $result;
+  }
+
+  public function closeConnection(){
+    mysqli_close($this->connection);
   }
 
 
