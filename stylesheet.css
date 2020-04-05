@@ -68,7 +68,7 @@ h1 span {
 }
 
 #header_image {
-  background-image: url(img/home_background.jpg);
+  background-image: url(img/barraPaginaInformazioni.jpg);
   background-repeat: no-repeat;
   background-size: 100%;
   position: fixed;
@@ -78,6 +78,9 @@ h1 span {
   z-index: -1;
   filter: brightness(0.8);
 }
+
+
+
 
 
                                         /*       CONTENT       */
@@ -186,7 +189,7 @@ transition: transform 1s ease;
             }
             #topbar:before {              /* necessary element to correctly apply filter:brightness() only to the image, not the text */
               content: "";
-              background-image: url(img/home_background.jpg);
+              background-image: url(img/barraPaginaInformazioni.jpg);
               background-size: cover;
               background-position: 0 -28.4vw;
               background-repeat: no-repeat;
@@ -316,7 +319,20 @@ transition: transform 1s ease;
         box-shadow: 0 3px 6px rgba(0,0,0,0.10), 0 3px 6px rgba(0,0,0,0.17);
       }
       #container, #header_image, h1, body #footer {
-        width: 1000px;
+        width: 1000px;#informazioni #orari li {
+  display: block;
+  text-align: center;
+  margin-left: 30%;
+}
+
+#informazioni li p {
+    float: left;
+}
+
+#informazioni .giornoSett {
+  min-width: 20%;
+  float: left;
+}
       }
       #header_image {
         top: -300px;
@@ -557,6 +573,72 @@ transition: transform 1s ease;
  height: 7em;
 }
 
+                          /*       INFORMAZIONI */
+
+
+#informazioni #linkMappa {
+  display: block;
+  text-align: center;
+}
+
+#informazioni ul {
+  height: 100%;
+}
+
+#informazioni li {
+  list-style-type : none;
+  text-align: center;
+  height: 4em;
+}
+
+
+#informazioni ul.colonna > li {
+  max-width: 6em; //può andare?? (trucco sporco #1)
+}
+
+.colonna {
+ width: 50%;
+ float: left;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+}
+
+.contenitore {
+ display: flex; //senza questo, le colonne dell'orario vanno sopra al footer!!
+ max-width: 600px;
+ margin: auto;
+}
+
+#informazioni #giorniSett > li,
+#informazioni span {
+  display: block;
+  text-align: center;
+  font-weight: bold;
+  color: var(--grey-dark);
+}
+
+#informazioni span, #informazioni h3,
+#informazioni  h4 {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+
+}
+
+
+/*#informazioni #orari li > span {
+  min-height: 1.7em;
+  clear: both;
+  float: left;
+  margin-left: 25%;
+}*/
+
+/*#informazioni #orari li p span,
+#contatti span.contenutoInfo {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 300;
+  color: inherit;
+}*/
 
                           /*       FOOTER       */
 #footer {
