@@ -37,7 +37,7 @@ if(isset($_POST['submit'])){
       if($errori==0){
         if($imgpresent && $con->InsertTeInfusi($descImg,$tipo,$nome,$ingre,$descr,$prepa)){
           $id = $con->getId($nome);
-          if($image->uploadImage($_FILES['immagine']['name'],$_FILES['immagine']['tmp_name'],$id)){
+          if($image->uploadImageTeInfusi($_FILES['immagine']['name'],$_FILES['immagine']['tmp_name'],$id)){
             $messaggio = "";
           } else {
             $messaggio = '<p class="error-msg">Errore: immagine non salvata</p>';
@@ -71,7 +71,6 @@ if(isset($_POST['submit'])){
   $pagina = str_replace("%ERR_IMGDESC%", $errDescImg, $pagina);
 
   echo $pagina;
-  $con->closeConnection();
 }
 else{
   echo "<h1>Impossibile connettersi al database riprovare pi&ugrave; tardi<h1>";

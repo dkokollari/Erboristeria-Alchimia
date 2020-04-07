@@ -9,18 +9,24 @@ class Image {
     } else { return '<small class="err_msg">inserisci immagine (.jpg,.jpeg,.png,.gif)</small>';}
   }
 
-  public function uploadImage($name , $temp, $id){
-    $dir = "img/te_e_infusi/";
-    move_uploaded_file($temp, $dir.$name);
-    $split = explode('.',$name);
-    $ext = array_pop($split);
-    if($id!="errore" && rename($dir.$name,$dir.$id.".".$ext)){
-      return true;
+  public function uploadImageTeInfusi($name , $temp, $id){
+   if($id!="errore"){
+      $dir = "img/te_e_infusi/";
+      move_uploaded_file($temp, $dir.$name);
+      $split = explode('.',$name);
+      $ext = array_pop($split);
+      if(rename($dir.$name,$dir.$id.".".$ext)){
+        return true;
+      } else {
+        deleteImage($dir.$name);
+        return false;
+      }
     }
-    else{
-      unlink($dir.$name);
-      return false;
-    }
+    return false;
+  }
+
+  public function deleteImage($file){
+    unlink($file);
   }
 
 }
