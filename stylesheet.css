@@ -634,6 +634,7 @@ transition: transform 1s ease;
   width: 100%;
   margin: 1em 0 1em;
 }
+
 #log_in_box.card {
   background-color: white;
   border-radius: 15px;
