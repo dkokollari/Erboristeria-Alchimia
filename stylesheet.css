@@ -67,9 +67,13 @@ h1 {
 h1 span {
   margin-left: 40vw;
 }
-
-#header_image {
+#container_te_e_infusi #header_image {
   background-image: url(img/home_background.jpg);
+}
+#container_la_mia_storia #header_image {
+  background-image: url(img/la_mia_storia_background.jpg);
+}
+#header_image {
   background-repeat: no-repeat;
   background-size: 100%;
   position: fixed;
@@ -81,12 +85,25 @@ h1 span {
 }
 
 
+
+
                                         /*       CONTENT       */
 
 #content {
-  padding: 1.8em 8% 1em 8%;
+  /* padding: 1.8em 8% 1em 8%; */
   background-color: #fff;
   margin-bottom: 9em;
+  padding-top: 2em;
+  padding-bottom: 2em;
+}
+#content > * {
+  margin-left:1.8em;
+  margin-right: 1.8em;
+}
+#content > *.expanded {
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
 }
 h2 {
   text-transform: capitalize;
@@ -114,8 +131,10 @@ h3 {
   list-style-type: none;
 }
 #content p {
-  line-height: 1.6em;
-  margin: 1.5em 0 1.5em 0;
+  line-height: 1.8em;
+  margin-bottom:1.5em;
+  margin-top: 1.5em;
+  /* letter-spacing: 0.02em; */
 }
 .rotated {
 transform: rotate(-180deg);
@@ -186,9 +205,16 @@ transition: transform 1s ease;
               line-height: 12vw;
               margin-left: 2vw;
             }
+
+            #container_te_e_infusi #topbar:before {
+              background-image: url(img/home_background.jpg);
+            }
+            /*  TODO: remember to reuce image size for loading time and performance*/
+            #container_la_mia_storia #topbar:before {
+              background-image: url(img/la_mia_storia_background.jpg);
+            }
             #topbar:before {              /* necessary element to correctly apply filter:brightness() only to the image, not the text */
               content: "";
-              background-image: url(img/home_background.jpg);
               background-size: cover;
               background-position: 0 -28.4vw;
               background-repeat: no-repeat;
@@ -199,6 +225,7 @@ transition: transform 1s ease;
               width: 100%;
               height: 100%;
             }
+
             #topbar {
               width: 100vw;
               height: 12vw;
@@ -252,7 +279,7 @@ transition: transform 1s ease;
       #right-of-menu, #menu_icon, #topbar, #menu button:first-child {
          display: none;
        }
-       #container {
+       .container {
          width:100vw;
        }
 
@@ -313,11 +340,11 @@ transition: transform 1s ease;
 @media screen and (min-width: 1025px) {
 
 
-      #container {
+      .container {
         margin: 0 auto 0 auto;
         box-shadow: 0 3px 6px rgba(0,0,0,0.10), 0 3px 6px rgba(0,0,0,0.17);
       }
-      #container, #header_image, h1, body #footer {
+      .container, #header_image, h1, body #footer {
         width: 1000px;
       }
       #header_image {
@@ -374,7 +401,8 @@ transition: transform 1s ease;
 .tips_and_tricks {
   background-color: var(--orange-light);
   color: var(--orange-dark);
-  margin: 0 -9.5% 2em -9.5%;
+  /* margin: 0 -9.5% 2em -9.5%; */
+  margin-bottom:2em;
   padding: 0.6em 9% 1.5em 9%;
   transition: max-height 0.8s ease;
   max-height: 50em;
@@ -606,6 +634,7 @@ transition: transform 1s ease;
   width: 100%;
   margin: 1em 0 1em;
 }
+
 #log_in_box.card {
   background-color: white;
   border-radius: 15px;
@@ -622,7 +651,7 @@ transition: transform 1s ease;
   margin-top: 2.5em;
 }
 .form_field label {
-  color: #aaa;
+  color: #666;
   position: absolute;
   top: 0;
   left:0;
@@ -669,3 +698,5 @@ transition: transform 1s ease;
   font: 600 1.1em 'Poppins', sans-serif;
   line-height: 2.5em;
 }
+
+                              /*       MY STORY       */
