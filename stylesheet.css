@@ -32,7 +32,7 @@ a {
 
 }
 body {
-  font: 300 1em 'Poppins', sans-serif;
+  font: 1em 'Poppins', sans-serif;
   background-color:#ffffef;
 
 }
@@ -591,12 +591,12 @@ transition: transform 1s ease;
   height: 4em;
 }
 
-
+/*
 #informazioni ul.colonna > li {
   max-width: 6em; //può andare?? (trucco sporco #1)
-}
+} */
 
-.colonna {
+/* .colonna {
  width: 50%;
  float: left;
  display: flex;
@@ -608,7 +608,7 @@ transition: transform 1s ease;
  display: flex; //senza questo, le colonne dell'orario vanno sopra al footer!!
  max-width: 600px;
  margin: auto;
-}
+} */
 
 #informazioni #giorniSett > li,
 #informazioni span {
@@ -640,6 +640,39 @@ transition: transform 1s ease;
   color: inherit;
 }*/
 
+
+/* PER RIMUOVERE PRECEDENTI STILI */
+#orario p {
+  line-height: auto;
+  margin: auto;
+}
+#orario {
+  max-width: 450px;
+  margin: auto;
+}
+
+#orario li {
+  display: flex;
+  margin: 1em auto 1em auto
+}
+
+#orario li > div {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+/* NON NECESSARIO */
+strong {
+  color: var(--grey-dark);
+  margin: auto;
+}
+/* NON NECESSARIO */
+#informazioni h3 {
+  margin-top:2em;
+  margin-bottom: 0.7em;
+}
+
+
                           /*       FOOTER       */
 #footer {
   font-size: 0.9em;
@@ -653,256 +686,3 @@ transition: transform 1s ease;
   text-align: center;
   padding: 1em 0 0 0;
 }
-
-
-
-
-
-
-
-
-/* old css with old parallax (lags A LOT)*/
-
-
-
-
-/* .parallax {
-  perspective: 1px;
-  height: 100vh;
-  overflow-x: hidden;
-  overflow-y: auto;
-  width: 100%;
-}
-.parallax_layer {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-}
-.parallax_back {
-  transform: translateZ(-2px) scale(3);
-} */
-
-/* #topbar {
-  height: 3.8em;
-  background: url(img/home_background_resized.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: 0 -6.4em;
-  z-index: 997;
-  position: fixed;
-  width: 100%;
-}
-
-#topbar_title {
-  letter-spacing: 0.05em;
-  transform: translate(1.3em,0.32em);
-  font-family: AntipastoPro regular;
-  font-size: 2.3em;
-  clear: both;
-  color: white;
-  text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.8);
-  float: left;
-  position: fixed;
-  z-index: 998;
-  opacity: 0;
-  transition: opacity 0.2s ease;
-}
-
-#menu {
-  float: left;
-  position: fixed;
-  transform: translate(0.5em,0.6em) scale(1.25,1.35 );
-  color: white;
-  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.6);
-  z-index: 998;
-}
-#accedi {
-  float: right;
-  position: fixed;
-  top: 1.1em;
-  right: 0.8em;
-  font-family: AntipastoPro demibold;
-  font-size: 1.2em;
-  text-transform: uppercase;
-  color: white;
-  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.6);
-  z-index: 998;
-}
-#header {
-  background:url(img/home_background_resized.jpg);
-  background-repeat: no-repeat;
-  width: 100%;
-  height: 100vh;
-  background-size: contain;
-  top: -6em;
-}
-#content {
-  padding: 0 3.5% 0 3.5%;
-  margin-top: 17em;
-  height: 2000px;
-  background-color:white;
-}
-#footer {
-  z-index: -10;
-}
-*/
-                                /* FORMATTAZIONE TESTO E TITOLI */
-
-/* h1 {
-  height: 100vh;
-  line-height: 0.9em;
-  padding: 30vw 0 0 0.2em;
-  font-family: Velvetberries;
-  color: white;
-  font-size: 21vw;
-  width: 100%;
-  font-weight: normal;
-  clear: both;
-  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.9);
-  opacity: 1;
-  transition: opacity 0.3s ease;
-
-  transform: translateZ(-3px) scale(4);
-}
-h1 span {
-  margin-left: 1.8em;
-} */
-/* .titoletto {
-text-transform: uppercase;
-font-size: 1.4em;
-letter-spacing: 0.1em;
-font-family: AntipastoPro demibold;
-text-align: center;
-margin: 0.9em;
-color: #8F250C;
-}
-.sottotitoletto {
-text-transform: uppercase;
-text-align: center;
-letter-spacing: 0.1em;
-font-family: AntipastoPro demibold;
-margin: 1em;
-font-size: 1.3em;
-color: #8F250C;
-}
-                        /* **********************************************
-.card {
-border-radius: 10px;
-box-shadow: 0 3px 6px rgba(0,0,0,0.10), 0 3px 6px rgba(0,0,0,0.17);
-position: relative;
-padding-bottom: 1em;
-font-size: 0.9em;
-outline: none;
-margin-bottom: 1em;
-}
-/* .focus:focus {
-  border: 1px solid red;
-}
-.cardwrapper {
-margin-bottom: 2em;
-}
-.card ul {
-columns: 2;
-list-style-position: inside;
-margin: 0em 1.3em 0em 1.3em;
-}
-.card ul li {
-line-height: 1.5em;
-}
-
-/* .focused:focus {
-border: 5px solid red;
-}
-
-                                                  /* PAGINA INFUSI
-.infusi i {
-position: absolute;
-bottom:0.5em;
-width: 100%;
-text-align: center;
-color: #8F250C;
-transform: rotate(0);
-transition: transform 0.6s ease-in;
-}
-
-.infusi img {
-width: 100%;
-border-radius: 8px 8px 0 0;
-max-height: 5.5em;
-object-fit: cover;
-transition: max-height 0.4s ease;
-}
-
-.infusi dd {
-margin:1.3em 1.3em 0em 1.3em;
-}
-
-                                              /* TEST ANIMAZIONI
-.hide {
-  z-index: -999 !important;
-}
-/* .nopacity {
-  transition: opacity 0.2s ease;
-  opacity: 0;
-}
-#topbar_title.opacity {
-  transition: opacity 0.2s ease;
-  opacity: 1;
-}
-.hidden {
-max-height: 0;
-transition: opacity 0.3s ease, max-height 0.5s ease;
-opacity: 0;
-}
-.expandedcard {
-transition: opacity 0.4s ease 0.3s, max-height 0.5s ease ;
-max-height: 20em;
-opacity: 1;
-}
-
-.rotate {
-transform: rotate(-180deg) !important;
-transition: transform 0.6s ease;
-}
-.expandedimg {
-max-height: 12em !important;
-} */
-
-    /* PAGINA EVENTI */
-/*
-.data span {
-font-size: 2.5em;
-}
-.databox {
-float: left;
-}
-.data {
-text-transform: uppercase;
-text-align: center;
-font-weight: bold;
-letter-spacing: 0.1em;
-width: 7em;
-height: 7em;
-display: table-cell;
-vertical-align: middle;
-color: white;
-background-color: #8F250C;
-border-top-left-radius: 10px;
-}
-.eventi img {
-max-width: 100%;
-object-fit: cover;
-border-top-right-radius: 10px;
-}
-.eventi .titoletto {
-clear:both;
-}
-.eventi .testo {
-margin: 1em;
-}
-.imgwrap {
-display: flex;
-height: 7em;
-} */
