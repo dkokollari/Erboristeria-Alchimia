@@ -71,7 +71,7 @@ h1 span {
 
 #container_informazioni #header_image {
   background-image: url(img/informazioni_background.jpg);
-
+}
 #container_te_e_infusi #header_image {
   background-image: url(img/home_background.jpg);
 }
@@ -208,6 +208,9 @@ transition: transform 1s ease;
               font-size: 2.2em;
               line-height: 12vw;
               margin-left: 2vw;
+            }
+            #container_informazioni #topbar:before {
+              background-image: url(img/informazioni_background.jpg);
             }
 
             #container_te_e_infusi #topbar:before {
@@ -349,10 +352,10 @@ transition: transform 1s ease;
         box-shadow: 0 3px 6px rgba(0,0,0,0.10), 0 3px 6px rgba(0,0,0,0.17);
       }
 
-#container, #header_image, h1, body #footer {
+.container, #header_image, h1, body #footer {
         width: 1000px;
-  } 
-  
+  }
+
 #informazioni #orari li {
   display: block;
   text-align: center;
@@ -611,34 +614,33 @@ transition: transform 1s ease;
                           /*       INFORMAZIONI */
 
 
-#informazioni #linkMappa {
+#container_informazioni #linkMappa {
   display: block;
   text-align: center;
 }
 
-#informazioni ul {
+#container_informazioni ul {
   height: 100%;
 }
 
-#informazioni li {
+#container_informazioni li {
   list-style-type : none;
   text-align: center;
   height: 4em;
 }
 
-#informazioni #giorniSett > li,
-#informazioni span {
+#container_informazioni #giorniSett > li,
+#container_informazioni span {
   display: block;
   text-align: center;
   font-weight: bold;
   color: var(--grey-dark);
 }
 
-#informazioni span, #informazioni h3,
-#informazioni  h4 {
+#container_informazioni span, #container_informazioni h3,
+#container_informazioni  h4 {
   margin-top: 0.5em;
   margin-bottom: 0.5em;
-
 }
 
 /* PER RIMUOVERE PRECEDENTI STILI */
@@ -784,4 +786,3 @@ strong {
 }
 
                               /*       MY STORY       */
-
