@@ -68,7 +68,7 @@ h1 span {
 }
 
 #header_image {
-  background-image: url(img/barraPaginaInformazioni.jpg);
+  background-image: url(img/informazioni_background.jpg);
   background-repeat: no-repeat;
   background-size: 100%;
   position: fixed;
@@ -189,7 +189,7 @@ transition: transform 1s ease;
             }
             #topbar:before {              /* necessary element to correctly apply filter:brightness() only to the image, not the text */
               content: "";
-              background-image: url(img/barraPaginaInformazioni.jpg);
+              background-image: url(img/informazioni_background.jpg);
               background-size: cover;
               background-position: 0 -28.4vw;
               background-repeat: no-repeat;
@@ -624,22 +624,6 @@ transition: transform 1s ease;
   margin-bottom: 0.5em;
 
 }
-
-
-/*#informazioni #orari li > span {
-  min-height: 1.7em;
-  clear: both;
-  float: left;
-  margin-left: 25%;
-}*/
-
-/*#informazioni #orari li p span,
-#contatti span.contenutoInfo {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 300;
-  color: inherit;
-}*/
-
 
 /* PER RIMUOVERE PRECEDENTI STILI */
 #orario p {
