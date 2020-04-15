@@ -67,6 +67,11 @@ h1 {
 h1 span {
   margin-left: 40vw;
 }
+
+
+#container_informazioni #header_image {
+  background-image: url(img/informazioni_background.jpg);
+
 #container_te_e_infusi #header_image {
   background-image: url(img/home_background.jpg);
 }
@@ -83,7 +88,6 @@ h1 span {
   z-index: -1;
   filter: brightness(0.8);
 }
-
 
 
 
@@ -344,10 +348,27 @@ transition: transform 1s ease;
         margin: 0 auto 0 auto;
         box-shadow: 0 3px 6px rgba(0,0,0,0.10), 0 3px 6px rgba(0,0,0,0.17);
       }
-      .container, #header_image, h1, body #footer {
+
+#container, #header_image, h1, body #footer {
         width: 1000px;
-      }
-      #header_image {
+  } 
+  
+#informazioni #orari li {
+  display: block;
+  text-align: center;
+  margin-left: 30%;
+}
+
+#informazioni li p {
+    float: left;
+}
+
+#informazioni .giornoSett {
+  min-width: 20%;
+  float: left;
+}
+
+#header_image {
         top: -300px;
       }
       h1 {
@@ -587,6 +608,70 @@ transition: transform 1s ease;
  height: 7em;
 }
 
+                          /*       INFORMAZIONI */
+
+
+#informazioni #linkMappa {
+  display: block;
+  text-align: center;
+}
+
+#informazioni ul {
+  height: 100%;
+}
+
+#informazioni li {
+  list-style-type : none;
+  text-align: center;
+  height: 4em;
+}
+
+#informazioni #giorniSett > li,
+#informazioni span {
+  display: block;
+  text-align: center;
+  font-weight: bold;
+  color: var(--grey-dark);
+}
+
+#informazioni span, #informazioni h3,
+#informazioni  h4 {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+
+}
+
+/* PER RIMUOVERE PRECEDENTI STILI */
+#orario p {
+  line-height: auto;
+  margin: auto;
+}
+#orario {
+  max-width: 450px;
+  margin: auto;
+}
+
+#orario li {
+  display: flex;
+  margin: 1em auto 1em auto
+}
+
+#orario li > div {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+/* NON NECESSARIO */
+strong {
+  color: var(--grey-dark);
+  margin: auto;
+}
+/* NON NECESSARIO */
+#informazioni h3 {
+  margin-top:2em;
+  margin-bottom: 0.7em;
+}
+
 
                           /*       FOOTER       */
 #footer {
@@ -601,7 +686,6 @@ transition: transform 1s ease;
   text-align: center;
   padding: 1em 0 0 0;
 }
-
                               /*       LOGIN       */
 #log_in_box_container {
   display: flex;
@@ -700,3 +784,4 @@ transition: transform 1s ease;
 }
 
                               /*       MY STORY       */
+
