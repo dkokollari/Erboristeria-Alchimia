@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="it" >
+  <head>
+
+    <meta charset="utf-8"/>
+                        <!-- da rivedere  -->
+    <!-- <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png"> -->
+    <title>Accedi - Erboristeria Alchimia</title>
+    <link rel="stylesheet" href="stylesheet.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,600&display=swap" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  </head>
+
+  <body>
+    <div id="log_in_box_container">
+      <div id="log_in_box">
+        <form action="" method="post"> <!-- TODO: inserire action="log_in_page.php" -->
+          <fieldset  id="log_in_form">
+            <legend><h2>Accedi</h2></legend>
+            <!-- <legend>Accedi</legend> -->
+            <div class="form_field">
+              <label for="username">Email</label> <!-- TODO impostare lingua inglese -->
+              <input id="username" name="username" type="email" required/>
+            </div>
+            <div class="form_field">
+              <label for="password">Password</label> <!-- TODO impostare lingua inglese -->
+              <input id="password" name="password" type="password" required/>
+            </div>
+            <!-- <div class="form_remember_me">
+              <input id="remember_me" type="checkbox"/>
+              <label for="remember_me">Ricorda i miei dati</label>
+            </div> -->
+
+            <input id="log_in" type="submit" value="Accedi" />
+          </fieldset>
+        </form>
+      </div>
+    </div>
+    <script src="js/design.js"></script>
+  </body>
+
+
+</html>

@@ -15,6 +15,10 @@ const menu = document.querySelector("#menu");
 const rightofmenu= document.querySelector("#right-of-menu");
 const tips = document.getElementsByClassName("tips_and_tricks");
 const card = document.getElementsByClassName("card");
+
+
+const username = document.querySelector("#username");
+
 const marginTop = document.documentElement.clientWidth*0.63;  // 75vw di margin-top del #content - 12vw di altezza #topbar
 var yScrollPosition;
 var i;
@@ -25,7 +29,8 @@ var j;
 
 
                     /*---------------    MENU    (mobile)   ---------------*/
-
+// console.log("design.js successfully loaded");
+// console.log(formField);
 
     /*         function that shows/hides the menu (toggle)  and the brightness layer     */
 function showMenu() {
@@ -34,11 +39,27 @@ function showMenu() {
 }
 
 
+
+$( document ).ready(function() {
+    if($("#username").val() != "") {
+      $(username.previousElementSibling).addClass("filled");
+    }
+});
+    /*        function that moves the label in the login page     */
+$("#username, #password").on("blur", function() {
+  $(this.previousElementSibling).removeClass("filled");
+  if($(this).val() != "") {
+    $(this.previousElementSibling).addClass("filled");
+  }
+});
+
+
       /*---------------    PARALLAX + SCROLL + TOPBAR EFFECT (mobile)   ---------------*/
 
 
                     /* adds an event listener to create the parallax effect */
 window.addEventListener("DOMContentLoaded", scrollFix, false);
+
 
 /* function that actually creates the parallax effect by "slowing" the background movement while scrolling */
 function scrollFix() {
@@ -97,50 +118,3 @@ function expandCard() {
   this.classList.toggle("collapsed");
   this.lastElementChild.classList.toggle("rotated");
 }
-
-
-
-
-
-
-
-
-         /*--------------- OLD CODE WITH OLD CSS PERSPECTIVE PARALLAX ---------------*/
-
-
-
-// const titolo = document.getElementById("titolo");                // titolo in corsivo
-// const titlebar = document.getElementById("topbar_title");        // titolo nella barra in alto
-// const topvar = document.getElementById("topbar");                // barra in alto da fissare
-//
-// const scro = document.getElementById("content");
-
-
-//         INAFFIDABILE, OGNI TANTO LAGGA
-// $(document).ready(function() {
-//      $('#wrapper').scroll(function(event) {
-//          var scroll = scro.scrollTop;
-//          let opacity = 1 - (scroll / 200);
-//          if (opacity > -0.1) {
-//              $('#titolo').css('opacity', opacity);
-//          }
-//          if (-opacity < 1) {
-//              $('#topbar_title').css('opacity', 1-opacity);
-//          }
-//
-//      });
-//  });
-
-// scro.addEventListener('scroll', topbar);
-// function topbar() {
-//    scro.scrollTop > 210 ? topvar.classList.remove("hide") : topvar.classList.add("hide");
-//    scro.scrollTop > 20  ? titolo.classList.add("nopacity") : titolo.classList.remove("nopacity");
-//    scro.scrollTop > 20  ? titlebar.classList.add("opacity") : titlebar.classList.remove("opacity");
-// }
-
-
-// function expand(){
-//   this.firstElementChild.lastElementChild.classList.toggle("expandedcard");
-//   this.firstElementChild.firstElementChild.classList.toggle("expandedimg");
-//   this.lastElementChild.classList.toggle("rotate");
-// }
