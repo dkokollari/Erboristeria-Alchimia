@@ -17,7 +17,7 @@
     <div id="log_in_box_container">
       <div id="log_in_box">
         <form action="" method="post"> <!-- TODO: inserire action="log_in_page.php" -->
-          <fieldset  id="log_in_form">
+          <fieldset  id="log_in_form" action= "login.php">
             <legend><h2>Accedi</h2></legend>
             <!-- <legend>Accedi</legend> -->
             <div class="form_field">
@@ -28,12 +28,13 @@
               <label for="password">Password</label> <!-- TODO impostare lingua inglese -->
               <input id="password" name="password" type="password" required/>
             </div>
+            %ERR_LOGIN%
             <!-- <div class="form_remember_me">
               <input id="remember_me" type="checkbox"/>
               <label for="remember_me">Ricorda i miei dati</label>
             </div> -->
 
-            <input id="log_in" type="submit" value="Accedi" />
+            <button id="log_in" type="submit" name="login">Accedi</button>
           </fieldset>
         </form>
       </div>
