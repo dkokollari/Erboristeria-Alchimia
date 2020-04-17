@@ -9,8 +9,8 @@ if(isset($_POST['Login'])) {
   $maxLengthPwd = 12;
   $errore = "";
   $logged = "";
-  $email = $_POST['username']; // the username is one's email for us!
-  $password = $_POST['password'];
+  $email = trim($_POST['username']); // the username is one's email for us!
+  $password = trim($_POST['password']);
 
   if(!isset($email) || !isset($password)) {
     $errore = '<div class= "errori">'. 'Inserire sia una ' .'email'. ' che una '.'password'.'</div>';
