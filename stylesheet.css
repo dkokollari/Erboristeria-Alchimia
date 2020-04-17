@@ -785,4 +785,11 @@ strong {
   line-height: 2.5em;
 }
 
+#login div.errori {
+  color: red;
+}
+
+#login div.ok {
+  color: green;
+}
                               /*       MY STORY       */

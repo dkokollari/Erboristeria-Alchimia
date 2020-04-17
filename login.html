@@ -13,28 +13,29 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   </head>
 
-  <body>
+  <body id="login">
+    %LOGIN_STATUS%
     <div id="log_in_box_container">
       <div id="log_in_box">
-        <form action="" method="post"> <!-- TODO: inserire action="log_in_page.php" -->
-          <fieldset  id="log_in_form" action= "login.php">
+        <form action="login.php" method="post"> <!-- TODO: inserire action="log_in_page.php" -->
+          <fieldset  id="log_in_form">
             <legend><h2>Accedi</h2></legend>
             <!-- <legend>Accedi</legend> -->
+                %ERR_LOGIN%
             <div class="form_field">
               <label for="username">Email</label> <!-- TODO impostare lingua inglese -->
-              <input id="username" name="username" type="email" required/>
+              <input id="username" name="username" required/>
             </div>
             <div class="form_field">
               <label for="password">Password</label> <!-- TODO impostare lingua inglese -->
               <input id="password" name="password" type="password" required/>
             </div>
-            %ERR_LOGIN%
             <!-- <div class="form_remember_me">
               <input id="remember_me" type="checkbox"/>
               <label for="remember_me">Ricorda i miei dati</label>
             </div> -->
 
-            <button id="log_in" type="submit" name="login">Accedi</button>
+            <input id="log_in" type="submit" name="Login"/>
           </fieldset>
         </form>
       </div>

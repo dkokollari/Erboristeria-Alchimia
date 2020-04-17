@@ -1,65 +1,90 @@
 <?php
 require_once("DBAccess.php");
 
-if(isset($POST['login'])) {
-  $conn = new DBAccess(); //TODO FA SCHIFO RIPETERE STE RIGHE IN OGNI PAGINA PHP: MODULARIZZARE!
-  if(!$conn->openConnection()) {
-    echo "<h1>Impossibile connettersi al database riprovare pi&ugrave; tardi<h1>";
-    exit();
-  }
 
-  /*Stabilita connessione al db*/
+$pagina = file_get_contents('login.html');
+if(isset($_POST['Login'])) {
+
   $minLengthPwd = 8;
   $maxLengthPwd = 12;
-  $pagina = file_get_contents('login.html');
   $errore = "";
   $logged = "";
-  $email = $POST['username']; // the username is one's email for us!
-  $password = $POST['password'];
+  $email = $_POST['username']; // the username is one's email for us!
+  $password = $_POST['password'];
 
   if(!isset($email) || !isset($password)) {
-    $errore = '<h1 class= "errori"><h1>'. 'Inserire sia una' .'email'. 'che una'.'password';
+    $errore = '<div class= "errori">'. 'Inserire sia una ' .'email'. ' che una '.'password'.'</div>';
   }
 
-  else if(!filter_input(INPUT_POST, $email, FILTER_VALIDATE_EMAIL)
+  else if(!filter_var($email, FILTER_VALIDATE_EMAIL)
     || (strlen($password) < $minLengthPwd || strlen($password) > $maxLengthPwd)) {
-    $errore = '<h1 class="errori"> La'.'email'. 'o la' .'password'. 'inserite non sono corrette</h1>';
+    $errore = '<div class="errori"> La '.'email'. ' o la ' .'password'. ' inserite non sono corrette</div>';
   }
 
   else {
     /*password e email inserite dall'utente: ora controllo che ci siano nel db*/
-    $query = "SELECT * FROM utenti WHERE email_utente = ?";
-    $stmt = mysqli_stmt_init($conn);
-    if(!mysqli_stmt_prepare($stmt, $query)) {
-      echo "Errore della query:" . mysqli_error($connessione) . ".";
-      exit();
+    $query = "SELECT * FROM `utenti` WHERE `email_utente`=?";
+    /*
+    $conn = new DBAccess(); 
+    if(!$conn->openConnection()) {
+     echo '<div class= "errori">' . "Impossibile connettersi al database riprovare pi&ugrave; tardi" . '</div>';
+     exit(1);
     }
-
-    mysqli_stmt_bind_param($stmt, "s", $email);
-    mysqli_stmt_execute($stmt);
-    $result = mysqli_stmt_get_result($stmt);
-    if($result->mysqli_num_rows($result) == 0) {
-      $errore = '<h1 class="errori"> La'.'email'. 'o la' .'password'. 'inserite non sono corrette</h1>';
+    //Stabilita connessione al db
+    //CHIEDERE A MARCEL PERCHÈ FALLISCE!
+    if(!$stmt = mysqli_prepare($conn, $query)) {
+      die('prepare() failed: ' . htmlspecialchars(mysqli_error($conn)));
+    }
+    */
+    
+    /*MI STO CONNETTENDO BYPASSANDO DBACCESS: NON VA BENE, MA PER ORA E UNICO MODO!*/
+    
+    /*---INIZIO ROBA DA SOSTITUIRE CON DBACCESS STUFF---*/
+    
+    $conn = new mysqli('localhost', 'erboristeriatest', '', 'my_erboristeriatest');
+    if(!$stmt = mysqli_prepare($conn, $query)) {
+      die('prepare() failed: ' . htmlspecialchars(mysqli_error($conn)));
+    }
+    
+    /*---FINE ROBA DA SOSTITUIRE CON DBACCESS STUFF---*/
+    
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    
+    if($result->num_rows === 0) {
+    $errore = '<div class="errori"> La '.'email'. ' o la ' .'password'. ' inserite non sono corrette</div>';
     }
     else {
-      $row = mysqli_fetch_assoc($result);
-      $passwordCheck = password_verify($password, $row['password_utente']);
+      $row = $result->fetch_assoc();
+      //$passwordCheck = password_verify($password, $row['password_utente']);
+      /*inserimento solo tramite php cosi settiamo bcrypt come algoritmo!*/
+      $passwordCheck = ($password == $row['password_utente']);
+      $password = '<p>' . $password . '</p>';
+      $prova = '<p>' . $row['password_utente'] . '</p>';
       if($passwordCheck == false) {
-        $errore = '<h1 class="errori"> La'.'email'. 'o la' .'password'. 'inserite non sono corrette</h1>';
+      $errore = '<div class="errori"> La '.'email'. ' o la ' .'password'. ' inserite non sono corrette</div>';
       }
       else {
         session_start(); //TODO decidere cosa possono vedere gli utenti registrati!
-        $logged = "SEI LOGGATO, GUAGLIONE!!!";
+        $logged = '<div class="ok">' . 'SEI LOGGATO, GUAGLIONE!!! </div>';
         $_SESSION['email_utente'] =  $row['email_utente'];
       }
-      mysqli_free_result($result);
+      $stmt->close();
     }
   }
 
   $pagina = str_replace("%ERR_LOGIN%", $errore , $pagina);
-  $pagina = str_replace("%ERR_LOGIN%", $logged , $pagina);
+  $pagina = str_replace("%LOGIN_STATUS%", $logged , $pagina);
   echo $pagina;
   $conn->closeConnection();
-
+  //$conn->close();
 }
+
+else { /*utente non ha premuto il tasto submit*/
+  $pagina = str_replace("%ERR_LOGIN%", "" , $pagina);
+  $pagina = str_replace("%LOGIN_STATUS%", "" , $pagina);
+  echo $pagina;
+}
+
 ?>
