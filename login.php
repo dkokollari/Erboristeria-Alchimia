@@ -24,29 +24,16 @@ if(isset($_POST['Login'])) {
   else {
     /*password e email inserite dall'utente: ora controllo che ci siano nel db*/
     $query = "SELECT * FROM `utenti` WHERE `email_utente`=?";
-    /*
     $conn = new DBAccess(); 
     if(!$conn->openConnection()) {
      echo '<div class= "errori">' . "Impossibile connettersi al database riprovare pi&ugrave; tardi" . '</div>';
      exit(1);
     }
     //Stabilita connessione al db
-    //CHIEDERE A MARCEL PERCHÈ FALLISCE!
-    if(!$stmt = mysqli_prepare($conn, $query)) {
-      die('prepare() failed: ' . htmlspecialchars(mysqli_error($conn)));
+    
+    if(!$stmt = mysqli_prepare($conn->connection, $query)) {
+      die('prepare() failed: ' . htmlspecialchars(mysqli_error($conn->$connection)));
     }
-    */
-    
-    /*MI STO CONNETTENDO BYPASSANDO DBACCESS: NON VA BENE, MA PER ORA E UNICO MODO!*/
-    
-    /*---INIZIO ROBA DA SOSTITUIRE CON DBACCESS STUFF---*/
-    
-    $conn = new mysqli('localhost', 'erboristeriatest', '', 'my_erboristeriatest');
-    if(!$stmt = mysqli_prepare($conn, $query)) {
-      die('prepare() failed: ' . htmlspecialchars(mysqli_error($conn)));
-    }
-    
-    /*---FINE ROBA DA SOSTITUIRE CON DBACCESS STUFF---*/
     
     $stmt->bind_param("s", $email);
     $stmt->execute();
@@ -78,10 +65,11 @@ if(isset($_POST['Login'])) {
   $pagina = str_replace("%LOGIN_STATUS%", $logged , $pagina);
   echo $pagina;
   $conn->closeConnection();
-  //$conn->close();
+
 }
 
-else { /*utente non ha premuto il tasto submit*/
+/*utente non ha premuto il tasto submit*/
+else { 
   $pagina = str_replace("%ERR_LOGIN%", "" , $pagina);
   $pagina = str_replace("%LOGIN_STATUS%", "" , $pagina);
   echo $pagina;
