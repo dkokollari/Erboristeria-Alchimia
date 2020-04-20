@@ -26,15 +26,24 @@ var j;
 
 var button = document.getElementsByClassName("menu_btn");
 
+
+document.addEventListener('keydown', function(e) {
+  if (e.keyCode === 9) {
+    $('body').addClass('show-focus-outlines');
+  }
+});
+
+document.addEventListener('click', function(e) {
+  $('body').removeClass('show-focus-outlines');
+});
+
+                    /*---------------    MENU    (mobile)   ---------------*/
+
+/* add an event listener to menu_btn. onclick=""" hada problem with the keyboard navigation (no keyboard on mobile tho, my bad) */
 for (i = 0; i < button.length; i++) {
   button[i].addEventListener('click', menuToggle);
 }
 
-
-
-                    /*---------------    MENU    (mobile)   ---------------*/
-// console.log("design.js successfully loaded");
-// console.log(formField);
 
     /*         function that shows/hides the menu (toggle)  and the brightness layer     */
 function menuToggle() {
@@ -73,7 +82,7 @@ function scrollFix() {
 }
 
                     /* function that makes the topbar element "sticky" on mobile */
- window.addEventListener('scroll', showTopbar);
+window.addEventListener('scroll', showTopbar);
  function showTopbar() {
     if (document.documentElement.scrollTop > marginTop) {
       topbar.style.zIndex = "2";                                //controllare che gli vada bene usare STYLE (spoiler alert: NON VA BENE)

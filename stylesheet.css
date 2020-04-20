@@ -25,9 +25,16 @@
   --grey-light: #aeafb9;
 
 }
-                                /* overwite default a rules */
-*:focus {
-  outline: 4px solid red !important;
+/* activate border outline for keyboard navigation */
+/* I added 'em all, you never know....*/
+body.show-focus-outlines a:focus,
+body.show-focus-outlines button:focus,
+body.show-focus-outlines [tabindex]:focus,
+body.show-focus-outlines input:focus,
+body.show-focus-outlines select:focus,
+body.show-focus-outlines textarea:focus
+{
+  outline: 4px solid red;
   }
 html, body {
   height: 100%;
@@ -35,7 +42,6 @@ html, body {
 a {
   text-decoration: none;
   color: inherit;
-
 }
 body {
   font: 300 1em 'Poppins', sans-serif;
@@ -52,7 +58,10 @@ button {
   -webkit-tap-highlight-color: rgba(0,0,0,0);
   -webkit-tap-highlight-color: transparent;
 }
-
+/* body:not(.show-focus-outlines) button:focus,
+body:not(.show-focus-outlines) [tabindex]:focus {
+  outline: none;
+} */
 
                                   /*       HEADER       */
 
@@ -160,7 +169,7 @@ transition: transform 1s ease;
                width: 12vw;
              }
              #menu {
-              top:0;
+              /* top:0; */
               z-index: 5;
               position: fixed;
               opacity: 1;
