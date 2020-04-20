@@ -26,7 +26,7 @@ if(isset($_POST['search'])) {
                     ORDER BY id_articolo DESC
                     WHERE nome_articolo = ?";
 
-  if(!$stmt = mysqli_prepare($conn->connection, $query)) {
+  if(!$stmt = mysqli_prepare($conn->connection, $query_ricerca)) {
     die('prepare() failed: ' . htmlspecialchars(mysqli_error($conn->$connection)));
   }
 
@@ -40,8 +40,9 @@ if(isset($_POST['search'])) {
   else while($row = $result->fetch_assoc()) {
     $resultsToPrint .= '<li>' .'nome: '. .$row['nome_articolo']. 'quantit&agrave;: ' .$row['nome_articolo']. '</li>';
   }
+
   $stmt->close();
-  $pagina = str_replace("%SEARCH_RESULTS%", $logged , $resultsToPrint);
+  $pagina = str_replace("%SEARCH_RESULTS%", $resultsToPrint , $pagina);
   echo $pagina;
   $conn->closeConnection();
 }
