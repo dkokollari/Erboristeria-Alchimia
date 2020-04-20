@@ -152,8 +152,15 @@ transition: transform 1s ease;
                                   /*   ----------------  MOBILE   ------------------   */
 
 @media screen and (max-width:599px) {
-
+              #close_menu {
+                margin:auto;
+              }
+             .menu_btn {
+               height: 12vw;
+               width: 12vw;
+             }
              #menu {
+              top:0;
               z-index: 5;
               position: fixed;
               opacity: 1;
@@ -168,6 +175,7 @@ transition: transform 1s ease;
               transition: all 0.5s ease;
             }
             #right-of-menu {
+              top: 0;
               position: fixed;
               opacity: 0;
               width: 100vw;
@@ -181,7 +189,7 @@ transition: transform 1s ease;
               transform: translateX(0);
               opacity: 0.5;
             }
-            #menu > button > i {
+            #menu > button > span {
               font-size: 2.2em;
               line-height: 12vw;
               margin-left: 2vw;
@@ -272,7 +280,7 @@ transition: transform 1s ease;
               padding-top:10vw;
             }
             #content {
-              margin-top: 75vw;
+              margin-top: 63vw;
             }
             #footer {
                 width: 100%;
@@ -285,6 +293,9 @@ transition: transform 1s ease;
                         /*        TABLET MODE HEADER          */
 
 @media screen and (min-width:600px)   {
+      .menu_btn {
+        display: none;
+      }
 
       #right-of-menu, #menu_icon, #topbar, #menu button:first-child {
          display: none;

@@ -24,7 +24,11 @@ var yScrollPosition;
 var i;
 var j;
 
+var button = document.getElementsByClassName("menu_btn");
 
+for (i = 0; i < button.length; i++) {
+  button[i].addEventListener('click', menuToggle);
+}
 
 
 
@@ -33,7 +37,7 @@ var j;
 // console.log(formField);
 
     /*         function that shows/hides the menu (toggle)  and the brightness layer     */
-function showMenu() {
+function menuToggle() {
   menu.classList.toggle("showmenu");
   rightofmenu.classList.toggle("hidemenu");
 }

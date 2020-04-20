@@ -1,11 +1,12 @@
-<!DOCTYPE html>
-<html lang="it" >
-  <head>
-    <meta charset="utf-8"/>
-    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png" />
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
+  <head >
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link rel="icon" type="image/png" href="img/favicon-16x16.png" />
     <title>La mia Storia - Erboristeria Alchimia</title>
     <link rel="stylesheet" href="stylesheet.css"/>
-    <link href="https://fonts.googleapis.com/css?family=Poppins:300,600&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,600&amp;display=swap" rel="stylesheet" />
 
     <!-- <link href="https://fonts.googleapis.com/css?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Material+Icons+Outlined" rel="stylesheet">
@@ -14,7 +15,7 @@
     <!-- <link href="https://fonts.googleapis.com/css?family=Material+Icons+Sharp" rel="stylesheet"> -->
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     </head>
 
@@ -22,8 +23,18 @@
       <div class="container" id="container_la_mia_storia">
                             <!--          HEADER             -->
 
+
+        <div id="header_image" class="fit"></div>
+        <h1>La mia Storia</h1>
+
+        <div id="topbar">
+          <h1 id="topbar_title">La mia Storia</h1>
+        </div>
+
+
+        <button class="menu_btn"><span id="menu_icon" class="material-icons-round">menu</span></button>
         <div id="menu">
-          <button><i class="material-icons-round" onclick="showMenu()">cancel</i></button>
+
 
           <ul>
             <li><a href="homepage.html" lang="en">Homepage</a></li>
@@ -33,19 +44,17 @@
             <li><a href="pagina_informazioni">Informazioni</a></li>
             <li class="selected_page"><p>La mia Storia</p></li>
           </ul>
-          <!-- <h4>Erboristeria <span>Alchimia</span></h4> -->        <!-- non c'e' spazio nei dispositivi piu' vecchi come iPhone 4, magari da implementare in futuro -->
+
+          <button class="menu_btn" id="close_menu"><span class="material-icons-round" >cancel</span></button>
+
         </div>
+        <button id="right-of-menu" class="menu_btn" title="chiudi menu"></button>
 
-        <button id="right-of-menu" onclick="showMenu()"></button>
 
-        <button><i id="menu_icon" class="material-icons-round" onclick="showMenu()">menu</i></button>
 
-        <div id="topbar">
-          <h1 id="topbar_title">La mia Storia</h1>
-        </div>
 
-        <div id="header_image" class="fit"></div>
-          <h1>La mia Storia</h1>
+
+
 
                             <!--         CONTENT            -->
 
@@ -53,22 +62,22 @@
 
           <h2>La mia Storia</h2>
           <p>
-            L’erboristeria oggi è il giusto equilibrio tra antichi saperi e nuove tecnologie, dove per trovare quello che fa per noi è necessario essere disposti a conoscersi profondamente.
+            L’erboristeria oggi &egrave; il giusto equilibrio tra antichi saperi e nuove tecnologie, dove per trovare quello che fa per noi &egrave; necessario essere disposti a conoscersi profondamente.
           </p>
           <img src="img/ciaosonomarika.jpg" class="expanded" alt="ciao, sono marika"/>
           <p>
-            Voglio dirvi qualcosa di più su Erboristeria Alchimia perché chi entra nel mio negozio scopre che a parte gli scaffali pieni di prodotti, trova una persona pronta ad accogliervi in tutte le vostre sfaccettature e problematiche, cercando di mettervi a disposizione tutta la mia competenza ma anche tutta la mia empatia.
+            Voglio dirvi qualcosa di pi&ugrave; su Erboristeria Alchimia perch&egrave; chi entra nel mio negozio scopre che a parte gli scaffali pieni di prodotti, trova una persona pronta ad accogliervi in tutte le vostre sfaccettature e problematiche, cercando di mettervi a disposizione tutta la mia competenza ma anche tutta la mia empatia.
           </p>
           <p>
-            La mia passione per la natura e le erbe mi ha portato a seguire il corso dell'Università di Padova “Tecniche Erboristiche” dove mi sono laureta nel 2008. Nonostante la laurea mi abbia dato tutte le basi necessarie alla comprensione delle piante e della natura umana, in questo mestiere non bisogna mai smettere di studiare, quindi da qui ho continuato la formazione (e continua tutt’ora) con corsi privati, work-shop e giornate informative allo scopo di poter comprendere sempre meglio le vostre necessità e proporvi sempre le soluzioni migliori.
+            La mia passione per la natura e le erbe mi ha portato a seguire il corso dell'Universit&agrave; di Padova “Tecniche Erboristiche” dove mi sono laureta nel 2008. Nonostante la laurea mi abbia dato tutte le basi necessarie alla comprensione delle piante e della natura umana, in questo mestiere non bisogna mai smettere di studiare, quindi da qui ho continuato la formazione (e continua tutt’ora) con corsi privati, work-shop e giornate informative allo scopo di poter comprendere sempre meglio le vostre necessit&agrave; e proporvi sempre le soluzioni migliori.
           </p>
           <img src="img/laurea.jpg" class="expanded" alt="Laurea Dr. Marika Dorigo"/>
           <p>
-            Ovviamente molte delle mie conoscenze provengono anche dall’ambiente lavorativo. Ho avuto la fortuna di poter cominciare il mio percorso in una farmacia veneziana e successivamente in diverse erboristerie a Venezia, Mogliano Veneto e San Donà di Piave e non posso che ringraziare tutte le persone che negli anni mi hanno sostenuto e insegnato moltissimo.
+            Ovviamente molte delle mie conoscenze provengono anche dall’ambiente lavorativo. Ho avuto la fortuna di poter cominciare il mio percorso in una farmacia veneziana e successivamente in diverse erboristerie a Venezia, Mogliano Veneto e San Don&agrave; di Piave e non posso che ringraziare tutte le persone che negli anni mi hanno sostenuto e insegnato moltissimo.
           </p>
           <img src="img/orto_botanico.jpg" class="expanded" alt="Marika all'orto botanico"/>
           <p>
-            Con questo bagaglio nel 2016 mi sono sentita pronta per avviare la mia attività e in un piccolo paese come Tamai di Brugnera nasce la mia erboristeria.
+            Con questo bagaglio nel 2016 mi sono sentita pronta per avviare la mia attivit&agrave; e in un piccolo paese come Tamai di Brugnera nasce la mia erboristeria.
           </p>
           <img src="img/negozio_grazie.jpg" class="expanded" alt="Marika nel suo attuale negozio"/>
           <p>
@@ -80,7 +89,7 @@
           I piedi in doccia si lavano da soli con l'acqua che cade
         </div>
       </div>
-      <script src="js/design.js"></script>
+      <script type="text/javascript" src="js/design.js"></script>
     </body>
 
   </html>
