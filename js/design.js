@@ -24,7 +24,7 @@ var yScrollPosition;
 var i;
 var j;
 
-var button = document.getElementsByClassName("menu_btn");
+var menu_btn = document.getElementsByClassName("menu_btn");
 
 
 document.addEventListener('keydown', function(e) {
@@ -41,7 +41,7 @@ document.addEventListener('click', function(e) {
 
 /* add an event listener to menu_btn. onclick=""" hada problem with the keyboard navigation (no keyboard on mobile tho, my bad) */
 for (i = 0; i < button.length; i++) {
-  button[i].addEventListener('click', menuToggle);
+  menu_btn[i].addEventListener('click', menuToggle);
 }
 
 
