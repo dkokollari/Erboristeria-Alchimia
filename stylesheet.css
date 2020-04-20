@@ -26,6 +26,9 @@
 
 }
                                 /* overwite default a rules */
+*:focus {
+  outline: 4px solid red !important;
+  }
 html, body {
   height: 100%;
 }
@@ -86,7 +89,7 @@ h1 span {
   width: 100vw;
   height: 100vw;
   z-index: -1;
-  filter: brightness(0.8);
+  filter: brightness(0.7);
 }
 
 
@@ -225,7 +228,7 @@ transition: transform 1s ease;
               background-size: cover;
               background-position: 0 -28.4vw;
               background-repeat: no-repeat;
-              filter: brightness(0.8);
+              filter: brightness(0.7);
               position: absolute;
               top: 0;
               left: 0;
@@ -645,7 +648,7 @@ transition: transform 1s ease;
 
 /* PER RIMUOVERE PRECEDENTI STILI */
 #orario p {
-  line-height: auto;
+
   margin: auto;
 }
 #orario {
