@@ -40,7 +40,7 @@ document.addEventListener('click', function(e) {
                     /*---------------    MENU    (mobile)   ---------------*/
 
 /* add an event listener to menu_btn. onclick=""" hada problem with the keyboard navigation (no keyboard on mobile tho, my bad) */
-for (i = 0; i < button.length; i++) {
+for (i = 0; i < menu_btn.length; i++) {
   menu_btn[i].addEventListener('click', menuToggle);
 }
 
