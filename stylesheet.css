@@ -353,8 +353,8 @@ transition: transform 1s ease;
        }
        /*  for those that use the tablet with a mouse :) */
        #menu li a:hover {
-         color: var(--orange-light);
-         border-bottom: var(--orange-light) dashed;
+         color: var(--yellow-dark);
+         border-bottom: var(--yellow-dark) dashed;
        }
        #footer {
            width: 100%;
