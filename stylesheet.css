@@ -139,7 +139,7 @@ h3 {
 }
 #content h4, #menu li {                                     /*       DA RIVERE         */
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.02em;
   text-align: center;
   color: var(--yellow-dark);
   margin:1em;
@@ -160,7 +160,7 @@ transition: transform 1s ease;
 
                                   /*   ----------------  MOBILE   ------------------   */
 
-@media screen and (max-width:599px) {
+@media screen and (max-width:699px) {
               #close_menu {
                 margin:auto;
               }
@@ -169,7 +169,7 @@ transition: transform 1s ease;
                width: 12vw;
              }
              #menu {
-              /* top:0; */
+              top:0;
               z-index: 5;
               position: fixed;
               opacity: 1;
@@ -301,7 +301,10 @@ transition: transform 1s ease;
 
                         /*        TABLET MODE HEADER          */
 
-@media screen and (min-width:600px)   {
+@media screen and (min-width:700px)   {
+      body {
+        margin-top: 37vw;
+      }
       .menu_btn {
         display: none;
       }
@@ -321,26 +324,32 @@ transition: transform 1s ease;
          width: 100%;
          display: block;
          height: 2.8em;
-         margin-top: 37vw;
+         margin-top:0;
          position: sticky;
          top:0;
-         background-color: var(--yellow-dark);
+         background-color: var(--yellow-light);
          transform: translateX(0);
          text-align: center;
        }
        #menu ul {
          text-align: center;
+         display: flex;
+         height: 100%;
        }
        #menu li {
-         display: inline-block;
-         color: white;
-         padding: 0.7em 1.5% 0.7em 1.5%;
-         margin: 0;
+         display: flex;
+         justify-content: center;
+         color: var(--grey-dark);
+         flex-grow: 1;
+         margin: auto;
+         height: 100%;
+       }
+       #menu li >* {
+         margin: auto;
        }
        #menu .selected_page {
-         background-color: white;
-         color: var(--grey-light);
-         border-radius: 10px 10px 0 0;
+         background-color: var(--yellow-main);
+         color: var(--grey-dark);
        }
        /*  for those that use the tablet with a mouse :) */
        #menu li a:hover {
@@ -353,7 +362,7 @@ transition: transform 1s ease;
 
 }
 
-@media screen and (min-width:600px) and (max-width:1024px) {
+@media screen and (min-width:700px) and (max-width:1024px) {
 
         #header_image {
           top: -30vw;
@@ -369,32 +378,34 @@ transition: transform 1s ease;
 
 @media screen and (min-width: 1025px) {
 
-
+      body{
+        margin-top: 250px;
+      }
       .container {
         margin: 0 auto 0 auto;
         box-shadow: 0 3px 6px rgba(0,0,0,0.10), 0 3px 6px rgba(0,0,0,0.17);
       }
 
-.container, #header_image, h1, body #footer {
-        width: 1000px;
-  }
+      .container, #header_image, h1, body #footer {
+              width: 1000px;
+        }
 
-#informazioni #orari li {
-  display: block;
-  text-align: center;
-  margin-left: 30%;
-}
+      #informazioni #orari li {
+        display: block;
+        text-align: center;
+        margin-left: 30%;
+      }
 
-#informazioni li p {
-    float: left;
-}
+      #informazioni li p {
+          float: left;
+      }
 
-#informazioni .giornoSett {
-  min-width: 20%;
-  float: left;
-}
+      #informazioni .giornoSett {
+        min-width: 20%;
+        float: left;
+      }
 
-#header_image {
+      #header_image {
         top: -300px;
       }
       h1 {
@@ -403,37 +414,6 @@ transition: transform 1s ease;
       }
       body #content {
         margin-top: 0;
-      }
-      body #menu {
-        z-index: 5;
-        width: 100%;
-        display: block;
-        height: 2.8em;
-        margin-top: 250px;
-        position: sticky;
-        top:0;
-        background-color: var(--yellow-dark);
-        transform: translateX(0);
-        text-align: center;
-      }
-      body #menu li {
-        display: inline-block;
-        color: white;
-        padding: 0.8em 1em 0.7em 1em;
-        margin:0;
-      }
-      body #menu .selected_page {
-        background-color: white;
-        color: var(--grey-light);
-        border-radius: 10px 10px 0 0;
-      }
-      body #menu li a:hover {
-        color: var(--orange-light);
-        border-bottom: var(--orange-light) dashed;
-      }
-      body #menu ul {
-        text-align: center;
-        height: 100%;
       }
       body .card {
         cursor: default;
