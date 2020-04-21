@@ -26,15 +26,17 @@
     <div id="content">
       <h2>Trova ci&ograve; che ti serve</h2>
       <!--      https://www.w3schools.com/howto/howto_js_filter_lists.asp      -->
-      <input type="text" id="myInput" onkeyup="myFunction()"
-              placeholder="Inserisci il nome.." title="Inserisci un nome"></input>
+      <form action="ricerca.php" method = "post"> 
+        <input type="text" id="myInput" onkeyup="myFunction()"
+              placeholder="Inserisci il nome.." name = "search" title="Inserisci un nome"></input>
+        <input type = "submit" value = "invia"/>
+      </form>
       <ul id="myUL">
         %SEARCH_RESULTS%
       </ul>
     </div>
     <!--          FOOTER            -->
     <div id="footer"> I piedi in doccia si lavano da soli con l'acqua che cade </div>
-  <!-- MUST FIND OUT IF IT IS USELESS OR NOT!
-    <script src="js/ricercaW3CDardi.js"></script> -->
   </body>
+    <!-- <script src="js/ricercaW3CDardi.js"></script>--> 
 </html>
