@@ -8,18 +8,15 @@
 
   $con = new DBAccess();
   if($con->openConnection()){
+    $pagina = file_get_contents('teinfusi.html');
+    $lista = "";
 
+    $pagina = str_replace("%LISTA_TE_E_INFUSI%", $lista, $pagina);
+
+    echo $pagina;
   }
   else{
     echo "<h1>Impossibile connettersi al database riprovare pi&ugrave; tardi<h1>";
-    exit;
-  }
-
-  /* visualizza il set di caratteri utilizzato dal client */
-  //printf("Initial character set: %s\n", $con->character_set_name());
-  /* cambia il set di caratteri in utf8 */
-  if(!$con->set_charset("utf8")){
-    //printf("Error loading character set utf8: %s\n", $con->error);
     exit;
   }
 
