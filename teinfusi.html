@@ -5,26 +5,21 @@
     <meta name="description" content="Visualizza i nostri te e infusi"/>
     <meta name="language" content="italian it"/>
     <meta name="author" content="Erboristeria Alchimia"/>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-    <link rel="stylesheet" href="stylesheet.css"></link>
-    <link href="https://fonts.googleapis.com/css?family=Poppins:300,600&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png"/>
+    <link rel="stylesheet" href="stylesheet.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,600&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet"/>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   </head>
 
   <body>
     <div class="container" id="container_te_e_infusi">
-
-
-                          <!--          HEADER             -->
-
       <div id="menu">
         <button><i class="material-icons-round" onclick="showMenu()">cancel</i></button>
-
         <ul>
           <li><a href="homepage.html">Homepage</a></li>
           <li><a href="eventi.html">Eventi</a></li>
@@ -34,30 +29,24 @@
         </ul>
         <!-- <h4>Erboristeria <span>Alchimia</span></h4> -->        <!-- non c'e' spazio nei dispositivi piu' vecchi come iPhone 4, magari da implementare in futuro -->
       </div>
-
       <button id="right-of-menu" onclick="showMenu()"></button>
-
-      <button><i id="menu_icon" class="material-icons-round" onclick="showMenu()">menu</i></button>
+      <button>
+        <i id="menu_icon" class="material-icons-round" onclick="showMenu()">menu</i>
+      </button>
 
       <div id="topbar">
         <h1 id="topbar_title">T&egrave; & infusi</h1>
       </div>
-
       <div id="header_image" class="fit"></div>
       <h1>T&egrave; e Infusi</h1>
 
-                          <!--         CONTENT            -->
-
       <div id="content">
-
         <h2>Una passione per gli infusi</h2>
+        <!-- descrizione rapida della pagina -->
         <p>
           In questa pagina potete trovare le mie composizioni di t&egrave; e infusi che ho preparato per voi ponendo attenzione alle varie propriet&agrave; e sapori.
-
         </p>
-
-                          <!--          CONSIGLI DI MARIKA            -->
-
+        <!-- sezione per i consigli di Marika -->
         <button class="tips_and_tricks collapsed expanded">
           <!-- <i class="material-icons-round">emoji_food_beverage</i> -->
           <h3>Il consiglio di Marika</h3>
@@ -75,12 +64,11 @@
         </button>
         <p>Queste sono solo alcune delle mie proposte, ma &egrave; sempre possibile richiedere un mix personalizzato che pi&ugrave; si addice ai vostri gusti.</p>
 
-                          <!--          LISTA DI INFUSI            -->
+        <!-- sezione lista di te e infusi -->
         <dl>
-
           <button class="card collapsed">
             <img src="img/te_oolong_frutta.jpg"/>
-           <h3><dt>T&egrave; Oolong alla frutta</dt></h3>      <!-- ricontrollare sintassi -->
+            <h3><dt>T&egrave; Oolong alla frutta</dt></h3>      <!-- ricontrollare sintassi -->
             <dd>
               <h4>Ingredienti</h4>
               <p>Th&egrave; Oolong, frutta candita in proporzione variabile (Goji, papaya, pesca, fichi), calendula fiori, fiordaliso fiori, aromi.</p>
@@ -96,7 +84,7 @@
 
           <button class="card collapsed">
             <img src="img/te_rosso_africa_bio.jpg"/>
-           <h3><dt>T&egrave; Rosso Africa Bio</dt></h3>      <!-- ricontrollare sintassi -->
+            <h3><dt>T&egrave; Rosso Africa Bio</dt></h3>      <!-- ricontrollare sintassi -->
             <dd>
               <h4>Ingredienti</h4>
               <p>Miscela di Rooibos, scorza di arancia, lampone, mirtilli e fiori al profumo di agrumi. Da agricoltura Bio</p>
@@ -108,20 +96,14 @@
             </dd>
             <i class="material-icons-round">expand_more</i>
           </button>
-
         </dl>
       </div>
 
-
-
-                          <!--          FOOTER            -->
       <div id="footer">
         I piedi in doccia si lavano da soli con l'acqua che cade
       </div>
 
     </div>
   </body>
-
   <script src="js/design.js"></script>
-
 </html>
