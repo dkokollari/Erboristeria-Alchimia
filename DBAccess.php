@@ -35,14 +35,14 @@
           $output .=
         '<button class="card collapsed">
           <img src="img/te_e_infusi/'.(file_exists("img/te_e_infusi/".$row["id_te_e_infusi"].".jpg") ? $row["id_te_e_infusi"].".jpg" : "0.jpg").'"/>
-          <h3><dt>'.htmlentities($row["nome_te_e_infusi"], ENT_NOQUOTES).'</dt></h3>
+          <h3><dt>'.$row["nome_te_e_infusi"].'</dt></h3>
           <dd>
             <h4>Ingredienti</h4>
-            <p>'.htmlentities($row["ingredienti_te_e_infusi"], ENT_NOQUOTES).'</p>
+            <p>'.nl2p($row["ingredienti_te_e_infusi"]).'</p>
             <h4>Descrizione</h4>
-            <p>'.htmlentities($row["descrizione_te_e_infusi"], ENT_NOQUOTES).'</p>
+            <p>'.nl2p($row["descrizione_te_e_infusi"]).'</p>
             <h4>Preparazione</h4>
-            <p>'.htmlentities($row["preparazione_te_e_infusi"], ENT_NOQUOTES).'</p>
+            <p>'.nl2p($row["preparazione_te_e_infusi"]).'</p>
           </dd>
           <i class="material-icons-round">expand_more</i>
         </button>
@@ -61,6 +61,11 @@
         $result = $row['id_te_e_infusi'];
       }
       return $result;
+    }
+    
+    /* mette i tag di paragrafo ad ogni nuova riga */
+    private function nl2p($text){
+      return str_replace(array("\r\n", "\r", "\n"), "</p><p>", $text);
     }
 
     public function closeConnection(){
