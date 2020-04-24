@@ -2,7 +2,7 @@
   require_once("DBAccess.php");
 
   /* mette i tag di paragrafo ad ogni nuova riga */
-  function nl2p($text) {
+  function nl2p($text){
     return str_replace(array("\r\n", "\r", "\n"), "</p><p>", $text);
   }
 
@@ -18,16 +18,16 @@
   /* visualizza il set di caratteri utilizzato dal client */
   //printf("Initial character set: %s\n", $con->character_set_name());
   /* cambia il set di caratteri in utf8 */
-  if (!$con->set_charset("utf8")) {
+  if(!$con->set_charset("utf8")){
     //printf("Error loading character set utf8: %s\n", $con->error);
-    exit();
+    exit;
   }
 
   $query_visualizza_te_e_infusi = "SELECT id_te_e_infusi, nome_te_e_infusi, ingredienti_te_e_infusi, descrizione_te_e_infusi, preparazione_te_e_infusi FROM te_e_infusi";
 
-  if ($result = mysqli_query($con, $query_visualizza_te_e_infusi)) {
-    while ($row = mysqli_fetch_assoc($result)) {
-      print (
+  if($result = mysqli_query($con, $query_visualizza_te_e_infusi)){
+    while($row = mysqli_fetch_assoc($result)){
+      print(
         '<div class="card collapsed">'."\n".
         //controllo se l'immagine esiste (importante che sia in formato jpg) e in caso la visualizzo, altrimenti mostro un immagine statica presente nella directory
         ' <img src="img/te_e_infusi/'.(file_exists("img/te_e_infusi/".$row["id_te_e_infusi"].".jpg") ? $row["id_te_e_infusi"].'.jpg' : '0.jpg').'"/>'."\n".
@@ -45,5 +45,4 @@
     mysqli_free_result($result);
   }
 
-  mysqli_close($con);
 ?>
