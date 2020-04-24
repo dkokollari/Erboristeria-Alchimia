@@ -27,6 +27,17 @@
       return (mysqli_query($this->connection, $query) ? true : false);
     }
 
+    public function getTeInfusi(){
+      $query = "SELECT `id_te_e_infusi`, `descrizione_immagine_te_e_infusi`, `nome_te_e_infusi`, `ingredienti_te_e_infusi`, `descrizione_te_e_infusi`, `preparazione_te_e_infusi` FROM `te_e_infusi`";
+      $output = "";
+      if($result = mysqli_query($this->connection, $query)){
+        while($row = mysqli_fetch_assoc($result)){
+          $output .= "";
+        }
+      }
+      return $output;
+    }
+
     public function getId($name){
       $result = "errore";
       $query = "SELECT id_te_e_infusi FROM te_e_infusi WHERE nome_te_e_infusi= '".$name."'";
