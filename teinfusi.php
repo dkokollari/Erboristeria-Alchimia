@@ -9,10 +9,9 @@
   $con = new DBAccess();
   if($con->openConnection()){
     $pagina = file_get_contents('teinfusi.html');
-    $lista = "";
+    $lista = $con->getTeInfusi();
 
     $pagina = str_replace("%LISTA_TE_E_INFUSI%", $lista, $pagina);
-
     echo $pagina;
   }
   else{
