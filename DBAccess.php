@@ -29,25 +29,9 @@
 
     public function getTeInfusi(){
       $query = "SELECT `id_te_e_infusi`, `descrizione_immagine_te_e_infusi`, `nome_te_e_infusi`, `ingredienti_te_e_infusi`, `descrizione_te_e_infusi`, `preparazione_te_e_infusi` FROM `te_e_infusi`";
-      $output = "";
       if($result = mysqli_query($this->connection, $query)){
         while($row = mysqli_fetch_assoc($result)){
-          $output .=
-        '<button class="card collapsed">
-          <img src="img/te_e_infusi/'.(file_exists("img/te_e_infusi/".$row["id_te_e_infusi"].".jpg") ? $row["id_te_e_infusi"].".jpg" : "0.jpg").'"/>
-          <h3><dt>'.$row["nome_te_e_infusi"].'</dt></h3>
-          <dd>
-            <h4>Ingredienti</h4>
-            <p>'.$this->nl2p($row["ingredienti_te_e_infusi"]).'</p>
-            <h4>Descrizione</h4>
-            <p>'.$this->nl2p($row["descrizione_te_e_infusi"]).'</p>
-            <h4>Preparazione</h4>
-            <p>'.$this->nl2p($row["preparazione_te_e_infusi"]).'</p>
-          </dd>
-          <i class="material-icons-round">expand_more</i>
-        </button>
-
-        ';
+          $output[] = $row;
         }
       }
       return $output;
@@ -65,11 +49,6 @@
 
     public function closeConnection(){
       mysqli_close($this->connection);
-    }
-
-    /* mette i tag di paragrafo ad ogni nuova riga */
-    private function nl2p($text){
-      return str_replace(array("\r\n", "\r", "\n"), "</p><p>", $text);
     }
 
   }
