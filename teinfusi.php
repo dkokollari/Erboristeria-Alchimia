@@ -13,20 +13,26 @@
 
     $pagina = file_get_contents('teinfusi.html');
     $lista_te_e_infusi = $con->getTeInfusi();
-    $image = new Image();
 
     foreach ($lista_te_e_infusi as $row){
+      $immagine = Image::getImage("./img/te_e_infusi/", $row["id_te_e_infusi"]);
+      $descrizione_immagine = htmlentities($row["descrizione_immagine_te_e_infusi"]);
+      $nome = htmlentities($row["nome_te_e_infusi"]);
+      $ingredienti = nl2p(htmlentities($row["ingredienti_te_e_infusi"]));
+      $descrizione = nl2p(htmlentities($row["descrizione_te_e_infusi"]));
+      $preparazione = nl2p(htmlentities($row["preparazione_te_e_infusi"]));
+
       $lista .=
         '<button class="card collapsed">
-          <img src="'.$image->getImage("./img/te_e_infusi/", $row["id_te_e_infusi"]).'"/>
-          <h3><dt>'.htmlentities($row["nome_te_e_infusi"]).'</dt></h3>
+          <img src="'.$immagine.'" alt="'.$descrizione_immagine.'"/>
+          <h3><dt>'.$nome.'</dt></h3>
           <dd>
             <h4>Ingredienti</h4>
-            <p>'.nl2p(htmlentities($row["ingredienti_te_e_infusi"])).'</p>
+            <p>'.$ingredienti.'</p>
             <h4>Descrizione</h4>
-            <p>'.nl2p(htmlentities($row["descrizione_te_e_infusi"])).'</p>
+            <p>'.$descrizione.'</p>
             <h4>Preparazione</h4>
-            <p>'.nl2p(htmlentities($row["preparazione_te_e_infusi"])).'</p>
+            <p>'.$preparazione.'</p>
           </dd>
           <i class="material-icons-round">expand_more</i>
         </button>
