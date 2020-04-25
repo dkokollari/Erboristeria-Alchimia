@@ -37,5 +37,11 @@ class Image {
     return (in_array($ext, $ext_ok) ? $result : $path."/0.jpg");
   }
 
+  private function checkExt($name){
+    $ext_ok = array('jpg', 'jpeg', 'png', 'gif');
+    $temp = explode('.',$name);
+    $ext = array_pop($temp);
+    return in_array($ext, $ext_ok);
+  }
 }
 ?>
