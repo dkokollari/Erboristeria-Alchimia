@@ -1,4 +1,7 @@
 <?php
+
+  header('Content-Type: text/html; charset=ISO-8859-1');
+
   require_once("DBAccess.php");
   require_once("Image.php");
 
@@ -6,6 +9,10 @@
   if($con->openConnection()){
     $pagina = file_get_contents('teinfusi.html');
     $lista_te_e_infusi = $con->getTeInfusi();
+    if (!$con->connection->set_charset("utf8")) {
+      //printf("Error loading character set utf8: %s\n", $con->error);
+      exit(1);
+    }
     $image = new Image();
 
     foreach ($lista_te_e_infusi as $row){
