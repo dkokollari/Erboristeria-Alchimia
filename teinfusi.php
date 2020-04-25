@@ -1,11 +1,12 @@
 <?php
   require_once("DBAccess.php");
+  require_once("Image.php");
 
   $con = new DBAccess();
   if($con->openConnection()){
     $pagina = file_get_contents('teinfusi.html');
     $lista_te_e_infusi = $con->getTeInfusi();
-    
+
     foreach ($lista_te_e_infusi as $row){
       $lista .=
       '<button class="card collapsed">
