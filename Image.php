@@ -1,7 +1,10 @@
 <?php
 class Image {
   public function isValid($name){
-    if(checkExt($name)){
+    $ext_ok = array('jpg', 'jpeg', 'png', 'gif');
+    $temp = explode('.',$name);
+    $ext = array_pop($temp);
+    if(in_array($ext, $ext_ok)){
       return "";
     }
     else{
@@ -34,12 +37,5 @@ class Image {
     return ($result[0] ? $result[0]: $path."0.jpg");
   }
 
-  /* controlla se il nome inserito ha un'estensione approvata (guardare $ext_ok) */
-  private function checkExt($name){
-    $ext_ok = array('jpg', 'jpeg', 'png', 'gif');
-    $temp = explode('.',$name);
-    $ext = array_pop($temp);
-    return in_array($ext, $ext_ok);
-  }
 }
 ?>
