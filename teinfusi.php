@@ -19,14 +19,14 @@
       $lista .=
       '<button class="card collapsed">
         <img src="'.$image->getImage("./img/te_e_infusi/", $row["id_te_e_infusi"]).'"/>
-        <h3><dt>'.$row["nome_te_e_infusi"].'</dt></h3>
+        <h3><dt>'.htmlentities($row["nome_te_e_infusi"]).'</dt></h3>
         <dd>
           <h4>Ingredienti</h4>
-          <p>'.nl2p($row["ingredienti_te_e_infusi"]).'</p>
+          <p>'.nl2p(htmlentities($row["ingredienti_te_e_infusi"])).'</p>
           <h4>Descrizione</h4>
-          <p>'.nl2p($row["descrizione_te_e_infusi"]).'</p>
+          <p>'.nl2p(htmlentities($row["descrizione_te_e_infusi"])).'</p>
           <h4>Preparazione</h4>
-          <p>'.nl2p($row["preparazione_te_e_infusi"]).'</p>
+          <p>'.nl2p(htmlentities($row["preparazione_te_e_infusi"])).'</p>
         </dd>
         <i class="material-icons-round">expand_more</i>
       </button>
