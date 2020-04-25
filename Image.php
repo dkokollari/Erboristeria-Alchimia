@@ -29,5 +29,13 @@ class Image {
     unlink($file);
   }
 
+  public function getImage($path, $id){
+    $result = glob ($path.$id".*");
+    $ext_ok = array('jpg', 'jpeg', 'png', 'gif');
+    $temp = explode('.',$result);
+    $ext = array_pop($temp);
+    return (in_array($ext, $ext_ok) ? $result : $path."/0.jpg");
+  }
+
 }
 ?>
