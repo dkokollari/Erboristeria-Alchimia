@@ -34,6 +34,7 @@ class Image {
     return (checkExt($result) ? $result : $path."/0.jpg");
   }
 
+  /* controlla se il nome inserito ha un'estensione approvata (guardare $ext_ok) */
   private function checkExt($name){
     $ext_ok = array('jpg', 'jpeg', 'png', 'gif');
     $temp = explode('.',$name);
