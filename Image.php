@@ -30,8 +30,8 @@ class Image {
   }
 
   public function getImage($path, $id){
-    $result = glob($path.$id".*");
-    return (checkExt($result) ? $result : $path."/0.jpg");
+    $result = glob($path.$id.".{jpg,jpeg,png,gif}", GLOB_BRACE);
+    return ($result[0] ? $result[0]: $path."0.jpg");
   }
 
   /* controlla se il nome inserito ha un'estensione approvata (guardare $ext_ok) */
