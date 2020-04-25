@@ -1,12 +1,12 @@
 <?php
 class Image {
   public function isValid($name){
-    $ext_ok = array('jpg', 'jpeg', 'png', 'gif');
-    $temp = explode('.',$name);
-    $ext = array_pop($temp);
-    if(in_array($ext, $ext_ok)){
+    if(checkExt($name)){
       return "";
-    } else { return '<small class="err_msg">inserisci immagine (.jpg,.jpeg,.png,.gif)</small>';}
+    }
+    else{
+      return '<small class="err_msg">inserisci immagine (.jpg,.jpeg,.png,.gif)</small>';
+    }
   }
 
   public function uploadImageTeInfusi($name , $temp, $id){
@@ -30,11 +30,8 @@ class Image {
   }
 
   public function getImage($path, $id){
-    $result = glob ($path.$id".*");
-    $ext_ok = array('jpg', 'jpeg', 'png', 'gif');
-    $temp = explode('.',$result);
-    $ext = array_pop($temp);
-    return (in_array($ext, $ext_ok) ? $result : $path."/0.jpg");
+    $result = glob($path.$id".*");
+    return (checkExt($result) ? $result : $path."/0.jpg");
   }
 
   private function checkExt($name){
