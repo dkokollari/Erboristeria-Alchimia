@@ -1,48 +1,60 @@
-<!doctype html>
-<html lang="en" >
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
   <head>
-                        <!-- da rivedere  -->
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-    <title>Te e Infusi - Erboristeria Alchimia</title>
-    <link rel="stylesheet" href="stylesheet.css"></link>
-    <link href="https://fonts.googleapis.com/css?family=Poppins:300,600&display=swap" rel="stylesheet">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link rel="icon" href="img/favicon.ico" />
 
-    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+
+    <title>T&egrave; &amp; Infusi - Erboristeria Alchimia</title>
+    <link rel="stylesheet" href="stylesheet.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,600&amp;display=swap" rel="stylesheet"/>
+
+    <!-- <link href="https://fonts.googleapis.com/css?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons+Outlined" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons+Two+Tone" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons+Round" rel="stylesheet" />
+    <!-- <link href="https://fonts.googleapis.com/css?family=Material+Icons+Sharp" rel="stylesheet"> -->
+
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
   </head>
 
   <body>
     <div class="container" id="container_te_e_infusi">
 
-
                           <!--          HEADER             -->
 
-      <div id="menu">
-        <button><i class="material-icons-round" onclick="showMenu()">cancel</i></button>
-
-        <ul>
-          <li><a href="homepage.html">Homepage</a></li>
-          <li><a href="eventi.html">Eventi</a></li>
-          <li class="selected_page"><p>T&egrave; e Infusi</p></li>
-          <li><a href="prodotti.html">Prodotti</a></li>
-          <li><a href="pagina_informazioni">Informazioni</a></li>
-        </ul>
-        <!-- <h4>Erboristeria <span>Alchimia</span></h4> -->        <!-- non c'e' spazio nei dispositivi piu' vecchi come iPhone 4, magari da implementare in futuro -->
-      </div>
-
-      <button id="right-of-menu" onclick="showMenu()"></button>
-
-      <button><i id="menu_icon" class="material-icons-round" onclick="showMenu()">menu</i></button>
+      <div id="header_image" class="fit"></div>
+      <h1>T&egrave; &amp; infusi</h1>
 
       <div id="topbar">
-        <h1 id="topbar_title">T&egrave; & infusi</h1>
+        <h1 id="topbar_title">T&egrave; &amp; Infusi</h1>
       </div>
 
-      <div id="header_image" class="fit"></div>
-      <h1>T&egrave; e Infusi</h1>
 
+      <button class="menu_btn"><span id="menu_icon" class="material-icons-round">menu</span></button>
+      <div id="menu">
+
+
+        <ul title="Menu">
+          <li><a href="homepage.html" xml:lang="en">Homepage</a></li>
+          <li><a href="eventi.html">Eventi</a></li>
+          <li class="selected_page"><p>T&egrave; &amp; Infusi</p></li>
+          <li><a href="prodotti.html">Prodotti</a></li>
+          <li><a href="informazioni.html">Informazioni</a></li>
+          <li><a href="la_mia_storia.html">La mia storia</a></li>
+
+          <li class="menu_btn">
+            <img src="icons/cancel.svg" alt="Chiudi il menu"/>
+          </li>
+        </ul>
+
+
+
+      </div>
+      <button id="right-of-menu" class="menu_btn" title="chiudi il menu"></button>
                           <!--         CONTENT            -->
 
       <div id="content">
@@ -55,58 +67,62 @@
 
                           <!--          CONSIGLI DI MARIKA            -->
 
-        <button class="tips_and_tricks collapsed expanded">
+        <button title="Premi per espandere" class="tips_and_tricks collapsed expanded  display_none">
           <!-- <i class="material-icons-round">emoji_food_beverage</i> -->
           <h3>Il consiglio di Marika</h3>
           <!-- <i class="material-icons-round">emoji_food_beverage</i> -->
-          <h4>Le 5 regole d'oro per preparare un buon t&egrave;</h4>
-          <p>Preparare un buon t&egrave; &egrave; semplice se si tengono a mente alcune regole:</p>
-          <ul>
-            <li><span>La qualita dell'acqua &egrave; importante ai fini del gusto</span>: utilizzare acqua a basso residuo fisso, dolce, poco calcarea</li>
-            <li><span>Utilizzare un infusore ad immersione capiente,</span> in modo che le foglie di t&egrave; possano aprirsi e liberare il profumo ed il gusto o in alternativa filtrare in una seconda teiera</li>
-            <li><span>Utilizzare l'acqua alla giusta temperatura secondo le categorie del t&egrave;.</span> Attenzione i t&egrave; verdi e bianchi vogliono una temperatura di unfusione tra i 70 e gli 80 &#8451;. In questo modo risultano morbidi e soavi in tazza</li>
-            <li><span>Versare l'acqua sulle foglie di t&egrave;</span></li>
-            <li><span>Lasciare il te in infusione per il corretto tempo,</span> secondo le indicazioni relative alla categoria (chiedetemi pure in erboristeria)</li>
-          </ul>
-          <i class="material-icons-round">expand_more</i>
+          <div class="hidden_tip">
+            <h4>Le 5 regole d'oro per preparare un buon t&egrave;</h4>
+            <p>Preparare un buon t&egrave; &egrave; semplice se si tengono a mente alcune regole:</p>
+            <ul>
+              <li><span>La qualita dell'acqua &egrave; importante ai fini del gusto</span>: utilizzare acqua a basso residuo fisso, dolce, poco calcarea</li>
+              <li><span>Utilizzare un infusore ad immersione capiente,</span> in modo che le foglie di t&egrave; possano aprirsi e liberare il profumo ed il gusto o in alternativa filtrare in una seconda teiera</li>
+              <li><span>Utilizzare l'acqua alla giusta temperatura secondo le categorie del t&egrave;.</span> Attenzione i t&egrave; verdi e bianchi vogliono una temperatura di unfusione tra i 70 e gli 80 &#8451;. In questo modo risultano morbidi e soavi in tazza</li>
+              <li><span>Versare l'acqua sulle foglie di t&egrave;</span></li>
+              <li><span>Lasciare il te in infusione per il corretto tempo,</span> secondo le indicazioni relative alla categoria (chiedetemi pure in erboristeria)</li>
+            </ul>
+          </div>
+          <span class="expand_icon material-icons-round">expand_more</span>
         </button>
+
         <p>Queste sono solo alcune delle mie proposte, ma &egrave; sempre possibile richiedere un mix personalizzato che pi&ugrave; si addice ai vostri gusti.</p>
 
                           <!--          LISTA DI INFUSI            -->
-        <dl>
+                          <!-- TODO abbreviazioni (grammi) -->
+        <div id="lista_infusi">
 
           <button class="card collapsed">
-            <img src="img/te_oolong_frutta.jpg"/>
-           <h3><dt>T&egrave; Oolong alla frutta</dt></h3>      <!-- ricontrollare sintassi -->
-            <dd>
-              <h4>Ingredienti</h4>
-              <p>Th&egrave; Oolong, frutta candita in proporzione variabile (Goji, papaya, pesca, fichi), calendula fiori, fiordaliso fiori, aromi.</p>
-              <h4>Descrizione</h4>
-              <p>Il fascino dell'antica Cina rivive in questa miscela che unisce il t&egrave; Oolong, semi-ossidato alla frutta.</p>
-              <p>Il t&egrave; Oolong essendo un semi-ossidato conserva parte delle qualit&agrave; antiossidanti del t&egrave; verde, &egrave; ricco di minerali come il calcio ed ha poca teina.</p>
-              <p>Colore giallo paglierino, profumo delicato fruttato.</p>
-              <h4>Preparazione</h4>
-              <p>3-4g per tazza da 200ml acqua a 90 gradi per 5 minuti.</p>
-            </dd>
-            <i class="material-icons-round">expand_more</i>
+            <img src="img/te_oolong_frutta.jpg" alt="immagine te oolong alla frutta"/>
+            <h3>T&egrave; Oolong alla frutta</h3>
+
+            <h4>Ingredienti</h4>
+            <p>Th&egrave; Oolong, frutta candita in proporzione variabile (Goji, papaya, pesca, fichi), calendula fiori, fiordaliso fiori, aromi.</p>
+            <h4>Descrizione</h4>
+            <p>Il fascino dell'antica Cina rivive in questa miscela che unisce il t&egrave; Oolong, semi-ossidato alla frutta.</p>
+            <p>Il t&egrave; Oolong essendo un semi-ossidato conserva parte delle qualit&agrave; antiossidanti del t&egrave; verde, &egrave; ricco di minerali come il calcio ed ha poca teina.</p>
+            <p>Colore giallo paglierino, profumo delicato fruttato.</p>
+            <h4>Preparazione</h4>
+            <p>3-4g per tazza da 200ml acqua a 90 gradi per 5 minuti.</p>
+            <span class="expand_btn material-icons-round">expand_more</span>
           </button>
 
           <button class="card collapsed">
-            <img src="img/te_rosso_africa_bio.jpg"/>
-           <h3><dt>T&egrave; Rosso Africa Bio</dt></h3>      <!-- ricontrollare sintassi -->
-            <dd>
-              <h4>Ingredienti</h4>
-              <p>Miscela di Rooibos, scorza di arancia, lampone, mirtilli e fiori al profumo di agrumi. Da agricoltura Bio</p>
-              <h4>Descrizione</h4>
-              <p>Il t&egrave; rosso proviene dalla lavorazione dell'Asphalatus linearis ed &egrave; naturalmente privo di caffeina oltre che ricco di minerali.</p>
-              <p>Ottimo come infuso del pomeriggio per i bambini e per gli adulti che svolgono attivit&agrave; sportiva.</p>
-              <h4>Preparazione</h4>
-              <p>3-4g per tazza da 200ml acqua a 90 gradi per 5 minuti.</p>
-            </dd>
-            <i class="material-icons-round">expand_more</i>
+            <img src="img/te_rosso_africa_bio.jpg" alt="immagine te rosso africa bio"/>
+             <h3>T&egrave; Rosso Africa Bio</h3>
+
+            <h4>Ingredienti</h4>
+            <p>Miscela di Rooibos, scorza di arancia, lampone, mirtilli e fiori al profumo di agrumi. Da agricoltura Bio</p>
+            <h4>Descrizione</h4>
+            <p>Il t&egrave; rosso proviene dalla lavorazione dell'Asphalatus linearis ed &egrave; naturalmente privo di caffeina oltre che ricco di minerali.</p>
+            <p>Ottimo come infuso del pomeriggio per i bambini e per gli adulti che svolgono attivit&agrave; sportiva.</p>
+            <h4>Preparazione</h4>
+            <p>3-4g per tazza da 200ml acqua a 90 gradi per 5 minuti.</p>
+
+
+            <span class="expand_btn material-icons-round">expand_more</span>
           </button>
 
-        </dl>
+        </div>
       </div>
 
 
@@ -117,8 +133,7 @@
       </div>
 
     </div>
+  <script type="text/javascript" src="js/design.js"></script>
   </body>
-
-  <script src="js/design.js"></script>
 
 </html>

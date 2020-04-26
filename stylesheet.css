@@ -112,7 +112,7 @@ h1 span {
   padding-top: 2em;
   padding-bottom: 2em;
 }
-#content > * {
+#content > *, .expanded > * {
   margin-left:1.8em;
   margin-right: 1.8em;
 }
@@ -137,7 +137,7 @@ h3 {
   text-transform: uppercase;
   color: var(--yellow-dark);
 }
-#content h4, #menu li {                                     /*       DA RIVERE         */
+h4, #menu li {                                     /*       DA RIVERE         */
   text-transform: uppercase;
   letter-spacing: 0.02em;
   text-align: center;
@@ -164,9 +164,12 @@ transition: transform 1s ease;
               #close_menu {
                 margin:auto;
               }
-             .menu_btn {
-               height: 12vw;
-               width: 12vw;
+              #menu .menu_btn {
+               height: 3em;
+               width: 3em;
+               background-size: contain;
+               background-image: url(icons/cancel.svg);
+               background-repeat: no-repeat;
              }
              #menu {
               top:0;
@@ -198,12 +201,16 @@ transition: transform 1s ease;
               transform: translateX(0);
               opacity: 0.5;
             }
-            #menu > button > span {
-              font-size: 2.2em;
-              line-height: 12vw;
-              margin-left: 2vw;
-              color: var(--red-main);
-              filter: brightness(1.6);
+            
+            #menu .menu_btn {
+              margin-left: auto;
+              margin-right: auto;
+            }
+
+            #menu  .menu_btn  img{
+              width: 100%;
+              height: 100%;
+              cursor: pointer;
             }
 
             #menu ul li a{
@@ -245,7 +252,7 @@ transition: transform 1s ease;
               background-size: cover;
               background-position: 0 -28.4vw;
               background-repeat: no-repeat;
-              filter: brightness(0.7);
+              filter: brightness(0.5);
               position: absolute;
               top: 0;
               left: 0;
@@ -289,7 +296,7 @@ transition: transform 1s ease;
               padding-top:10vw;
             }
             #content {
-              margin-top: 63vw;
+              margin-top: 75vw;
             }
             #footer {
                 width: 100%;
@@ -321,8 +328,6 @@ transition: transform 1s ease;
        }
        #menu {
          z-index: 5;
-         width: 100%;
-         display: block;
          height: 2.8em;
          margin-top:0;
          position: sticky;
@@ -387,7 +392,7 @@ transition: transform 1s ease;
       }
 
       .container, #header_image, h1, body #footer {
-              width: 1000px;
+              width: 1001px;
         }
 
       #informazioni #orari li {
@@ -428,63 +433,63 @@ transition: transform 1s ease;
 .tips_and_tricks {
   background-color: var(--orange-light);
   color: var(--orange-dark);
-  /* margin: 0 -9.5% 2em -9.5%; */
-  margin-bottom:2em;
-  padding: 0.6em 9% 1.5em 9%;
-  transition: max-height 0.8s ease;
-  max-height: 50em;
-  position: relative;
+  /* position: relative; */
 }
-.tips_and_tricks * {
-  transition: opacity 0.6s ease 0.3s;
-}
-.tips_and_tricks.collapsed{
+/* .tips_and_tricks .hidden_tip {
+  transition: 0.6s ease 0.3s;
+} */
+/* .tips_and_tricks.collapsed .hidden{
   max-height: 3.8em;
   overflow: hidden;
+} */
+.tips_and_tricks.display_none .hidden_tip {
+  display: none;
 }
-.tips_and_tricks.collapsed *{
+.tips_and_tricks.collapsed .hidden_tip {
   opacity: 0;
+  max-height: 0;
+  transition: 0.5s ease;
 }
-.tips_and_tricks h3:first-of-type {
-  clear: none;
-  color: var(--orange-dark);
-  margin:0;
-  opacity: 1;
-  width: 100%;
-  float: left;
+.tips_and_tricks .hidden_tip {
+  transition: 0.5s ease;
+  max-height: 50em;
 }
 .tips_and_tricks h3 {
-  clear: both;
-  margin-top: 3em;
-}
-#content .tips_and_tricks h4 {
-  margin-top: 3em;
+  margin: 1em;
   color: var(--orange-dark);
 }
-.tips_and_tricks i {
+.tips_and_tricks h4 {
+  color: var(--orange-dark);
+}
+/* .tips_and_tricks .expand_tip {
   width: 10%;
   float: left;
   text-align: center;
   line-height: 1.2em;
-}
-.tips_and_tricks.collapsed i{
-  opacity: 1;
-}
-.tips_and_tricks i:last-child {
+} */
+/* .tips_and_tricks.collapsed .expand-tip{
+
+} */
+/* .tips_and_tricks .expand_tip{
   position: absolute;
   bottom: 0;
   line-height: 1.2em;
-  width: 82%;            /* 100 - padding tips and tricks sopra*/
+  width: 82%;
   text-align: center;
   transition: transform 1s ease;
-}
+} */
 .tips_and_tricks ul {
   padding-left: 1.5em;
 }
 .tips_and_tricks ul span {
   font-weight: 600;
 }
-
+.tips_and_tricks .expand_icon {
+    transition: 0.8s ease;
+  margin:auto;
+  text-align: center;
+  width: 100%;
+}
 
                           /*       LISTA DI INFUSI      */
 
@@ -501,6 +506,7 @@ transition: transform 1s ease;
   transition: max-height 0.8s ease;
   opacity: 1;
   padding-bottom: 1em;
+  width: 100%;
 }
 .card.collapsed {
   max-height: 11.6em;
@@ -521,11 +527,9 @@ transition: transform 1s ease;
   display: flex;
   height: 2em;
   align-items: center;
+  justify-content: center;
 }
-.card dt {
-  width: 100%;
-}
-.card i:last-child {
+.card .expand_btn {
   position: absolute;
   bottom: 0;
   line-height: 1.2em;

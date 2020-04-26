@@ -53,10 +53,12 @@ function menuToggle() {
 
 
 
-$( document ).ready(function() {
+$(document).ready(function() {
+  if(document.getElementById("username")){
     if($("#username").val() != "") {
       $(username.previousElementSibling).addClass("filled");
     }
+  }
 });
     /*        function that moves the label in the login page     */
 $("#username, #password").on("blur", function() {
@@ -85,7 +87,7 @@ function scrollFix() {
 window.addEventListener('scroll', showTopbar);
  function showTopbar() {
     if (document.documentElement.scrollTop > marginTop) {
-      topbar.style.zIndex = "2";                                //controllare che gli vada bene usare STYLE (spoiler alert: NON VA BENE)
+      topbar.style.zIndex = "2";                                //controllare che gli vada bene usare STYLE (spoiler alert: NON VA BENE => DA CAMBIARE!!!!!!!!!!!!!!!!!)
       topbarTitle.classList.add("nopacity");
     } else {
       topbar.style.zIndex = "-2";
@@ -94,23 +96,34 @@ window.addEventListener('scroll', showTopbar);
  }
 
 
-                  /*---------------  EXPAND "tips_and_tricks" ELEMENT  ---------------*/
-
+                  /*--------------- EXPAND "tips_and_tricks" ELEMENT  ---------------*/
 
   /* function that adds a different event listener to every "tips_and_tricks" element to make it expandable */
 for (i = 0; i < tips.length; i++) {
   tips[i].addEventListener('click', expandTips);
-  tips[i].addEventListener('keydown', (event) => {
-    if (event.code === 'Space' || event.code === 'Enter') {
-        event.target.click();
-      }
-  });
+  // tips[i].addEventListener('keydown', (event) => {
+  //   if (event.code === 'Space' || event.code === 'Enter') {
+  //       event.target.click();
+  //     }
+  // });
 }
                     /* expands said "tips_and_tricks" element */
-
+/*function that enables the display of the hidden tip: first it gotta change the "display:none"property, then make the element visible; (to preserve accessibility and animations) */
 function expandTips() {
-  this.classList.toggle("collapsed");
-  this.lastElementChild.classList.toggle("rotated");
+  if (this.classList.contains("display_none")) {
+    this.classList.toggle("display_none");
+    setTimeout(() => {
+       this.classList.toggle("collapsed");
+       this.lastElementChild.classList.toggle("rotated");
+    }, 100);
+    /* I could create a function and pass the classes as parameters... but not now */
+  } else {
+    this.classList.toggle("collapsed");
+    this.lastElementChild.classList.toggle("rotated");
+    setTimeout(() => {
+       this.classList.toggle("display_none");
+    }, 600);
+  }
 }
 
 
