@@ -101,7 +101,10 @@ h1 span {
   filter: brightness(0.7);
 }
 
-
+#top_of_page {
+  position: absolute;
+  top: 0;
+}
 
                                         /*       CONTENT       */
 
@@ -201,7 +204,7 @@ transition: transform 1s ease;
               transform: translateX(0);
               opacity: 0.5;
             }
-            
+
             #menu .menu_btn {
               margin-left: auto;
               margin-right: auto;
@@ -243,7 +246,7 @@ transition: transform 1s ease;
             #container_te_e_infusi #topbar:before {
               background-image: url(img/home_background.jpg);
             }
-            /*  TODO: remember to reuce image size for loading time and performance*/
+            /*  TODO: remember to reduce image size for loading time and performance*/
             #container_la_mia_storia #topbar:before {
               background-image: url(img/la_mia_storia_background.jpg);
             }
@@ -312,11 +315,8 @@ transition: transform 1s ease;
       body {
         margin-top: 37vw;
       }
-      .menu_btn {
-        display: none;
-      }
 
-      #right-of-menu, #menu_icon, #topbar, #menu button:first-child {
+      #right-of-menu, #menu_icon, #menu .menu_btn, #topbar, #menu button:first-child {
          display: none;
        }
        .container {
@@ -419,11 +419,11 @@ transition: transform 1s ease;
       }
       body #content {
         margin-top: 0;
+        min-height: 90vh;
       }
-      body .card {
-        cursor: default;
-      }
+      #footer a:hover {
 
+      }
 }
 
 
@@ -507,6 +507,7 @@ transition: transform 1s ease;
   opacity: 1;
   padding-bottom: 1em;
   width: 100%;
+  cursor: pointer;
 }
 .card.collapsed {
   max-height: 11.6em;
