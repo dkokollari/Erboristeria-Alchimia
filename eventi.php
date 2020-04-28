@@ -15,7 +15,18 @@
 
     $lista_eventi = $con->getEventi();
     foreach ($lista_eventi as $row){
-      // $data;
+      $data_ora = new DateTime($row["data_ora_evento"]);
+      /* formati usati per data e ora:
+      *    data:
+      *      l = giorno testuale; d = giorno numerale; F = mese testuale;
+      *    ora:
+      *      H:i = ore:minuti;
+      *  maggiori informazioni sulle guide:
+      *    generic - https://www.php.net/manual/en/datetime.formats.php
+      *    date - https://www.php.net/manual/en/datetime.formats.date.php
+      *    time - https://www.php.net/manual/en/datetime.formats.time.php
+      */
+
       $immagine = Image::getImage("./img/eventi/", $row["id_evento"]);
       $descrizione_immagine = htmlentities($row["descrizione_immagine_evento"]);
       $titolo = htmlentities($row["titolo_evento"]);
@@ -24,7 +35,6 @@
       $indirizzo_mappa = htmlentities($row["indirizzo_mappe_evento"]);
       $url_mappa = $row["url_mappe_evento"];
       $descrizione_mappa = nl2p(htmlentities($row["descrizione_mappe_evento"]));
-      // $ora;
       $organizzazione = nl2p(htmlentities($row["organizzazione_evento"]));
       $posti_limitati = $row["prenotazione_posti_evento"];
 
@@ -32,7 +42,7 @@
         '<div class="card eventi">
           <div class= "tolgoLineaBianca">
             <div class="databox">
-              <p class="data">nulledi <span>null</span> nullobre</p>
+              <p class="data">'.$data_ora->format("l").' <span>'.$data_ora->format("d").'</span> '.$data_ora->format("F").'</p>
             </div>
             <div class="imgwrap">
               <img src="'.$immagine.'" alt="'.$descrizione_immagine.'"/>
@@ -48,7 +58,7 @@
             <a id="linkMappa" href="'.$url_mappa.'">'.$indirizzo_mappa.'</a>
             <p>'.$descrizione_mappa.'</p>
           <p id="dataEvento">
-            data_TO_DO
+            '.$data_ora->format("l d F").' - ore '.$data_ora->format("H:i").'
           <p>
           <p id="org">
             '.$organizzazione.'
