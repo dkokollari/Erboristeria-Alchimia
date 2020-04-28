@@ -35,30 +35,31 @@
               <p class="data">nulledi <span>null</span> nullobre</p>
             </div>
             <div class="imgwrap">
-              <img src="" alt=""/>
+              <img src="'.$immagine.'" alt="'.$descrizione_immagine.'"/>
             </div>
           </div>
-          <h3 class="titoletto"></h3>
+          <h3 class="titoletto">'.$titolo.'</h3>
           <ul>
             descrizione_TO_DO
           </ul>
           <h3 class="titoletto">Relatori</h3>
+          <p>'.$relatori.'</p>
           <h3 class="titoletto">Mappa e data</h3>
-            <a id= "linkMappa" href= ""></a>
-            <p></p>
+            <a id="linkMappa" href="'.$url_mappa.'">'.$indirizzo_mappa.'</a>
+            <p>'.$descrizione_mappa.'</p>
           <p id="dataEvento">
-
+            data_TO_DO
           <p>
           <p id="org">
-
+            '.$organizzazione.'
           </p>
-          <p id="prenotazione">
-          <span>I posti sono limitati, &egrave; gradita la prenotazione</span> (i contatti
-            si trovano <a href= "pagina_informazioni.html#contatti">qui</a>)
-          </p>
+          '.($posti_limitati ? '<p id="prenotazione">
+                                  <span>I posti sono limitati, &egrave; gradita la prenotazione</span> (i contatti si trovano <a href="pagina_informazioni.html#contatti">qui</a>)
+                                </p>' : "").'
         </div>
 
           ';
+      }
       /*
       $lista .=
         '<button class="card collapsed">
