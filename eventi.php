@@ -12,9 +12,9 @@
     }
 
     $pagina = file_get_contents('eventi.html');
-    /*
-    $lista_te_e_infusi = $con->getTeInfusi();
 
+    $lista_eventi = $con->getEventi();
+    /*
     foreach ($lista_te_e_infusi as $row){
       $immagine = Image::getImage("./img/te_e_infusi/", $row["id_te_e_infusi"]);
       $descrizione_immagine = htmlentities($row["descrizione_immagine_te_e_infusi"]);
