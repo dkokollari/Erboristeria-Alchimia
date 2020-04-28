@@ -14,15 +14,20 @@
     $pagina = file_get_contents('eventi.html');
 
     $lista_eventi = $con->getEventi();
-    /*
-    foreach ($lista_te_e_infusi as $row){
-      $immagine = Image::getImage("./img/te_e_infusi/", $row["id_te_e_infusi"]);
-      $descrizione_immagine = htmlentities($row["descrizione_immagine_te_e_infusi"]);
-      $nome = htmlentities($row["nome_te_e_infusi"]);
-      $ingredienti = nl2p(htmlentities($row["ingredienti_te_e_infusi"]));
-      $descrizione = nl2p(htmlentities($row["descrizione_te_e_infusi"]));
-      $preparazione = nl2p(htmlentities($row["preparazione_te_e_infusi"]));
-
+    foreach ($lista_eventi as $row){
+      // $data;
+      $immagine = Image::getImage("./img/eventi/", $row["id_evento"]);
+      $descrizione_immagine = htmlentities($row["descrizione_immagine_evento"]);
+      $titolo = htmlentities($row["titolo_evento"]);
+      // $descrizione;
+      $relatori = nl2p(htmlentities($row["relatore_evento"]));
+      $indirizzo_mappa = htmlentities($row["indirizzo_mappe_evento"]);
+      $url_mappa = $row["url_mappe_evento"];
+      $descrizione_mappa = nl2p(htmlentities($row["descrizione_mappe_evento"]));
+      // $ora;
+      $organizzazione = nl2p(htmlentities($row["organizzazione_evento"]));
+      $posti_limitati = $row["prenotazione_posti_evento"];
+      /*
       $lista .=
         '<button class="card collapsed">
           <img src="'.$immagine.'" alt="'.$descrizione_immagine.'"/>
