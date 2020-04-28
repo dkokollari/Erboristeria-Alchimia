@@ -27,6 +27,38 @@
       // $ora;
       $organizzazione = nl2p(htmlentities($row["organizzazione_evento"]));
       $posti_limitati = $row["prenotazione_posti_evento"];
+
+      $lista .=
+        '<div class="card eventi">
+          <div class= "tolgoLineaBianca">
+            <div class="databox">
+              <p class="data">nulledi <span>null</span> nullobre</p>
+            </div>
+            <div class="imgwrap">
+              <img src="" alt=""/>
+            </div>
+          </div>
+          <h3 class="titoletto"></h3>
+          <ul>
+            descrizione_TO_DO
+          </ul>
+          <h3 class="titoletto">Relatori</h3>
+          <h3 class="titoletto">Mappa e data</h3>
+            <a id= "linkMappa" href= ""></a>
+            <p></p>
+          <p id="dataEvento">
+
+          <p>
+          <p id="org">
+
+          </p>
+          <p id="prenotazione">
+          <span>I posti sono limitati, &egrave; gradita la prenotazione</span> (i contatti
+            si trovano <a href= "pagina_informazioni.html#contatti">qui</a>)
+          </p>
+        </div>
+
+          ';
       /*
       $lista .=
         '<button class="card collapsed">
