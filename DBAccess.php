@@ -40,6 +40,7 @@
     public function getEventi(){
       $query = "SELECT `id_evento`,
                        `data_ora_evento`,
+                       `descrizione_immagine_evento`,
                        `titolo_evento`,
                        `relatore_evento`,
                        `indirizzo_mappe_evento`,
@@ -50,7 +51,7 @@
                 FROM   `eventi`,
                        `mappe_eventi`
                 WHERE  `mappa_evento` = `indirizzo_mappe_evento`";
-                
+
       if($result = mysqli_query($this->connection, $query)){
         while($row = mysqli_fetch_assoc($result)){
           $output[] = $row;
