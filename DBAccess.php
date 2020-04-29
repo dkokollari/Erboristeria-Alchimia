@@ -55,7 +55,7 @@
       return $this->getQuery($query);
     }
 
-    public function getDescrizioneEventi(){
+    public function getDescrizione_eventi(){
       $query = "SELECT `evento`,
                        `sottotitolo`
                 FROM   `descrizione_eventi`";
