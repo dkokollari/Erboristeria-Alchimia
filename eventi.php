@@ -14,6 +14,8 @@
     $pagina = file_get_contents('eventi.html');
 
     $lista_eventi = $con->getEventi();
+    $lista_descrizione = $con->getDescrizione_eventi();
+
     foreach ($lista_eventi as $row){
       $data_ora = new DateTime($row["data_ora_evento"]);
       /* formati usati per data e ora:
@@ -27,10 +29,20 @@
       *    time - https://www.php.net/manual/en/datetime.formats.time.php
       */
 
+
       $immagine = Image::getImage("./img/eventi/", $row["id_evento"]);
       $descrizione_immagine = htmlentities($row["descrizione_immagine_evento"]);
       $titolo = htmlentities($row["titolo_evento"]);
-      // $descrizione;
+
+      $descrizione_formattata="";
+      foreach ($lista_descrizione as $row_descr){
+        if($row_descr["evento"]==$row["id_evento"]){
+          $sottotitolo = htmlentities($row_descr["sottotitolo"]);
+          $descrizione_formattata .= '<li>'.$sottotitolo.'</li>
+            ';
+        }
+      }
+
       $relatori = nl2p(htmlentities($row["relatore_evento"]));
       $indirizzo_mappa = htmlentities($row["indirizzo_mappe_evento"]);
       $url_mappa = $row["url_mappe_evento"];
@@ -50,7 +62,7 @@
           </div>
           <h3 class="titoletto">'.$titolo.'</h3>
           <ul>
-            descrizione_TO_DO
+            '.$descrizione_formattata.'
           </ul>
           <h3 class="titoletto">Relatori</h3>
           <p>'.$relatori.'</p>
