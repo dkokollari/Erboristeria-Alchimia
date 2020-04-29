@@ -70,26 +70,7 @@
 
           ';
       }
-      /*
-      $lista .=
-        '<button class="card collapsed">
-          <img src="'.$immagine.'" alt="'.$descrizione_immagine.'"/>
-          <dl>
-            <dt><h3>'.$nome.'</h3></dt>
-            <dd>
-              <h4>Ingredienti</h4>
-              <p>'.$ingredienti.'</p>
-              <h4>Descrizione</h4>
-              <p>'.$descrizione.'</p>
-              <h4>Preparazione</h4>
-              <p>'.$preparazione.'</p>
-            </dd>
-          </dl>
-          <i class="material-icons-round">expand_more</i>
-        </button>
-        ';
-    }
-    */
+
     $pagina = str_replace("%LISTA_EVENTI%", $lista, $pagina);
     echo $pagina;
   }
