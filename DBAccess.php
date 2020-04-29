@@ -72,6 +72,11 @@
       return $output;
     }
 
+    /* mette i tag di paragrafo ad ogni nuova riga */
+    public function nl2p($text){
+      return str_replace(array("\r\n", "\r", "\n"), "</p><p>", $text);
+    }
+
     public function getId($name){
       $result = "errore";
       $query = "SELECT `id_te_e_infusi` FROM `te_e_infusi` WHERE `nome_te_e_infusi`= '".$name."'";

@@ -40,11 +40,11 @@
           ';
         }
       }
-      $relatori = nl2p(htmlentities($row["relatore_evento"]));
+      $relatori = DBAccess::nl2p(htmlentities($row["relatore_evento"]));
       $indirizzo_mappa = htmlentities($row["indirizzo_mappe_evento"]);
       $url_mappa = $row["url_mappe_evento"];
-      $descrizione_mappa = nl2p(htmlentities($row["descrizione_mappe_evento"]));
-      $organizzazione = nl2p(htmlentities($row["organizzazione_evento"]));
+      $descrizione_mappa = DBAccess::nl2p(htmlentities($row["descrizione_mappe_evento"]));
+      $organizzazione = DBAccess::nl2p(htmlentities($row["organizzazione_evento"]));
       $posti_limitati = $row["prenotazione_posti_evento"];
 
       $lista .=
@@ -87,10 +87,5 @@
   else{
     echo "<h1>Impossibile connettersi al database riprovare pi&ugrave; tardi<h1>";
     exit;
-  }
-
-  /* mette i tag di paragrafo ad ogni nuova riga */
-  function nl2p($text){
-    return str_replace(array("\r\n", "\r", "\n"), "</p><p>", $text);
   }
 ?>
