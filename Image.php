@@ -34,8 +34,7 @@ class Image {
 
   public function getImage($path, $id){
     $result = glob($path.$id.".{jpg,jpeg,png,gif}", GLOB_BRACE);
-    return ($result[0] ? $result[0]: $path."0.jpg");
+    return ($result[0] ? $result[0] : $path."0.jpg");
   }
-
 }
 ?>
