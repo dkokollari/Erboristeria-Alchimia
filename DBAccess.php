@@ -12,7 +12,7 @@
       return ($this->connection ? true : false);
     }
 
-    public function InsertTeInfusi($descImg, $tipo, $nome, $ingre, $descr, $prepa){
+    public function insertTeInfusi($descImg, $tipo, $nome, $ingre, $descr, $prepa){
       $query = ($descImg != "" ?
                  "INSERT INTO `te_e_infusi` (`descrizione_immagine_te_e_infusi`,
                                              `tipo_te_e_infusi`,
