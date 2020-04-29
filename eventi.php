@@ -29,20 +29,17 @@
       *    time - https://www.php.net/manual/en/datetime.formats.time.php
       */
 
-
       $immagine = Image::getImage("./img/eventi/", $row["id_evento"]);
       $descrizione_immagine = htmlentities($row["descrizione_immagine_evento"]);
       $titolo = htmlentities($row["titolo_evento"]);
-
       $descrizione_formattata="";
       foreach ($lista_descrizione as $row_descr){
         if($row_descr["evento"]==$row["id_evento"]){
           $sottotitolo = htmlentities($row_descr["sottotitolo"]);
           $descrizione_formattata .= '<li>'.$sottotitolo.'</li>
-            ';
+          ';
         }
       }
-
       $relatori = nl2p(htmlentities($row["relatore_evento"]));
       $indirizzo_mappa = htmlentities($row["indirizzo_mappe_evento"]);
       $url_mappa = $row["url_mappe_evento"];
@@ -51,36 +48,37 @@
       $posti_limitati = $row["prenotazione_posti_evento"];
 
       $lista .=
-        '<div class="card eventi">
-          <div class= "tolgoLineaBianca">
-            <div class="databox">
-              <p class="data">'.$data_ora->format("l").' <span>'.$data_ora->format("d").'</span> '.$data_ora->format("F").'</p>
-            </div>
-            <div class="imgwrap">
-              <img src="'.$immagine.'" alt="'.$descrizione_immagine.'"/>
-            </div>
+      '<div class="card eventi">
+        <div class= "tolgoLineaBianca">
+          <div class="databox">
+            <p class="data">'.$data_ora->format("l").' <span>'.$data_ora->format("d").'</span> '.$data_ora->format("F").'</p>
           </div>
-          <h3 class="titoletto">'.$titolo.'</h3>
-          <ul>
-            '.$descrizione_formattata.'
-          </ul>
-          <h3 class="titoletto">Relatori</h3>
+          <div class="imgwrap">
+            <img src="'.$immagine.'" alt="'.$descrizione_immagine.'"/>
+          </div>
+        </div>
+        <h3 class="titoletto">'.$titolo.'</h3>
+        <ul>
+          '.$descrizione_formattata.'
+        </ul>
+        <h3 class="titoletto">Relatori</h3>
           <p>'.$relatori.'</p>
-          <h3 class="titoletto">Mappa e data</h3>
-            <a id="linkMappa" href="'.$url_mappa.'">'.$indirizzo_mappa.'</a>
-            <p>'.$descrizione_mappa.'</p>
+        <h3 class="titoletto">Mappa e data</h3>
+          <a id="linkMappa" href="'.$url_mappa.'">'.$indirizzo_mappa.'</a>
+          <p>'.$descrizione_mappa.'</p>
           <p id="dataEvento">
             '.$data_ora->format("l d F").' - ore '.$data_ora->format("H:i").'
-          <p>
-          <p id="org">
-            '.$organizzazione.'
           </p>
-          '.($posti_limitati ? '<p id="prenotazione">
-                                  <span>I posti sono limitati, &egrave; gradita la prenotazione</span> (i contatti si trovano <a href="pagina_informazioni.html#contatti">qui</a>)
-                                </p>' : "").'
-        </div>
+        <p id="org">
+          '.$organizzazione.'
+        </p>
+        '.($posti_limitati ?
+        '<p id="prenotazione">
+          <span>I posti sono limitati, &egrave; gradita la prenotazione</span> (i contatti si trovano <a href="pagina_informazioni.html#contatti">qui</a>)
+        </p>' : "").'
+      </div>
 
-          ';
+      ';
       }
 
     $pagina = str_replace("%LISTA_EVENTI%", $lista, $pagina);
