@@ -91,6 +91,7 @@
       return $this->getQuery($query);
     }
 
+    /* esegue una query (preferibilmente di SELECT) e torna una matrice $output */
     private function getQuery($query){
       if($result = mysqli_query($this->connection, $query)){
         while($row = mysqli_fetch_assoc($result)){
