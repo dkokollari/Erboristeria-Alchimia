@@ -57,12 +57,7 @@
                        `preparazione_te_e_infusi`
                 FROM   `te_e_infusi`";
 
-      if($result = mysqli_query($this->connection, $query)){
-        while($row = mysqli_fetch_assoc($result)){
-          $output[] = $row;
-        }
-      }
-      return $output;
+      return $this->getQuery($query);
     }
 
     public function getEventi(){
