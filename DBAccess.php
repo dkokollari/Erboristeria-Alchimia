@@ -60,6 +60,19 @@
       return $output;
     }
 
+    public function getDescrizioneEventi(){
+      $query = "SELECT `evento`,
+                       `sottotitolo`
+                FROM   `descrizione_eventi`";
+
+      if($result = mysqli_query($this->connection, $query)){
+        while($row = mysqli_fetch_assoc($result)){
+          $output[] = $row;
+        }
+      }
+      return $output;
+    }
+
     public function getId($name){
       $result = "errore";
       $query = "SELECT `id_te_e_infusi` FROM `te_e_infusi` WHERE `nome_te_e_infusi`= '".$name."'";
