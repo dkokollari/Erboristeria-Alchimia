@@ -42,7 +42,9 @@
     }
 
     public function deleteTeInfusi($name){
-      $query = "DELETE FROM `te_e_infusi` WHERE `nome_te_e_infusi` = '".$name."'";
+      $query = "DELETE FROM `te_e_infusi`
+                WHERE `nome_te_e_infusi` = '".$name."'";
+
       return (mysqli_query($this->connection, $query) ? true : false);
     }
 
