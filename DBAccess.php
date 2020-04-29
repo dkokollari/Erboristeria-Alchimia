@@ -40,13 +40,34 @@ class DBAccess{
   }
 
   public function getId($name){
-    $result="errore"
+    $result="errore";
     $query="SELECT id_te_e_infusi FROM te_e_infusi WHERE nome_te_e_infusi= '".$name."'";
     if($res = mysqli_query($this->connection,$query)){
       $row = mysqli_fetch_array($res);
       $result = $row['id_te_e_infusi'];
     }
     return $result;
+  }
+
+  public function getSingoloTeInfuso($id){
+    $query="SELECT * FROM te_e_infusi WHERE id_te_e_infusi= '".$id."'";
+    $queryResult = mysqli_query($this->connection,$query);
+
+    if(mysqli_num_rows($queryResult) == 0){
+       return null;
+    }else{
+      $row = mysqli_fetch_assoc($queryResult);
+      $result = array(
+        'Id' => $row['id_te_e_infusi'],
+        'desc_img' => $row['descrizione_immagine_te_e_infusi'],
+        'Tipo' => $row['tipo_te_e_infusi'],
+        'Nome' => $row['nome_te_e_infusi'],
+        'Ingredienti' => $row['ingredienti_te_e_infusi'],
+        'Descrizione' => $row['descrizione_te_e_infusi'],
+        'Preparazione' => $row['preparazione_te_e_infusi'],
+      );
+      return $result;
+    }
   }
 
   public function closeConnection(){
@@ -70,12 +91,20 @@ class DBAccess{
           'Nome' => $row['nome_te_e_infusi'],
           'Ingredienti' => $row['ingredienti_te_e_infusi'],
           'Descrizione' => $row['descrizione_te_e_infusi'],
-          'Preparazione' => $row['`preparazione_te_e_infusi`'],
+          'Preparazione' => $row['preparazione_te_e_infusi'],
         );
-        array_push($result,$arrraySingoloPersonaggio);
+        array_push($result,$arrayTeInfuso);
       }
       return $result;
     }
+  }
+
+  public function updateTeInfusi($id,$nome, $tipo,$ingre, $desc, $prepa, $descImg){
+    $query= "UPDATE `te_e_infusi` SET `descrizione_immagine_te_e_infusi`= '".$descImg."',`tipo_te_e_infusi`='".$tipo."',`nome_te_e_infusi`='".$nome."',`ingredienti_te_e_infusi`='".$ingre."',`descrizione_te_e_infusi`='".$desc."',`preparazione_te_e_infusi`='".$prepa."' WHERE `id_te_e_infusi` = '".$id."'";
+    if($res = mysqli_query($this->connection,$query)){
+      return true;
+    }
+    return false;
   }
 
 

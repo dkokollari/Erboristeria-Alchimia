@@ -24,41 +24,41 @@
 
     <body>
       <h1>Inserimento t&egrave; e infusi</h1>
-
-      <form method="post" action="inserimento_teinfusi.php" enctype="multipart/form-data">
+		<!--Marcel aveva messo nell'action: inserimento_teinfusi.php-->
+      <form method="post" action="%action%" enctype="multipart/form-data">
       <fieldset>
         %MESSAGGIO%
         <p>campi obbligatori(*)</p>
 
         <label for="Nome">Nome*</label>
-        <input type="text" name="Nome" id="Nome" maxlength="15" value="%nome%" tabindex="1"/>
-        %ERR_NOME%
+        <input type="text" name="Nome" id="Nome" maxlength="15" value="%nome%"/>
+         %ERR_NOME%
 
         <label for="Tipo">Tipo</label>
-        <select name="Tipo" id="Tipo" tabindex="2">
+        <select name="Tipo" id="Tipo">
             <option value="T&egrave;">T&egrave;</option>
             <option value="Infuso">Infuso</option>
         </select>
 
         <label for="Ingredienti">Ingredienti</label>
-        <input name="Ingredienti" id="Ingredienti" value="%ingre%" tabindex="3"/>
+        <input name="Ingredienti" id="Ingredienti" value="%ingre%"/>
 
         <label for="Descrizione">Descrizione*</label>
-        <input id="Descrizione" name="Descrizione" value="%descr%" tabindex="4"/>
-        %ERR_DESC%
+        <input id="Descrizione" name="Descrizione" value="%descr%"/>
+         %ERR_DESC%
 
         <label for="Preparazione">Preparazione</label>
-        <input id="Preparazione" name="Preparazione" value="%prepa%" tabindex="5"/>
+        <input id="Preparazione" name="Preparazione" value="%prepa%"/>
 
         <label for="immagine">Immagine</label>
-        <input type="file" id="immagine" name="immagine" tabindex="6"/>
+        <input type="file" id="immagine" name="immagine"/>
         %ERR_IMG%
 
         <label for="desc_img">Descrizione immagine(* se si carica un'immagine)</label>
-        <input type="text" id="desc_img" name="desc_img" value="%imgdes%" tabindex="7"/>
+        <input type="text" id="desc_img" name="desc_img" value="%imgdes%" />
         %ERR_IMGDESC%
 
-        <input type="submit" value="Aggiungi" name="submit" tabindex="8"/>
+        <input type="submit" value="Aggiungi" name="submit">
       </fieldset>
     </form>
     </body>

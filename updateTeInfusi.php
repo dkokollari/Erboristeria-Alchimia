@@ -6,17 +6,28 @@ $con = new DBAccess();
 if($con->openConnection()){
   $pagina = file_get_contents('inserimento_teinfusi.html');
 
-  $errori=0;
-  $imgpresent= false;
-  $tipo = $_POST['Tipo'];
-  $nome = trim($_POST['Nome']);
-  $ingre = trim($_POST['Ingredienti']);
-  $descr = trim($_POST['Descrizione']);
-  $prepa = trim($_POST['Preparazione']);
-  $image = new Image();
+  $id = $_GET['id'];
+  $getElement = $con->getSingoloTeInfuso($id);
+
+  $valtipo = $getElement['Tipo'];
+  $valnome = $getElement['Nome'];
+  $valingre = $getElement['Ingredienti'];
+  $valdescr = $getElement['Descrizione'];
+  $valprepa = $getElement['Preparazione'];
+  $valdescImg = $getElement['desc_img'];
 
 //se è stato premuto il buttone submit
 if(isset($_POST['submit'])){
+
+		$errori=0;
+        $imgpresent= false;
+        $tipo = $_POST['Tipo'];
+        $nome = trim($_POST['Nome']);
+        $ingre = trim($_POST['Ingredienti']);
+        $descr = trim($_POST['Descrizione']);
+        $prepa = trim($_POST['Preparazione']);
+        $image = new Image();
+
       //controllo se l'immagine è stata caricata
       if(is_uploaded_file($_FILES['immagine']['tmp_name'])){
         $imgpresent = true;
@@ -35,16 +46,14 @@ if(isset($_POST['submit'])){
 
       //se non ci sono errori
       if($errori==0){
-        if($imgpresent && $con->InsertTeInfusi($descImg,$tipo,$nome,$ingre,$descr,$prepa)){
-          $id = $con->getId($nome);
-          if($image->uploadImageTeInfusi($_FILES['immagine']['name'],$_FILES['immagine']['tmp_name'],$id)){
-            $messaggio = "";
-          } else {
-            $messaggio = '<p class="error-msg">Errore: immagine non salvata</p>';
-            $con->deleteTeInfusi($nome);
+        if($con->updateTeInfusi($id,$nome, $tipo,$ingre, $descr, $prepa, $descImg)){
+          if($imgpresent){
+            if($image->uploadImageTeInfusi($_FILES['immagine']['name'],$_FILES['immagine']['tmp_name'],$id)){
+              $messaggio = "";
+            } else {
+              $messaggio = '<p class="error-msg">Errore: immagine non salvata</p>';
+            }
           }
-        } else if(!$imgpresent && $con->InsertTeInfusi($descImg,$tipo,$nome,$ingre,$descr,$prepa)){
-          $messaggio = "";
         } else {
           $messaggio = '<p class="error-msg">Query non eseguita riprovare pi&ugrave; tardi</p>';
         }
@@ -57,9 +66,9 @@ if(isset($_POST['submit'])){
         $valprepa = $_POST['Preparazione'];
         $valdescImg = $_POST['desc_img'];
       }
-}
+} //debug
 
-  $pagina = str_replace("%action%","inserimento_teinfusi.php", $pagina);
+  $pagina = str_replace("%action%","updateTeInfusi.php?id=".$id, $pagina);
   $pagina = str_replace("%nome%",$valnome , $pagina);
   $pagina = str_replace("%ingre%",$valingre , $pagina);
   $pagina = str_replace("%descr%",$valdescr , $pagina);
@@ -71,7 +80,10 @@ if(isset($_POST['submit'])){
   $pagina = str_replace("%ERR_IMG%", $errImg, $pagina);
   $pagina = str_replace("%ERR_IMGDESC%", $errDescImg, $pagina);
 
-  echo $pagina;
+   $con->closeConnection();
+
+   echo $pagina;
+
 }
 else{
   echo "<h1>Impossibile connettersi al database riprovare pi&ugrave; tardi<h1>";
@@ -79,7 +91,7 @@ else{
 }
 
 function validInput($name, $description){
-  return $name!="" ? "" : '<small class="error-msg">Inserisci '.$description.'</small>';
+  return $name!="" ? "" : '<small class="error-msg">Il campo '.$description.' &egrave; richiesto</small>';
 }
 
 ?>
