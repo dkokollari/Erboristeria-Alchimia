@@ -52,12 +52,7 @@
                        `mappe_eventi`
                 WHERE  `mappa_evento` = `indirizzo_mappe_evento`";
 
-      if($result = mysqli_query($this->connection, $query)){
-        while($row = mysqli_fetch_assoc($result)){
-          $output[] = $row;
-        }
-      }
-      return $output;
+      return $this->getQuery($query);
     }
 
     public function getDescrizioneEventi(){
@@ -65,7 +60,7 @@
                        `sottotitolo`
                 FROM   `descrizione_eventi`";
 
-
+      return $this->getQuery($query);
     }
 
     private function getQuery($query){
