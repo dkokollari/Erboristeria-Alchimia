@@ -49,7 +49,14 @@
     }
 
     public function getTeInfusi(){
-      $query = "SELECT `id_te_e_infusi`, `descrizione_immagine_te_e_infusi`, `nome_te_e_infusi`, `ingredienti_te_e_infusi`, `descrizione_te_e_infusi`, `preparazione_te_e_infusi` FROM `te_e_infusi`";
+      $query = "SELECT `id_te_e_infusi`,
+                       `descrizione_immagine_te_e_infusi`,
+                       `nome_te_e_infusi`,
+                       `ingredienti_te_e_infusi`,
+                       `descrizione_te_e_infusi`,
+                       `preparazione_te_e_infusi`
+                FROM   `te_e_infusi`";
+
       if($result = mysqli_query($this->connection, $query)){
         while($row = mysqli_fetch_assoc($result)){
           $output[] = $row;
