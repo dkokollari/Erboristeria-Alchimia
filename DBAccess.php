@@ -7,10 +7,18 @@
 
     public $connection = null;
 
+    # funzioni di connessione #
+
     public function openConnection(){
       $this->connection = mysqli_connect(static::HOST_DB,static::USER_NAME, static::PASSWORD, static::DB_NAME);
       return ($this->connection ? true : false);
     }
+
+    public function closeConnection(){
+      mysqli_close($this->connection);
+    }
+
+    # funzioni per te_e_infusi #
 
     public function insertTeInfusi($descImg, $tipo, $nome, $ingre, $descr, $prepa){
       $query = ($descImg != "" ?
@@ -60,6 +68,18 @@
       return $this->getQuery($query);
     }
 
+    public function getId($name){
+      $result = "errore";
+      $query = "SELECT `id_te_e_infusi` FROM `te_e_infusi` WHERE `nome_te_e_infusi`= '".$name."'";
+      if($res = mysqli_query($this->connection, $query)){
+        $row = mysqli_fetch_array($res);
+        $result = $row['id_te_e_infusi'];
+      }
+      return $result;
+    }
+
+    # funzioni per gli eventi #
+
     public function getEventi(){
       $query = "SELECT `id_evento`,
                        `data_ora_evento`,
@@ -86,6 +106,8 @@
       return $this->getQuery($query);
     }
 
+    # funzioni generiche e/o usate da altre funzioni #
+
     /* esegue una query (preferibilmente di SELECT) e torna una matrice $output */
     private function getQuery($query){
       if($result = mysqli_query($this->connection, $query)){
@@ -99,20 +121,6 @@
     /* mette i tag di paragrafo ad ogni nuova riga */
     public function nl2p($text){
       return str_replace(array("\r\n", "\r", "\n"), "</p><p>", $text);
-    }
-
-    public function getId($name){
-      $result = "errore";
-      $query = "SELECT `id_te_e_infusi` FROM `te_e_infusi` WHERE `nome_te_e_infusi`= '".$name."'";
-      if($res = mysqli_query($this->connection, $query)){
-        $row = mysqli_fetch_array($res);
-        $result = $row['id_te_e_infusi'];
-      }
-      return $result;
-    }
-
-    public function closeConnection(){
-      mysqli_close($this->connection);
     }
 
   }
