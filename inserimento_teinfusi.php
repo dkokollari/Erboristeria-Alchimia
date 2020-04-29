@@ -35,7 +35,7 @@ if(isset($_POST['submit'])){
 
       //se non ci sono errori
       if($errori==0){
-        if($imgpresent && $con->InsertTeInfusi($descImg,$tipo,$nome,$ingre,$descr,$prepa)){
+        if($imgpresent && $con->insertTeInfusi($descImg,$tipo,$nome,$ingre,$descr,$prepa)){
           $id = $con->getId($nome);
           if($image->uploadImageTeInfusi($_FILES['immagine']['name'],$_FILES['immagine']['tmp_name'],$id)){
             $messaggio = "";
@@ -43,7 +43,7 @@ if(isset($_POST['submit'])){
             $messaggio = '<p class="error-msg">Errore: immagine non salvata</p>';
             $con->deleteTeInfusi($nome);
           }
-        } else if(!$imgpresent && $con->InsertTeInfusi($descImg,$tipo,$nome,$ingre,$descr,$prepa)){
+        } else if(!$imgpresent && $con->insertTeInfusi($descImg,$tipo,$nome,$ingre,$descr,$prepa)){
           $messaggio = "";
         } else {
           $messaggio = '<p class="error-msg">Query non eseguita riprovare pi&ugrave; tardi</p>';
