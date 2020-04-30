@@ -16,19 +16,16 @@
     $lista_eventi = $con->getEventi();
     $lista_descrizione = $con->getDescrizione_eventi();
 
-    foreach ($lista_eventi as $row){
-      $data_ora = new DateTime($row["data_ora_evento"]);
-      /* formati usati per data e ora:
-      *    data:
-      *      l = giorno testuale; d = giorno numerale; F = mese testuale;
-      *    ora:
-      *      H:i = ore:minuti;
-      *  maggiori informazioni sulle guide:
-      *    generic - https://www.php.net/manual/en/datetime.formats.php
-      *    date - https://www.php.net/manual/en/datetime.formats.date.php
-      *    time - https://www.php.net/manual/en/datetime.formats.time.php
-      */
+    //necessario se il locale non è ancora impostato
+    setlocale(LC_TIME, "it_IT");
 
+    foreach ($lista_eventi as $row){
+      //strftime() visualizza la data nella lingua definita dal locale
+      $data_ora = new DateTime($row["data_ora_evento"]);
+      $giorno_testo = strftime("%A", $data_ora->getTimestamp());
+      $giorno_numero = $data_ora->format("d");
+      $mese = strftime("%B", $data_ora->getTimestamp());
+      $ore_minuti = $data_ora->format("H:i");
       $immagine = Image::getImage("./img/eventi/", $row["id_evento"]);
       $descrizione_immagine = htmlentities($row["descrizione_immagine_evento"]);
       $titolo = htmlentities($row["titolo_evento"]);
@@ -51,7 +48,7 @@
       '<div class="card eventi">
         <div class= "tolgoLineaBianca">
           <div class="databox">
-            <p class="data">'.$data_ora->format("l").' <span>'.$data_ora->format("d").'</span> '.$data_ora->format("F").'</p>
+            <p class="data">'.$giorno_testo.' <span>'.$giorno_numero.'</span> '.$mese.'</p>
           </div>
           <div class="imgwrap">
             <img src="'.$immagine.'" alt="'.$descrizione_immagine.'"/>
@@ -67,7 +64,7 @@
           <a id="linkMappa" href="'.$url_mappa.'">'.$indirizzo_mappa.'</a>
           <p>'.$descrizione_mappa.'</p>
           <p id="dataEvento">
-            '.$data_ora->format("l d F").' - ore '.$data_ora->format("H:i").'
+            '.$giorno_testo.' '.$giorno_numero.' '.$mese.' - ore '.$ore_minuti.'
           </p>
         <p id="org">
           '.$organizzazione.'
