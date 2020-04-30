@@ -22,7 +22,7 @@
     foreach ($lista_eventi as $row){
       //strftime() visualizza la data nella lingua definita dal locale
       $data_ora = new DateTime($row["data_ora_evento"]);
-      $giorno_testo = strftime("%A", $data_ora->getTimestamp());
+      $giorno_testo = htmlentities(utf8_encode(strftime("%A", $data_ora->getTimestamp())));
       $giorno_numero = $data_ora->format("d");
       $mese = strftime("%B", $data_ora->getTimestamp());
       $ore_minuti = $data_ora->format("H:i");
