@@ -60,6 +60,8 @@ $(document).ready(function() {
     }
   }
 });
+
+
     /*        function that moves the label in the login page     */
 $("#username, #password").on("blur", function() {
   $(this.previousElementSibling).removeClass("filled");

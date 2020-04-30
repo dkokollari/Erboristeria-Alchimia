@@ -36,6 +36,10 @@ body.show-focus-outlines textarea:focus
 {
   outline: 4px solid red;
   }
+html {
+  scroll-behavior: smooth;
+}
+
 html, body {
   height: 100%;
 }

@@ -1,4 +1,4 @@
-CHANGELOG
+CHANGELOG 27/4 morning
 
 - fix close menu button being present on tablet and desktop mode
 - desktop cursor when hovering on .card elements is now a pointer
@@ -7,11 +7,18 @@ CHANGELOG
 - added a min-height to the content div (solves a footer problem (and it's nicer))
 - greatly reduced image size: la_mia_storia_background.jpeg (2.2mb -> 322kb). Lighter page with less stutter when scrolling
 
-TODO:
+CHANGELOG 27/4 afternoon
 
+- added top_of_page link to la_mia_storia.html
+- added smooth scroll for anchor links on desktop
+
+TODO:
+- FIX WEIRD BEHAVIOR ON PAGE LOAD ON MOBILE
 - check the menu in other pages
 - navigation accessibility
 - rework .tips_and_tricks
 - rework .card
 - merge changes with informazioni.html
-- add top_of_page link to la_mia_storia.html
+- add smooth scroll for anchor links on mobile
+- fix narrator problem with top of page link
+- solve menu problem in chrome mobile
