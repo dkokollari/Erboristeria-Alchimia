@@ -55,7 +55,8 @@
       $query = "DELETE FROM `te_e_infusi`
                 WHERE `nome_te_e_infusi` = '".$name."'";
 
-      return (mysqli_query($this->connection, $query) ? true : false);
+      /* true se la rimozione di te_e_infusi è riuscita altrimenti false */
+      return mysqli_query($this->connection, $query);
     }
 
     public function getTeInfusi(){
