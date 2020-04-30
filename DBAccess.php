@@ -10,8 +10,9 @@
     # funzioni di connessione #
 
     public function openConnection(){
-      $this->connection = mysqli_connect(static::HOST_DB,static::USER_NAME, static::PASSWORD, static::DB_NAME);
-      return ($this->connection ? true : false);
+      $this->connection = mysqli_connect(static::HOST_DB, static::USER_NAME, static::PASSWORD, static::DB_NAME);
+      /* true se la connessione è riuscita altrimenti false */
+      return $this->connection;
     }
 
     public function closeConnection(){
