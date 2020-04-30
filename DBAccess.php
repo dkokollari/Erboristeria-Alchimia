@@ -47,7 +47,8 @@
                                              '".$descr."',
                                              '".$prepa."')");
 
-      return (mysqli_query($this->connection, $query) ? true : false);
+      /* true se l'inserimento di te_e_infusi è riuscito altrimenti false */
+      return mysqli_query($this->connection, $query);
     }
 
     public function deleteTeInfusi($name){
