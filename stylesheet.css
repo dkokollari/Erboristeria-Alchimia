@@ -557,14 +557,6 @@ transition: transform 1s ease;
   margin-right: 7%;
 }
 
-#eventi ul li {
-  background-image: url('img/ampolla.jpeg');
-  background-position: top left;
-  background-size: 1.5em;
-  background-repeat: no-repeat;
-  padding-left: 1.6em;
-}
-
 #eventi #org {
   font-style: italic;
   margin-top: 2em;
