@@ -33,7 +33,7 @@ class Image {
   }
 
   /* ritorna, se esiste, il path completo dell'immagine con estensione jpg/jpeg/png/gif
-  *  altrimenti ./path/0.jpg
+  *  altrimenti path/0.jpg
   */
   public function getImage($path, $id){
     $result = glob($path.$id.".{jpg,jpeg,png,gif}", GLOB_BRACE);
