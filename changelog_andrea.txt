@@ -18,7 +18,7 @@ CHANGELOG 3/5 morning
 - reworked .card for better performance and accessibility
 - added an .accessibility_hidden class to make element invisible but still present in the accessibility tree
 (https://allyjs.io/tutorials/hiding-elements.html)
-- rimosso <div id="list_infusi">, ora inutilizzato
+- removed <div id="lista_infusi">, now unused
 
 CHANGELOG 3/5 afternoon part 2
 
@@ -27,18 +27,22 @@ CHANGELOG 3/5 afternoon part 2
 CHANGELOG 3/5 afternoon part 3
 -fixed 1 pixel rounding problem in some browsers
 
+CHANGELOG 3/5 night
+- fix narrator problem with top of page link: the top of page link has been removed. It now goes to the top with javascript
+
 TODO:
-- FIX WEIRD BEHAVIOR ON PAGE LOAD ON MOBILE
+- rework .tips_and_tricks
+- rework the remaining icons
+DEBUG:
+- fix weird behaviour on page load on mobile
+- solve menu problem in chrome mobile
+REVIEW:
 - check the menu in other pages
 - navigation accessibility
-- rework .tips_and_tricks
-- merge changes with informazioni.html
-- add smooth scroll for anchor links on mobile
-- fix narrator problem with top of page link
-- solve menu problem in chrome mobile
-- fix edge .card img problem
-- abbreviazioni in tutte le pagine
 - fix mobile not working on edge
-- fucking edge never fucking works with anything
+- abbreviations in every page
+- merge changes with informazioni.html
+OPTIMIZE:
+- fix edge .card img problem
 - fix header_image on mobile landscape mode (vh or % problem)
 - fix shadow desktop only in content

@@ -146,3 +146,8 @@ function expandCard() {
   this.classList.toggle("collapsed");
   this.lastElementChild.classList.toggle("rotated");
 }
+
+
+document.getElementById("torna_su_btn").addEventListener('click', function () {
+      window.scrollTo(0,0);
+});

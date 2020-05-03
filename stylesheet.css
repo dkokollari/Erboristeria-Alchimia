@@ -721,6 +721,7 @@ strong {
 }
 #footer a {
   text-decoration: underline;
+  cursor: pointer;
 }
 #end_of_page {
   margin-top: 9em;
