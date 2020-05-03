@@ -12,12 +12,20 @@ CHANGELOG 27/4 afternoon
 - added top_of_page link to la_mia_storia.html
 - added smooth scroll for anchor links on desktop
 
+CHANGELOG 3/5 morning
+
+- fixed menu_btn being visible on desktop/tablet
+- reworked .card for better performance and accessibility
+- added an .accessibility_hidden class to make element invisible but still present in the accessibility tree
+(https://allyjs.io/tutorials/hiding-elements.html)
+- rimosso <div id="list_infusi">, ora inutilizzato
+
+
 TODO:
 - FIX WEIRD BEHAVIOR ON PAGE LOAD ON MOBILE
 - check the menu in other pages
 - navigation accessibility
 - rework .tips_and_tricks
-- rework .card
 - merge changes with informazioni.html
 - add smooth scroll for anchor links on mobile
 - fix narrator problem with top of page link

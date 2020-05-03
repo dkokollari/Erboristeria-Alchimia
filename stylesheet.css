@@ -320,7 +320,7 @@ transition: transform 1s ease;
         margin-top: 37vw;
       }
 
-      #right-of-menu, #menu_icon, #menu .menu_btn, #topbar, #menu button:first-child {
+      #right-of-menu, #menu_icon, .menu_btn,#menu li.menu_btn, #topbar, #menu button:first-child {
          display: none;
        }
        .container {
@@ -497,6 +497,22 @@ transition: transform 1s ease;
 
                           /*       LISTA DI INFUSI      */
 
+.accessibility_hidden {
+
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+
+  white-space: nowrap;
+
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
 
 .card {
   border-radius: 7px;
@@ -510,11 +526,10 @@ transition: transform 1s ease;
   transition: max-height 0.8s ease;
   opacity: 1;
   padding-bottom: 1em;
-  width: 100%;
   cursor: pointer;
 }
 .card.collapsed {
-  max-height: 11.6em;
+  max-height: 10.5em;
 }
 .card.collapsed img {
   max-height: 7em;
@@ -522,9 +537,14 @@ transition: transform 1s ease;
 .card img {
   width: 100%;
   border-radius: 7px 7px 0 0;
-  max-height: 11.5em;
+  max-height: 10.5em;
   object-fit: cover;
   transition: max-height 0.4s ease;
+  position: absolute;
+  top: 0;
+}
+.card.collapsed h3 {
+  margin-top: 7em;
 }
 .card h3 {
   margin: 0.3em 0.6em 1.2em 0.6em;
@@ -533,6 +553,8 @@ transition: transform 1s ease;
   height: 2em;
   align-items: center;
   justify-content: center;
+  transition: 0.4s ease;
+  margin-top: 11.5em;
 }
 .card .expand_btn {
   position: absolute;
@@ -699,6 +721,9 @@ strong {
 
   text-align: center;
   padding: 1em 0 0 0;
+}
+#footer a {
+  text-decoration: underline;
 }
                               /*       LOGIN       */
 #log_in_box_container {
