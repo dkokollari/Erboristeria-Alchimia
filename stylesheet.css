@@ -40,9 +40,9 @@ html {
   scroll-behavior: smooth;
 }
 
-html, body {
+/* html, body {
   height: 100%;
-}
+} */
 a {
   text-decoration: none;
   color: inherit;
@@ -100,9 +100,10 @@ h1 span {
   position: fixed;
   top: 0;
   width: 100vw;
-  height: 100vw;
+  height: 90vh;
   z-index: -1;
   filter: brightness(0.7);
+  pointer-events: none;
 }
 
 #top_of_page {
@@ -370,7 +371,7 @@ transition: transform 1s ease;
        }
        body #content {
          margin-top: 0;
-         min-height: 90vh;
+         min-height: 90%;
        }
 
 }
