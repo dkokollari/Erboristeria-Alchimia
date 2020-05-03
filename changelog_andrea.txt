@@ -20,6 +20,9 @@ CHANGELOG 3/5 morning
 (https://allyjs.io/tutorials/hiding-elements.html)
 - rimosso <div id="list_infusi">, ora inutilizzato
 
+CHANGELOG 3/5 afternoon
+- fixed unclickable footer problem in some browsers
+- removed some old code
 
 TODO:
 - FIX WEIRD BEHAVIOR ON PAGE LOAD ON MOBILE
@@ -30,3 +33,5 @@ TODO:
 - add smooth scroll for anchor links on mobile
 - fix narrator problem with top of page link
 - solve menu problem in chrome mobile
+- fix edge .card img problem
+- abbreviazioni in tutte le pagine

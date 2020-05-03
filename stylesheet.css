@@ -368,6 +368,10 @@ transition: transform 1s ease;
        #footer {
            width: 100%;
        }
+       body #content {
+         margin-top: 0;
+         min-height: 90vh;
+       }
 
 }
 
@@ -420,13 +424,6 @@ transition: transform 1s ease;
       h1 {
         font-size: 11em;
         top: 20px;
-      }
-      body #content {
-        margin-top: 0;
-        min-height: 90vh;
-      }
-      #footer a:hover {
-
       }
 }
 
@@ -718,12 +715,15 @@ strong {
   position: fixed;
   bottom: 0;
   z-index: -2;
-
   text-align: center;
   padding: 1em 0 0 0;
 }
 #footer a {
   text-decoration: underline;
+}
+#end_of_page {
+  margin-top: 9em;
+  pointer-events: none;
 }
                               /*       LOGIN       */
 #log_in_box_container {
