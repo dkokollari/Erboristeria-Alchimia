@@ -102,7 +102,7 @@ window.addEventListener('scroll', showTopbar);
 
   /* function that adds a different event listener to every "tips_and_tricks" element to make it expandable */
 for (i = 0; i < tips.length; i++) {
-  tips[i].addEventListener('click', expandTips);
+  tips[i].addEventListener('click', expandCard);
   // tips[i].addEventListener('keydown', (event) => {
   //   if (event.code === 'Space' || event.code === 'Enter') {
   //       event.target.click();
@@ -111,22 +111,22 @@ for (i = 0; i < tips.length; i++) {
 }
                     /* expands said "tips_and_tricks" element */
 /*function that enables the display of the hidden tip: first it gotta change the "display:none"property, then make the element visible; (to preserve accessibility and animations) */
-function expandTips() {
-  if (this.classList.contains("display_none")) {
-    this.classList.toggle("display_none");
-    setTimeout(() => {
-       this.classList.toggle("collapsed");
-       this.lastElementChild.classList.toggle("rotated");
-    }, 100);
-    /* I could create a function and pass the classes as parameters... but not now */
-  } else {
-    this.classList.toggle("collapsed");
-    this.lastElementChild.classList.toggle("rotated");
-    setTimeout(() => {
-       this.classList.toggle("display_none");
-    }, 600);
-  }
-}
+// function expandTips() {
+//   if (this.classList.contains("display_none")) {
+//     this.classList.toggle("display_none");
+//     setTimeout(() => {
+//        this.classList.toggle("collapsed");
+//        this.lastElementChild.classList.toggle("rotated");
+//     }, 100);
+//     /* I could create a function and pass the classes as parameters... but not now */
+//   } else {
+//     this.classList.toggle("collapsed");
+//     this.lastElementChild.classList.toggle("rotated");
+//     setTimeout(() => {
+//        this.classList.toggle("display_none");
+//     }, 600);
+//   }
+// }
 
 
                         /*---------------  EXPAND "card" ELEMENT  ---------------*/

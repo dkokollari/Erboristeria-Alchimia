@@ -164,7 +164,22 @@ h4, #menu li {                                     /*       DA RIVERE         */
 transform: rotate(-180deg);
 transition: transform 1s ease;
 }
+.accessibility_hidden {
 
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+
+  white-space: nowrap;
+
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
 
                                   /*   ----------------  MOBILE   ------------------   */
 
@@ -436,7 +451,15 @@ transition: transform 1s ease;
   background-color: var(--orange-light);
   color: var(--orange-dark);
   /* position: relative; */
+  overflow: hidden;
+  max-height: 80em;
+  cursor: pointer;
+    transition: 0.5s ease;
 }
+.tips_and_tricks.collapsed {
+    max-height: 4em;
+}
+
 /* .tips_and_tricks .hidden_tip {
   transition: 0.6s ease 0.3s;
 } */
@@ -492,25 +515,11 @@ transition: transform 1s ease;
   text-align: center;
   width: 100%;
 }
+.tips_and_tricks li {
+  margin-bottom: 1em;
+}
 
                           /*       LISTA DI INFUSI      */
-
-.accessibility_hidden {
-
-  position: absolute;
-
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  border: 0;
-  padding: 0;
-
-  white-space: nowrap;
-
-  clip-path: inset(100%);
-  clip: rect(0 0 0 0);
-  overflow: hidden;
-}
 
 .card {
   border-radius: 7px;

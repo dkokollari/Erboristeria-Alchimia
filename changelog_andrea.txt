@@ -28,20 +28,25 @@ CHANGELOG 3/5 afternoon part 3
 -fixed 1 pixel rounding problem in some browsers
 
 CHANGELOG 3/5 night
-- fix narrator problem with top of page link: the top of page link has been removed. It now goes to the top with javascript
+- fixed narrator problem with top of page link: the top of page link has been removed. It now goes to the top with javascript
+
+
+CHANGELOG 3/5 night 2
+- added a small margin to the .tips_and_tricks li items
+
 
 TODO:
 - rework .tips_and_tricks
 - rework the remaining icons
+- add banners at the bottom of the footer
 DEBUG:
-- fix weird behaviour on page load on mobile
 - solve menu problem in chrome mobile
 REVIEW:
 - check the menu in other pages
 - navigation accessibility
 - fix mobile not working on edge
 - abbreviations in every page
-- merge changes with informazioni.html
+- merge changes with the other pages
 OPTIMIZE:
 - fix edge .card img problem
 - fix header_image on mobile landscape mode (vh or % problem)
