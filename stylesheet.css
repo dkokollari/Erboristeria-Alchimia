@@ -452,9 +452,9 @@ transition: transform 1s ease;
   color: var(--orange-dark);
   /* position: relative; */
   overflow: hidden;
-  max-height: 80em;
+  max-height: 60em;
   cursor: pointer;
-    transition: 0.5s ease;
+    transition: 0.8s ease;
 }
 .tips_and_tricks.collapsed {
     max-height: 4em;
@@ -473,12 +473,9 @@ transition: transform 1s ease;
 .tips_and_tricks.collapsed .hidden_tip {
   opacity: 0;
   max-height: 0;
-  transition: 0.5s ease;
+  transition: 0.8s ease;
 }
-.tips_and_tricks .hidden_tip {
-  transition: 0.5s ease;
-  max-height: 50em;
-}
+
 .tips_and_tricks h3 {
   margin: 1em;
   color: var(--orange-dark);

@@ -34,6 +34,10 @@ CHANGELOG 3/5 night
 CHANGELOG 3/5 night 2
 - added a small margin to the .tips_and_tricks li items
 
+CHANGELOG 5/5 morning part 1
+-applied header and footer changes to la_mia_storia.html
+-fixed weird glitch on la_mia_storia.html on chrome mobile (I forgot to upload the compressed images, and the website was using the BIG FAT ones)
+-reduced la_mia_storia.html size ( >3mb --->  <1mb)
 
 TODO:
 - rework .tips_and_tricks
