@@ -88,7 +88,7 @@ function scrollFix() {
                     /* function that makes the topbar element "sticky" on mobile */
 window.addEventListener('scroll', showTopbar);
  function showTopbar() {
-    if (document.documentElement.scrollTop > marginTop) {
+    if (window.scrollY > marginTop) {
       topbar.style.zIndex = "2";                                //controllare che gli vada bene usare STYLE (spoiler alert: NON VA BENE => DA CAMBIARE!!!!!!!!!!!!!!!!!)
       topbarTitle.classList.add("nopacity");
     } else {

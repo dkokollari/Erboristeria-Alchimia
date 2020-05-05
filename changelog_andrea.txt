@@ -39,10 +39,12 @@ CHANGELOG 5/5 morning part 1
 -fixed weird glitch on la_mia_storia.html on chrome mobile (I forgot to upload the compressed images, and the website was using the BIG FAT ones)
 -reduced la_mia_storia.html size ( >3mb --->  <1mb)
 
+CHANGELOG 5/5 morning part 2
+- replaced some scrollTop code with scrollY for better microsoft browsers compatibility
+
 TODO:
-- rework .tips_and_tricks
 - rework the remaining icons
-- add banners at the bottom of the footer
+- fix tips_and_tricks expand_more icon
 DEBUG:
 - solve menu problem in chrome mobile
 REVIEW:
@@ -55,3 +57,4 @@ OPTIMIZE:
 - fix edge .card img problem
 - fix header_image on mobile landscape mode (vh or % problem)
 - fix shadow desktop only in content
+- add banners at the bottom of the footer
