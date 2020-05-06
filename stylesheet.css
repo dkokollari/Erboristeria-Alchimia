@@ -446,60 +446,26 @@ transition: transform 1s ease;
 
                             /*     CONSIGLI DI MARIKA       */
 
-
 .tips_and_tricks {
   background-color: var(--orange-light);
   color: var(--orange-dark);
-  /* position: relative; */
+  position: relative;
   overflow: hidden;
   max-height: 60em;
   cursor: pointer;
-    transition: 0.8s ease;
-}
-.tips_and_tricks.collapsed {
-    max-height: 4em;
-}
-
-/* .tips_and_tricks .hidden_tip {
-  transition: 0.6s ease 0.3s;
-} */
-/* .tips_and_tricks.collapsed .hidden{
-  max-height: 3.8em;
-  overflow: hidden;
-} */
-.tips_and_tricks.display_none .hidden_tip {
-  display: none;
-}
-.tips_and_tricks.collapsed .hidden_tip {
-  opacity: 0;
-  max-height: 0;
   transition: 0.8s ease;
 }
-
+.tips_and_tricks.collapsed {
+    max-height: 4.5em;
+}
 .tips_and_tricks h3 {
   margin: 1em;
   color: var(--orange-dark);
 }
 .tips_and_tricks h4 {
   color: var(--orange-dark);
+  margin-top: 2em;
 }
-/* .tips_and_tricks .expand_tip {
-  width: 10%;
-  float: left;
-  text-align: center;
-  line-height: 1.2em;
-} */
-/* .tips_and_tricks.collapsed .expand-tip{
-
-} */
-/* .tips_and_tricks .expand_tip{
-  position: absolute;
-  bottom: 0;
-  line-height: 1.2em;
-  width: 82%;
-  text-align: center;
-  transition: transform 1s ease;
-} */
 .tips_and_tricks ul {
   padding-left: 1.5em;
 }
@@ -507,8 +473,10 @@ transition: transform 1s ease;
   font-weight: 600;
 }
 .tips_and_tricks .expand_icon {
-    transition: 0.8s ease;
-  margin:auto;
+  transition: 0.8s ease;
+  position: absolute;
+  bottom: 0;
+  margin:0;
   text-align: center;
   width: 100%;
 }
