@@ -45,8 +45,14 @@ CHANGELOG 5/5 morning part 2
 CHANGELOG 6/5 morning part 1
 - fixed tips_and_tricks expand_more icon
 
+CHANGELOG 6/5 morning part 2
+- restyled links
+- added first footer prototype
+- slightly changed colors to gain a little more contrast (grey)
+
 TODO:
 - rework the remaining icons
+- non-mobile menu in 2 rows
 DEBUG:
 - solve menu problem in chrome mobile
 REVIEW:
@@ -59,4 +65,4 @@ OPTIMIZE:
 - fix edge .card img problem
 - fix header_image on mobile landscape mode (vh or %)
 - fix shadow desktop only in content
-- add banners at the bottom of the footer
+- add banners at the bottom of the footer (totalvalidator, css, html 1 strict)
