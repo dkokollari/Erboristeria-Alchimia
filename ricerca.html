@@ -26,10 +26,33 @@
     <div id="content">
       <h2>Trova ci&ograve; che ti serve</h2>
       <!--      https://www.w3schools.com/howto/howto_js_filter_lists.asp      -->
-      <form action="ricerca.php" method = "post"> 
+      <form action="ricerca.php" method = "post">
         <input type="text" id="myInput" onkeyup="myFunction()"
               placeholder="Inserisci il nome.." name = "search" title="Inserisci un nome"></input>
         <input type = "submit" value = "invia"/>
+        <!-- <div class="form_field"> -->
+          <label for="sesso">Sesso</label>
+          <select name="sesso" id="sesso">
+              <option value="per_lui">Per lui</option>
+              <option value="per_lei">Per lei</option>
+              <option value="unisex">Unisex</option>
+          </select>
+        <!-- </div> -->
+        <!-- <div class="form_field"> -->
+          <label for="categoria">Categoria</label>
+          <select name="categoria" id="categoria">
+              <option value="Alimentare">Alimentare</option>
+              <option value="Cosmetico">Cosmetico</option>
+          </select>
+        <!-- </div> -->
+        <!-- <div class="form_field"> -->
+          <label for="casa_prod">Casa produttrice</label>
+          <select name="casa_prod" id="casa_prod">
+              <option value="Baule Volante &amp; Fior di Loto">Baule Volante & Fior di Loto</option>
+              <option value="Helan">Helan</option>
+              <option value="L'Erbolario">L'Erbolario</option>
+        <!--  </select> -->
+        </div>
       </form>
       <ul id="myUL">
         %SEARCH_RESULTS%
@@ -38,5 +61,5 @@
     <!--          FOOTER            -->
     <div id="footer"> I piedi in doccia si lavano da soli con l'acqua che cade </div>
   </body>
-    <!-- <script src="js/ricercaW3CDardi.js"></script>--> 
+    <!-- <script src="js/ricercaW3CDardi.js"></script>-->
 </html>
