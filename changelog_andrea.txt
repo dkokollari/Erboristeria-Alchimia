@@ -51,13 +51,17 @@ CHANGELOG 6/5 morning part 2
 - slightly changed colors to gain a little more contrast (grey)
 
 CHANGELOG 7/5 morning
--compressed home_background even more (home_background_mobile now weights 42Kb). Now the mobile site (just teinfusi.html for now) uses an ad-hoc image with reduced size and quality, to further increase animations smoothness and reduce mobile data usage.
+- compressed home_background even more (home_background_mobile now weights 42Kb). Now the mobile site (just teinfusi.html for now) uses an ad-hoc image with reduced size and quality, to further increase animations smoothness and reduce mobile data usage.
 
+CHANGELOG 7/5 part 2
+- testing highly compressed images of teinfusi
+- weird glitch appeared on chrome mobile?
 TODO:
 - rework the remaining icons
 - non-mobile menu in 2 rows
+- change break-points
 DEBUG:
-- solve menu problem in chrome mobile
+
 REVIEW:
 - check the menu in other pages
 - navigation accessibility
