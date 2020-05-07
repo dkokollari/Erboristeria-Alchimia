@@ -50,6 +50,9 @@ CHANGELOG 6/5 morning part 2
 - added first footer prototype
 - slightly changed colors to gain a little more contrast (grey)
 
+CHANGELOG 7/5 morning
+-compressed home_background even more (home_background_mobile now weights 42Kb). Now the mobile site (just teinfusi.html for now) uses an ad-hoc image with reduced size and quality, to further increase animations smoothness and reduce mobile data usage.
+
 TODO:
 - rework the remaining icons
 - non-mobile menu in 2 rows

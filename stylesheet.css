@@ -89,9 +89,7 @@ h1 span {
 #container_informazioni #header_image {
   background-image: url(img/informazioni_background.jpg);
 }
-#container_te_e_infusi #header_image {
-  background-image: url(img/home_background.jpg);
-}
+
 #container_la_mia_storia #header_image {
   background-image: url(img/la_mia_storia_background.jpg);
 }
@@ -237,6 +235,9 @@ margin:0.7em auto 0.7em auto;
                                   /*   ----------------  MOBILE   ------------------   */
 
 @media screen and (max-width:699px) {
+              #container_te_e_infusi #header_image {
+                background-image: url(img/home_background_mobile.jpg);
+              }
               #close_menu {
                 margin:auto;
               }
@@ -317,7 +318,7 @@ margin:0.7em auto 0.7em auto;
             }
 
             #container_te_e_infusi #topbar:before {
-              background-image: url(img/home_background.jpg);
+              background-image: url(img/home_background_mobile.jpg);
             }
             /*  TODO: remember to reduce image size for loading time and performance*/
             #container_la_mia_storia #topbar:before {
@@ -389,6 +390,10 @@ margin:0.7em auto 0.7em auto;
                         /*        TABLET MODE HEADER          */
 
 @media screen and (min-width:700px)   {
+
+      #container_te_e_infusi #header_image {
+        background-image: url(img/home_background.jpg);
+      }
       body {
         margin-top: 37vw;
       }
