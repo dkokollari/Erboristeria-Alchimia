@@ -24,8 +24,23 @@
     <div id="header_image"></div>
     <h1>Ricerca articoli</h1>
     <!--         CONTENT            -->
-    <div id="content">
-    %PRODUCTS%  
+    <div id="content" class="container">
+      %PRODUCTS%
+      <div style="clear:both"></div>
+      <br />
+      <div class="table-responsive">
+        <table class="table">
+          <tr><th colspan="5"><h3>Dettagli Ordine</h3></th></tr>
+          <tr>
+            <th width="40%">Nome Prodotto</th>
+            <th width="10%">Quantit&agrave;</th>
+            <th width="20%">Prezzo</th>
+            <th width="15%">Totale</th>
+            <th width="5%">Azione</th>
+          </tr>
+          %ORDERS%
+        </table>
+      </div>
     </div>
     <div id="footer"> I piedi in doccia si lavano da soli con l'acqua che cade </div>
   </body>
