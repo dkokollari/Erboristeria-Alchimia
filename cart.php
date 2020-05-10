@@ -6,14 +6,11 @@
   $product_ids = array();
 
   if(filter_input(INPUT_POST, 'add_to_cart')) {
-    echo "SEMPRE UNA DC!";
     if(isset($_SESSION['shopping_cart'])) {
-      echo "SEMPRE UNA DC2!";
       $count = count($_SESSION['shopping_cart']);
       $product_ids = array_column($_SESSION['shopping_cart'], 'id_articolo');
 
       if(!in_array(filter_input(INPUT_GET, 'id_articolo'), $product_ids)) {
-        echo "SEMPRE UNA DC3!";
         $_SESSION['shopping_cart'][$count] = array
         (
             'id_articolo' => filter_input(INPUT_GET, 'id_articolo'),
@@ -22,7 +19,6 @@
       		'quantita' => filter_input(INPUT_POST, 'quantita')
         );
       } else {
-        echo "SEMPRE UNA DC4!";
         for($i=0; $i < count($product_ids); $i++) {
           if($product_ids[$i] == filter_input(INPUT_GET, 'id_articolo')) {
             $_SESSION['shopping_cart'][$i]['quantita'] += filter_input(INPUT_POST, 'quantita');
@@ -30,7 +26,6 @@
         }
       }
     } else {
-      echo "QUI DEVI ESSERE!\"n";
       $_SESSION['shopping_cart'][0] = array(
       'id_articolo' => filter_input(INPUT_GET, 'id_articolo'),
       'nome_articolo' => filter_input(INPUT_POST, 'nome_articolo'),
@@ -40,13 +35,26 @@
     }
   }
 
+  if(filter_input(INPUT_GET, 'action') == 'delete') {
+    foreach($_SESSION['shopping-cart'] as $key => $product) {
+      if($product['id'] == filter_input(INPUT_GET, 'id')) {
+        unset($_SESSION['shopping_cart'][$key]);
+      }
+    }
+    $_SESSION['shopping_cart'] = array_values([$_SESSION['shopping_cart']]);
+  }
+
+  /*
+
+  DEBUG
+
   pre_r($_SESSION);
 
   function pre_r($array) {
     echo '<pre>';
     print_r($array);
     echo '</pre>';
-  }
+  }*/
 /*-------------------FINE SESSIONE-----------------*/
 
   require_once("DBAccess.php");
@@ -79,25 +87,24 @@
   }
   $conn->closeConnection();
 
+  $total = 0;
+  $orderedProducts = "";
   if(!empty($_SESSION['shopping_cart'])) {
-    $total = 0;
-    $orderedProducts = '<tr>';
     foreach($_SESSION['shopping_cart'] as $key => $product) {
-      $orderedProducts .= '<td>' . $product['nome_articolo'] . '</td>' . "\n" .
+      $orderedProducts .= '<tr>' . '<td>' . $product['nome_articolo'] . '</td>' . "\n" .
       '<td>' . $product['quantita'] . '</td>' . "\n" .
       '<td>' . $product['prezzo_articolo'] . ' €</td>' . "\n" .
       '<td>' . number_format($product['quantita'] * $product['prezzo_articolo'], 2) . ' €</td>' . "\n" .
       '<td>' . '<a href="cart.php?action=delete&id_articolo="' . $product['id_articolo'] . '">' . "\n" .
-      '<div class="btn-danger">Rimuovi</div>' . "\n" . '</a>' . "\n" . '</td>' . "\n";
+      '<div class="btn-danger">Rimuovi</div>' . "\n" . '</a>' . "\n" . '</td>' . '</tr>' . "\n";
       $total += $product['quantita'] * $product['prezzo_articolo'];
     }
 
-    $orderedProducts .= '</tr>' . "\n" .
-    '<tr>' . "\n" . '<td colspan="3" align="right">Totale</td>' . "\n" .
+    $orderedProducts .= '<tr>' . "\n" . '<td colspan="3" align="right">Totale</td>' . "\n" .
     '<td align="right">' . number_format($total, 2) . ' €</td>' . "\n" .
     '<td></td>' . "\n" . '</tr>'  . "\n";
 
-    $orderedProducts .= '</tr>' . "\n" . '<td colspan="5">'  . "\n";
+    $orderedProducts .= '<td colspan="5">'  . "\n";
     if(isset($_SESSION['shopping_cart'])
         && count($_SESSION['shopping_cart']) > 0) {
           $orderedProducts .= '<a href="#" class="button">Checkout</a>'  . "\n";
