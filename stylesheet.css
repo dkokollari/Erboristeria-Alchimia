@@ -76,7 +76,7 @@ h1 {
   color: white;
   font-family: 'Velvetberries', serif;
   font-weight: lighter;
-  font-size: 25vw;
+  font-size: 7em;
   position: fixed;
   z-index: -1;
   text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.9);
@@ -99,10 +99,10 @@ h1 span {
   position: fixed;
   top: 0;
   width: 100vw;
-  height: 90vh;
+  height: 30em;
   z-index: -1;
   filter: brightness(0.7);
-  pointer-events: none;
+  /* pointer-events: none; */
 }
 
 #top_of_page {
@@ -309,9 +309,9 @@ margin:0.7em auto 0.7em auto;
               top: 0;
               z-index: 3;
               color: white;
-              font-size: 2.2em;
-              line-height: 12vw;
-              margin-left: 2vw;
+              font-size: 2.5em;
+              line-height: 1.6em;
+              margin-left: 0.2em;
             }
             #container_informazioni #topbar:before {
               background-image: url(img/informazioni_background.jpg);
@@ -327,9 +327,9 @@ margin:0.7em auto 0.7em auto;
             #topbar:before {              /* necessary element to correctly apply filter:brightness() only to the image, not the text */
               content: "";
               background-size: cover;
-              background-position: 0 -28.4vw;
+              background-position: 0 -10em;
               background-repeat: no-repeat;
-              filter: brightness(0.5);
+              filter: brightness(0.7);
               position: absolute;
               top: 0;
               left: 0;
@@ -339,20 +339,18 @@ margin:0.7em auto 0.7em auto;
 
             #topbar {
               width: 100vw;
-              height: 12vw;
+              height: 4em;
               top: 0;
               position: fixed;
               z-index: -2;
             }
-            #topbar h1 {
-              padding-top: 0;
-            }
             #topbar_title {
-              background-color: rgba(0,0,0,0.2);
+              padding-top: 0;
+              background-color: rgba(0,0,0,0.3);
               text-transform: capitalize;
-              font-size: 7vw;
-              padding-left: 15vw;
-              line-height: 12vw;
+              font-size: 2.5em;
+              padding-left: 1.5em;
+              line-height: 1.6em;
               letter-spacing: 0.06em;
               font-family: 'Poppins', sans-serif;
               font-weight: 300;
@@ -368,12 +366,13 @@ margin:0.7em auto 0.7em auto;
               opacity: 1;
             }
             h1 {
-              line-height: 75vw;
+              font-size: 6em;
+              /* line-height: 75vw; */
               top:0;
-              padding-top:10vw;
+              padding-top:1em;
             }
             #content {
-              margin-top: 75vw;
+              margin-top: 20em;
             }
             #footer {
                 width: 100%;
@@ -395,7 +394,7 @@ margin:0.7em auto 0.7em auto;
         background-image: url(img/home_background.jpg);
       }
       body {
-        margin-top: 37vw;
+        margin-top: 10em;
       }
 
       #right-of-menu, #menu_icon, .menu_btn,#menu li.menu_btn, #topbar, #menu button:first-child {
@@ -470,10 +469,10 @@ margin:0.7em auto 0.7em auto;
 @media screen and (min-width:700px) and (max-width:1024px) {
 
         #header_image {
-          top: -30vw;
+          top: -10em;
         }
         h1 {
-          top: 3vw;
+          top: 0em;
         }
 
 }
@@ -512,10 +511,12 @@ margin:0.7em auto 0.7em auto;
 
       #header_image {
         top: -300px;
+        height: 40em;
       }
       h1 {
         font-size: 11em;
         top: 20px;
+
       }
 }
 

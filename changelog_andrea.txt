@@ -12,7 +12,7 @@ CHANGELOG 27/4 afternoon
 - added top_of_page link to la_mia_storia.html
 - added smooth scroll for anchor links on desktop
 
-CHANGELOG 3/5 morning
+CHANGELOG 3/5 morning part 1
 
 - fixed menu_btn being visible on desktop/tablet
 - reworked .card for better performance and accessibility
@@ -27,7 +27,7 @@ CHANGELOG 3/5 afternoon part 2
 CHANGELOG 3/5 afternoon part 3
 -fixed 1 pixel rounding problem in some browsers
 
-CHANGELOG 3/5 night
+CHANGELOG 3/5 night part 4
 - fixed narrator problem with top of page link: the top of page link has been removed. It now goes to the top with javascript
 
 
@@ -50,26 +50,26 @@ CHANGELOG 6/5 morning part 2
 - added first footer prototype
 - slightly changed colors to gain a little more contrast (grey)
 
-CHANGELOG 7/5 morning
+CHANGELOG 7/5 morning part 1
 - compressed home_background even more (home_background_mobile now weights 42Kb). Now the mobile site (just teinfusi.html for now) uses an ad-hoc image with reduced size and quality, to further increase animations smoothness and reduce mobile data usage.
 
-CHANGELOG 7/5 part 2
+CHANGELOG 7/5 morning part 2
 - testing highly compressed images of teinfusi
 - weird glitch appeared on chrome mobile?
+
+CHANGELOG 9-10/5
+- changed mobile header. it's now independent from the device width.
+
 TODO:
 - rework the remaining icons
-- non-mobile menu in 2 rows
 - change break-points
 DEBUG:
 
 REVIEW:
-- check the menu in other pages
-- navigation accessibility
 - fix mobile not working on edge
 - abbreviations in every page
 - merge changes with the other pages
 OPTIMIZE:
 - fix edge .card img problem
-- fix header_image on mobile landscape mode (vh or %)
 - fix shadow desktop only in content
 - add banners at the bottom of the footer (totalvalidator, css, html 1 strict)

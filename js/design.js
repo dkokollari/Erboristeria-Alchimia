@@ -19,7 +19,14 @@ const card = document.getElementsByClassName("card");
 
 const username = document.querySelector("#username");
 
-const marginTop = document.documentElement.clientWidth*0.63;  // 75vw di margin-top del #content - 12vw di altezza #topbar
+const marginTop = document.documentElement.clientWidth*(320-64);  // 75vw di margin-top del #content - 12vw di altezza #topbar
+const marginTopEm = 254;
+var multiplier = document.documentElement.clientWidth*0.5;
+var x =-1*430/ 698 ;
+//percorso = w*3/4 - t
+//con 640 -> 668 delta = 28
+//con 494 -> 480 delta = -14
+    console.log(document.documentElement.clientWidth);
 var yScrollPosition;
 var i;
 var j;
@@ -80,15 +87,16 @@ window.addEventListener("DOMContentLoaded", scrollFix, false);
 
 /* function that actually creates the parallax effect by "slowing" the background movement while scrolling */
 function scrollFix() {
+
     yScrollPosition = window.scrollY;
-    headerImg.style.transform = "translate3d(" + 0 + ", " + yScrollPosition*-0.45 + "px, 0)";
+    headerImg.style.transform = "translate3d(" + 0 + ", " +( yScrollPosition*-0.62) + "px, 0)";
     requestAnimationFrame(scrollFix);
 }
 
                     /* function that makes the topbar element "sticky" on mobile */
 window.addEventListener('scroll', showTopbar);
  function showTopbar() {
-    if (window.scrollY > marginTop) {
+    if (window.scrollY > marginTopEm) {
       topbar.style.zIndex = "2";                                //controllare che gli vada bene usare STYLE (spoiler alert: NON VA BENE => DA CAMBIARE!!!!!!!!!!!!!!!!!)
       topbarTitle.classList.add("nopacity");
     } else {
