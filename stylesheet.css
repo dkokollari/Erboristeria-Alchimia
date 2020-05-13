@@ -22,17 +22,31 @@
 
   --grey-dark: #404354;
   --grey-main: #4e5166;
-  --grey-light: #aeafb9;
+  --grey-light: #bfbfca;
 
 }
-                                /* overwite default a rules */
-html, body {
-  height: 100%;
+/* activate border outline for keyboard navigation */
+/* I added 'em all, you never know....*/
+body.show-focus-outlines a:focus,
+body.show-focus-outlines button:focus,
+body.show-focus-outlines [tabindex]:focus,
+body.show-focus-outlines input:focus,
+body.show-focus-outlines select:focus,
+body.show-focus-outlines textarea:focus
+{
+  outline: 4px solid red;
+  }
+html {
+  scroll-behavior: smooth;
 }
+
+/* html, body {
+  height: 100%;
+} */
 a {
   text-decoration: none;
   color: inherit;
-
+  cursor: pointer;
 }
 body {
   font: 300 1em 'Poppins', sans-serif;
@@ -49,7 +63,10 @@ button {
   -webkit-tap-highlight-color: rgba(0,0,0,0);
   -webkit-tap-highlight-color: transparent;
 }
-
+/* body:not(.show-focus-outlines) button:focus,
+body:not(.show-focus-outlines) [tabindex]:focus {
+  outline: none;
+} */
 
                                   /*       HEADER       */
 
@@ -59,7 +76,7 @@ h1 {
   color: white;
   font-family: 'Velvetberries', serif;
   font-weight: lighter;
-  font-size: 25vw;
+  font-size: 7em;
   position: fixed;
   z-index: -1;
   text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.9);
@@ -72,9 +89,7 @@ h1 span {
 #container_informazioni #header_image {
   background-image: url(img/informazioni_background.jpg);
 }
-#container_te_e_infusi #header_image {
-  background-image: url(img/home_background.jpg);
-}
+
 #container_la_mia_storia #header_image {
   background-image: url(img/la_mia_storia_background.jpg);
 }
@@ -84,23 +99,27 @@ h1 span {
   position: fixed;
   top: 0;
   width: 100vw;
-  height: 100vw;
+  height: 30em;
   z-index: -1;
-  filter: brightness(0.8);
+  filter: brightness(0.7);
+  /* pointer-events: none; */
 }
 
-
+#top_of_page {
+  position: absolute;
+  top: 0;
+}
 
                                         /*       CONTENT       */
 
 #content {
   /* padding: 1.8em 8% 1em 8%; */
   background-color: #fff;
-  margin-bottom: 9em;
+  margin-bottom: 14.5em;
   padding-top: 2em;
   padding-bottom: 2em;
 }
-#content > * {
+#content > *, .expanded > * {
   margin-left:1.8em;
   margin-right: 1.8em;
 }
@@ -125,9 +144,9 @@ h3 {
   text-transform: uppercase;
   color: var(--yellow-dark);
 }
-#content h4, #menu li {                                     /*       DA RIVERE         */
+h4, #menu li {                                     /*       DA RIVERE         */
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.02em;
   text-align: center;
   color: var(--yellow-dark);
   margin:1em;
@@ -144,20 +163,100 @@ h3 {
 transform: rotate(-180deg);
 transition: transform 1s ease;
 }
+.accessibility_hidden {
 
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+
+  white-space: nowrap;
+
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+/*       FOOTER       */
+#footer {
+height: 14em;
+color: var(--grey-light);
+background: var(--grey-main);
+position: fixed;
+bottom: 0;
+z-index: -2;
+text-align: center;
+padding-top: 0.5em;
+}
+#footer > * {
+font-size: 0.8em;
+}
+#footer ul {
+display: flex;
+flex-wrap: wrap;
+list-style: none;
+justify-content: center;
+}
+#footer_menu {
+font-weight: 600;
+/* border-top: var(--grey-light) solid 1px;
+padding-top: 1em; */
+}
+
+#footer li{
+  width: 50%;
+  margin-bottom: 0.7em;
+}
+
+
+#footer li > a {
+border-bottom: var(--grey-light) dotted 1px;
+}
+#footer li > * {
+  /* display: block; */
+  /* height: 100%; */
+  /* line-height: 1.8em; */
+    padding-top:0.2em;
+    padding-bottom: 0.1em;
+}
+#torna_su_btn {
+border-bottom: var(--grey-light) dotted 1px;
+padding-bottom: 0.1em;
+}
+#footer p, #torna_su_btn{
+margin:0.7em auto 0.7em auto;
+}
+#footer #copyright {
+  font-size: 0.7em;
+}
 
                                   /*   ----------------  MOBILE   ------------------   */
 
-@media screen and (max-width:599px) {
-
+@media screen and (max-width:699px) {
+              #container_te_e_infusi #header_image {
+                background-image: url(img/home_background_mobile.jpg);
+              }
+              #close_menu {
+                margin:auto;
+              }
+              #menu .menu_btn {
+               height: 3em;
+               width: 3em;
+               background-size: contain;
+               background-image: url(icons/cancel.svg);
+               background-repeat: no-repeat;
+             }
              #menu {
+              top:0;
               z-index: 5;
               position: fixed;
               opacity: 1;
               width: 65vw;
               height: 100vh;
               background-color: white;
-              transform: translateX(-65vw);
+              transform: translateX(-66vw);
               transition: all 0.5s ease;
             }
             #menu.showmenu {
@@ -165,6 +264,7 @@ transition: transform 1s ease;
               transition: all 0.5s ease;
             }
             #right-of-menu {
+              top: 0;
               position: fixed;
               opacity: 0;
               width: 100vw;
@@ -178,12 +278,16 @@ transition: transform 1s ease;
               transform: translateX(0);
               opacity: 0.5;
             }
-            #menu > button > i {
-              font-size: 2.2em;
-              line-height: 12vw;
-              margin-left: 2vw;
-              color: var(--red-main);
-              filter: brightness(1.6);
+
+            #menu .menu_btn {
+              margin-left: auto;
+              margin-right: auto;
+            }
+
+            #menu  .menu_btn  img{
+              width: 100%;
+              height: 100%;
+              cursor: pointer;
             }
 
             #menu ul li a{
@@ -205,27 +309,27 @@ transition: transform 1s ease;
               top: 0;
               z-index: 3;
               color: white;
-              font-size: 2.2em;
-              line-height: 12vw;
-              margin-left: 2vw;
+              font-size: 2.5em;
+              line-height: 1.6em;
+              margin-left: 0.2em;
             }
             #container_informazioni #topbar:before {
               background-image: url(img/informazioni_background.jpg);
             }
 
             #container_te_e_infusi #topbar:before {
-              background-image: url(img/home_background.jpg);
+              background-image: url(img/home_background_mobile.jpg);
             }
-            /*  TODO: remember to reuce image size for loading time and performance*/
+            /*  TODO: remember to reduce image size for loading time and performance*/
             #container_la_mia_storia #topbar:before {
               background-image: url(img/la_mia_storia_background.jpg);
             }
             #topbar:before {              /* necessary element to correctly apply filter:brightness() only to the image, not the text */
               content: "";
               background-size: cover;
-              background-position: 0 -28.4vw;
+              background-position: 0 -10em;
               background-repeat: no-repeat;
-              filter: brightness(0.8);
+              filter: brightness(0.7);
               position: absolute;
               top: 0;
               left: 0;
@@ -235,20 +339,18 @@ transition: transform 1s ease;
 
             #topbar {
               width: 100vw;
-              height: 12vw;
+              height: 4em;
               top: 0;
               position: fixed;
               z-index: -2;
             }
-            #topbar h1 {
-              padding-top: 0;
-            }
             #topbar_title {
-              background-color: rgba(0,0,0,0.2);
+              padding-top: 0;
+              background-color: rgba(0,0,0,0.3);
               text-transform: capitalize;
-              font-size: 7vw;
-              padding-left: 15vw;
-              line-height: 12vw;
+              font-size: 2.5em;
+              padding-left: 1.5em;
+              line-height: 1.6em;
               letter-spacing: 0.06em;
               font-family: 'Poppins', sans-serif;
               font-weight: 300;
@@ -264,16 +366,21 @@ transition: transform 1s ease;
               opacity: 1;
             }
             h1 {
-              line-height: 75vw;
+              font-size: 6em;
+              /* line-height: 75vw; */
               top:0;
-              padding-top:10vw;
+              padding-top:1em;
             }
             #content {
-              margin-top: 75vw;
+              margin-top: 20em;
             }
             #footer {
                 width: 100%;
             }
+
+            /* #footer li > * {
+            padding: 0.1em 0.3em 0.1em 0.3em;
+            } */
 
 }
 
@@ -281,9 +388,16 @@ transition: transform 1s ease;
 
                         /*        TABLET MODE HEADER          */
 
-@media screen and (min-width:600px)   {
+@media screen and (min-width:700px)   {
 
-      #right-of-menu, #menu_icon, #topbar, #menu button:first-child {
+      #container_te_e_infusi #header_image {
+        background-image: url(img/home_background.jpg);
+      }
+      body {
+        margin-top: 10em;
+      }
+
+      #right-of-menu, #menu_icon, .menu_btn,#menu li.menu_btn, #topbar, #menu button:first-child {
          display: none;
        }
        .container {
@@ -295,48 +409,70 @@ transition: transform 1s ease;
        }
        #menu {
          z-index: 5;
-         width: 100%;
-         display: block;
          height: 2.8em;
-         margin-top: 37vw;
+         margin-top:0;
          position: sticky;
          top:0;
-         background-color: var(--yellow-dark);
+         background-color: var(--yellow-light);
          transform: translateX(0);
          text-align: center;
        }
        #menu ul {
          text-align: center;
+         display: flex;
+         height: 100%;
        }
        #menu li {
-         display: inline-block;
-         color: white;
-         padding: 0.7em 1.5% 0.7em 1.5%;
-         margin: 0;
+         display: flex;
+         justify-content: center;
+         color: var(--grey-dark);
+         flex-grow: 1;
+         margin: auto;
+         height: 100%;
+       }
+       #menu li > * {
+         margin: auto;
+         color: var(--grey-dark);
+       }
+       #menu li > a {
+         border-bottom: var(--grey-dark) dashed;
        }
        #menu .selected_page {
-         background-color: white;
-         color: var(--grey-light);
-         border-radius: 10px 10px 0 0;
+         background-color: var(--yellow-main);
        }
        /*  for those that use the tablet with a mouse :) */
        #menu li a:hover {
-         color: var(--orange-light);
-         border-bottom: var(--orange-light) dashed;
+         /* color: var(--yellow-dark); */
+         /* border-bottom: var(--yellow-dark) dashed; */
+         border-bottom: var(--grey-dark) solid;
        }
        #footer {
            width: 100%;
        }
-
+       body #content {
+         margin-top: 0;
+         min-height: 90%;
+       }
+       /* #footer li > * {
+       padding: 0.5em;
+       } */
+       #footer li{
+         width: 7em;
+         /* height: 1.8em; */
+         margin-left: 1em;
+         margin-right: 1em;
+         margin-top: 0.2em;
+         margin-bottom: 0.2em;
+       }
 }
 
-@media screen and (min-width:600px) and (max-width:1024px) {
+@media screen and (min-width:700px) and (max-width:1024px) {
 
         #header_image {
-          top: -30vw;
+          top: -10em;
         }
         h1 {
-          top: 3vw;
+          top: 0em;
         }
 
 }
@@ -346,134 +482,66 @@ transition: transform 1s ease;
 
 @media screen and (min-width: 1025px) {
 
-
+      body{
+        margin-top: 250px;
+      }
       .container {
         margin: 0 auto 0 auto;
         box-shadow: 0 3px 6px rgba(0,0,0,0.10), 0 3px 6px rgba(0,0,0,0.17);
       }
 
-.container, #header_image, h1, body #footer {
-        width: 1000px;
-  }
+      .container, #header_image, h1, body #footer {
+              width: 1001px;
+        }
 
-#informazioni #orari li {
-  display: block;
-  text-align: center;
-  margin-left: 30%;
-}
+      #informazioni #orari li {
+        display: block;
+        text-align: center;
+        margin-left: 30%;
+      }
 
-#informazioni li p {
-    float: left;
-}
+      #informazioni li p {
+          float: left;
+      }
 
-#informazioni .giornoSett {
-  min-width: 20%;
-  float: left;
-}
+      #informazioni .giornoSett {
+        min-width: 20%;
+        float: left;
+      }
 
-#header_image {
+      #header_image {
         top: -300px;
+        height: 40em;
       }
       h1 {
         font-size: 11em;
         top: 20px;
-      }
-      body #content {
-        margin-top: 0;
-      }
-      body #menu {
-        z-index: 5;
-        width: 100%;
-        display: block;
-        height: 2.8em;
-        margin-top: 250px;
-        position: sticky;
-        top:0;
-        background-color: var(--yellow-dark);
-        transform: translateX(0);
-        text-align: center;
-      }
-      body #menu li {
-        display: inline-block;
-        color: white;
-        padding: 0.8em 1em 0.7em 1em;
-        margin:0;
-      }
-      body #menu .selected_page {
-        background-color: white;
-        color: var(--grey-light);
-        border-radius: 10px 10px 0 0;
-      }
-      body #menu li a:hover {
-        color: var(--orange-light);
-        border-bottom: var(--orange-light) dashed;
-      }
-      body #menu ul {
-        text-align: center;
-        height: 100%;
-      }
-      body .card {
-        cursor: default;
-      }
 
+      }
 }
 
 
                             /*     CONSIGLI DI MARIKA       */
 
-
 .tips_and_tricks {
   background-color: var(--orange-light);
   color: var(--orange-dark);
-  /* margin: 0 -9.5% 2em -9.5%; */
-  margin-bottom:2em;
-  padding: 0.6em 9% 1.5em 9%;
-  transition: max-height 0.8s ease;
-  max-height: 50em;
   position: relative;
-}
-.tips_and_tricks * {
-  transition: opacity 0.6s ease 0.3s;
-}
-.tips_and_tricks.collapsed{
-  max-height: 3.8em;
   overflow: hidden;
+  max-height: 60em;
+  cursor: pointer;
+  transition: 0.8s ease;
 }
-.tips_and_tricks.collapsed *{
-  opacity: 0;
-}
-.tips_and_tricks h3:first-of-type {
-  clear: none;
-  color: var(--orange-dark);
-  margin:0;
-  opacity: 1;
-  width: 100%;
-  float: left;
+.tips_and_tricks.collapsed {
+    max-height: 4.5em;
 }
 .tips_and_tricks h3 {
-  clear: both;
-  margin-top: 3em;
-}
-#content .tips_and_tricks h4 {
-  margin-top: 3em;
+  margin: 1em;
   color: var(--orange-dark);
 }
-.tips_and_tricks i {
-  width: 10%;
-  float: left;
-  text-align: center;
-  line-height: 1.2em;
-}
-.tips_and_tricks.collapsed i{
-  opacity: 1;
-}
-.tips_and_tricks i:last-child {
-  position: absolute;
-  bottom: 0;
-  line-height: 1.2em;
-  width: 82%;            /* 100 - padding tips and tricks sopra*/
-  text-align: center;
-  transition: transform 1s ease;
+.tips_and_tricks h4 {
+  color: var(--orange-dark);
+  margin-top: 2em;
 }
 .tips_and_tricks ul {
   padding-left: 1.5em;
@@ -481,10 +549,19 @@ transition: transform 1s ease;
 .tips_and_tricks ul span {
   font-weight: 600;
 }
-
+.tips_and_tricks .expand_icon {
+  transition: 0.8s ease;
+  position: absolute;
+  bottom: 0;
+  margin:0;
+  text-align: center;
+  width: 100%;
+}
+.tips_and_tricks li {
+  margin-bottom: 1em;
+}
 
                           /*       LISTA DI INFUSI      */
-
 
 .card {
   border-radius: 7px;
@@ -498,9 +575,10 @@ transition: transform 1s ease;
   transition: max-height 0.8s ease;
   opacity: 1;
   padding-bottom: 1em;
+  cursor: pointer;
 }
 .card.collapsed {
-  max-height: 11.6em;
+  max-height: 10.5em;
 }
 .card.collapsed img {
   max-height: 7em;
@@ -508,9 +586,14 @@ transition: transform 1s ease;
 .card img {
   width: 100%;
   border-radius: 7px 7px 0 0;
-  max-height: 11.5em;
+  max-height: 10.5em;
   object-fit: cover;
   transition: max-height 0.4s ease;
+  position: absolute;
+  top: 0;
+}
+.card.collapsed h3 {
+  margin-top: 7em;
 }
 .card h3 {
   margin: 0.3em 0.6em 1.2em 0.6em;
@@ -518,11 +601,11 @@ transition: transform 1s ease;
   display: flex;
   height: 2em;
   align-items: center;
+  justify-content: center;
+  transition: 0.4s ease;
+  margin-top: 11.5em;
 }
-.card dt {
-  width: 100%;
-}
-.card i:last-child {
+.card .expand_btn {
   position: absolute;
   bottom: 0;
   line-height: 1.2em;
@@ -645,7 +728,7 @@ transition: transform 1s ease;
 
 /* PER RIMUOVERE PRECEDENTI STILI */
 #orario p {
-  line-height: auto;
+
   margin: auto;
 }
 #orario {
@@ -675,19 +758,7 @@ strong {
 }
 
 
-                          /*       FOOTER       */
-#footer {
-  font-size: 0.9em;
-  height: 9em;
-  color: var(--grey-light);
-  background: var(--grey-main);
-  position: fixed;
-  bottom: 0;
-  z-index: -2;
 
-  text-align: center;
-  padding: 1em 0 0 0;
-}
                               /*       LOGIN       */
 #log_in_box_container {
   display: flex;

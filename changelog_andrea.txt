@@ -1,0 +1,75 @@
+CHANGELOG 27/4 morning
+
+- fix close menu button being present on tablet and desktop mode
+- desktop cursor when hovering on .card elements is now a pointer
+- added changelog_andrea.txt
+- added bottom link that leads to the top of the page to teinfusi.html
+- added a min-height to the content div (solves a footer problem (and it's nicer))
+- greatly reduced image size: la_mia_storia_background.jpeg (2.2mb -> 322kb). Lighter page with less stutter when scrolling
+
+CHANGELOG 27/4 afternoon
+
+- added top_of_page link to la_mia_storia.html
+- added smooth scroll for anchor links on desktop
+
+CHANGELOG 3/5 morning part 1
+
+- fixed menu_btn being visible on desktop/tablet
+- reworked .card for better performance and accessibility
+- added an .accessibility_hidden class to make element invisible but still present in the accessibility tree
+(https://allyjs.io/tutorials/hiding-elements.html)
+- removed <div id="lista_infusi">, now unused
+
+CHANGELOG 3/5 afternoon part 2
+
+- fixed unclickable footer problem in some browsers (a header_image problem)
+
+CHANGELOG 3/5 afternoon part 3
+-fixed 1 pixel rounding problem in some browsers
+
+CHANGELOG 3/5 night part 4
+- fixed narrator problem with top of page link: the top of page link has been removed. It now goes to the top with javascript
+
+
+CHANGELOG 3/5 night 2
+- added a small margin to the .tips_and_tricks li items
+
+CHANGELOG 5/5 morning part 1
+-applied header and footer changes to la_mia_storia.html
+-fixed weird glitch on la_mia_storia.html on chrome mobile (I forgot to upload the compressed images, and the website was using the BIG FAT ones)
+-reduced la_mia_storia.html size ( >3mb --->  <1mb)
+
+CHANGELOG 5/5 morning part 2
+- replaced some scrollTop code with scrollY for better microsoft browsers compatibility
+
+CHANGELOG 6/5 morning part 1
+- fixed tips_and_tricks expand_more icon
+
+CHANGELOG 6/5 morning part 2
+- restyled links
+- added first footer prototype
+- slightly changed colors to gain a little more contrast (grey)
+
+CHANGELOG 7/5 morning part 1
+- compressed home_background even more (home_background_mobile now weights 42Kb). Now the mobile site (just teinfusi.html for now) uses an ad-hoc image with reduced size and quality, to further increase animations smoothness and reduce mobile data usage.
+
+CHANGELOG 7/5 morning part 2
+- testing highly compressed images of teinfusi
+- weird glitch appeared on chrome mobile?
+
+CHANGELOG 9-10/5
+- changed mobile header. it's now independent from the device width.
+
+TODO:
+- rework the remaining icons
+- change break-points
+DEBUG:
+
+REVIEW:
+- fix mobile not working on edge
+- abbreviations in every page
+- merge changes with the other pages
+OPTIMIZE:
+- fix edge .card img problem
+- fix shadow desktop only in content
+- add banners at the bottom of the footer (totalvalidator, css, html 1 strict)
