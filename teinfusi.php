@@ -23,21 +23,18 @@
       $preparazione = nl2p(htmlentities($row["preparazione_te_e_infusi"]));
 
       $lista .=
-        '<button class="card collapsed">
+        '<div class="card collapsed" title="'.$nome.'. Premi per espandere la descrizione">
+          <h3>'.$nome.'</h3>
+          <a class="accessibility_hidden">Salta la descrizione di questo infuso</a>
           <img src="'.$immagine.'" alt="'.$descrizione_immagine.'"/>
-          <dl>
-            <dt><h3>'.$nome.'</h3></dt>
-            <dd>
-              <h4>Ingredienti</h4>
-              <p>'.$ingredienti.'</p>
-              <h4>Descrizione</h4>
-              <p>'.$descrizione.'</p>
-              <h4>Preparazione</h4>
-              <p>'.$preparazione.'</p>
-            </dd>
-          </dl>
-          <i class="material-icons-round">expand_more</i>
-        </button>
+          <h4>Ingredienti</h4>
+          <p>'.$ingredienti.'</p>
+          <h4>Descrizione</h4>
+          <p>'.$descrizione.'</p>
+          <h4>Preparazione</h4>
+          <p>'.$preparazione.'</p>
+          <span class="expand_btn material-icons-round">expand_more</span>
+        </div>
 
         ';
     }
