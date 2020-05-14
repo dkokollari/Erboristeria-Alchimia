@@ -75,7 +75,7 @@
       </div>
 
       ';
-      }
+    }
 
     $pagina = str_replace("%LISTA_EVENTI%", $lista, $pagina);
     echo $pagina;
