@@ -66,36 +66,5 @@
       Fare l'elicottero per asciugarsi il membro appena usciti dalla doccia
     </div>
 
-    <script>
-
-      const headerImg = document.querySelector("#eventi #header_image");
-      const content = document.querySelector("#content");
-      const topbar = document.querySelector("#eventi   #topbar");
-      const topbarTitle = document.querySelector("#topbar_title");
-      const marginTop = document.documentElement.clientWidth*0.63;  // 75vw di margin-top del content - 12vw di altezza topbar
-      var yScrollPosition;
-      var i;
-      var j;
-
-      window.addEventListener("DOMContentLoaded", scrollLoop, false);
-
-      function scrollLoop() {
-          yScrollPosition = window.scrollY;
-          headerImg.style.transform = "translate3d(" + 0 + ", " + yScrollPosition*-0.45 + "px, 0)";
-          // yScrollPosition > margintop ? topbar.style.zIndex = "2" : topbar.style.zIndex = "-2"; //   INEFFICIENTE
-          requestAnimationFrame(scrollLoop);
-      }
-       window.addEventListener('scroll', showTopbar);
-       function showTopbar() {
-          if (document.documentElement.scrollTop > marginTop) {
-            topbar.style.zIndex = "2";
-            topbarTitle.classList.add("nopacity");
-          } else {
-            topbar.style.zIndex = "-2";
-            topbarTitle.classList.remove("nopacity");
-          }
-       }
-
-    </script>
   </body>
 </html>
