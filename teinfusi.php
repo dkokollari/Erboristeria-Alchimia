@@ -25,7 +25,7 @@
       $lista .=
         '<div class="card collapsed" title="'.$nome.'. Premi per espandere la descrizione">
           <h3>'.$nome.'</h3>
-          <a class="accessibility_hidden">Salta la descrizione di questo infuso</a>
+          <a class="accessibility_hidden">Salta la descrizione di questo t&egrave; o infuso</a>
           <img src="'.$immagine.'" alt="'.$descrizione_immagine.'"/>
           <h4>Ingredienti</h4>
           <p>'.$ingredienti.'</p>
