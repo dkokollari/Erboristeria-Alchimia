@@ -12,7 +12,6 @@
     }
 
     $pagina = file_get_contents('eventi.html');
-
     $lista_eventi = $con->getEventi();
     $lista_descrizione = $con->getDescrizione_eventi();
 
