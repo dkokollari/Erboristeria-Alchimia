@@ -36,7 +36,7 @@
   }
 
   if(filter_input(INPUT_GET, 'action') == 'delete') {
-    foreach($_SESSION['shopping-cart'] as $key => $product) {
+    foreach($_SESSION['shopping_cart'] as $key => $product) {
       if($product['id'] == filter_input(INPUT_GET, 'id')) {
         unset($_SESSION['shopping_cart'][$key]);
       }
@@ -89,15 +89,15 @@
 
   $total = 0;
   $orderedProducts = "";
-  if(!empty($_SESSION['shopping_cart'])) {
-    foreach($_SESSION['shopping_cart'] as $key => $product) {
-      $orderedProducts .= '<tr>' . '<td>' . $product['nome_articolo'] . '</td>' . "\n" .
-      '<td>' . $product['quantita'] . '</td>' . "\n" .
-      '<td>' . $product['prezzo_articolo'] . ' €</td>' . "\n" .
-      '<td>' . number_format($product['quantita'] * $product['prezzo_articolo'], 2) . ' €</td>' . "\n" .
-      '<td>' . '<a href="cart.php?action=delete&id_articolo="' . $product['id_articolo'] . '">' . "\n" .
+  if(!empty($_SESSION["shopping_cart"])) {
+    foreach($_SESSION["shopping_cart"] as $key => $product) {
+      $orderedProducts .= '<tr>' . '<td>' . $product["nome_articolo"] . '</td>' . "\n" .
+      '<td>' . $product["quantita"] . '</td>' . "\n" .
+      '<td>' . $product["prezzo_articolo"] . ' €</td>' . "\n" .
+      '<td>' . number_format($product["quantita"] * $product["prezzo_articolo"], 2) . ' €</td>' . "\n" .
+      '<td>' . '<a href="cart.php?action=delete&id_articolo=' . $product["id_articolo"] . '">' . "\n" .
       '<div class="btn-danger">Rimuovi</div>' . "\n" . '</a>' . "\n" . '</td>' . '</tr>' . "\n";
-      $total += $product['quantita'] * $product['prezzo_articolo'];
+      $total += $product["quantita"] * $product["prezzo_articolo"];
     }
 
     $orderedProducts .= '<tr>' . "\n" . '<td colspan="3" align="right">Totale</td>' . "\n" .
