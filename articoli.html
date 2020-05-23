@@ -27,7 +27,7 @@
     <div id="content" class="container">
       <h2>Trova ci&ograve; che ti serve</h2>
       <!--      https://www.w3schools.com/howto/howto_js_filter_lists.asp      -->
-      <form action="articoli.php" method = "post">
+      <form action="articoli.php" method = "get"> <!--ora che il method e' get va fatto controllo anche sul valore dei filtri! -->
         <input type="text" id="myInput" onkeyup="myFunction()"
               placeholder="Inserisci il nome.." name = "search" title="Inserisci un nome"></input>
         <input type = "submit" value = "invia"/>
@@ -36,6 +36,7 @@
         %COMPANY_FILTER%
       </form>
        %PRODUCTS%
+       %PAGES_MENU%
       </div>
     <div id="footer"> I piedi in doccia si lavano da soli con l'acqua che cade </div>
   </body>

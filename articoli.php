@@ -1,5 +1,4 @@
 <?php
-
   require_once("DBAccess.php");
   $pagina = file_get_contents('articoli.html');
   $conn = new DBAccess();
@@ -46,16 +45,22 @@
   }
   $opt_casa_prod .= '</select>' . "\n";
 
-  if(isset($_POST['search'])) {
-    $noOption = "none"; //costante: valore opzione "Seleziona filtro"
-    $search_value = trim($_POST['search']);
-    $sex_filter = mysql_real_escape_string(trim($_POST['sesso'])); //forse superfluo il trim qua!
-    $categ_filter = mysql_real_escape_string(trim($_POST['categoria']));
-    $casa_prod_filter =  mysql_real_escape_string(trim($_POST['casa_prod']));
-    $query_ricerca = "SELECT nome_articolo, quantita_magazzino_articolo
-                      FROM articoli %categorie% %ditte% %produzioni%
-                      WHERE nome_articolo LIKE ? %sex% %categ% %casa_prod%
-                      ORDER BY id_articolo DESC";
+  if(isset($_GET['search'])) {
+    $noOption = "none"; //indica l'opzione "Seleziona Filtro" per i menu a tendina
+    $search_value = mysql_real_escape_string(trim($_GET['search']));
+    $sex_filter = mysql_real_escape_string(trim($_GET['sesso']));
+    $categ_filter = mysql_real_escape_string(trim($_GET['categoria']));
+    $casa_prod_filter =  mysql_real_escape_string(trim($_GET['casa_prod']));
+
+    $results_per_page = 6;
+    $page = isset($_GET['page']) ? (int)$_GET['page'] : 1; //QUESTO CAST A INT SOSTITUISCE EFFICACEMENTE IL prepare_statement()????
+    $start = ($page > 1) ? ($page*$results_per_page) - $results_per_page : 0;
+
+    $query_ricerca = 'SELECT SQL_CALC_FOUND_ROWS nome_articolo, quantita_magazzino_articolo
+                    FROM articoli %categorie% %ditte% %produzioni%
+                    WHERE nome_articolo LIKE ? %sex% %categ% %casa_prod%
+                    ORDER BY id_articolo DESC LIMIT ' . $start . ', ' . $results_per_page;
+
 
     if($sex_filter != $noOption) { //restituisco i dati usati da utente per compilare il form + aggiorno la query di ricerca
       $opt_sesso = str_replace('selected', '' , $opt_sesso);
@@ -100,36 +105,50 @@
     }
 
     $search_value = preg_replace("#[^0-9a-z]#", "", $search_value); //capire cosa fa!!!
-    $search_value = '%'.$search_value.'%'; //non ricordo a cosa serve!!!
-    $stmt->bind_param("s", $search_value);
+    $search_value_query = '%'.$search_value.'%'; //non ricordo a cosa serve!!!
+    $stmt->bind_param("s", $search_value_query);
     $stmt->execute();
     $result = $stmt->get_result();
+
+    $total_records = $conn->connection->query("SELECT FOUND_ROWS() as total")->fetch_assoc()['total'];
 
     $productToPrint = "";
     if($result->num_rows === 0) {
       $productToPrint = '<p>La ricerca non ha prodotto alcun risultato</p>';
     }
-    else while($row = $result->fetch_assoc()) {
-      $productToPrint .= '<div class = "col-sn-4 col-md-3">' . "\n" .
-      '<form method="post" action="carrello.php?action=add&id_articolo='. $row["id_articolo"] .  '">'. "\n" .
-      '<div class="products">' . "\n" .
-      '<img src="img/articoli/'.(file_exists("
-      img/articoli/".$row["id_articolo"].".jpg") ? $row["id_articolo"].'.jpg' : '0.jpg').'" class="img-responsive"/>'."\n" .
-      '<h4 class="text-info">' . $row["nome_articolo"] . '</h4>' . "\n" .
-      '<h4>' . $row["prezzo_articolo"] . ' €' . '</h4>' ."\n" .
-      '<input type="text" name="quantita" class="form-control" value="1" />' ."\n" .
-      '<input type="hidden" name="nome_articolo" value="' . $row["nome_articolo"] . '"/>' . "\n" .
-      '<input type="hidden" name="prezzo_articolo" value="' . $row["prezzo_articolo"] . '"/>' . "\n" .
-       '<input type="submit" name="add_to_cart" class="btn btn-info CUSTOM_MARGIN" value="Add to Cart" />' . "\n" .
-      '</div>' . "\n" . '</form>' . "\n" . '</div>' ."\n";
+    else{
+      $total_pages = ceil($total_records/$results_per_page); //se c'è una sola pagina non voglio mostrare un link circolare alla pagina stessa!
+      while($row = $result->fetch_assoc()) {
+        $productToPrint .= '<div class = "col-sn-4 col-md-3">' . "\n" .
+        '<form method="post" action="carrello.php?action=add&id_articolo='. $row["id_articolo"] .  '">'. "\n" .
+        '<div class="products">' . "\n" .
+        '<img src="img/articoli/'.(file_exists("
+        img/articoli/".$row["id_articolo"].".jpg") ? $row["id_articolo"].'.jpg' : '0.jpg').'" class="img-responsive"/>'."\n" .
+        '<h4 class="text-info">' . $row["nome_articolo"] . '</h4>' . "\n" .
+        '<h4>' . $row["prezzo_articolo"] . ' €' . '</h4>' ."\n" .
+        '<input type="text" name="quantita" class="form-control" value="1" />' ."\n" .
+        '<input type="hidden" name="nome_articolo" value="' . $row["nome_articolo"] . '"/>' . "\n" .
+        '<input type="hidden" name="prezzo_articolo" value="' . $row["prezzo_articolo"] . '"/>' . "\n" .
+         '<input type="submit" name="add_to_cart" class="btn btn-info CUSTOM_MARGIN" value="Add to Cart" />' . "\n" .
+        '</div>' . "\n" . '</form>' . "\n" . '</div>' ."\n";
+      }
+    }
+    $stmt->close();
+
+    $links_to_result_pages = '';
+    for($page=1; $page<=$total_pages; ++$page) {
+      $links_to_result_pages .= '<a href="articoli.php?page=' . $page . "&amp;search=$search_value&amp;sesso=$sex_filter" .
+      "&amp;categoria=$categ_filter&amp;casa_prod=$casa_prod_filter" . '">' . $page . '</a>' . "\n";
     }
 
-    $stmt->close();
-    $pagina = str_replace("%PRODUCTS%", $productToPrint , $pagina);
+    $pagina = str_replace("%PRODUCTS%", $productToPrint, $pagina);
+    $pagina = str_replace("%PAGES_MENU%", $links_to_result_pages , $pagina);
+  } else {
+    $pagina = str_replace("%PRODUCTS%", '' , $pagina);
+    $pagina = str_replace("%PAGES_MENU%", '' , $pagina);
   }
 
   $conn->closeConnection();
-  $pagina = str_replace("%PRODUCTS%", '' , $pagina);
   $pagina = str_replace("%SEX_FILTER%", $opt_sesso , $pagina);
   $pagina = str_replace("%CATEGORY_FILTER%", $opt_categoria , $pagina);
   $pagina = str_replace("%COMPANY_FILTER%", $opt_casa_prod , $pagina);
