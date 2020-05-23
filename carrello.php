@@ -13,7 +13,7 @@
       if(!in_array(filter_input(INPUT_GET, 'id_articolo'), $product_ids)) {
         $_SESSION['shopping_cart'][$count] = array
         (
-            'id_articolo' => filter_input(INPUT_GET, 'id_articolo'),
+          'id_articolo' => filter_input(INPUT_GET, 'id_articolo'),
       		'nome_articolo' => filter_input(INPUT_POST, 'nome_articolo'),
       		'prezzo_articolo' => filter_input(INPUT_POST, 'prezzo_articolo'),
       		'quantita' => filter_input(INPUT_POST, 'quantita')
@@ -43,16 +43,9 @@
     }
    $_SESSION['shopping_cart'] = array_values($_SESSION['shopping_cart']);
   }
+/*-------------------------FINE SESSIONE(Meglio metterla in un file a parte!)----------------------------*/
 
-
-
-
-
-
-
-
-
-
+$pagina = file_get_contents('carrello.html');
 $total = 0;
 $orderedProducts = "";
 if(!empty($_SESSION["shopping_cart"])) {
@@ -77,7 +70,6 @@ if(!empty($_SESSION["shopping_cart"])) {
   }
   $orderedProducts .= '</td>' . "\n" . '</tr>' . "\n";
 }
-$pagina = str_replace("%PRODUCTS%", $productToPrint, $pagina);
 $pagina = str_replace("%ORDERS%", $orderedProducts, $pagina);
 echo $pagina;
 ?>

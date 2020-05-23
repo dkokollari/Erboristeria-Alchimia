@@ -24,7 +24,7 @@
     <div id="header_image"></div>
     <h1>Ricerca articoli</h1>
     <!--         CONTENT            -->
-    <div id="content" class="container">
+    <div id="content">
       <h2>Trova ci&ograve; che ti serve</h2>
       <!--      https://www.w3schools.com/howto/howto_js_filter_lists.asp      -->
       <form action="articoli.php" method = "get"> <!--ora che il method e' get va fatto controllo anche sul valore dei filtri! -->
@@ -35,9 +35,13 @@
         %CATEGORY_FILTER%
         %COMPANY_FILTER%
       </form>
+      <div class="container">
        %PRODUCTS%
-       %PAGES_MENU%
       </div>
+       <div class = "togliLinkCircolariEFaiBelliILink:)">
+      %PAGES_MENU%
+      </div>
+  </div>
     <div id="footer"> I piedi in doccia si lavano da soli con l'acqua che cade </div>
   </body>
 </html>

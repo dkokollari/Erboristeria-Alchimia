@@ -56,7 +56,7 @@
     $page = isset($_GET['page']) ? (int)$_GET['page'] : 1; //QUESTO CAST A INT SOSTITUISCE EFFICACEMENTE IL prepare_statement()????
     $start = ($page > 1) ? ($page*$results_per_page) - $results_per_page : 0;
 
-    $query_ricerca = 'SELECT SQL_CALC_FOUND_ROWS nome_articolo, quantita_magazzino_articolo
+    $query_ricerca = 'SELECT SQL_CALC_FOUND_ROWS *
                     FROM articoli %categorie% %ditte% %produzioni%
                     WHERE nome_articolo LIKE ? %sex% %categ% %casa_prod%
                     ORDER BY id_articolo DESC LIMIT ' . $start . ', ' . $results_per_page;
@@ -136,9 +136,13 @@
     $stmt->close();
 
     $links_to_result_pages = '';
-    for($page=1; $page<=$total_pages; ++$page) {
-      $links_to_result_pages .= '<a href="articoli.php?page=' . $page . "&amp;search=$search_value&amp;sesso=$sex_filter" .
-      "&amp;categoria=$categ_filter&amp;casa_prod=$casa_prod_filter" . '">' . $page . '</a>' . "\n";
+    for($n_page=1; $n_page<=$total_pages; ++$n_page) {
+      if($n_page != $page) {
+        $links_to_result_pages .= '<a href="articoli.php?page=' . $n_page . "&amp;search=$search_value&amp;sesso=$sex_filter" .
+        "&amp;categoria=$categ_filter&amp;casa_prod=$casa_prod_filter" . '">' . $n_page . '</a>' . "\n";
+      } else {
+        $links_to_result_pages .= "<span>$page</span>"; //tolgo link circolari
+      }
     }
 
     $pagina = str_replace("%PRODUCTS%", $productToPrint, $pagina);
