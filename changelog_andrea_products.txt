@@ -1,0 +1,2 @@
+CHANGELOG 23 MAY AFTERNOON
+-created page products.html to test the products card

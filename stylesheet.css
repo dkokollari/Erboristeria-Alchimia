@@ -93,6 +93,9 @@ h1 span {
 #container_la_mia_storia #header_image {
   background-image: url(img/la_mia_storia_background.jpg);
 }
+#container_vetrina #header_image {
+  background-image: url(img/vetrina_background.jpg);
+}
 #header_image {
   background-repeat: no-repeat;
   background-size: 100%;
@@ -238,6 +241,9 @@ margin:0.7em auto 0.7em auto;
               #container_te_e_infusi #header_image {
                 background-image: url(img/home_background_mobile.jpg);
               }
+              #container_vetrina #header_image {
+                background-image: url(img/vetrina_background_mobile.jpg);
+              }
               #close_menu {
                 margin:auto;
               }
@@ -324,6 +330,10 @@ margin:0.7em auto 0.7em auto;
             #container_la_mia_storia #topbar:before {
               background-image: url(img/la_mia_storia_background.jpg);
             }
+            #container_vetrina #topbar:before {
+              background-image: url(img/vetrina_background_mobile.jpg);
+            }
+            
             #topbar:before {              /* necessary element to correctly apply filter:brightness() only to the image, not the text */
               content: "";
               background-size: cover;
@@ -392,6 +402,9 @@ margin:0.7em auto 0.7em auto;
 
       #container_te_e_infusi #header_image {
         background-image: url(img/home_background.jpg);
+      }
+      #container_vetrina #header_image {
+        background-image: url(img/vetrina_background.jpg);
       }
       body {
         margin-top: 10em;
@@ -869,7 +882,7 @@ strong {
   box-sizing: border-box;
 }*/
 
-/*PAGINA Ricerca*/
+                                /*PAGINA Ricerca*/
 
 #myInput {
   background-image: url('/img/searchicon.png');
@@ -903,4 +916,10 @@ strong {
 
 #myUL li a:hover:not(.header) {
   background-color: #eee;
+}
+
+                            /* PAGINA PRODUCTS */
+#container_vetrina .card {
+  height: 120px;
+  background-color: #fff;
 }
