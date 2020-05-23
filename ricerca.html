@@ -33,14 +33,16 @@
         <!-- <div class="form_field"> -->
           <label for="sesso">Sesso</label>
           <select name="sesso" id="sesso">
-              <option value="per_lui">Per lui</option>
-              <option value="per_lei">Per lei</option>
+          	  <option selected value="none">Seleziona filtro</option>
+              <option value="per lui">Per lui</option>
+              <option value="per lei">Per lei</option>
               <option value="unisex">Unisex</option>
           </select>
         <!-- </div> -->
         <!-- <div class="form_field"> -->
           <label for="categoria">Categoria</label>
           <select name="categoria" id="categoria">
+         	  <option selected value="none">Seleziona filtro</option>
               <option value="Alimentare">Alimentare</option>
               <option value="Cosmetico">Cosmetico</option>
           </select>
@@ -48,15 +50,14 @@
         <!-- <div class="form_field"> -->
           <label for="casa_prod">Casa produttrice</label>
           <select name="casa_prod" id="casa_prod">
+          	  <option selected value="none">Seleziona filtro</option>
               <option value="Baule Volante &amp; Fior di Loto">Baule Volante & Fior di Loto</option>
               <option value="Helan">Helan</option>
               <option value="L'Erbolario">L'Erbolario</option>
-        <!--  </select> -->
-        </div>
+          </select> 
+       <!-- </div> -->
       </form>
-      <ul id="myUL">
         %SEARCH_RESULTS%
-      </ul>
     </div>
     <!--          FOOTER            -->
     <div id="footer"> I piedi in doccia si lavano da soli con l'acqua che cade </div>

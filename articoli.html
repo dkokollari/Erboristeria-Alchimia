@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
   <head>
     <!-- DA RIVEDERE TITOLO E ICONA  -->
-    <title>Carrello - Erboristeria Alchimia</title>
+    <title>Articoli - Erboristeria Alchimia</title>
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png"/>
     <link rel="stylesheet" href="shopping-cart.css"/> <!-- d spostare in stylesheet.css -->
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/> <!-- bootstrap (chiedere se si può tenere)-->
@@ -25,23 +25,18 @@
     <h1>Ricerca articoli</h1>
     <!--         CONTENT            -->
     <div id="content" class="container">
-      %PRODUCTS%
-      <div style="clear:both"></div>
-      <br />
-      <div class="table-responsive">
-        <table class="table">
-          <tr><th colspan="5"><h3>Dettagli Ordine</h3></th></tr>
-          <tr>
-            <th width="40%">Nome Prodotto</th>
-            <th width="10%">Quantit&agrave;</th>
-            <th width="20%">Prezzo</th>
-            <th width="15%">Totale</th>
-            <th width="5%">Azione</th>
-          </tr>
-          %ORDERS%
-        </table>
+      <h2>Trova ci&ograve; che ti serve</h2>
+      <!--      https://www.w3schools.com/howto/howto_js_filter_lists.asp      -->
+      <form action="articoli.php" method = "post">
+        <input type="text" id="myInput" onkeyup="myFunction()"
+              placeholder="Inserisci il nome.." name = "search" title="Inserisci un nome"></input>
+        <input type = "submit" value = "invia"/>
+        %SEX_FILTER%
+        %CATEGORY_FILTER%
+        %COMPANY_FILTER%
+      </form>
+       %PRODUCTS%
       </div>
-    </div>
     <div id="footer"> I piedi in doccia si lavano da soli con l'acqua che cade </div>
   </body>
 </html>

@@ -18,42 +18,39 @@ if(isset($_POST['search'])) {
       exit(1);
   }
 
+  $noOption = "none"; //costante: valore opzione "Seleziona filtro"
   $search_value = trim($_POST['search']);
-  $sex_values = array(
-              "per_lui" => 0,
-              "per_lei" => 1,
-              "unisex"  => 2);
-  $sex_filter = $sex_values[' . 'trim($_POST['sesso'])' .'];
-  $categ_filter = trim($_POST['categoria']);
-  $casa_prod_filter = trim($_POST['casa_prod']);
+  $sex_filter = mysql_real_escape_string(trim($_POST['sesso'])); //forse superfluo il trim qua!
+  $categ_filter = mysql_real_escape_string(trim($_POST['categoria']));
+  $casa_prod_filter =  mysql_real_escape_string(trim($_POST['casa_prod']));
   $resultsToPrint = "";
   $query_ricerca = "SELECT nome_articolo, quantita_magazzino_articolo
                     FROM articoli %categorie% %ditte% %produzioni%
                     WHERE nome_articolo LIKE ? %sex% %categ% %casa_prod%
                     ORDER BY id_articolo DESC";
 
-  if(isset($_POST['sesso'])) {
-    $query_ricerca = str_replace("%sex%", "AND sesso_target = " . $sex_filter , $query_ricerca);
+  if($sex_filter != $noOption) {
+    $query_ricerca = str_replace("%sex%", "AND sesso_target = '$sex_filter'", $query_ricerca);
   }
   else {
     $query_ricerca = str_replace("%sex%", "" , $query_ricerca);
   }
 
-  if(isset($_POST['categoria'])) {
+  if($categ_filter != $noOption) {
       $query_ricerca = str_replace("%categorie%", ",categorie" , $query_ricerca);
       $query_ricerca = str_replace("%categ%", "AND categoria_articolo = id_categoria
-        AND categoria_articolo = " . $categ_filter , $query_ricerca);
+        AND nome_categoria = '$categ_filter'", $query_ricerca);
   }
   else {
     $query_ricerca = str_replace("%categorie%", "" , $query_ricerca);
     $query_ricerca = str_replace("%categ%", "" , $query_ricerca);
   }
 
-  if(isset($_POST['casa_prod'])) {
+  if($casa_prod_filter != $noOption) {
     $query_ricerca = str_replace("%ditte%", ",ditte" , $query_ricerca);
     $query_ricerca = str_replace("%produzioni%", ",produzioni" , $query_ricerca);
     $query_ricerca = str_replace("%casa_prod%", "AND articolo_produzione = id_articolo
-      AND ditta_produzione = id_ditta AND nome_ditta = " . $casa_prod_filter , $query_ricerca);
+      AND ditta_produzione = id_ditta AND nome_ditta = '$casa_prod_filter' ", $query_ricerca);
   }
   else {
      $query_ricerca = str_replace("%ditte%", "" , $query_ricerca);
@@ -74,14 +71,18 @@ if(isset($_POST['search'])) {
   if($result->num_rows === 0) {
     $resultsToPrint = '<p>La ricerca non ha prodotto alcun risultato</p>';
   }
-  else while($row = $result->fetch_assoc()) {
-    $resultsToPrint .= '<li>' .'nome: ' .$row['nome_articolo']. 'quantit&agrave;: ' .$row['nome_articolo']. '</li>';
+  else {
+    $resultsToPrint = '<ul id="myUL">';
+  	while($row = $result->fetch_assoc()) {
+    	$resultsToPrint .= '<li>' .'nome: ' .$row['nome_articolo']. ' quantit&agrave;: ' .$row['quantita_magazzino_articolo']. '</li>';
+  	} 
+    $resultsToPrint .= '</ul>';
   }
 
   $stmt->close();
+  $conn->closeConnection();
   $pagina = str_replace("%SEARCH_RESULTS%", $resultsToPrint , $pagina);
   echo $pagina;
-  $conn->closeConnection();
 }
 else {
   $pagina = str_replace("%SEARCH_RESULTS%", "" , $pagina);
