@@ -1,2 +1,5 @@
 CHANGELOG 23 MAY AFTERNOON
 -created page products.html to test the products card
+
+CHANGELOG 24 MAY MORNING PART 1
+-reworked card_vet. It now uses CSS grid

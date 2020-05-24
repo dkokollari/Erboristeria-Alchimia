@@ -139,6 +139,7 @@ h2 {
   text-align: center;
   color: var(--yellow-dark);
 }
+/* TODO queste proprieta' generiche non vanno cosi'bene */
 h3 {
   text-align: center;
   font-size: 1.1em;
@@ -333,7 +334,7 @@ margin:0.7em auto 0.7em auto;
             #container_vetrina #topbar:before {
               background-image: url(img/vetrina_background_mobile.jpg);
             }
-            
+
             #topbar:before {              /* necessary element to correctly apply filter:brightness() only to the image, not the text */
               content: "";
               background-size: cover;
@@ -919,7 +920,49 @@ strong {
 }
 
                             /* PAGINA PRODUCTS */
-#container_vetrina .card {
-  height: 120px;
-  background-color: #fff;
+#container_vetrina .card_vet {
+  height: 8em;
+  border-radius: 7px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.10), 0 3px 6px rgba(0,0,0,0.17);
+  margin-bottom: 1.5em;
+  overflow: hidden;
+  display: grid;
+  grid-template-areas: "image title"
+                       "image line"
+                       "image manufacturer"
+                       "image price";
+  grid-template-columns: 8em auto;
+  /* flex-grow: 1; */
+  /* position: relative; */
+}
+#container_vetrina .card_vet .product_title,
+#container_vetrina .card_vet .product_line,
+#container_vetrina .card_vet .product_manufacturer,
+#container_vetrina .card_vet .product_price {
+  align-items: start;
+  text-align: left;
+  margin:auto auto auto 0;
+}
+#container_vetrina .card_vet .product_image {
+  background-size: contain;
+  height: 6em;
+  width: 6em;
+  margin: 1em;
+  grid-area: image;
+}
+#container_vetrina .card_vet .product_title {
+
+  grid-area: title;
+}
+
+#container_vetrina .card_vet .product_line {
+  grid-area: line;
+}
+#container_vetrina .card_vet .product_manufacturer {
+  grid-area: manufacturer;
+}
+#container_vetrina .card_vet .product_price {
+  grid-area: price;
+  text-align: right;
+  margin-right: 2em;
 }
