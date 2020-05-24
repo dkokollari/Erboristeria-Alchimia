@@ -928,10 +928,15 @@ strong {
   overflow: hidden;
   display: grid;
   grid-template-areas: "image title"
-                       "image line"
                        "image manufacturer"
+                       "image line"
                        "image price";
   grid-template-columns: 8em auto;
+  grid-template-rows:1.5fr 1fr 1fr 3fr;
+  grid-column-gap: 0.7em;
+  /* grid-row-gap: 0.7em; */
+  align-items: center;
+  justify-items: center;
   /* flex-grow: 1; */
   /* position: relative; */
 }
@@ -939,30 +944,38 @@ strong {
 #container_vetrina .card_vet .product_line,
 #container_vetrina .card_vet .product_manufacturer,
 #container_vetrina .card_vet .product_price {
-  align-items: start;
   text-align: left;
-  margin:auto auto auto 0;
+  margin: 0;
+  align-self: center;
+  line-height: 1em;
+  justify-self:start;
 }
 #container_vetrina .card_vet .product_image {
   background-size: contain;
-  height: 6em;
-  width: 6em;
-  margin: 1em;
+  height: 6.6em;
+  width: 6.6em;
+  align-self: center;
   grid-area: image;
+  border-radius: 10px;
 }
 #container_vetrina .card_vet .product_title {
-
+  margin-top:0.4em;
+  color: #009688;
   grid-area: title;
-}
-
-#container_vetrina .card_vet .product_line {
-  grid-area: line;
+  /* margin-top: 0.5em; */
 }
 #container_vetrina .card_vet .product_manufacturer {
   grid-area: manufacturer;
 }
+#container_vetrina .card_vet .product_line {
+  grid-area: line;
+  font-weight: lighter;
+  font-style: italic;
+  font-size: 0.9em;
+}
+
 #container_vetrina .card_vet .product_price {
   grid-area: price;
   text-align: right;
-  margin-right: 2em;
+  /* margin-right: 2em; */
 }
