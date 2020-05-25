@@ -6,4 +6,8 @@ CHANGELOG 24 MAY MORNING part 1
 
 CHANGELOG 24 MAY MORNING part 2
 - product_image is now a little bigger
-- styled the card a bit
+- styled the card a little
+
+CHANGELOG 25 MAY MORNING
+- adjusted image / margins a bit (still wip)
+- added tags

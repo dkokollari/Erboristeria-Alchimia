@@ -927,13 +927,12 @@ strong {
   margin-bottom: 1.5em;
   overflow: hidden;
   display: grid;
-  grid-template-areas: "image title"
-                       "image manufacturer"
-                       "image line"
-                       "image price";
-  grid-template-columns: 8em auto;
+  grid-template-areas: "image title title"
+                       "image manufacturer manufacturer"
+                       "image line line"
+                       "image tags price";
+  grid-template-columns: 7em auto;
   grid-template-rows:1.5fr 1fr 1fr 3fr;
-  grid-column-gap: 0.7em;
   /* grid-row-gap: 0.7em; */
   align-items: center;
   justify-items: center;
@@ -952,20 +951,22 @@ strong {
 }
 #container_vetrina .card_vet .product_image {
   background-size: contain;
-  height: 6.6em;
-  width: 6.6em;
+  height: 5.5em;
+  width: 5.5em;
   align-self: center;
   grid-area: image;
   border-radius: 10px;
 }
 #container_vetrina .card_vet .product_title {
-  margin-top:0.4em;
+  margin-top:0.5em;
   color: #009688;
   grid-area: title;
+  font-size: 1.1em;
   /* margin-top: 0.5em; */
 }
 #container_vetrina .card_vet .product_manufacturer {
   grid-area: manufacturer;
+  font-size: 0.9em;
 }
 #container_vetrina .card_vet .product_line {
   grid-area: line;
@@ -973,9 +974,35 @@ strong {
   font-style: italic;
   font-size: 0.9em;
 }
-
+#container_vetrina .card_vet .product_tags {
+  font-size: 0.65em;
+  letter-spacing: 0.1em;
+  align-self: end;
+  justify-self: start;
+  margin-bottom: 0.9em;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #fff;
+}
+#container_vetrina .card_vet .product_tags span {
+  border-radius: 10px;
+  margin-right: 0.2em;
+  padding: 0.1em 0.5em 0 0.5em;
+}
+#container_vetrina .card_vet .product_tags span.cosmetici {
+  background-color: #ff9557;
+}
+#container_vetrina .card_vet .product_tags span.uomo {
+  background-color: #367bc3;
+}
 #container_vetrina .card_vet .product_price {
   grid-area: price;
   text-align: right;
+  justify-self:end;
+  align-self: end;
+  margin-right: 0.8em;
+  font-size: 1.1em;
+  font-weight: bold;
+  margin-bottom: 0.5em;
   /* margin-right: 2em; */
 }
