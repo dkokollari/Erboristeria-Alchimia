@@ -48,12 +48,14 @@
   if(isset($_GET['search'])) {
     $noOption = "none"; //indica l'opzione "Seleziona Filtro" per i menu a tendina
     $search_value = mysql_real_escape_string(trim($_GET['search']));
+
     $sex_filter = mysql_real_escape_string(trim($_GET['sesso']));
     $categ_filter = mysql_real_escape_string(trim($_GET['categoria']));
     $casa_prod_filter =  mysql_real_escape_string(trim($_GET['casa_prod']));
 
     $results_per_page = 6;
-    $page = isset($_GET['page']) ? (int)$_GET['page'] : 1; //QUESTO CAST A INT SOSTITUISCE EFFICACEMENTE IL prepare_statement()????
+    //controllo che il valore di page passato in querystring sia intero > 0, altrimenti lo setto a 1
+    $page = isset($_GET['page']) && is_numeric($_GET['page']) && (int)($_GET['page']) > 0 ? (int)$_GET['page'] : 1; 
     $start = ($page > 1) ? ($page*$results_per_page) - $results_per_page : 0;
 
     $query_ricerca = 'SELECT SQL_CALC_FOUND_ROWS *
@@ -62,7 +64,11 @@
                     ORDER BY id_articolo DESC LIMIT ' . $start . ', ' . $results_per_page;
 
 
-    if($sex_filter != $noOption) { //restituisco i dati usati da utente per compilare il form + aggiorno la query di ricerca
+    //Entro in questo if sse il filtro in querystring != "none" && è un valore selezionabile, altrimenti
+    //ignoro l'eventuale valore non conosciuto presente in querystring e lascio il filtro settato a "none" (= "Seleziona filtro")
+    if($sex_filter != $noOption && strpos($opt_sesso,
+    '<option value="' . $sex_filter . '">' . $sex_filter . '</option>') != false) {
+      //restituisco i dati usati da utente per compilare il form + aggiorno la query di ricerca
       $opt_sesso = str_replace('selected', '' , $opt_sesso);
       $opt_sesso = str_replace('<option value="' . $sex_filter . '">' . $sex_filter . '</option>',
        '<option selected value="' . $sex_filter . '">' . $sex_filter . '</option>' , $opt_sesso);
@@ -72,7 +78,10 @@
       $query_ricerca = str_replace("%sex%", "" , $query_ricerca);
     }
 
-    if($categ_filter != $noOption) {
+    //Entro in questo if sse il filtro in querystring != "none" && è un valore selezionabile, altrimenti
+    //ignoro l'eventuale valore non conosciuto presente in querystring e lascio il filtro settato a "none" (= "Seleziona filtro")
+    if($categ_filter != $noOption && strpos($opt_categoria,
+    '<option value="' . $categ_filter . '">' . $categ_filter . '</option>') != false) {
       $opt_categoria = str_replace('selected', '' , $opt_categoria);
       $opt_categoria = str_replace('<option value="' . $categ_filter . '">' . $categ_filter . '</option>',
        '<option selected value="' . $categ_filter . '">' . $categ_filter . '</option>' , $opt_categoria);
@@ -85,7 +94,10 @@
       $query_ricerca = str_replace("%categ%", "" , $query_ricerca);
     }
 
-    if($casa_prod_filter != $noOption) {
+    //Entro in questo if sse il filtro in querystring != "none" && è un valore selezionabile, altrimenti
+    //ignoro l'eventuale valore non conosciuto presente in querystring e lascio il filtro settato a "none" (= "Seleziona filtro")
+    if($casa_prod_filter != $noOption && strpos($opt_casa_prod,
+    '<option value="' . $casa_prod_filter . '">' . $casa_prod_filter . '</option>') != false) {
       $opt_casa_prod = str_replace('selected', '' , $opt_casa_prod);
       $opt_casa_prod = str_replace('<option value="' . $casa_prod_filter . '">' . $casa_prod_filter . '</option>',
        '<option selected value="' . $casa_prod_filter . '">' . $casa_prod_filter . '</option>' , $opt_casa_prod);
@@ -104,8 +116,8 @@
       die('prepare() failed: ' . htmlspecialchars(mysqli_error($conn->connection)));
     }
 
-    $search_value = preg_replace("#[^0-9a-z]#", "", $search_value); //capire cosa fa!!!
-    $search_value_query = '%'.$search_value.'%'; //non ricordo a cosa serve!!!
+    $search_value = preg_replace("#[^0-9a-z]#i", "", $search_value); //sostituisco tutto cio che non e' cifra o lettera con stringa vuota
+    $search_value_query = '%'.$search_value.'%'; //per il LIKE nella query
     $stmt->bind_param("s", $search_value_query);
     $stmt->execute();
     $result = $stmt->get_result();
