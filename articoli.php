@@ -55,7 +55,7 @@
 
     $results_per_page = 6;
     //controllo che il valore di page passato in querystring sia intero > 0, altrimenti lo setto a 1
-    $page = isset($_GET['page']) && is_numeric($_GET['page']) && (int)($_GET['page']) > 0 ? (int)$_GET['page'] : 1; 
+    $page = isset($_GET['page']) && is_numeric($_GET['page']) && (int)($_GET['page']) > 0 ? (int)$_GET['page'] : 1;
     $start = ($page > 1) ? ($page*$results_per_page) - $results_per_page : 0;
 
     $query_ricerca = 'SELECT SQL_CALC_FOUND_ROWS *
@@ -96,11 +96,14 @@
 
     //Entro in questo if sse il filtro in querystring != "none" && è un valore selezionabile, altrimenti
     //ignoro l'eventuale valore non conosciuto presente in querystring e lascio il filtro settato a "none" (= "Seleziona filtro")
+    //N.B: uso trim($_GET['casa_prod'] al posto di $casa_prod_filter perchè quest'ultima e' soggetta a mysql_real_escape_string,
+    //quindi ha dei backslash in corrsipondenza di caratteri speciali (es, \' in L'Erbolario). Chiaro che come parametro alle
+    //query du ricerca nel codice passo invece $casa_prod_filter.
     if($casa_prod_filter != $noOption && strpos($opt_casa_prod,
-    '<option value="' . $casa_prod_filter . '">' . $casa_prod_filter . '</option>') != false) {
+    '<option value="' . trim($_GET['casa_prod']) . '">' . trim($_GET['casa_prod']) . '</option>') !== false) {
       $opt_casa_prod = str_replace('selected', '' , $opt_casa_prod);
-      $opt_casa_prod = str_replace('<option value="' . $casa_prod_filter . '">' . $casa_prod_filter . '</option>',
-       '<option selected value="' . $casa_prod_filter . '">' . $casa_prod_filter . '</option>' , $opt_casa_prod);
+      $opt_casa_prod = str_replace('<option value="' . trim($_GET['casa_prod']) . '">' . trim($_GET['casa_prod']) . '</option>',
+       '<option selected value="' . trim($_GET['casa_prod']) . '">' . trim($_GET['casa_prod']) . '</option>' , $opt_casa_prod);
       $query_ricerca = str_replace("%ditte%", ",ditte" , $query_ricerca);
       $query_ricerca = str_replace("%produzioni%", ",produzioni" , $query_ricerca);
       $query_ricerca = str_replace("%casa_prod%", "AND articolo_produzione = id_articolo
@@ -157,7 +160,9 @@
       }
     }
 
-    $pagina = str_replace("%PRODUCTS%", $productToPrint, $pagina);
+	$pagina = str_replace("%PRODUCTS%", $productToPrint, $pagina);
+    /*$pagina = str_replace("%PRODUCTS%", htmlspecialchars($opt_casa_prod).((strpos($opt_casa_prod,
+    '<option value="' . $_GET['casa_prod'] . '">' . $_GET['casa_prod'] . '</option>') !== false) ? "true" : "false"), $pagina);*/
     $pagina = str_replace("%PAGES_MENU%", $links_to_result_pages , $pagina);
   } else {
     $pagina = str_replace("%PRODUCTS%", '' , $pagina);
