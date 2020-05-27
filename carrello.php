@@ -47,28 +47,28 @@
 
 $pagina = file_get_contents('carrello.html');
 $total = 0;
-$orderedProducts = "";
+$orderedProducts = '<dl>';
 if(!empty($_SESSION["shopping_cart"])) {
   foreach($_SESSION["shopping_cart"] as $key => $product) {
-    $orderedProducts .= '<tr>' . '<td>' . $product["nome_articolo"] . '</td>' . "\n" .
-    '<td>' . $product["quantita"] . '</td>' . "\n" .
-    '<td>' . $product["prezzo_articolo"] . ' €</td>' . "\n" .
-    '<td>' . number_format($product["quantita"] * $product["prezzo_articolo"], 2) . ' €</td>' . "\n" .
-    '<td>' . '<a href="carrello.php?action=delete&id_articolo=' . $product["id_articolo"] . '">' . "\n" .
-    '<div class="btn-danger">Rimuovi</div>' . "\n" . '</a>' . "\n" . '</td>' . '</tr>' . "\n";
+    $orderedProducts .= '<dt>' . $product["nome_articolo"] . '</dt>' . "\n" .
+    '<img src="img/articoli/'.(file_exists("
+    img/articoli/".$product["id_articolo"].".jpg") ? $row["id_articolo"].'.jpg' : '0.jpg').'" alt="immagine a scopo presentazionale"/>'."\n" .
+    '<dd>' . "\n" .
+        '<span>Quantit&agrave;: ' . $product["quantita"] . '</span>' . "\n" .
+        '<span>Prezzo unitario: ' . $product["prezzo_articolo"] . ' €</span>' . "\n" .
+        '<span>Prezzo totale: ' . number_format($product["quantita"] * $product["prezzo_articolo"], 2) . ' €</span>' . "\n" .
+        '<span>' . '<a href="carrello.php?action=delete&id_articolo=' . $product["id_articolo"] . '">' . "\n" .
+        '<button>Rimuovi</button>' . "\n" . '</a></span>' . "\n" .
+    '</dd>' .  "\n";
     $total += $product["quantita"] * $product["prezzo_articolo"];
   }
 
-  $orderedProducts .= '<tr>' . "\n" . '<td colspan="3" align="right">Totale</td>' . "\n" .
-  '<td align="right">' . number_format($total, 2) . ' €</td>' . "\n" .
-  '<td></td>' . "\n" . '</tr>'  . "\n";
+  $orderedProducts .= '</dl>' . '<span id="totale">Totale: ' .  number_format($total, 2) . ' €</span>'. "\n";
 
-  $orderedProducts .= '<td colspan="5">'  . "\n";
   if(isset($_SESSION['shopping_cart'])
       && count($_SESSION['shopping_cart']) > 0) {
         $orderedProducts .= '<a href="#" class="button">Checkout</a>'  . "\n";
   }
-  $orderedProducts .= '</td>' . "\n" . '</tr>' . "\n";
 }
 $pagina = str_replace("%ORDERS%", $orderedProducts, $pagina);
 echo $pagina;
