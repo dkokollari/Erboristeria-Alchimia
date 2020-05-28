@@ -14,12 +14,12 @@
 
     $id = $_GET['id'];
     $getElement = $con->getSingoloTeInfuso($id);
-    $valtipo = $getElement['Tipo'];
-    $valnome = $getElement['Nome'];
-    $valingre = $getElement['Ingredienti'];
-    $valdescr = $getElement['Descrizione'];
-    $valprepa = $getElement['Preparazione'];
-    $valdescImg = $getElement['desc_img'];
+    $valtipo = htmlentities($getElement['Tipo']);
+    $valnome = htmlentities($getElement['Nome']);
+    $valingre = htmlentities($getElement['Ingredienti']);
+    $valdescr = htmlentities($getElement['Descrizione']);
+    $valprepa = htmlentities($getElement['Preparazione']);
+    $valdescImg = htmlentities($getElement['desc_img']);
 
     //se è stato premuto il buttone submit
     if(isset($_POST['submit'])){
