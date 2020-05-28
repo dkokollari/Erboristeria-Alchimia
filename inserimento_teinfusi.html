@@ -24,42 +24,42 @@
     </head>
     <body>
       <h1>Inserimento T&egrave; &amp; e Infusi</h1>
-		<!--Marcel aveva messo nell'action: inserimento_teinfusi.php-->
+      <!--Marcel aveva messo nell'action: inserimento_teinfusi.php-->
       <form method="post" action="%action%" enctype="multipart/form-data">
-      <fieldset>
-        %MESSAGGIO%
-        <p>campi obbligatori(*)</p>
+        <fieldset>
+          %MESSAGGIO%
+          <p>campi obbligatori(*)</p>
 
-        <label for="Nome">Nome*</label>
-        <input type="text" name="Nome" id="Nome" maxlength="15" value="%nome%"/>
-         %ERR_NOME%
+          <label for="Nome">Nome*</label>
+          <input type="text" name="Nome" id="Nome" maxlength="15" value="%nome%"/>
+          %ERR_NOME%
 
-        <label for="Tipo">Tipo</label>
-        <select name="Tipo" id="Tipo">
-            <option value="T&egrave;">T&egrave;</option>
-            <option value="Infuso">Infuso</option>
-        </select>
+          <label for="Tipo">Tipo</label>
+          <select name="Tipo" id="Tipo">
+              <option value="T&egrave;">T&egrave;</option>
+              <option value="Infuso">Infuso</option>
+          </select>
 
-        <label for="Ingredienti">Ingredienti</label>
-        <input name="Ingredienti" id="Ingredienti" value="%ingre%"/>
+          <label for="Ingredienti">Ingredienti</label>
+          <input name="Ingredienti" id="Ingredienti" value="%ingre%"/>
 
-        <label for="Descrizione">Descrizione*</label>
-        <input id="Descrizione" name="Descrizione" value="%descr%"/>
-         %ERR_DESC%
+          <label for="Descrizione">Descrizione*</label>
+          <input id="Descrizione" name="Descrizione" value="%descr%"/>
+          %ERR_DESC%
 
-        <label for="Preparazione">Preparazione</label>
-        <input id="Preparazione" name="Preparazione" value="%prepa%"/>
+          <label for="Preparazione">Preparazione</label>
+          <input id="Preparazione" name="Preparazione" value="%prepa%"/>
 
-        <label for="immagine">Immagine</label>
-        <input type="file" id="immagine" name="immagine"/>
-        %ERR_IMG%
+          <label for="immagine">Immagine</label>
+          <input type="file" id="immagine" name="immagine"/>
+          %ERR_IMG%
 
-        <label for="desc_img">Descrizione immagine(* se si carica un'immagine)</label>
-        <input type="text" id="desc_img" name="desc_img" value="%imgdes%" />
-        %ERR_IMGDESC%
+          <label for="desc_img">Descrizione immagine(* se si carica un'immagine)</label>
+          <input type="text" id="desc_img" name="desc_img" value="%imgdes%" />
+          %ERR_IMGDESC%
 
-        <input type="submit" value="Aggiungi" name="submit">
-      </fieldset>
-    </form>
+          <input type="submit" value="Aggiungi" name="submit">
+        </fieldset>
+      </form>
     </body>
 </html>
