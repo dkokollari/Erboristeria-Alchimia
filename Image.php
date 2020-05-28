@@ -15,6 +15,9 @@ class Image {
   public function uploadImageTeInfusi($name , $temp, $id){
    if($id!="errore"){
       $dir = "img/te_e_infusi/";
+      if(file_exists($dir.$id."jpg")){
+          deleteImage($dir.$id."jpg");
+      }
       move_uploaded_file($temp, $dir.$name);
       $split = explode('.',$name);
       $ext = array_pop($split);
