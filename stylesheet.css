@@ -620,13 +620,73 @@ margin:0.7em auto 0.7em auto;
 }
 
 
-                          /*        EVENTI      */
+                          /*        EVENTI  + CARRELLO    */
+
+/***** stuff for carrello only *****/
+
+#carrello .button {
+  background: #6394F8;
+  color: white;
+  text-align: center;
+  padding: 12em;
+  text-decoration: none;
+  display: block;
+  border-radius: 3em;
+  font-size: 16em;
+  margin: 25em 0 15em 0;
+}
+
+dt
+{
+    /*border: 1px solid black;*/
+    background-color: #A80022;
+    color: white;
+    padding-bottom: 0.5em;
+    padding-top: 0.5em;
+    padding-left: 0.5em;
+    margin-left: 2em;
+    margin-right: 2em;
+}
+
+dd
+{
+  /*  border: 1px solid black;*/
+    margin-bottom: 1em;
+    min-height: 10em;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    margin-left: 2em;
+    margin-right: 2em;
+}
+
+ dd p
+{
+    padding-left: 25%;
+}
+
+#carrello #content img
+{
+    display: flex;
+    float:left;
+    width: 20%;
+    padding: 1em;
+    height: 3em;
+}
+
+/***** end stuff for carrello only *****/
 
 /* .card span {} */
-#eventi #prenotazione span {
+#eventi #prenotazione span, #carrello span {
   font-weight: bold;
   text-transform: uppercase;
   color: var(--red-dark);
+}
+#carrello span {
+  text-transform: none;
+}
+
+#carrello a {
+  color: var(--green-dark);
 }
 
 #eventi #dataEvento {
@@ -653,9 +713,14 @@ margin:0.7em auto 0.7em auto;
   margin-top: 2em;
 }
 
-#eventi .card {  /*in questo modo eredito il colore di sfondo dal body, quindi il bianco!(da verificare su tutti i browser)*/
+#eventi .card, #carrello .card {  /*in questo modo eredito il colore di sfondo dal body, quindi il bianco!(da verificare su tutti i browser)*/
   background-color: initial;
 }
+
+#carrello .card {
+  max-height: 5em;
+}
+
 .data span {
   font-size: 2.5em;
 }

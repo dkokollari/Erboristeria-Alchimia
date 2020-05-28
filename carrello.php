@@ -47,18 +47,21 @@
 
 $pagina = file_get_contents('carrello.html');
 $total = 0;
-$orderedProducts = '<dl>';
+$orderedProducts = '';
 if(!empty($_SESSION["shopping_cart"])) {
+  $orderedProducts = '<dl>' . "\n";
   foreach($_SESSION["shopping_cart"] as $key => $product) {
     $orderedProducts .= '<dt>' . $product["nome_articolo"] . '</dt>' . "\n" .
+    '<dd class="card eventi">' . "\n" .
     '<img src="img/articoli/'.(file_exists("
-    img/articoli/".$product["id_articolo"].".jpg") ? $row["id_articolo"].'.jpg' : '0.jpg').'" alt="immagine a scopo presentazionale"/>'."\n" .
-    '<dd>' . "\n" .
+     img/articoli/".$product["id_articolo"].".jpg") ? $row["id_articolo"].'.jpg' : '0.jpg').'" alt="immagine a scopo presentazionale"/>'."\n" .
+      '<p>' . "\n" .
         '<span>Quantit&agrave;: ' . $product["quantita"] . '</span>' . "\n" .
         '<span>Prezzo unitario: ' . $product["prezzo_articolo"] . ' €</span>' . "\n" .
         '<span>Prezzo totale: ' . number_format($product["quantita"] * $product["prezzo_articolo"], 2) . ' €</span>' . "\n" .
         '<span>' . '<a href="carrello.php?action=delete&id_articolo=' . $product["id_articolo"] . '">' . "\n" .
-        '<button>Rimuovi</button>' . "\n" . '</a></span>' . "\n" .
+        '<button class="button">Rimuovi</button>' . "\n" . '</a></span>' . "\n" .
+      '</p>' . "\n" .
     '</dd>' .  "\n";
     $total += $product["quantita"] * $product["prezzo_articolo"];
   }
@@ -69,6 +72,9 @@ if(!empty($_SESSION["shopping_cart"])) {
       && count($_SESSION['shopping_cart']) > 0) {
         $orderedProducts .= '<a href="#" class="button">Checkout</a>'  . "\n";
   }
+} else {
+  $orderedProducts = '<p>Il tuo carrello e\' vuoto: consulta la pagina dei nostri <a href= "articoli.php">prodotti</a>,
+  potremmo avere qualcosa che fa per te!<p>';
 }
 $pagina = str_replace("%ORDERS%", $orderedProducts, $pagina);
 echo $pagina;
