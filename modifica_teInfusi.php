@@ -6,11 +6,10 @@
 
   $con = new DBAccess();
   if($con->openConnection()){
-    if (!$con->connection->set_charset("utf8")){
+    if(!$con->connection->set_charset("utf8")){
       //printf("Error loading character set utf8: %s\n", $con->error);
       exit;
     }
-
     $pagina = file_get_contents('modifica_teInfusi.html');
     $lista_te_e_infusi = $con->getTeInfusi();
 

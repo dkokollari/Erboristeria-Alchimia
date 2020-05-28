@@ -1,9 +1,15 @@
 <?php
+  header('Content-Type: text/html; charset=UTF-8');
+
   require_once("DBAccess.php");
   require_once("Image.php");
 
   $con = new DBAccess();
   if($con->openConnection()){
+    if(!$con->connection->set_charset("utf8")){
+      //printf("Error loading character set utf8: %s\n", $con->error);
+      exit;
+    }
     $pagina = file_get_contents('inserimento_teinfusi.html');
 
     $errori=0;
@@ -61,7 +67,7 @@
         }
       } //endif se non ci sono errori
       else{
-        $messaggio = '<p class="error-msg">Errore: ci sono '. $errori.' errori</p>';
+        $messaggio = '<p class="error-msg">Errore: ci sono '.$errori.' errori</p>';
         $valnome = $_POST['Nome'];
         $valingre = $_POST['Ingredienti'];
         $valdescr = $_POST['Descrizione'];
@@ -71,11 +77,11 @@
     } //endif se è stato premuto il buttone submit
 
     $pagina = str_replace("%action%","inserimento_teinfusi.php", $pagina);
-    $pagina = str_replace("%nome%",$valnome , $pagina);
-    $pagina = str_replace("%ingre%",$valingre , $pagina);
-    $pagina = str_replace("%descr%",$valdescr , $pagina);
-    $pagina = str_replace("%prepa%",$valprepa, $pagina);
-    $pagina = str_replace("%imgdes%",$valdescImg , $pagina);
+    $pagina = str_replace("%nome%", $valnome, $pagina);
+    $pagina = str_replace("%ingre%", htmlentities($valingre), $pagina);
+    $pagina = str_replace("%descr%", $valdescr, $pagina);
+    $pagina = str_replace("%prepa%", $valprepa, $pagina);
+    $pagina = str_replace("%imgdes%", $valdescImg, $pagina);
     $pagina = str_replace("%MESSAGGIO%", $messaggio, $pagina);
     $pagina = str_replace("%ERR_NOME%", $errNome, $pagina);
     $pagina = str_replace("%ERR_DESC%", $errDescr, $pagina);

@@ -1,9 +1,15 @@
 <?php
+  header('Content-Type: text/html; charset=UTF-8');
+
   require_once("DBAccess.php");
   require_once("Image.php");
 
   $con = new DBAccess();
   if($con->openConnection()){
+    if(!$con->connection->set_charset("utf8")){
+      //printf("Error loading character set utf8: %s\n", $con->error);
+      exit;
+    }
     $pagina = file_get_contents('inserimento_teinfusi.html');
 
     $id = $_GET['id'];
