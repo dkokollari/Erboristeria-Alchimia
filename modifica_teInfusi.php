@@ -1,4 +1,5 @@
 <?php
+  header('Content-Type: text/html; charset=UTF-8');
 require_once("DBAccess.php");
 require_once("Image.php");
 
