@@ -1,61 +1,84 @@
 <?php
 require_once("DBAccess.php");
+require_once("sessione.php");
+
+if($_SESSION['logged']==true){
+    header('location:index.php');
+    exit();
+}
 
 
 $pagina = file_get_contents('login.html');
-if(isset($_POST['Login'])) {
+$email = '';
+$password = '';
+$check = '';
+/*if(isset($_COOKIE['email']) && isset($_COOKIE['password'])) {
+  $email = $_COOKIE['user_email'];
+  $password = $_COOKIE['password'];
+  $check = 'checked="checked"';
+} else*/
+if($_POST['Login']) {
+  if (!mysql_set_charset('utf8', $conn)) {
+    echo "<p class=\"errore\">Error: Unable to set the character set!</p>\n";
+    exit(1);
+  }
 
+  $email = mysql_real_escape_string(trim($_POST['email']));
+  $password = mysql_real_escape_string(trim($_POST['password']));
+  if(isset($_POST['remember_me'])) {
+    $check = 'checked="checked"';
+  }
   $minLengthPwd = 8;
   $maxLengthPwd = 12;
   $errore = "";
   $logged = "";
-  $email = trim($_POST['username']); // the username is one's email for us!
-  $password = trim($_POST['password']);
-
-  if(!isset($email) || !isset($password)) {
-    $errore = '<div class= "errori">'. 'Inserire sia una ' .'email'. ' che una '.'password'.'</div>';
+  if(!empty($email) || !empty($password)) {
+    $errore = '<p class= "errore">'. 'Inserire sia una ' .'email'. ' che una '.'password'.'</p>';
   }
 
   else if(!filter_var($email, FILTER_VALIDATE_EMAIL)
     || (strlen($password) < $minLengthPwd || strlen($password) > $maxLengthPwd)) {
-    $errore = '<div class="errori"> La '.'email'. ' o la ' .'password'. ' inserite non sono corrette</div>';
+    $errore = '<p class="errore"> La '.'email'. ' o la ' .'password'. ' inserite non sono corrette</p>';
   }
-
   else {
     /*password e email inserite dall'utente: ora controllo che ci siano nel db*/
     $query = "SELECT * FROM `utenti` WHERE `email_utente`=?";
-    $conn = new DBAccess(); 
+    $conn = new DBAccess();
     if(!$conn->openConnection()) {
-     echo '<div class= "errori">' . "Impossibile connettersi al database riprovare pi&ugrave; tardi" . '</div>';
+     echo '<p class= "errore">' . "Impossibile connettersi al database riprovare pi&ugrave; tardi" . '</p>';
      exit(1);
     }
     //Stabilita connessione al db
-    
+
     if(!$stmt = mysqli_prepare($conn->connection, $query)) {
       die('prepare() failed: ' . htmlspecialchars(mysqli_error($conn->$connection)));
     }
-    
+
     $stmt->bind_param("s", $email);
     $stmt->execute();
     $result = $stmt->get_result();
-    
+
     if($result->num_rows === 0) {
-    $errore = '<div class="errori"> La '.'email'. ' o la ' .'password'. ' inserite non sono corrette</div>';
+    $errore = '<p class="errore"> La '.'email'. ' o la ' .'password'. ' inserite non sono corrette</p>';
     }
     else {
       $row = $result->fetch_assoc();
-      //$passwordCheck = password_verify($password, $row['password_utente']);
+      $passwordCheck = password_verify($password, $row['password_utente']);
       /*inserimento solo tramite php cosi settiamo bcrypt come algoritmo!*/
-      $passwordCheck = ($password == $row['password_utente']);
-      $password = '<p>' . $password . '</p>';
-      $prova = '<p>' . $row['password_utente'] . '</p>';
       if($passwordCheck == false) {
-      $errore = '<div class="errori"> La '.'email'. ' o la ' .'password'. ' inserite non sono corrette</div>';
+      $errore = '<p class="errore"> La '.'email'. ' o la ' .'password'. ' inserite non sono corrette</p>';
       }
       else {
-        session_start(); //TODO decidere cosa possono vedere gli utenti registrati!
-        $logged = '<div class="ok">' . 'SEI LOGGATO, GUAGLIONE!!! </div>';
+        if(isset($_POST['remember_me'])){
+          setcookie("email",$email,time()+60*60*24*30);
+          setcookie("password",$password,time()+60*60*24*30);
+        } else {
+          setcookie("email", "", time() - 3600);
+          setcookie("password", "", time() - 3600);
+        }
         $_SESSION['email_utente'] =  $row['email_utente'];
+        $_SESSION['tipo_utente'] =  $row['tipo_utente'];
+        header("location:index.php");
       }
       $stmt->close();
     }
@@ -68,8 +91,8 @@ if(isset($_POST['Login'])) {
 
 }
 
-/*utente non ha premuto il tasto submit*/
-else { 
+/*utente non ha premuto il tasto submit oppure l'ha premuto, */
+else {
   $pagina = str_replace("%ERR_LOGIN%", "" , $pagina);
   $pagina = str_replace("%LOGIN_STATUS%", "" , $pagina);
   echo $pagina;

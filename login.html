@@ -2,10 +2,13 @@
 <html lang="it" >
   <head>
 
-    <meta charset="utf-8"/>
                         <!-- da rivedere  -->
     <!-- <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png"> -->
     <title>Accedi - Erboristeria Alchimia</title>
+    <meta http-equiv="content-Type" content="text/html; charset=utf-8" />
+    <meta name="description" content="Pagina di accesso al sito." />
+    <meta name="keywords" content="erboristeria, alchimia, login, email, password" />
+    <meta name="title" content="Login - ErboristeriaAlchimia" />
     <link rel="stylesheet" href="stylesheet.css">
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,600&display=swap" rel="stylesheet">
     <!-- <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet"> -->
@@ -19,23 +22,24 @@
       <div id="log_in_box">
         <form action="login.php" method="post"> <!-- TODO: inserire action="log_in_page.php" -->
           <fieldset  id="log_in_form">
-            <legend><h2>Accedi</h2></legend>
+            <legend><h2>Accedi</h2></legend> <!-- TODO: attenzione alle robe non semantiche!!! -->
             <!-- <legend>Accedi</legend> -->
                 %ERR_LOGIN%
             <div class="form_field">
-              <label for="username">Email</label> <!-- TODO impostare lingua inglese -->
-              <input id="username" name="username" type="email" required/>
+              <label for="username" xml:lang="en">Email</label>
+              <input id="username" name="username" type="text" placeholder="email"/> <!-- WARNING: required non c'è in xhtml! -->
             </div>
             <div class="form_field">
-              <label for="password">Password</label> <!-- TODO impostare lingua inglese -->
-              <input id="password" name="password" type="password" required/>
+              <label for="password" xml:lang="en">Password</label>
+              <input id="password" name="password" type="password" placeholder="password"/>  <!-- WARNING: required non c'è in xhtml! -->
             </div>
-            <!-- <div class="form_remember_me">
-              <input id="remember_me" type="checkbox"/>
+            <div class="form_remember_me">
+              <input id="remember_me" type="checkbox" %REMEMBER_ME%/>
               <label for="remember_me">Ricorda i miei dati</label>
-            </div> -->
+            </div>
 
             <input id="log_in" type="submit" name="Login"/>
+            <a href="registrazione.php">Non sei ancora registrato? CLICCA QUI</a>
           </fieldset>
         </form>
       </div>

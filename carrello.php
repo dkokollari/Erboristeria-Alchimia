@@ -2,7 +2,8 @@
 
   /*-------------------INIZIO SESSIONE-----------------*/
 
-  session_start();
+session_start();
+if($_SESSION['logged'] == true) {
   $product_ids = array();
 
   if(filter_input(INPUT_POST, 'add_to_cart')) {
@@ -72,4 +73,7 @@ if(!empty($_SESSION["shopping_cart"])) {
 }
 $pagina = str_replace("%ORDERS%", $orderedProducts, $pagina);
 echo $pagina;
+} else {
+  header('location: access_denied.php'); //non loggato => non autorizzato a fare acquisti!
+}
 ?>
