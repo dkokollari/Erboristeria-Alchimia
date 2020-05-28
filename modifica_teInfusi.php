@@ -15,6 +15,7 @@
     $lista_te_e_infusi = $con->getTeInfusi();
 
     foreach ($lista_te_e_infusi as $row){
+      $id = $row["id_te_e_infusi"];
       $immagine = Image::getImage("./img/te_e_infusi/", $row["id_te_e_infusi"]);
       $descrizione_immagine = htmlentities($row["descrizione_immagine_te_e_infusi"]);
       $nome = htmlentities($row["nome_te_e_infusi"]);
@@ -32,6 +33,7 @@
       <p>'.$descrizione.'</p>
       <h4>Preparazione</h4>
       <p>'.$preparazione.'</p>
+      <a href="updateTeInfusi.php?id='.$id.'">Modifica</a>
       <span class="expand_btn material-icons-round">expand_more</span>
       </div>
 
