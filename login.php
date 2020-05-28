@@ -72,9 +72,6 @@ if($_POST['Login']) {
         if(isset($_POST['remember_me'])){
           setcookie("email",$email,time()+60*60*24*30);
           setcookie("password",$password,time()+60*60*24*30);
-        } else {
-          setcookie("email", "", time() - 3600);
-          setcookie("password", "", time() - 3600);
         }
         $_SESSION['email_utente'] =  $row['email_utente'];
         $_SESSION['tipo_utente'] =  $row['tipo_utente'];
