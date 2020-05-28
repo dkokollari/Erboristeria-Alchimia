@@ -6,7 +6,10 @@ class Image {
     $ext = array_pop($temp);
     if(in_array($ext, $ext_ok)){
       return "";
-    } else { return '<small class="err_msg">inserisci immagine (.jpg,.jpeg,.png,.gif)</small>';}
+    }
+    else{
+      return '<small class="err_msg">inserisci immagine (.jpg,.jpeg,.png,.gif)</small>';
+    }
   }
 
   public function uploadImageTeInfusi($name , $temp, $id){
@@ -30,6 +33,11 @@ class Image {
 
   public function deleteImage($file){
     unlink($file);
+  }
+
+  public function getImage($path, $id){
+    $result = glob($path.$id.".{jpg,jpeg,png,gif}", GLOB_BRACE);
+    return ($result[0] ? $result[0]: $path."0.jpg");
   }
 
 }

@@ -1,64 +1,68 @@
-<!doctype html>
-<html lang="en" >
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
   <head>
-                        <!-- da rivedere  -->
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-    <title>Te e Infusi - Erboristeria Alchimia</title>
-    <link rel="stylesheet" href="stylesheet.css"></link>
-    <link href="https://fonts.googleapis.com/css?family=Poppins:300,600&display=swap" rel="stylesheet">
+    <title>T&egrave; &amp; e Infusi - Erboristeria Alchimia</title>
+    <meta name="description" content="Visualizza i nostri te e infusi"/>
+    <meta name="language" content="italian it"/>
+    <meta name="keywords" content="te, infusi, te e infusi, erboristeria, alchimia"/>
+    <meta name="author" content="Erboristeria Alchimia"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
-    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="icon" href="img/favicon.ico"/>
+    <link rel="stylesheet" href="stylesheet.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,600&amp;display=swap" rel="stylesheet"/>
+    <!-- <link href="https://fonts.googleapis.com/css?family=Material+Icons" rel="stylesheet"> -->
+    <!-- <link href="https://fonts.googleapis.com/css?family=Material+Icons+Outlined" rel="stylesheet"> -->
+    <!-- <link href="https://fonts.googleapis.com/css?family=Material+Icons+Two+Tone" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons+Round" rel="stylesheet"/>
+    <!-- <link href="https://fonts.googleapis.com/css?family=Material+Icons+Sharp" rel="stylesheet"> -->
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js" type="text/javascript"></script>
   </head>
 
   <body>
-    <div id="container">
+    <div class="container" id="container_te_e_infusi">
 
+      <!--          HEADER             -->
+      <div id="header_image" class="fit"></div>
 
-                          <!--          HEADER             -->
-
-      <div id="menu">
-        <button><i class="material-icons-round" onclick="showMenu()">cancel</i></button>
-
-        <ul>
-          <li><a href="homepage.html">Homepage</a></li>
-          <li><a href="eventi.html">Eventi</a></li>
-          <li class="selected_page"><p>T&egrave; e Infusi</p></li>
-          <li><a href="prodotti.html">Prodotti</a></li>
-          <li><a href="pagina_informazioni">Informazioni</a></li>
-        </ul>
-        <!-- <h4>Erboristeria <span>Alchimia</span></h4> -->        <!-- non c'e' spazio nei dispositivi piu' vecchi come iPhone 4, magari da implementare in futuro -->
-      </div>
-
-      <button id="right-of-menu" onclick="showMenu()"></button>
-
-      <button><i id="menu_icon" class="material-icons-round" onclick="showMenu()">menu</i></button>
+      <h1>T&egrave; &amp; infusi</h1>
 
       <div id="topbar">
-        <h1 id="topbar_title">T&egrave; & infusi</h1>
+        <h1 id="topbar_title">T&egrave; &amp; Infusi</h1>
       </div>
 
-      <div id="header_image" class="fit"></div>
-      <h1>T&egrave; e Infusi</h1>
+      <button class="menu_btn"><span id="menu_icon" class="material-icons-round">menu</span></button>
+      <div id="menu">
+        <ul title="Menu">
+          <li><a href="homepage.html" xml:lang="en">Homepage</a></li>
+          <li><a href="eventi.html">Eventi</a></li>
+          <li class="selected_page"><p>T&egrave; &amp; Infusi</p></li>
+          <li><a href="prodotti.html">Prodotti</a></li>
+          <li><a href="informazioni.html">Informazioni</a></li>
+          <li><a href="la_mia_storia.html">La mia Storia</a></li>
+          <li class="menu_btn">
+            <img src="icons/cancel.svg" alt="Chiudi il menu"/>
+          </li>
+        </ul>
+      </div>
+      <button id="right-of-menu" class="menu_btn" title="chiudi il menu"></button>
 
-                          <!--         CONTENT            -->
-
+      <!--         CONTENT            -->
       <div id="content">
-
         <h2>Una passione per gli infusi</h2>
         <p>
           In questa pagina potete trovare le mie composizioni di t&egrave; e infusi che ho preparato per voi ponendo attenzione alle varie propriet&agrave; e sapori.
-
         </p>
-
-                          <!--          CONSIGLI DI MARIKA            -->
-
-        <button class="tips_and_tricks collapsed">
+        <!--          CONSIGLI DI MARIKA            -->
+        <div title="Il consiglio di Marika. Premi per espandere" class="tips_and_tricks collapsed expanded  display_none">
           <!-- <i class="material-icons-round">emoji_food_beverage</i> -->
           <h3>Il consiglio di Marika</h3>
+          <a class="accessibility_hidden">Salta alla fine del consiglio</a>
           <!-- <i class="material-icons-round">emoji_food_beverage</i> -->
+          <!-- <div class="hidden_tip"> -->
           <h4>Le 5 regole d'oro per preparare un buon t&egrave;</h4>
           <p>Preparare un buon t&egrave; &egrave; semplice se si tengono a mente alcune regole:</p>
           <ul>
@@ -68,57 +72,31 @@
             <li><span>Versare l'acqua sulle foglie di t&egrave;</span></li>
             <li><span>Lasciare il te in infusione per il corretto tempo,</span> secondo le indicazioni relative alla categoria (chiedetemi pure in erboristeria)</li>
           </ul>
-          <i class="material-icons-round">expand_more</i>
-        </button>
+          <span class="expand_icon material-icons-round">expand_more</span>
+        </div>
+
         <p>Queste sono solo alcune delle mie proposte, ma &egrave; sempre possibile richiedere un mix personalizzato che pi&ugrave; si addice ai vostri gusti.</p>
-
-                          <!--          LISTA DI INFUSI            -->
-        <dl>
-
-          <button class="card collapsed">
-            <img src="img/te_e_infusi/2.jpg"/>
-           <h3><dt>T&egrave; Oolong alla frutta</dt></h3>      <!-- ricontrollare sintassi -->
-            <dd>
-              <h4>Ingredienti</h4>
-              <p>Th&egrave; Oolong, frutta candita in proporzione variabile (Goji, papaya, pesca, fichi), calendula fiori, fiordaliso fiori, aromi.</p>
-              <h4>Descrizione</h4>
-              <p>Il fascino dell'antica Cina rivive in questa miscela che unisce il t&egrave; Oolong, semi-ossidato alla frutta.</p>
-              <p>Il t&egrave; Oolong essendo un semi-ossidato conserva parte delle qualit&agrave; antiossidanti del t&egrave; verde, &egrave; ricco di minerali come il calcio ed ha poca teina.</p>
-              <p>Colore giallo paglierino, profumo delicato fruttato.</p>
-              <h4>Preparazione</h4>
-              <p>3-4g per tazza da 200ml acqua a 90 gradi per 5 minuti.</p>
-            </dd>
-            <i class="material-icons-round">expand_more</i>
-          </button>
-
-          <button class="card collapsed">
-            <img src="img/te_e_infusi/3.jpg"/>
-           <h3><dt>T&egrave; Rosso Africa Bio</dt></h3>      <!-- ricontrollare sintassi -->
-            <dd>
-              <h4>Ingredienti</h4>
-              <p>Miscela di Rooibos, scorza di arancia, lampone, mirtilli e fiori al profumo di agrumi. Da agricoltura Bio</p>
-              <h4>Descrizione</h4>
-              <p>Il t&egrave; rosso proviene dalla lavorazione dell'Asphalatus linearis ed &egrave; naturalmente privo di caffeina oltre che ricco di minerali.</p>
-              <p>Ottimo come infuso del pomeriggio per i bambini e per gli adulti che svolgono attivit&agrave; sportiva.</p>
-              <h4>Preparazione</h4>
-              <p>3-4g per tazza da 200ml acqua a 90 gradi per 5 minuti.</p>
-            </dd>
-            <i class="material-icons-round">expand_more</i>
-          </button>
-
-        </dl>
+        <!--            TE E INFUSI            -->
+        %LISTA_TE_E_INFUSI%
       </div>
 
-
-
-                          <!--          FOOTER            -->
+      <!--          FOOTER            -->
       <div id="footer">
-        I piedi in doccia si lavano da soli con l'acqua che cade
+        <a id="torna_su_btn">Torna all'inizio della pagina</a>
+        <p id="footer_menu">Menu</p>
+        <ul>
+          <li><a href="homepage.html" xml:lang="en">Homepage</a></li>
+          <li><a href="eventi.html">Eventi</a></li>
+          <li><span>T&egrave; &amp; Infusi</span></li>
+          <li><a href="prodotti.html">Prodotti</a></li>
+          <li><a href="infomazioni.html">Informazioni</a></li>
+          <li><a href="la_mia_storia.html">La mia Storia</a></li>
+        </ul>
+
+        <p id="copyright">Copyright &#64; 2020 erbalchimia@gmail.com. Tutti i diritti riservati</p>
       </div>
-
     </div>
+
+    <script type="text/javascript" src="js/design.js"></script>
   </body>
-
-  <script src="js/design.js"></script>
-
 </html>
