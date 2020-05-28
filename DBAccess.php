@@ -74,7 +74,7 @@ class DBAccess{
     mysqli_close($this->connection);
   }
 
-  public function getTeInfusi(){
+  public function getTeInfusiv1(){
 
     $query = "SELECT * FROM te_e_infusi";
     $queryResult = mysqli_query($this->connection,$query);

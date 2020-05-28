@@ -6,7 +6,7 @@ $pagina = file_get_contents('modifica_teInfusi.html');
 $con = new DBAccess();
 
 if($con->openConnection()){
-  $teInfusi = $con->getTeInfusi();
+  $teInfusi = $con->getTeInfusiv1();
   if($teInfusi != null){
   	$listaTeInfusi = "";
     foreach($teInfusi as $obj){
