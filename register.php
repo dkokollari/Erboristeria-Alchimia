@@ -21,5 +21,13 @@
       else if(strlen($password) < $minLengthPwd || strlen($password) > $maxLengthPwd){
         $errore = $errore_password;
       }
+      else{
+        $con = new DBAccess();
+        if(!$conn->openConnection()){
+         echo '<p class="errore">Impossibile connettersi al database riprovare pi&ugrave; tardi</p>';
+         exit;
+        }
+        $con->closeConnection();
+      }
     }
 ?>
