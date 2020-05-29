@@ -19,8 +19,8 @@
     $maxLengthPwd = 12;
     $errore = "";
     $logged = "";
-    const $errore_empty = '<p class="errore">Inserire sia una email che una password</p>';
-    const $errore_wrong = '<p class="errore">La email o la password inserite non sono corrette</p>';
+    $errore_empty = '<p class="errore">Inserire sia una email che una password</p>';
+    $errore_wrong = '<p class="errore">La email o la password inserite non sono corrette</p>';
     if(empty($email) || empty($password)){
       $errore = $errore_empty;
     }
