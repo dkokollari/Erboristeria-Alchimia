@@ -4,7 +4,7 @@
 
   if($_SESSION['logged']==true){
     header('location:index.php');
-    exit();
+    exit;
   }
 
   $pagina = file_get_contents('login.html');
@@ -38,8 +38,7 @@
       $errore = '<p class= "errore">'.'Inserire sia una '.'email'.' che una '.'password'.'</p>';
     }
     else if(!filter_var($email, FILTER_VALIDATE_EMAIL)
-            || (strlen($password) < $minLengthPwd
-            || strlen($password) > $maxLengthPwd)){
+            || (strlen($password) < $minLengthPwd || strlen($password) > $maxLengthPwd)){
       $errore = '<p class="errore"> La '.'email'.' o la '.'password'.' inserite non sono corrette</p>';
     }
     else{
