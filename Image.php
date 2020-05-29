@@ -32,7 +32,9 @@ class Image {
   }
 
   public function deleteImage($file){
-    unlink($file);
+    if(file_exists($file)){
+      unlink($file);
+    }
   }
 
   public function getImage($path, $id){

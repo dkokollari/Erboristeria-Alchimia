@@ -56,7 +56,7 @@
           }
           else{
             $messaggio = '<p class="error-msg">Errore: immagine non salvata</p>';
-            $con->deleteTeInfusi($nome);
+            $con->deleteTeInfusi_by_name($nome);
           }
         }
         else if(!$imgpresent && $con->InsertTeInfusi($descImg, $tipo, $nome, $ingre, $descr, $prepa)){

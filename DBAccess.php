@@ -37,7 +37,12 @@
       return (($res = mysqli_query($this->connection, $query)) ? true : false);
     }
     
-    public function deleteTeInfusi($name){
+    public function deleteTeInfusi_by_id($id){
+      $query="DELETE FROM `te_e_infusi` WHERE `id_te_e_infusi` = '".$id."'";
+      return (mysqli_query($this->connection, $query) ? true : false);
+    }
+    
+    public function deleteTeInfusi_by_name($name){
       $query = "DELETE FROM `te_e_infusi` WHERE `nome_te_e_infusi` = '".$name."'";
       return (mysqli_query($this->connection, $query) ? true : false);
     }
