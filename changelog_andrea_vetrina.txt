@@ -11,3 +11,8 @@ CHANGELOG 24 MAY MORNING part 2
 CHANGELOG 25 MAY MORNING
 - adjusted image / margins a bit (still wip)
 - added tags
+CHANGELOG 29 MAY MORNING
+- cards now use float and margins
+
+TODO
+- content is now gray and cards white for better contrast

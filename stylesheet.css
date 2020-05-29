@@ -117,7 +117,8 @@ h1 span {
 
 #content {
   /* padding: 1.8em 8% 1em 8%; */
-  background-color: #fff;
+  background-color: rgb(255,255,255);
+  /* TODO should make background-color: 245 */
   margin-bottom: 14.5em;
   padding-top: 2em;
   padding-bottom: 2em;
@@ -300,7 +301,7 @@ margin:0.7em auto 0.7em auto;
             #menu ul li a{
               font-size: 1.1em;
               line-height: 2.5em;
-              margin: 5vh auto 5vh auto;
+              margin: auto;
               display: block;
               width: 85%;
               /* border: 2px solid var(--yellow-dark); */
@@ -921,88 +922,126 @@ strong {
 
                             /* PAGINA PRODUCTS */
 #container_vetrina .card_vet {
-  height: 8em;
+  height: 6em;
   border-radius: 7px;
   box-shadow: 0 3px 6px rgba(0,0,0,0.10), 0 3px 6px rgba(0,0,0,0.17);
   margin-bottom: 1.5em;
+  padding:1em;
   overflow: hidden;
-  display: grid;
+  position: relative;
+    background-color: #fff;
+  /* display: grid;
   grid-template-areas: "image title title"
                        "image manufacturer manufacturer"
                        "image line line"
                        "image tags price";
-  grid-template-columns: 7em auto;
-  grid-template-rows:1.5fr 1fr 1fr 3fr;
+  grid-template-columns: 7em auto; */
+  /* grid-template-rows:3fr 1fr 1fr 3fr; */
   /* grid-row-gap: 0.7em; */
-  align-items: center;
-  justify-items: center;
+  /* align-items: center;
+  justify-items: center; */
   /* flex-grow: 1; */
   /* position: relative; */
 }
 #container_vetrina .card_vet .product_title,
 #container_vetrina .card_vet .product_line,
 #container_vetrina .card_vet .product_manufacturer,
-#container_vetrina .card_vet .product_price {
-  text-align: left;
+#container_vetrina .card_vet .product_bottom{
   margin: 0;
-  align-self: center;
   line-height: 1em;
-  justify-self:start;
 }
 #container_vetrina .card_vet .product_image {
   background-size: contain;
-  height: 5.5em;
-  width: 5.5em;
-  align-self: center;
+  height: 6em;
+  width: 6em;
+  /* margin:1.25em; */
+  /* align-self: center; */
   grid-area: image;
   border-radius: 10px;
+  float: left;
+
 }
 #container_vetrina .card_vet .product_title {
-  margin-top:0.5em;
-  color: #009688;
+  /* margin-top:1em; */
+  color: var(--yellow-dark);
   grid-area: title;
-  font-size: 1.1em;
+  font-size: 1em;
+  margin-bottom: 0.4em;
+  /* margin-left: 7em; */
+  text-align: left;
   /* margin-top: 0.5em; */
 }
 #container_vetrina .card_vet .product_manufacturer {
+  /* margin-top:0.5em; */
   grid-area: manufacturer;
   font-size: 0.9em;
+  margin-bottom: 0.2em;
+
 }
 #container_vetrina .card_vet .product_line {
+  /* margin-top:0.3em; */
   grid-area: line;
   font-weight: lighter;
   font-style: italic;
-  font-size: 0.9em;
+  font-size: 0.8em;
+  /* font-size: 0.9em; */
+}
+#container_vetrina .card_vet .product_description {
+  margin:0 0 0 6.5em;
+  height: 6em;
+  position: relative;
 }
 #container_vetrina .card_vet .product_tags {
-  font-size: 0.65em;
+  font-size: 0.6em;
   letter-spacing: 0.1em;
   align-self: end;
   justify-self: start;
-  margin-bottom: 0.9em;
+  /* margin-bottom: 1.6em; */
   text-transform: uppercase;
   font-weight: bold;
   color: #fff;
+  display: inline;
+  position: absolute;
+  bottom: 0;
+  line-height: 1.8em;
+
 }
 #container_vetrina .card_vet .product_tags span {
   border-radius: 10px;
-  margin-right: 0.2em;
-  padding: 0.1em 0.5em 0 0.5em;
+  /* margin-right: 0.2em; */
+  padding: 0.2em 0.5em 0.2em 0.5em;
 }
 #container_vetrina .card_vet .product_tags span.cosmetici {
   background-color: #ff9557;
 }
 #container_vetrina .card_vet .product_tags span.uomo {
-  background-color: #367bc3;
+  background-color: #005377;
+}
+#container_vetrina .card_vet .product_tags span.donna {
+  background-color: #90323D;
+}
+#container_vetrina .card_vet .product_tags span.casa {
+  background-color: #E39695;
+}
+#container_vetrina .card_vet .product_tags span.bimbi{
+  background-color: #06a77d;
 }
 #container_vetrina .card_vet .product_price {
   grid-area: price;
   text-align: right;
   justify-self:end;
   align-self: end;
-  margin-right: 0.8em;
+  /* margin-right: 1em; */
   font-size: 1.1em;
   font-weight: bold;
-  margin-bottom: 0.5em;
+  margin:0;
+  /* margin-bottom: 1.1em; */
   /* margin-right: 2em; */
+  float: right;
+  line-height: 1em;
+  /* bottom:0; */
+  display: inline;
+  position: absolute;
+  bottom: 0;
+  right: 0;
 }
