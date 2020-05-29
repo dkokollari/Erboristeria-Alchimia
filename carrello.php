@@ -5,7 +5,8 @@
 session_start();
 $pagina = file_get_contents('carrello.html');
 $orderedProducts = '';
-if($_SESSION['logged'] == true) {
+if(isset($_SESSION['email_utente'])
+    || (isset($_COOKIE['email']) && isset($_COOKIE['password']))) {
   $product_ids = array();
 
   if(filter_input(INPUT_POST, 'add_to_cart')) {
