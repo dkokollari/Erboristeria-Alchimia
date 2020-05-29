@@ -15,8 +15,8 @@
   if($_POST['Login']){
     $email = mysql_real_escape_string(trim($_POST['email']));
     $password = mysql_real_escape_string(trim($_POST['password']));
-    $minLengthPwd = 8;
-    $maxLengthPwd = 12;
+    const $minLengthPwd = 8;
+    const $maxLengthPwd = 12;
     $errore = "";
     $logged = "";
     if(empty($email) || empty($password)){
