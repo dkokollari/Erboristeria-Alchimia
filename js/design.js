@@ -26,7 +26,7 @@ var x =-1*430/ 698 ;
 //percorso = w*3/4 - t
 //con 640 -> 668 delta = 28
 //con 494 -> 480 delta = -14
-    console.log(document.documentElement.clientWidth);
+    // console.log(document.documentElement.clientWidth);
 var yScrollPosition;
 var i;
 var j;

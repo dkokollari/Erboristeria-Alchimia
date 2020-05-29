@@ -50,6 +50,7 @@ a {
 }
 body {
   font: 300 1em 'Poppins', sans-serif;
+  background-color: rgb(245,245,245);
 }
                                   /* overwrite default button rules */
 button {
@@ -93,8 +94,8 @@ h1 span {
 #container_la_mia_storia #header_image {
   background-image: url(img/la_mia_storia_background.jpg);
 }
-#container_vetrina #header_image {
-  background-image: url(img/vetrina_background.jpg);
+#container_prodotti #header_image {
+  background-image: url(img/prodotti_background.jpg);
 }
 #header_image {
   background-repeat: no-repeat;
@@ -117,7 +118,7 @@ h1 span {
 
 #content {
   /* padding: 1.8em 8% 1em 8%; */
-  background-color: rgb(255,255,255);
+  background-color: rgb(245,245,245);
   /* TODO should make background-color: 245 */
   margin-bottom: 14.5em;
   padding-top: 2em;
@@ -132,10 +133,12 @@ h1 span {
   margin-left: 0;
   margin-right: 0;
 }
-h2 {
+#content h2 {
   text-transform: capitalize;
   font-size: 2em;
   letter-spacing: 0.1em;
+  margin-left: 1.2em;
+  margin-right: 1.2em;
   font-weight: 300;
   text-align: center;
   color: var(--yellow-dark);
@@ -243,8 +246,8 @@ margin:0.7em auto 0.7em auto;
               #container_te_e_infusi #header_image {
                 background-image: url(img/home_background_mobile.jpg);
               }
-              #container_vetrina #header_image {
-                background-image: url(img/vetrina_background_mobile.jpg);
+              #container_prodotti #header_image {
+                background-image: url(img/prodotti_background_mobile.jpg);
               }
               #close_menu {
                 margin:auto;
@@ -332,8 +335,8 @@ margin:0.7em auto 0.7em auto;
             #container_la_mia_storia #topbar:before {
               background-image: url(img/la_mia_storia_background.jpg);
             }
-            #container_vetrina #topbar:before {
-              background-image: url(img/vetrina_background_mobile.jpg);
+            #container_prodotti #topbar:before {
+              background-image: url(img/prodotti_background_mobile.jpg);
             }
 
             #topbar:before {              /* necessary element to correctly apply filter:brightness() only to the image, not the text */
@@ -405,8 +408,8 @@ margin:0.7em auto 0.7em auto;
       #container_te_e_infusi #header_image {
         background-image: url(img/home_background.jpg);
       }
-      #container_vetrina #header_image {
-        background-image: url(img/vetrina_background.jpg);
+      #container_prodotti #header_image {
+        background-image: url(img/prodotti_background.jpg);
       }
       body {
         margin-top: 10em;
@@ -921,12 +924,14 @@ strong {
 }
 
                             /* PAGINA PRODUCTS */
-#container_vetrina .card_vet {
+#container_prodotti .card_product {
   height: 6em;
   border-radius: 7px;
   box-shadow: 0 3px 6px rgba(0,0,0,0.10), 0 3px 6px rgba(0,0,0,0.17);
   margin-bottom: 1.5em;
-  padding:1em;
+  padding:0.7em;
+  margin-left: 1.2em;
+  margin-right: 1.2em;
   overflow: hidden;
   position: relative;
     background-color: #fff;
@@ -943,14 +948,14 @@ strong {
   /* flex-grow: 1; */
   /* position: relative; */
 }
-#container_vetrina .card_vet .product_title,
-#container_vetrina .card_vet .product_line,
-#container_vetrina .card_vet .product_manufacturer,
-#container_vetrina .card_vet .product_bottom{
+#container_prodotti .card_product .product_title,
+#container_prodotti .card_product .product_line,
+#container_prodotti .card_product .product_manufacturer,
+#container_prodotti .card_product .product_bottom{
   margin: 0;
   line-height: 1em;
 }
-#container_vetrina .card_vet .product_image {
+#container_prodotti .card_product .product_image {
   background-size: contain;
   height: 6em;
   width: 6em;
@@ -961,24 +966,24 @@ strong {
   float: left;
 
 }
-#container_vetrina .card_vet .product_title {
+#container_prodotti .card_product .product_title {
   /* margin-top:1em; */
   color: var(--yellow-dark);
   grid-area: title;
-  font-size: 1em;
+  font-size: 0.9em;
   margin-bottom: 0.4em;
   /* margin-left: 7em; */
   text-align: left;
   /* margin-top: 0.5em; */
 }
-#container_vetrina .card_vet .product_manufacturer {
+#container_prodotti .card_product .product_manufacturer {
   /* margin-top:0.5em; */
   grid-area: manufacturer;
   font-size: 0.9em;
   margin-bottom: 0.2em;
 
 }
-#container_vetrina .card_vet .product_line {
+#container_prodotti .card_product .product_line {
   /* margin-top:0.3em; */
   grid-area: line;
   font-weight: lighter;
@@ -986,12 +991,12 @@ strong {
   font-size: 0.8em;
   /* font-size: 0.9em; */
 }
-#container_vetrina .card_vet .product_description {
+#container_prodotti .card_product .product_description {
   margin:0 0 0 6.5em;
   height: 6em;
   position: relative;
 }
-#container_vetrina .card_vet .product_tags {
+#container_prodotti .card_product .product_tags {
   font-size: 0.6em;
   letter-spacing: 0.1em;
   align-self: end;
@@ -1006,27 +1011,27 @@ strong {
   line-height: 1.8em;
 
 }
-#container_vetrina .card_vet .product_tags span {
+#container_prodotti .card_product .product_tags span {
   border-radius: 10px;
   /* margin-right: 0.2em; */
   padding: 0.2em 0.5em 0.2em 0.5em;
 }
-#container_vetrina .card_vet .product_tags span.cosmetici {
+#container_prodotti .card_product .product_tags span.cosmetici {
   background-color: #ff9557;
 }
-#container_vetrina .card_vet .product_tags span.uomo {
+#container_prodotti .card_product .product_tags span.uomo {
   background-color: #005377;
 }
-#container_vetrina .card_vet .product_tags span.donna {
+#container_prodotti .card_product .product_tags span.donna {
   background-color: #90323D;
 }
-#container_vetrina .card_vet .product_tags span.casa {
+#container_prodotti .card_product .product_tags span.casa {
   background-color: #E39695;
 }
-#container_vetrina .card_vet .product_tags span.bimbi{
+#container_prodotti .card_product .product_tags span.bimbi{
   background-color: #06a77d;
 }
-#container_vetrina .card_vet .product_price {
+#container_prodotti .card_product .product_price {
   grid-area: price;
   text-align: right;
   justify-self:end;
