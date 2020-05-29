@@ -5,5 +5,7 @@
     if($_POST['Registrati']){
       $email = mysql_real_escape_string(trim($_POST['email']));
       $password = mysql_real_escape_string(trim($_POST['password']));
+      $minLengthPwd = 8;
+      $maxLengthPwd = 12;
     }
 ?>
