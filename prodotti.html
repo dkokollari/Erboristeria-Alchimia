@@ -1,64 +1,174 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
-
   <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link rel="icon" href="img/favicon.ico" />
+    <title>Prodotti - Erboristeria Alchimia</title>
+    <link rel="stylesheet" href="stylesheet.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,600&amp;display=swap" rel="stylesheet" />
 
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>erboristeria alchimia</title>
-    <meta name="author" content="..."/>
-    <meta name="description" content="..."/>
-    <meta name="keywords" content=" ..."/>
-    <meta name="language" content="italian it"/>
+    <!-- <link href="https://fonts.googleapis.com/css?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons+Outlined" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons+Two+Tone" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons+Round" rel="stylesheet" />
+    <!-- <link href="https://fonts.googleapis.com/css?family=Material+Icons+Sharp" rel="stylesheet"> -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
   </head>
 
   <body>
+    <div class="container" id="container_prodotti">
 
-    <div id="header">
-      <img src="" alt="logo erboristeria alchimia"/>
-      <h1>Erboristeria Alchimia</h1>
-    </div>
+                          <!--          HEADER             -->
 
-    <div id="menu">
-      <ul>
-        <li><a href="erboristeria.html" tabindex="1"><span xml:lang="en">Home</span></a></li>
-        <li><a href="infusi.html" tabindex="2" >I miei T&egrave; e infusi</a></li>
-        <li><a href="regalo.html" tabindex="3">Le mie idee regalo</a></li>
-        <li>I miei prodotti</li>
-        <li><a href="eventi.html" tabindex="4">Eventi</a></li>
-        <li><a href="informazioni.html" tabindex="5">Informazioni</a></li>
-      </ul>
-    </div>
+      <div id="header_image" class="fit"></div>
 
-    <div id="content">
-      <div>
-        <form action="">
-          <fieldset>
-            <legend>Ricerca</legend>
-              <input name="ricerca" id="ricerca" value="tè infusi" maxlength="20"/>
-              <input type="submit" value="cerca"/>
-          </fieldset>
-        </form>
+      <h1>Prodotti</h1>
+
+      <div id="topbar">
+        <h1 id="topbar_title">Prodotti</h1>
       </div>
 
-      <div>
-        <h1>Le mie marche</h1>
-        ...
+
+      <button class="menu_btn"><span id="menu_icon" class="material-icons-round">menu</span></button>
+      <div id="menu">
+
+
+        <ul title="Menu">
+          <li><a href="homepage.html" xml:lang="en">Homepage</a></li>
+          <li><a href="eventi.html">Eventi</a></li>
+          <li><a href="teinfusi.html">T&egrave; &amp; Infusi</a></li>
+          <li><a href="prodotti.html">Prodotti</a></li>
+          <li><a href="informazioni.html">Informazioni</a></li>
+          <li><a href="la_mia_storia.html">La mia Storia</a></li>
+          <li class="selected_page"><p>Prodotti</p></li>
+
+          <li class="menu_btn">
+            <img src="icons/cancel.svg" alt="Chiudi il menu"/>
+          </li>
+        </ul>
+
+      </div>
+
+      <button id="right-of-menu" class="menu_btn" title="chiudi il menu"></button>
+                          <!--         CONTENT            -->
+
+      <div id="content">
+
+
+
+
+
+
+
+
+
+        <h2>La mia vetrina, Online</h2>
+        <p>
+          L’erboristeria oggi &egrave; il giusto equilibrio tra antichi saperi e nuove tecnologie, dove per trovare quello che fa per noi &egrave; necessario essere disposti a conoscersi profondamente.
+        </p>
+
+        <div class="card_product">
+
+          <img class="product_image"src="img/products/small_img/helan_linea_bimbi_amido_di_riso_min.jpg" alt="immagine linea bimbi amido di riso di Helan"/>
+
+          <div class="product_description">
+            <h3 class="product_title">Amido di riso</h3>
+            <p class="product_manufacturer">Helan</p>
+            <p class="product_line">Linea bimbi</p>
+
+              <div class="product_tags">
+                <span class="cosmetici">cosmetici</span>
+                <span class="bimbi">bimbi</span>
+              </div>
+              <p class="product_price">10,50 &euro;</p>
+
+          </div>
+        </div>
+        <div class="card_product">
+
+          <img class="product_image"src="img/products/small_img/erbolario_danza_di_fiori_profumo_50ml_min.jpg" alt="immagine Erbolario danza di fiori profumo 50ml"/>
+
+          <div class="product_description">
+            <h3 class="product_title">Danza di Fiori - Prufumo 50ml</h3>
+            <p class="product_manufacturer">L&#39;Erbolario</p>
+            <p class="product_line">Danza di Fiori</p>
+
+              <div class="product_tags">
+                <span class="cosmetici">cosmetici</span>
+                <span class="donna">donna</span>
+              </div>
+              <p class="product_price">22,90 &euro;</p>
+
+          </div>
+        </div>
+        <div class="card_product">
+
+          <img class="product_image"src="img/products/small_img/helan_profumi_della_casa_fragolino_selvatico_100ml_min.jpg" alt="immagine Helan profumi della casa fragolino selvatico 100ml"/>
+
+          <div class="product_description">
+            <h3 class="product_title">Bast. Prof 100ml - Fragolino Selvatico</h3>
+            <p class="product_manufacturer">Helan</p>
+            <p class="product_line">Profumi della casa</p>
+
+              <div class="product_tags">
+                <span class="casa">casa</span>
+              </div>
+              <p class="product_price">16,00 &euro;</p>
+
+          </div>
+        </div>
+        <div class="card_product">
+
+          <img class="product_image"src="img/products/small_img/erbolario_ginepro_nero_maxi_beauty_set_min.jpg" alt="immagine di l'erbolario ginepro nero maxi beauty set"/>
+
+          <div class="product_description">
+            <h3 class="product_title">Ginepro Nero maxi beauty set</h3>
+            <p class="product_manufacturer">L&#39;Erbolario</p>
+            <p class="product_line">Ginepro Nero</p>
+
+              <div class="product_tags">
+                <span class="cosmetici">cosmetici</span>
+                <span class="uomo">uomo</span>
+              </div>
+              <p class="product_price">33,90 &euro;</p>
+
+          </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+      </div>
+
+      <div id="footer">
+        <a id="torna_su_btn">Torna all'inizio della pagina</a>
+        <p id="footer_menu">Menu</p>
+        <ul>
+          <li><a href="homepage.html" xml:lang="en">Homepage</a></li>
+          <li><a href="eventi.html">Eventi</a></li>
+          <li><a href="teinfusi.html">T&egrave; &amp; Infusi</a></li>
+          <li><a href="prodotti.html">Prodotti</a></li>
+          <li><a href="infomazioni.html">Informazioni</a></li>
+          <li><a href="la_mia_storia.html">La mia Storia</a></li>
+          <li><span>Prodotti</span></li>
+        </ul>
+
+        <p id="copyright">Copyright &#64; 2020 erbalchimia@gmail.com. Tutti i diritti riservati</p>
       </div>
     </div>
 
-    <div id="footer">
-      <ul>
-        <li><img src="./images/contatto.png" alt="icona di un telefono"/>Telefono: +39 ... ... ....</li>
-        <li><img src="./images/posta.png" alt="icona di posta elettronica"/>Email:<a href="mailto:unamail@mail.com" tabindex="6">Email</a></li>
-        <li><img src="./images/indirizzo.png" alt="pagina valida xhtml1.0 strict"/>Posizione:<a href="https://www.google.com/maps/place/Torre+Archimede,+Via+Trieste,+63,+35121+Padova+PD/@45.4113787,11.8852839,17z/data=!3m1!4b1!4m5!3m4!1s0x477eda58b44676df:0xfacae5884fca17f5!8m2!3d45.4113787!4d11.8874726" tabindex="7">nonsodove</a></li>
-      </ul>
-
-      <img src="./images/valid-xhtml10.png" alt="pagina valida xhtml1.0 strict"/><span xml:lang="en"> All Rigths Reserverd </span><img src="./images/vcss-blue.gif" alt="pagina valida css"/>
-
-    </div>
-
-
+    <script type="text/javascript" src="js/design.js"></script>
   </body>
-
 </html>
