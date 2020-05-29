@@ -12,7 +12,7 @@
        echo "query esequita con successo";
      }
      else{
-       echo "query non esequita";
+       echo "query non eseguita";
      }
    }
    else{
