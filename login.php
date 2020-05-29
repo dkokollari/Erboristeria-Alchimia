@@ -19,13 +19,15 @@
     const $maxLengthPwd = 12;
     $errore = "";
     $logged = "";
+    const $errore_empty = '<p class="errore">Inserire sia una email che una password</p>';
+    const $errore_wrong = '<p class="errore">La email o la password inserite non sono corrette</p>';
     if(empty($email) || empty($password)){
-      $errore = '<p class="errore">Inserire sia una email che una password</p>';
+      $errore = $errore_empty;
     }
 
     else if(!filter_var($email, FILTER_VALIDATE_EMAIL)
     || (strlen($password) < $minLengthPwd || strlen($password) > $maxLengthPwd)){
-      $errore = '<p class="errore">La email o la password inserite non sono corrette</p>';
+      $errore = $errore_wrong;
     }
     else{
       /*password e email inserite dall'utente: ora controllo che ci siano nel db*/
@@ -50,14 +52,14 @@
       $result = $stmt->get_result();
 
       if($result->num_rows === 0){
-      $errore = '<p class="errore">La email o la password inserite non sono corrette</p>';
+      $errore = $errore_wrong;
       }
       else{
         $row = $result->fetch_assoc();
         $passwordCheck = password_verify($password, $row['password_utente']);
         /*inserimento solo tramite php cosi settiamo bcrypt come algoritmo!*/
         if($passwordCheck == false){
-          $errore = '<p class="errore">La email o la password inserite non sono corrette</p>';
+          $errore = $errore_wrong;
         }
         else{
           if(isset($_POST['remember_me'])){
@@ -65,8 +67,8 @@
             setcookie("password",$password,time()+60*60*24*30);
           }
           $_SESSION['logged'] = true;
-          $_SESSION['email_utente'] =  $row['email_utente'];
-          $_SESSION['tipo_utente'] =  $row['tipo_utente'];
+          $_SESSION['email_utente'] = $row['email_utente'];
+          $_SESSION['tipo_utente'] = $row['tipo_utente'];
           header("location:index.php");
         }
         $stmt->close();
