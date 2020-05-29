@@ -26,10 +26,11 @@ if($_POST['Login']) {
 
   else if(!filter_var($email, FILTER_VALIDATE_EMAIL)
     || (strlen($password) < $minLengthPwd || strlen($password) > $maxLengthPwd)) {
-    $errore = '<p class="errore"> La '.'email'. ' o la ' .'password'. ' inserite non sono corrette</p>';
+    $errore = '<p class="errore">La '.'email'. ' o la ' .'password'. ' inserite non sono corrette</p>';
   }
   else {
     /*password e email inserite dall'utente: ora controllo che ci siano nel db*/
+    $query = "SELECT * FROM `utenti` WHERE `email_utente`=?";
     $conn = new DBAccess();
     if(!$conn->openConnection()) {
      echo '<p class= "errore">' . "Impossibile connettersi al database riprovare pi&ugrave; tardi" . '</p>';
@@ -41,7 +42,6 @@ if($_POST['Login']) {
       exit(1);
   	}
 
-    $query = "SELECT * FROM `utenti` WHERE `email_utente`=?";
     if(!$stmt = mysqli_prepare($conn->connection, $query)) {
       die('prepare() failed: ' . htmlspecialchars(mysqli_error($conn->$connection)));
     }
@@ -51,14 +51,14 @@ if($_POST['Login']) {
     $result = $stmt->get_result();
 
     if($result->num_rows === 0) {
-    $errore = '<p class="errore"> La '.'email'. ' o la ' .'password'. ' inserite non sono corrette</p>';
+    $errore = '<p class="errore">La '.'email'. ' o la ' .'password'. ' inserite non sono corrette</p>';
     }
     else {
       $row = $result->fetch_assoc();
       $passwordCheck = password_verify($password, $row['password_utente']);
       /*inserimento solo tramite php cosi settiamo bcrypt come algoritmo!*/
       if($passwordCheck == false) {
-      $errore = '<p class="errore"> La '.'email'. ' o la ' .'password'. ' inserite non sono corrette</p>';
+      $errore = '<p class="errore">La '.'email'. ' o la ' .'password'. ' inserite non sono corrette</p>';
       } else {
           if(isset($_POST['remember_me'])){
             setcookie("email",$email,time()+60*60*24*30);
@@ -71,12 +71,12 @@ if($_POST['Login']) {
       }
       $stmt->close();
     }
+    $conn->closeConnection();
   }
 
   $pagina = str_replace("%ERR_LOGIN%", $errore , $pagina);
   $pagina = str_replace("%LOGIN_STATUS%", $logged , $pagina);
   echo $pagina;
-  $conn->closeConnection();
 
 }
 

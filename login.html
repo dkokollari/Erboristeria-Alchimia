@@ -1,21 +1,25 @@
-<!doctype html>
-<html lang="it" >
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
   <head>
-
-                        <!-- da rivedere  -->
-    <!-- <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png"> -->
     <title>Accedi - Erboristeria Alchimia</title>
-    <meta http-equiv="content-Type" content="text/html; charset=utf-8" />
-    <meta name="description" content="Pagina di accesso al sito." />
-    <meta name="keywords" content="erboristeria, alchimia, login, email, password" />
-    <meta name="title" content="Login - ErboristeriaAlchimia" />
-    <link rel="stylesheet" href="stylesheet.css">
-    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,600&display=swap" rel="stylesheet">
-    <!-- <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet"> -->
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  </head>
+    <meta name="description" content="Pagina di accesso al sito"/>
+    <meta http-equiv="content-Type" content="text/html; charset=utf-8"/>
+    <meta name="language" content="italian it"/>
+    <meta name="keywords" content="login, email, password, erboristeria, alchimia"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
+    <link rel="icon" href="img/favicon.ico"/>
+    <link rel="stylesheet" href="stylesheet.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,600&amp;display=swap" rel="stylesheet"/>
+    <!-- <link href="https://fonts.googleapis.com/css?family=Material+Icons" rel="stylesheet"> -->
+    <!-- <link href="https://fonts.googleapis.com/css?family=Material+Icons+Outlined" rel="stylesheet"> -->
+    <!-- <link href="https://fonts.googleapis.com/css?family=Material+Icons+Two+Tone" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons+Round" rel="stylesheet"/>
+    <!-- <link href="https://fonts.googleapis.com/css?family=Material+Icons+Sharp" rel="stylesheet"> -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js" type="text/javascript"></script>
+  </head>
   <body id="login">
     %LOGIN_STATUS%
     <div id="log_in_box_container">
@@ -24,7 +28,7 @@
           <fieldset  id="log_in_form">
             <legend><h2>Accedi</h2></legend> <!-- TODO: attenzione alle robe non semantiche!!! -->
             <!-- <legend>Accedi</legend> -->
-                %ERR_LOGIN%
+            %ERR_LOGIN%
             <div class="form_field">
               <label for="username" xml:lang="en">Email</label>
               <input id="username" name="email" type="text"/> <!-- WARNING: required non c'è in xhtml! -->
@@ -44,8 +48,6 @@
         </form>
       </div>
     </div>
-    <script src="js/design.js"></script>
+    <script src="js/design.js" type="text/javascript"></script>
   </body>
-
-
 </html>
