@@ -20,24 +20,24 @@
     $errore = "";
     $logged = "";
     if(empty($email) || empty($password)){
-      $errore = '<p class= "errore">'.'Inserire sia una '.'email'.' che una '.'password'.'</p>';
+      $errore = '<p class="errore">Inserire sia una email che una password</p>';
     }
 
     else if(!filter_var($email, FILTER_VALIDATE_EMAIL)
     || (strlen($password) < $minLengthPwd || strlen($password) > $maxLengthPwd)){
-      $errore = '<p class="errore">La '.'email'.' o la '.'password'.' inserite non sono corrette</p>';
+      $errore = '<p class="errore">La email o la password inserite non sono corrette</p>';
     }
     else{
       /*password e email inserite dall'utente: ora controllo che ci siano nel db*/
       $conn = new DBAccess();
       if(!$conn->openConnection()){
-       echo '<p class= "errore">'."Impossibile connettersi al database riprovare pi&ugrave; tardi".'</p>';
+       echo '<p class="errore">Impossibile connettersi al database riprovare pi&ugrave; tardi</p>';
        exit;
       }
       //Stabilita connessione al db
       $query = "SELECT * FROM `utenti` WHERE `email_utente`=?";
   	  if(!$conn->connection->set_charset("utf8")){
-        echo "<p class=\"errore\">Error: Unable to set the character set!</p>\n";
+        echo '<p class="errore">Error: Unable to set the character set!</p>';
         exit;
     	}
 
@@ -50,14 +50,14 @@
       $result = $stmt->get_result();
 
       if($result->num_rows === 0){
-      $errore = '<p class="errore">La '.'email'.' o la '.'password'.' inserite non sono corrette</p>';
+      $errore = '<p class="errore">La email o la password inserite non sono corrette</p>';
       }
       else{
         $row = $result->fetch_assoc();
         $passwordCheck = password_verify($password, $row['password_utente']);
         /*inserimento solo tramite php cosi settiamo bcrypt come algoritmo!*/
         if($passwordCheck == false){
-          $errore = '<p class="errore">La '.'email'.' o la '.'password'.' inserite non sono corrette</p>';
+          $errore = '<p class="errore">La email o la password inserite non sono corrette</p>';
         }
         else{
           if(isset($_POST['remember_me'])){
