@@ -71,11 +71,12 @@ if($_SESSION['logged'] == true) {
     }
     $orderedProducts .= '</td>' . "\n" . '</tr>' . "\n";
   }
+  $pagina = str_replace("%ORDERS%", $orderedProducts, $pagina);
+  echo $pagina;
 } else {
-  $orderedProducts = '<p class = "errore">Solo gli utenti registrati possono accedere al carrello. Se
-  sei registrato oppure vuoi creare un profilo sul nostro sito, <a href="login.php">clicca qui</a> </p>';
+  /*$orderedProducts = '<p class = "errore">Solo gli utenti registrati possono accedere al carrello. Se
+  sei registrato oppure vuoi creare un profilo sul nostro sito, <a href="login.php">clicca qui</a> </p>';*/
+  /*TODO da fare in js il prepend alla pagina index.php di questo avviso!*/
+  header('location: index.php');
 }
-
-$pagina = str_replace("%ORDERS%", $orderedProducts, $pagina);
-echo $pagina;
 ?>
