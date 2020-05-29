@@ -7,7 +7,7 @@ $img = new Image();
 $id = $_GET['id'];
 
 if($con->openConnection()){
-  if($con->deleteTeInfusi($id)){
+  if($con->deleteTeInfusi_by_id($id)){
   	$img->deleteImage("img/te_e_infusi/".$id."jpg");
     echo "query esequita con successo";
   }
