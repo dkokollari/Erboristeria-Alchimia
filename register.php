@@ -11,5 +11,9 @@
       $errore_full = '<p class="errore">Questo utente sembra essere gi&agrave; registrato</p>';
       $errore_email = '<p class="errore">Inserisci una email valida</p>';
       $errore_password = '<p class="errore">Inserisci una password tra gli 8 e i 12 caratteri</p>';
+
+      if(empty($email) || empty($password)){
+        $errore = $errore_empty;
+      }
     }
 ?>
