@@ -3,6 +3,8 @@
   /*-------------------INIZIO SESSIONE-----------------*/
 
 session_start();
+$pagina = file_get_contents('carrello.html');
+$orderedProducts = '';
 if($_SESSION['logged'] == true) {
   $product_ids = array();
 
@@ -46,34 +48,34 @@ if($_SESSION['logged'] == true) {
   }
 /*-------------------------FINE SESSIONE(Meglio metterla in un file a parte!)----------------------------*/
 
-$pagina = file_get_contents('carrello.html');
-$total = 0;
-$orderedProducts = "";
-if(!empty($_SESSION["shopping_cart"])) {
-  foreach($_SESSION["shopping_cart"] as $key => $product) {
-    $orderedProducts .= '<tr>' . '<td>' . $product["nome_articolo"] . '</td>' . "\n" .
-    '<td>' . $product["quantita"] . '</td>' . "\n" .
-    '<td>' . $product["prezzo_articolo"] . ' €</td>' . "\n" .
-    '<td>' . number_format($product["quantita"] * $product["prezzo_articolo"], 2) . ' €</td>' . "\n" .
-    '<td>' . '<a href="carrello.php?action=delete&id_articolo=' . $product["id_articolo"] . '">' . "\n" .
-    '<div class="btn-danger">Rimuovi</div>' . "\n" . '</a>' . "\n" . '</td>' . '</tr>' . "\n";
-    $total += $product["quantita"] * $product["prezzo_articolo"];
-  }
+  $total = 0;
+  if(!empty($_SESSION["shopping_cart"])) {
+    foreach($_SESSION["shopping_cart"] as $key => $product) {
+      $orderedProducts .= '<tr>' . '<td>' . $product["nome_articolo"] . '</td>' . "\n" .
+      '<td>' . $product["quantita"] . '</td>' . "\n" .
+      '<td>' . $product["prezzo_articolo"] . ' €</td>' . "\n" .
+      '<td>' . number_format($product["quantita"] * $product["prezzo_articolo"], 2) . ' €</td>' . "\n" .
+      '<td>' . '<a href="carrello.php?action=delete&id_articolo=' . $product["id_articolo"] . '">' . "\n" .
+      '<div class="btn-danger">Rimuovi</div>' . "\n" . '</a>' . "\n" . '</td>' . '</tr>' . "\n";
+      $total += $product["quantita"] * $product["prezzo_articolo"];
+    }
 
-  $orderedProducts .= '<tr>' . "\n" . '<td colspan="3" align="right">Totale</td>' . "\n" .
-  '<td align="right">' . number_format($total, 2) . ' €</td>' . "\n" .
-  '<td></td>' . "\n" . '</tr>'  . "\n";
+    $orderedProducts .= '<tr>' . "\n" . '<td colspan="3" align="right">Totale</td>' . "\n" .
+    '<td align="right">' . number_format($total, 2) . ' €</td>' . "\n" .
+    '<td></td>' . "\n" . '</tr>'  . "\n";
 
-  $orderedProducts .= '<td colspan="5">'  . "\n";
-  if(isset($_SESSION['shopping_cart'])
-      && count($_SESSION['shopping_cart']) > 0) {
-        $orderedProducts .= '<a href="#" class="button">Checkout</a>'  . "\n";
+    $orderedProducts .= '<td colspan="5">'  . "\n";
+    if(isset($_SESSION['shopping_cart'])
+        && count($_SESSION['shopping_cart']) > 0) {
+          $orderedProducts .= '<a href="#" class="button">Checkout</a>'  . "\n";
+    }
+    $orderedProducts .= '</td>' . "\n" . '</tr>' . "\n";
   }
-  $orderedProducts .= '</td>' . "\n" . '</tr>' . "\n";
+} else {
+  $orderedProducts = '<p class = "errore">Solo gli utenti registrati possono accedere al carrello. Se
+  sei registrato oppure vuoi creare un profilo sul nostro sito, <a href="login.php">clicca qui</a> </p>';
 }
+
 $pagina = str_replace("%ORDERS%", $orderedProducts, $pagina);
 echo $pagina;
-} else {
-  header('location: access_denied.php'); //non loggato => non autorizzato a fare acquisti!
-}
 ?>
