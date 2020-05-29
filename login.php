@@ -30,13 +30,13 @@ if($_POST['Login']) {
   }
   else {
     /*password e email inserite dall'utente: ora controllo che ci siano nel db*/
-    $query = "SELECT * FROM `utenti` WHERE `email_utente`=?";
     $conn = new DBAccess();
     if(!$conn->openConnection()) {
      echo '<p class= "errore">' . "Impossibile connettersi al database riprovare pi&ugrave; tardi" . '</p>';
      exit(1);
     }
     //Stabilita connessione al db
+  $query = "SELECT * FROM `utenti` WHERE `email_utente`=?";  
 	if (!$conn->connection->set_charset("utf8")) {
       echo "<p class=\"errore\">Error: Unable to set the character set!</p>\n";
       exit(1);
@@ -80,7 +80,7 @@ if($_POST['Login']) {
 
 }
 
-/*utente non ha premuto il tasto submit oppure l'ha premuto, */
+/*utente non ha premuto il tasto submit*/
 else {
   $pagina = str_replace("%ERR_LOGIN%", "" , $pagina);
   $pagina = str_replace("%LOGIN_STATUS%", "" , $pagina);
