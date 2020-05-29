@@ -15,5 +15,11 @@
       if(empty($email) || empty($password)){
         $errore = $errore_empty;
       }
+      else if(!filter_var($email, FILTER_VALIDATE_EMAIL){
+        $errore = $errore_email;
+      }
+      else if(strlen($password) < $minLengthPwd || strlen($password) > $maxLengthPwd){
+        $errore = $errore_password;
+      }
     }
 ?>
