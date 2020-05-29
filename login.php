@@ -66,7 +66,6 @@
             setcookie("email",$email,time()+60*60*24*30);
             setcookie("password",$password,time()+60*60*24*30);
           }
-          $_SESSION['logged'] = true;
           $_SESSION['email_utente'] = $row['email_utente'];
           $_SESSION['tipo_utente'] = $row['tipo_utente'];
           header("location:index.php");
