@@ -33,7 +33,7 @@
         <h4>Preparazione</h4>
         <p>'.$preparazione.'</p>
         <a href="updateTeInfusi.php?id='.$id.'">Modifica</a>
-        <a href="deleteTeInfusi.php?id='.$id.'">Delete</a>
+        <a href="deleteTeInfusi.php?id='.$id.'">Rimuovi</a>
         <span class="expand_btn material-icons-round">expand_more</span>
         </div>
 
