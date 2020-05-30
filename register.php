@@ -38,7 +38,13 @@
         if($con->getUser($email)){
           $errore = $errore_full;
         }
-        else{}
+        else{
+          $con->insertUser($nome,
+                           $cognome,
+                           $email,
+                           $password,
+                           $data_nascita);
+        }
 
         $con->closeConnection();
       }
