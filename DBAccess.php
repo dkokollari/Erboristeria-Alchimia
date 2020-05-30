@@ -117,16 +117,29 @@
       }
     }
 
+    public function getUser($email){
+      $query = "SELECT `nome_utente`,
+                       `cognome_utente`,
+                       `email_utente`,
+                       `password_utente`,
+                       `tipo_utente`,
+                       `data_nascita_utente`,
+                       `data_registrazione_utente`
+                FROM   `utenti`
+                WHERE  `email_utente`=?";
+      return $this->getQuery($query, "s", [$email]);
+    }
+
     /* esegue una query e torna un $output */
     private function getQuery($query, $types=null, $params=null){
-      $stmt = $this->prepare($query);
+      $stmt = mysqli_prepare($this->connection, $query);
       if($types && $params){
         $stmt->bind_param($types, ...$params);
       }
       $stmt->execute();
 
       if($result = $stmt->get_result()){
-        while($row =  $result->fetch_assoc()){
+        while($row = $result->fetch_assoc()){
           $output[] = $row;
         }
       }
