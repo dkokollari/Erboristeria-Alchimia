@@ -6,7 +6,7 @@
     const DB_NAME = 'my_erboristeriatest';
 
     public $connection = null;
-    
+
     /*
       gestione connessione al database
     */
@@ -14,11 +14,11 @@
       $this->connection = mysqli_connect(static::HOST_DB, static::USER_NAME, static::PASSWORD, static::DB_NAME);
       return ($this->connection ? true : false);
     }
-    
+
     public function closeConnection(){
       mysqli_close($this->connection);
     }
-    
+
     /*
       gestione te e infusi (inserimento, aggiornamento, rimozione, visualizzazione)
     */
@@ -31,17 +31,17 @@
       }
       return (mysqli_query($this->connection, $query) ? true : false);
     }
-    
+
     public function updateTeInfusi($id, $nome, $tipo, $ingre, $desc, $prepa, $descImg){
       $query= "UPDATE `te_e_infusi` SET `descrizione_immagine_te_e_infusi`= '".$descImg."', `tipo_te_e_infusi`='".$tipo."', `nome_te_e_infusi`='".$nome."', `ingredienti_te_e_infusi`='".$ingre."', `descrizione_te_e_infusi`='".$desc."', `preparazione_te_e_infusi`='".$prepa."' WHERE `id_te_e_infusi` = '".$id."'";
       return (($res = mysqli_query($this->connection, $query)) ? true : false);
     }
-    
+
     public function deleteTeInfusi_by_id($id){
       $query="DELETE FROM `te_e_infusi` WHERE `id_te_e_infusi` = '".$id."'";
       return (mysqli_query($this->connection, $query) ? true : false);
     }
-    
+
     public function deleteTeInfusi_by_name($name){
       $query = "DELETE FROM `te_e_infusi` WHERE `nome_te_e_infusi` = '".$name."'";
       return (mysqli_query($this->connection, $query) ? true : false);
@@ -56,7 +56,7 @@
       }
       return $output;
     }
-    
+
     public function getTeInfusiv1(){
       $query = "SELECT * FROM te_e_infusi";
       $queryResult = mysqli_query($this->connection,$query);
@@ -81,7 +81,7 @@
         return $result;
       }
     }
-    
+
     /*
       getter informazioni di te e infusi
     */
@@ -94,7 +94,7 @@
       }
       return $result;
     }
-    
+
     public function getSingoloTeInfuso($id){
       $query="SELECT * FROM te_e_infusi WHERE id_te_e_infusi= '".$id."'";
       $queryResult = mysqli_query($this->connection,$query);
