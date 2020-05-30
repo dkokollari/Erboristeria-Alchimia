@@ -15,7 +15,7 @@
       if(empty($email) || empty($password)){
         $errore = $errore_empty;
       }
-      else if(!filter_var($email, FILTER_VALIDATE_EMAIL){
+      else if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
         $errore = $errore_email;
       }
       else if(strlen($password) < $minLengthPwd || strlen($password) > $maxLengthPwd){
@@ -23,10 +23,16 @@
       }
       else{
         $con = new DBAccess();
-        if(!$conn->openConnection()){
+        if(!$con->openConnection()){
          echo '<p class="errore">Impossibile connettersi al database riprovare pi&ugrave; tardi</p>';
          exit;
         }
+
+        if($con->getUser($email)){
+          $errore = $errore_full;
+        }
+        else{}
+
         $con->closeConnection();
       }
     }
