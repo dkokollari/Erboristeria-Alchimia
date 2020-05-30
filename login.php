@@ -19,8 +19,8 @@
     $maxLengthPwd = 12;
     $errore = "";
     $logged = "";
-    $errore_empty = '<p class="errore">Inserire sia una email che una password</p>';
-    $errore_wrong = '<p class="errore">La email o la password inserite non sono corrette</p>';
+    $errore_empty = '<span class="errore">Inserire sia una email che una password</span>';
+    $errore_wrong = '<span class="errore">La email o la password inserite non sono corrette</span>';
     if(empty($email) || empty($password)){
       $errore = $errore_empty;
     }
@@ -33,13 +33,13 @@
       /*password e email inserite dall'utente: ora controllo che ci siano nel db*/
       $conn = new DBAccess();
       if(!$conn->openConnection()){
-       echo '<p class="errore">Impossibile connettersi al database riprovare pi&ugrave; tardi</p>';
+       echo '<span class="errore">Impossibile connettersi al database riprovare pi&ugrave; tardi</span>';
        exit;
       }
       //Stabilita connessione al db
       $query = "SELECT * FROM `utenti` WHERE `email_utente`=?";
   	  if(!$conn->connection->set_charset("utf8")){
-        echo '<p class="errore">Error: Unable to set the character set!</p>';
+        echo '<span class="errore">Error: Unable to set the character set!</span>';
         exit;
     	}
 

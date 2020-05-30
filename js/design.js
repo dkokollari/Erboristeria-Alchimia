@@ -159,3 +159,65 @@ function expandCard() {
 document.getElementById("torna_su_btn").addEventListener('click', function () {
       window.scrollTo(0,0);
 });
+
+
+/*----------------------VALIDAZIONE FORM LOGIN -----------------------*/
+
+/*le seguenti var dovrebbero essere const*/
+var emptyField = '<span class="errore">Inserire sia una email che una password(js)</span>';
+var wrongField = '<span class="errore">La email o la password inserite non sono corrette(js)</span>';
+
+function validazioneForm() {
+  var email = document.getElementById("email");
+  var password = document.getElementById("password");
+
+  var checkedEmail = checkEmail(email);
+  var checkedPwd = checkPwd(password);
+
+  return checkedEmail && checkedPwd;
+}
+
+
+function showError(input, textError) {
+
+  /*mostra un messaggio d'errore per un input dato.
+    Prende l'input, prende il padre(che potrebbe essere paragrafo) e ci aggiunge il
+    messaggio d errore come elemento figlio*/
+    removeError(input);
+    var p = input.parentNode;
+    if(p.children.length == 2)
+    var span = document.createElement("span");
+    span.className = "errore";
+    span.createTextNode(textError);
+    p.appendChild(span);
+}
+
+function removeError(input) {
+  var p = input.parentNode;
+  if(p.children.length > 2) {
+    p.removeChild(p.children[2]);
+  }
+}
+
+function checkPassword(pwdInput) {
+  if(pwdInput.value.trim().length == 0) {
+    showError(pwdInput, emptyField);
+    return false;
+  } else if(pwdInput.value.trim().length < 6 || pwdInput.value.trim().length > 12) {
+    showError(pwdInput, wrongField);
+    return false;
+  }
+  removeError(pwdInput);
+  return true;
+}
+
+function checkEmail(emailInput) {
+  if(emailInput.value.trim().length == 0) {
+    showError(emailInput, emptyField);
+    return false;
+  } else if(!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(emailInput.value.trim()))) {
+    showError(emailInput, wrongField);
+    return false;
+  }
+  return true;
+}
