@@ -66,6 +66,6 @@
                 "<p>Registrazione riuscita</p>"
               : "<p>Registrazione fallita</p>");
     $pagina = str_replace("%REGISTER_STATUS%", $status, $pagina);
-    $pagina = str_replace("%ERR_LOGIN%", $errore, $pagina);
+    $pagina = str_replace("%REGISTER_ERROR%", $errore, $pagina);
     echo $pagina;
 ?>
