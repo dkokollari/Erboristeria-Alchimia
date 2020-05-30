@@ -117,6 +117,20 @@
       }
     }
 
+    public function insertUser($nome, $cognome, $email, $password, $data_nascita_utente){
+      $query = "INSERT INTO `utenti` (`nome_utente`,
+                                      `cognome_utente`,
+                                      `email_utente`,
+                                      `password_utente`,
+                                      `data_nascita_utente`)
+                              VALUES (?, ?, ?, ?, ?)";
+
+      $hidden = password_hash($password, PASSWORD_BCRYPT);
+      $types = "sssss";
+      $params = [$nome, $cognome, $email, $hidden, $data_nascita_utente];
+      return $this->getQuery($query, $types, $params);
+    }
+
     public function getUser($email){
       $query = "SELECT `nome_utente`,
                        `cognome_utente`,
