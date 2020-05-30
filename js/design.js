@@ -1,10 +1,8 @@
-// welcome to my personal hell <3
-
+// welcome to my personal hell
 
 
 
               /*---------------  VARIABLES AND CONSTANTS DECLARATION   ---------------*/
-
 
 
 const headerImg = document.getElementById("header_image");
@@ -159,3 +157,46 @@ function expandCard() {
 document.getElementById("torna_su_btn").addEventListener('click', function () {
       window.scrollTo(0,0);
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const immagine_prodotto = document.getElementById("immagine_prodotto");
+
+console.log(immagine_prodotto);
+                    /* adds an event listener to create the parallax effect */
+window.addEventListener("DOMContentLoaded", scrollFixProdotto, false);
+
+
+/* function that actually creates the parallax effect by "slowing" the background movement while scrolling */
+function scrollFixProdotto() {
+
+    yScrollPosition = window.scrollY;
+    immagine_prodotto.style.transform = "translate3d(" + 0 + ", " +( yScrollPosition*-0.62) + "px, 0)";
+    requestAnimationFrame(scrollFixProdotto);
+}
+
+                    /* function that makes the topbar element "sticky" on mobile */
+// window.addEventListener('scroll', showTopbar);
+//  function showTopbar() {
+//     if (window.scrollY > marginTopEm) {
+//       topbar.style.zIndex = "2";                                //controllare che gli vada bene usare STYLE (spoiler alert: NON VA BENE => DA CAMBIARE!!!!!!!!!!!!!!!!!)
+//       topbarTitle.classList.add("nopacity");
+//     } else {
+//       topbar.style.zIndex = "-2";
+//       topbarTitle.classList.remove("nopacity");
+//     }
+//  }

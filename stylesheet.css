@@ -125,8 +125,8 @@ h1 span {
   padding-bottom: 2em;
 }
 #content > *, .expanded > * {
-  margin-left:1.8em;
-  margin-right: 1.8em;
+  margin-left:1.8rem;
+  margin-right: 1.8rem;
 }
 #content > *.expanded {
   width: 100%;
@@ -1049,4 +1049,90 @@ strong {
   position: absolute;
   bottom: 0;
   right: 0;
+}
+
+/* SCHEDA PRODOTTO */
+
+#body_scheda_prodotto {
+  background-color: #fff;
+}
+#container_scheda_prodotto #immagine_prodotto{
+  object-fit: contain;
+  height: 20em;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: -1;
+  background-color: white;
+}
+#body_scheda_prodotto #content{
+  /* padding: 2em; */
+  /* margin-top: 0; */
+  /* background-color: red; */
+}
+/* #container_scheda_prodotto #topbar:before {
+  background-image: url('img/prodotti_background_mobile.jpg');
+} */
+#body_scheda_prodotto #topbar_image{
+  position: absolute;
+  background-color: white;
+  object-fit: contain;
+  height: 20em;
+  width: 100%;
+  transform: translateY(-10em);
+  /* filter: brightness(0.7); */
+}
+#body_scheda_prodotto #topbar {
+  overflow: hidden;
+}
+#body_scheda_prodotto #topbar_title {
+  background-color: rgba(0,0,0,0.5);
+}
+#body_scheda_prodotto #content h2 {
+  margin-left: 0;
+  margin-right: 0;
+  margin-bottom: 0.7em;
+  font-size: 1.8em;
+}
+#body_scheda_prodotto #content h3 {
+  /* margin-left: 2rem;
+  margin-right: 0; */
+  font-size: 1.2em;
+  color: black;
+  text-align: left;
+}
+#body_scheda_prodotto #content h4 {
+  /* margin-left: 0;
+  margin-right: 0; */
+  color: black;
+  text-align: left;
+  /* font-weight: normal; */
+  text-transform: capitalize;
+  margin-top: 0.7em;
+  margin-bottom: 0.7em;
+}
+#body_scheda_prodotto #content h5 {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 1em;
+  /* margin-left: 0;
+  margin-right: 0; */
+  color: black;
+  text-align: left;
+  /* font-weight: normal; */
+  text-transform: capitalize;
+}
+#body_scheda_prodotto #content p {
+  font-size: 0.9em;
+  margin-top: 1em;
+  /* margin-left: 0;
+  margin-right: 0; */
+}
+#body_scheda_prodotto #content .desc_breve {
+  font-size: 1em;
+  padding:1.8em;
+  color: white;
+  font-style: italic;
+  background-color: var(--green-main);
+  width: auto;
 }

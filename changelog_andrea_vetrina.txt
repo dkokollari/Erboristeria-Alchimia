@@ -13,6 +13,5 @@ CHANGELOG 25 MAY MORNING
 - added tags
 CHANGELOG 29 MAY MORNING
 - cards now use float and margins
-
-TODO
-- content is now gray and cards white for better contrast
+- background is now gray(US)/grey(UK) and cards white
+- fixed problem with card_product and small screens
