@@ -3,8 +3,11 @@
 
     $pagina = file_get_contents('register.html');
     if($_POST['Registrati']){
+      $nome = mysql_real_escape_string(trim($_POST['nome']));
+      $cognome = mysql_real_escape_string(trim($_POST['cognome']));
       $email = mysql_real_escape_string(trim($_POST['email']));
       $password = mysql_real_escape_string(trim($_POST['password']));
+      $data_nascita = mysql_real_escape_string(trim($_POST['data_nascita']));
       $minLengthPwd = 8;
       $maxLengthPwd = 12;
       $errore_empty = '<p class="errore">Inserisci una email e una password</p>';
