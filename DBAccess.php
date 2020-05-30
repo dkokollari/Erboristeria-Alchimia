@@ -116,6 +116,23 @@
         return $result;
       }
     }
-    
+
+    /* esegue una query e torna un $output */
+    private function getQuery($query, $types=null, $params=null){
+      $stmt = $this->prepare($query);
+      if($types && $params){
+        $stmt->bind_param($types, ...$params);
+      }
+      $stmt->execute();
+
+      if($result = $stmt->get_result()){
+        while($row =  $result->fetch_assoc()){
+          $output[] = $row;
+        }
+      }
+      $stmt->close();
+      return $output;
+    }
+
   } //fine classe DBAccess
 ?>
