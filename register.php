@@ -24,11 +24,18 @@
       || empty($data_nascita)){
         $errore = $errore_empty;
       }
-
+      else if(validate_form::check_str($nome)){
+        $errore = $errore_nome;
+      }
+      else if(validate_form::check_str($cognome)){
+        $errore = $errore_cognome;
+      }
       else if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
         $errore = $errore_email;
       }
-
+      else if(validate_form::check_pwd($password)){
+        $errore = $errore_password;
+      }
       else{
         $con = new DBAccess();
         if(!$con->openConnection()){
