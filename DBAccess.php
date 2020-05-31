@@ -141,7 +141,9 @@
                        `data_registrazione_utente`
                 FROM   `utenti`
                 WHERE  `email_utente`=?";
-      return $this->getQuery($query, "s", [$email]);
+      $types = "s";
+      $params = [$email];
+      return $this->getQuery($query, $types, $params);
     }
 
     /* esegue una query e torna un $output */
