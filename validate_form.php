@@ -8,7 +8,7 @@
       }
 
   /* lunghezza minima 3 e massima 255 caratteri */
-  function check_stringa($stringa){
+  function check_str($stringa){
           if(preg_match('^([A-Z] | [a-z])[a-z]{3,255}',$stringa)==1){
               return true;
           }
