@@ -12,10 +12,10 @@
       /* messaggi di errore */
       $errore_empty = '<p class="errore">Completa tutti i campi</p>';
       $errore_full = '<p class="errore">Questo utente sembra essere gi&agrave; registrato. Hai dimenticato la password?</p>';
-      $errore_nome = '<p class="errore">Inserisci un nome di lunghezza tra 3 e 200 caratteri</p>';
-      $errore_cognome = '<p class="errore">Inserisci un cognome di lunghezza tra 3 e 200 caratteri</p>';
+      $errore_nome = '<p class="errore">Inserisci un nome di lunghezza tra 3 e 200 caratteri</p>'; // riferirsi alle regole di validate_form
+      $errore_cognome = '<p class="errore">Inserisci un cognome di lunghezza tra 3 e 200 caratteri</p>'; // riferirsi alle regole di validate_form
       $errore_email = '<p class="errore">Inserisci una email valida</p>';
-      $errore_password = '<p class="errore">Inserisci una password di lunghezza tra 8 e 12 caratteri</p>';
+      $errore_password = '<p class="errore">Inserisci una password di lunghezza tra 8 e 12 caratteri</p>'; // riferirsi alle regole di validate_form.php
 
       if(empty($nome)
       || empty($cognome)
