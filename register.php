@@ -1,5 +1,6 @@
 <?php
     require_once("DBAccess.php");
+    require_once("validate_form.php");
 
     $pagina = file_get_contents('register.html');
     if($_POST['Registrati']){
