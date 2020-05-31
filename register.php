@@ -11,11 +11,11 @@
       $data_nascita = mysql_real_escape_string(trim($_POST['data_nascita']));
       /* messaggi di errore */
       $errore_empty = '<p class="errore">Completa tutti i campi</p>';
-      $errore_full = '<p class="errore">Questo utente sembra essere gi&agrave; registrato</p>';
-      $errore_nome = '<p class="errore">Inserisci un nome tra '.$minLengthUsr.' e '.$maxLengthUsr.' caratteri</p>';
-      $errore_cognome = '<p class="errore">Inserisci un cognome tra '.$minLengthUsr.' e '.$maxLengthUsr.' caratteri</p>';
+      $errore_full = '<p class="errore">Questo utente sembra essere gi&agrave; registrato. Hai dimenticato la password?</p>';
+      $errore_nome = '<p class="errore">Inserisci un nome di lunghezza tra 3 e 200 caratteri</p>';
+      $errore_cognome = '<p class="errore">Inserisci un cognome di lunghezza tra 3 e 200 caratteri</p>';
       $errore_email = '<p class="errore">Inserisci una email valida</p>';
-      $errore_password = '<p class="errore">Inserisci una password tra gli '.$minLengthPwd.' e i '.$maxLengthPwd.' caratteri</p>';
+      $errore_password = '<p class="errore">Inserisci una password di lunghezza tra 8 e 12 caratteri</p>';
 
       if(empty($nome)
       || empty($cognome)
