@@ -9,11 +9,6 @@
       $email = mysql_real_escape_string(trim($_POST['email']));
       $password = mysql_real_escape_string(trim($_POST['password']));
       $data_nascita = mysql_real_escape_string(trim($_POST['data_nascita']));
-      /* requisiti campi */
-      $minLengthUsr = 2;
-      $maxLengthUsr = 20;
-      $minLengthPwd = 8;
-      $maxLengthPwd = 12;
       /* messaggi di errore */
       $errore_empty = '<p class="errore">Completa tutti i campi</p>';
       $errore_full = '<p class="errore">Questo utente sembra essere gi&agrave; registrato</p>';
@@ -29,18 +24,11 @@
       || empty($data_nascita)){
         $errore = $errore_empty;
       }
-      else if(strlen($nome) < $minLengthUsr || strlen($nome) > $maxLengthUsr){
-        $errore = $errore_nome;
-      }
-      else if(strlen($cognome) < $minLengthUsr || strlen($cognome) > $maxLengthUsr){
-        $errore = $errore_cognome;
-      }
+
       else if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
         $errore = $errore_email;
       }
-      else if(strlen($password) < $minLengthPwd || strlen($password) > $maxLengthPwd){
-        $errore = $errore_password;
-      }
+
       else{
         $con = new DBAccess();
         if(!$con->openConnection()){
