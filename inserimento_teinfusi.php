@@ -1,37 +1,58 @@
 <?php
 require_once("DBAccess.php");
 require_once("Image.php");
+require_once("control_input.php");
 
 $con = new DBAccess();
 if($con->openConnection()){
   $pagina = file_get_contents('inserimento_teinfusi.html');
 
+  $valnome = "";
+  $valingre = "";
+  $valdescr = "";
+  $valprepa = "";
+  $valdescImg = "";
+  $messaggio ="";
+  $errNome ="";
+  $errDescr ="";
+  $errImg="";
+  $errDescImg="";
   $errori=0;
-  $imgpresent= false;
-  $tipo = $_POST['Tipo'];
-  $nome = trim($_POST['Nome']);
-  $ingre = trim($_POST['Ingredienti']);
-  $descr = trim($_POST['Descrizione']);
-  $prepa = trim($_POST['Preparazione']);
-  $image = new Image();
 
 //se è stato premuto il buttone submit
 if(isset($_POST['submit'])){
-      //controllo se l'immagine è stata caricata
-      if(is_uploaded_file($_FILES['immagine']['tmp_name'])){
-        $imgpresent = true;
-        $descImg = trim($_POST['desc_img']);
-        $errDescImg = validInput($descImg,"Descrizione immagine");
-        if($errDescImg!=""){$errori++;}
-        $errImg = $image->isValid($_FILES['immagine']['name']);
-        if($errImg!=""){$errori++;}
-      }
+      $tipo = $_POST['Tipo'];
 
       //CONTROLLO input
-      $errNome = validInput($nome,"Nome");
-      $errDescr = validInput($descr,"Descrizione");
-      if($errNome!= ""){ $errori++;}
-      if($errDescr!= ""){ $errori++;}
+      $nome = control_input::name_control($_POST['Nome']);
+      $ingre = control_input::control($_POST['Ingredienti']);
+      $descr = control_input::description_control($_POST['Descrizione']);
+      $prepa = control_input::control($_POST['Preparazione']);
+      if(!$nome){
+        $errori++;
+        $errNome='<span class="error-msg">deve contenere solo caratteri: a-z A-Z 0-9 - _, con lunghezza minima 5 e massima 50</span>';
+      }
+      if(!$descr){
+        $errori++;
+        $errDescr='<span class="error-msg">deve contenere almeno 20 caratteri e non pi&ugrave; di 50 caratteri</span>';
+      }
+
+      $image = new Image();
+      $imgpresent= false;
+      //controllo se un'immagine è stata caricata
+      if(is_uploaded_file($_FILES['immagine']['tmp_name'])){
+        $imgpresent = true;
+        $descImg = control_input::description_control($_POST['desc_img']);
+        if(!$descImg){
+          $errori++;
+          $errDescImg = '<span class="error-msg">deve contenere almeno 20 caratteri e non pi&ugrave; di 50 caratteri</span>';
+        }
+        $errImg = $image->isValid($_FILES['immagine']['name']);
+        if($errImg!=""){
+          $errori++;
+          $pagina = str_replace("%ERR_IMG%", $errImg, $pagina);
+        }
+      }
 
       //se non ci sono errori
       if($errori==0){
@@ -75,10 +96,6 @@ if(isset($_POST['submit'])){
 else{
   echo "<h1>Impossibile connettersi al database riprovare pi&ugrave; tardi<h1>";
   exit;
-}
-
-function validInput($name, $description){
-  return $name!="" ? "" : '<small class="error-msg">Inserisci '.$description.'</small>';
 }
 
 ?>

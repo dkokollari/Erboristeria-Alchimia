@@ -52,7 +52,6 @@
     }
 
   }
-<<<<<<< HEAD
 
   public function getTeInfusi(){
 
@@ -82,6 +81,3 @@
 }
 
  ?>
-=======
-?>
->>>>>>> 96e18c54686d3d2617b31ba9d2a58137ddeda5dc

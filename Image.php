@@ -8,13 +8,17 @@ class Image {
       return "";
     }
     else{
-      return '<small class="err_msg">inserisci immagine (.jpg,.jpeg,.png,.gif)</small>';
+      return '<span class="err_msg">inserisci immagine (.jpg,.jpeg,.png,.gif)</span>';
     }
   }
 
   public function uploadImageTeInfusi($name , $temp, $id){
    if($id!="errore"){
       $dir = "img/te_e_infusi/";
+      $tmp = getImage($dir,$id);
+      if($tmp != $dir."0.jpg"){
+         deleteImage($tmp);
+      }
       move_uploaded_file($temp, $dir.$name);
       $split = explode('.',$name);
       $ext = array_pop($split);
