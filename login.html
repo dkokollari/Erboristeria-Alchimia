@@ -24,25 +24,25 @@
     %LOGIN_STATUS%
     <div id="log_in_box_container">
       <div id="log_in_box">
-        <form action="login.php" method="post"> <!-- TODO: inserire action="log_in_page.php" -->
+        <form id="form" action="login.php" method="post" onsubmit="return validazioneForm();"> <!-- TODO: inserire action="log_in_page.php" -->
           <fieldset  id="log_in_form">
             <legend><h2>Accedi</h2></legend> <!-- TODO: attenzione alle robe non semantiche!!! -->
             <!-- <legend>Accedi</legend> -->
             %ERR_LOGIN%
             <div class="form_field">
               <label for="username" xml:lang="en">Email</label>
-              <input id="username" name="email" type="text"/> <!-- WARNING: required non c'è in xhtml! -->
+              <input id="username" name="email" type="text"/>
             </div>
             <div class="form_field">
               <label for="password" xml:lang="en">Password</label>
-              <input id="password" name="password" type="password"/>  <!-- WARNING: required non c'è in xhtml! -->
+              <input id="password" name="password" type="password"/>  
             </div>
             <div class="form_remember_me">
               <input id="remember_me" type="checkbox" %REMEMBER_ME%/>
               <label for="remember_me">Ricorda i miei dati</label>
             </div>
 
-            <input id="log_in" type="submit" name="Login" onclick="validazioneForm();"/>
+            <input id="log_in" type="submit" name="Login"/>
             <span>Non sei ancora registrato?<a href="registrazione.php">CLICCA QUI</a></span>
           </fieldset>
         </form>
