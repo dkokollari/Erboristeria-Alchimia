@@ -981,7 +981,8 @@ strong {
   /* margin-top:0.5em; */
   grid-area: manufacturer;
   font-size: 0.9em;
-  margin-bottom: 0.2em;
+  margin-bottom: 0.4em;
+  display: block;
 
 }
 #container_prodotti .card_product .product_line {
@@ -1039,7 +1040,7 @@ strong {
   justify-self:end;
   align-self: end;
   /* margin-right: 1em; */
-  font-size: 1.1em;
+  font-size: 1em;  //* WARNING: Lho modificato io (Fouad) perche è troppo grande il font sui cellulari! */
   font-weight: bold;
   margin:0;
   /* margin-bottom: 1.1em; */
@@ -1196,4 +1197,41 @@ background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 100%);
   font-style: italic;
   background-color: var(--green-main);
   width: auto;
+}
+
+#emptyCart {
+  text-align: center;
+}
+
+
+.button {
+  background: #6394F8;
+  color: white;
+  text-align: center;
+  padding: 0.1em;
+  text-decoration: none;
+  display: block;
+  border-radius: 3px;
+}
+
+.button:visited, .button:active  {
+  text-decoration: none;
+  color: white;
+}
+
+.button:hover {
+  background: #7fa9ff;
+  text-decoration: none;
+  color: white;
+}
+
+#totale {
+  display: block;
+  text-align: center;
+}
+
+#checkout {
+  margin-left: 3em;
+  margin-right: 3em;
+  margin-top: 1em;
 }
