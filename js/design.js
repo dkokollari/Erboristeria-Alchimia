@@ -207,7 +207,7 @@ function checkPassword(pwdInput) {
 }
 
 function showErrorSecurity(textError) {
-    var form = document.getElementById('form');
+    var form = document.getElementById('log_in_form');
     const errorsShown = form.getElementsByClassName("errore");
     removeErrorSecurity(errorsShown);
     var span = document.createElement("span");
