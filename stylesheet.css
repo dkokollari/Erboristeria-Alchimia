@@ -121,7 +121,7 @@ h1 span {
   background-color: rgb(245,245,245);
   /* TODO should make background-color: 245 */
   margin-bottom: 14.5em;
-  padding-top: 2em;
+  padding-top: 4em;
   padding-bottom: 2em;
 }
 #content > *, .expanded > * {
@@ -323,6 +323,7 @@ margin:0.7em auto 0.7em auto;
               font-size: 2.5em;
               line-height: 1.6em;
               margin-left: 0.2em;
+              text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
             }
             #container_informazioni #topbar:before {
               background-image: url(img/informazioni_background.jpg);
@@ -387,7 +388,7 @@ margin:0.7em auto 0.7em auto;
               padding-top:1em;
             }
             #content {
-              margin-top: 20em;
+              margin-top: 24em;
             }
             #footer {
                 width: 100%;
@@ -1052,7 +1053,6 @@ strong {
 }
 
 /* SCHEDA PRODOTTO */
-
 #body_scheda_prodotto .add_to_cart_btn {
   display: block;
   margin: 0.5em auto 1em auto;
@@ -1072,8 +1072,10 @@ strong {
   color: rgba(245, 245, 245);
 }
 
-#body_scheda_prodotto {
+#container_scheda_prodotto {
   background-color: #fff;
+  z-index: -2;
+  position: relative;
 }
 #container_scheda_prodotto #immagine_prodotto{
   object-fit: contain;
@@ -1083,10 +1085,12 @@ strong {
   width: 100%;
   z-index: -1;
   background-color: white;
+  padding-top: 4em;
+  padding-bottom: 2em;
 }
 #body_scheda_prodotto  .container  #content{
   background: rgb(245,245,245);
-  background: linear-gradient(180deg, rgba(0,0,0,0) 0px, rgba(245,245,245,1) 45px);
+  background: linear-gradient(180deg, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 0, rgba(245,245,245,1) 2em);
   /* padding: 2em; */
   /* margin-top: 0; */
   /* background-color: red; */
@@ -1101,25 +1105,49 @@ strong {
   object-fit: contain;
   height: 20em;
   width: 100%;
-  transform: translateY(-10em);
+  transform: translateY(-8.45em);
   /* filter: brightness(0.7); */
 }
 #body_scheda_prodotto #topbar {
   overflow: hidden;
+  /* z-index: -2; */
+  visibility: hidden;
+  background: rgb(0,0,0);
+  background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 100%);
 }
-#shadow {
+
+
+
+#body_scheda_prodotto #topbar:after {
+content: "";
+height: 100%;
+width: 100%;
+position: absolute;
+top: 0;
+background: rgb(0,0,0);
+background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 100%);
+}
+#topbar_container_shadow {
   position: fixed;
   top: 0;
-  height: 4em;
+  height: 6em;
   width: 100%;
-  z-index: 1;
+  /* z-index: 1; */
   background: rgb(0,0,0);
-  background: linear-gradient(180deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%);
+  background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 100%);
 }
+
 #body_scheda_prodotto #topbar_title {
-  transition: none;
+  transition: 0.5s;
+  /* background-color: rgb(0,0,0,0.15); */
   background: rgb(0,0,0);
-  background: linear-gradient(180deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%);
+  background: linear-gradient(180deg, rgba(0,0,0,0.0) 0%, rgba(0,0,0,0.4) 100%);
+  text-shadow: 0px 0px 6px rgb(0,0,0,0.6);
+
+}
+#body_scheda_prodotto #topbar.visible_topbar {
+  /* z-index: 2; */
+  visibility: visible;
 }
 #body_scheda_prodotto #content h2 {
   margin-left: 0;

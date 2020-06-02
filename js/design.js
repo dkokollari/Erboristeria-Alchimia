@@ -92,16 +92,16 @@ function scrollFix() {
 }
 
                     /* function that makes the topbar element "sticky" on mobile */
-window.addEventListener('scroll', showTopbar);
- function showTopbar() {
-    if (window.scrollY > marginTopEm) {
-      topbar.style.zIndex = "2";                                //controllare che gli vada bene usare STYLE (spoiler alert: NON VA BENE => DA CAMBIARE!!!!!!!!!!!!!!!!!)
-      topbarTitle.classList.add("nopacity");
-    } else {
-      topbar.style.zIndex = "-2";
-      topbarTitle.classList.remove("nopacity");
-    }
- }
+// window.addEventListener('scroll', showTopbar);
+//  function showTopbar() {
+//     if (window.scrollY > marginTopEm) {
+//       topbar.style.zIndex = "2";                                //controllare che gli vada bene usare STYLE (spoiler alert: NON VA BENE => DA CAMBIARE!!!!!!!!!!!!!!!!!)
+//       topbarTitle.classList.add("nopacity");
+//     } else {
+//       topbar.style.zIndex = "-2";
+//       topbarTitle.classList.remove("nopacity");
+//     }
+//  }
 
 
                   /*--------------- EXPAND "tips_and_tricks" ELEMENT  ---------------*/
@@ -200,3 +200,14 @@ function scrollFixProdotto() {
 //       topbarTitle.classList.remove("nopacity");
 //     }
 //  }
+const marginTopEmProdotto = 320;
+window.addEventListener('scroll', showTopbar);
+ function showTopbar() {
+    if (window.scrollY > marginTopEmProdotto) {
+      topbar.classList.add("visible_topbar")                        //controllare che gli vada bene usare STYLE (spoiler alert: NON VA BENE => DA CAMBIARE!!!!!!!!!!!!!!!!!)
+      topbarTitle.classList.add("nopacity");
+    } else {
+      topbar.classList.remove("visible_topbar")
+      topbarTitle.classList.remove("nopacity");
+    }
+ }

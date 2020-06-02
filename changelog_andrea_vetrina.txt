@@ -20,6 +20,8 @@ CHANGELOG 30 MAY
 - REWORKED HEADER (again...............)
 CHANGELOG 2 JUNE
 - added add_to_cart button
+- content now has a trasparent-grey gradient
+- added add_to_cart hover
 
 
 TODO:
