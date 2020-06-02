@@ -986,6 +986,7 @@ strong {
 }
 #container_prodotti .card_product .product_line {
   /* margin-top:0.3em; */
+  display: block;
   grid-area: line;
   font-weight: lighter;
   font-style: italic;
