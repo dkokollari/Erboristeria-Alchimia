@@ -1063,9 +1063,10 @@ strong {
   font-weight: bold;
   color: var(--green-main);
   letter-spacing: 0.07em;
-    transition: 0.5s ease;
+  transition: 0.5s ease;
+  background-image: none;
 }
-#body_scheda_prodotto .add_to_cart_btn:hover{
+#body_scheda_prodotto #container_scheda_prodotto .add_to_cart_btn:hover{
   transition: 0.5s ease;
   background-color: var(--green-main);
   color: rgba(245, 245, 245);
@@ -1083,7 +1084,9 @@ strong {
   z-index: -1;
   background-color: white;
 }
-#body_scheda_prodotto #content{
+#body_scheda_prodotto  .container  #content{
+  background: rgb(245,245,245);
+  background: linear-gradient(180deg, rgba(0,0,0,0) 0px, rgba(245,245,245,1) 45px);
   /* padding: 2em; */
   /* margin-top: 0; */
   /* background-color: red; */

@@ -23,4 +23,5 @@ CHANGELOG 2 JUNE
 
 
 TODO:
--add tags to product page
+- add tags to product page
+- fix the mobile menu close button (actually, redesign the entire mobile menu)
