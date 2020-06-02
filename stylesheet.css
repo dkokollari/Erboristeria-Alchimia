@@ -1,4 +1,4 @@
-@font-face {font-family: 'Velvetberries'; src: url(fonts/velvetberries.woff);}
+ss@font-face {font-family: 'Velvetberries'; src: url(fonts/velvetberries.woff);}
 * { margin: 0; padding: 0;}
 
                             /* doesn't validate with older css versions */
@@ -50,6 +50,7 @@ a {
 }
 body {
   font: 300 1em 'Poppins', sans-serif;
+  background-color: rgb(245,245,245);
 }
                                   /* overwrite default button rules */
 button {
@@ -93,6 +94,9 @@ h1 span {
 #container_la_mia_storia #header_image {
   background-image: url(img/la_mia_storia_background.jpg);
 }
+#container_prodotti #header_image {
+  background-image: url(img/prodotti_background.jpg);
+}
 #header_image {
   background-repeat: no-repeat;
   background-size: 100%;
@@ -114,28 +118,32 @@ h1 span {
 
 #content {
   /* padding: 1.8em 8% 1em 8%; */
-  background-color: #fff;
+  background-color: rgb(245,245,245);
+  /* TODO should make background-color: 245 */
   margin-bottom: 14.5em;
-  padding-top: 2em;
+  padding-top: 4em;
   padding-bottom: 2em;
 }
 #content > *, .expanded > * {
-  margin-left:1.8em;
-  margin-right: 1.8em;
+  margin-left:1.8rem;
+  margin-right: 1.8rem;
 }
 #content > *.expanded {
   width: 100%;
   margin-left: 0;
   margin-right: 0;
 }
-h2 {
+#content h2 {
   text-transform: capitalize;
   font-size: 2em;
   letter-spacing: 0.1em;
+  margin-left: 1.2em;
+  margin-right: 1.2em;
   font-weight: 300;
   text-align: center;
   color: var(--yellow-dark);
 }
+/* TODO queste proprieta' generiche non vanno cosi'bene */
 h3 {
   text-align: center;
   font-size: 1.1em;
@@ -238,6 +246,9 @@ margin:0.7em auto 0.7em auto;
               #container_te_e_infusi #header_image {
                 background-image: url(img/home_background_mobile.jpg);
               }
+              #container_prodotti #header_image {
+                background-image: url(img/prodotti_background_mobile.jpg);
+              }
               #close_menu {
                 margin:auto;
               }
@@ -293,7 +304,7 @@ margin:0.7em auto 0.7em auto;
             #menu ul li a{
               font-size: 1.1em;
               line-height: 2.5em;
-              margin: 5vh auto 5vh auto;
+              margin: auto;
               display: block;
               width: 85%;
               /* border: 2px solid var(--yellow-dark); */
@@ -312,6 +323,7 @@ margin:0.7em auto 0.7em auto;
               font-size: 2.5em;
               line-height: 1.6em;
               margin-left: 0.2em;
+              text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
             }
             #container_informazioni #topbar:before {
               background-image: url(img/informazioni_background.jpg);
@@ -324,6 +336,10 @@ margin:0.7em auto 0.7em auto;
             #container_la_mia_storia #topbar:before {
               background-image: url(img/la_mia_storia_background.jpg);
             }
+            #container_prodotti #topbar:before {
+              background-image: url(img/prodotti_background_mobile.jpg);
+            }
+
             #topbar:before {              /* necessary element to correctly apply filter:brightness() only to the image, not the text */
               content: "";
               background-size: cover;
@@ -372,7 +388,7 @@ margin:0.7em auto 0.7em auto;
               padding-top:1em;
             }
             #content {
-              margin-top: 20em;
+              margin-top: 24em;
             }
             #footer {
                 width: 100%;
@@ -392,6 +408,9 @@ margin:0.7em auto 0.7em auto;
 
       #container_te_e_infusi #header_image {
         background-image: url(img/home_background.jpg);
+      }
+      #container_prodotti #header_image {
+        background-image: url(img/prodotti_background.jpg);
       }
       body {
         margin-top: 10em;
@@ -620,73 +639,13 @@ margin:0.7em auto 0.7em auto;
 }
 
 
-                          /*        EVENTI  + CARRELLO    */
-
-/***** stuff for carrello only *****/
-
-#carrello .button {
-  background: #6394F8;
-  color: white;
-  text-align: center;
-  padding: 12em;
-  text-decoration: none;
-  display: block;
-  border-radius: 3em;
-  font-size: 16em;
-  margin: 25em 0 15em 0;
-}
-
-dt
-{
-    /*border: 1px solid black;*/
-    background-color: #A80022;
-    color: white;
-    padding-bottom: 0.5em;
-    padding-top: 0.5em;
-    padding-left: 0.5em;
-    margin-left: 2em;
-    margin-right: 2em;
-}
-
-dd
-{
-  /*  border: 1px solid black;*/
-    margin-bottom: 1em;
-    min-height: 10em;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    margin-left: 2em;
-    margin-right: 2em;
-}
-
- dd p
-{
-    padding-left: 25%;
-}
-
-#carrello #content img
-{
-    display: flex;
-    float:left;
-    width: 20%;
-    padding: 1em;
-    height: 3em;
-}
-
-/***** end stuff for carrello only *****/
+                          /*        EVENTI      */
 
 /* .card span {} */
-#eventi #prenotazione span, #carrello span {
+#eventi #prenotazione span {
   font-weight: bold;
   text-transform: uppercase;
   color: var(--red-dark);
-}
-#carrello span {
-  text-transform: none;
-}
-
-#carrello a {
-  color: var(--green-dark);
 }
 
 #eventi #dataEvento {
@@ -713,14 +672,9 @@ dd
   margin-top: 2em;
 }
 
-#eventi .card, #carrello .card {  /*in questo modo eredito il colore di sfondo dal body, quindi il bianco!(da verificare su tutti i browser)*/
+#eventi .card {  /*in questo modo eredito il colore di sfondo dal body, quindi il bianco!(da verificare su tutti i browser)*/
   background-color: initial;
 }
-
-#carrello .card {
-  max-height: 5em;
-}
-
 .data span {
   font-size: 2.5em;
 }
@@ -934,7 +888,7 @@ strong {
   box-sizing: border-box;
 }*/
 
-/*PAGINA Ricerca*/
+                                /*PAGINA Ricerca*/
 
 #myInput {
   background-image: url('/img/searchicon.png');
@@ -968,4 +922,277 @@ strong {
 
 #myUL li a:hover:not(.header) {
   background-color: #eee;
+}
+
+                            /* PAGINA PRODUCTS */
+#container_prodotti .card_product {
+  height: 6em;
+  border-radius: 7px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.10), 0 3px 6px rgba(0,0,0,0.17);
+  margin-bottom: 1.5em;
+  padding:0.7em;
+  margin-left: 1.2em;
+  margin-right: 1.2em;
+  overflow: hidden;
+  position: relative;
+    background-color: #fff;
+  /* display: grid;
+  grid-template-areas: "image title title"
+                       "image manufacturer manufacturer"
+                       "image line line"
+                       "image tags price";
+  grid-template-columns: 7em auto; */
+  /* grid-template-rows:3fr 1fr 1fr 3fr; */
+  /* grid-row-gap: 0.7em; */
+  /* align-items: center;
+  justify-items: center; */
+  /* flex-grow: 1; */
+  /* position: relative; */
+}
+#container_prodotti .card_product .product_title,
+#container_prodotti .card_product .product_line,
+#container_prodotti .card_product .product_manufacturer,
+#container_prodotti .card_product .product_bottom{
+  margin: 0;
+  line-height: 1em;
+}
+#container_prodotti .card_product .product_image {
+  background-size: contain;
+  height: 6em;
+  width: 6em;
+  /* margin:1.25em; */
+  /* align-self: center; */
+  grid-area: image;
+  border-radius: 10px;
+  float: left;
+
+}
+#container_prodotti .card_product .product_title {
+  /* margin-top:1em; */
+  color: var(--yellow-dark);
+  grid-area: title;
+  font-size: 0.9em;
+  margin-bottom: 0.4em;
+  /* margin-left: 7em; */
+  text-align: left;
+  /* margin-top: 0.5em; */
+}
+#container_prodotti .card_product .product_manufacturer {
+  /* margin-top:0.5em; */
+  grid-area: manufacturer;
+  font-size: 0.9em;
+  margin-bottom: 0.2em;
+
+}
+#container_prodotti .card_product .product_line {
+  /* margin-top:0.3em; */
+  grid-area: line;
+  font-weight: lighter;
+  font-style: italic;
+  font-size: 0.8em;
+  /* font-size: 0.9em; */
+}
+#container_prodotti .card_product .product_description {
+  margin:0 0 0 6.5em;
+  height: 6em;
+  position: relative;
+}
+#container_prodotti .card_product .product_tags {
+  font-size: 0.6em;
+  letter-spacing: 0.1em;
+  align-self: end;
+  justify-self: start;
+  /* margin-bottom: 1.6em; */
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #fff;
+  display: inline;
+  position: absolute;
+  bottom: 0;
+  line-height: 1.8em;
+
+}
+#container_prodotti .card_product .product_tags span {
+  border-radius: 10px;
+  /* margin-right: 0.2em; */
+  padding: 0.2em 0.5em 0.2em 0.5em;
+}
+#container_prodotti .card_product .product_tags span.cosmetici {
+  background-color: #ff9557;
+}
+#container_prodotti .card_product .product_tags span.uomo {
+  background-color: #005377;
+}
+#container_prodotti .card_product .product_tags span.donna {
+  background-color: #90323D;
+}
+#container_prodotti .card_product .product_tags span.casa {
+  background-color: #E39695;
+}
+#container_prodotti .card_product .product_tags span.bimbi{
+  background-color: #06a77d;
+}
+#container_prodotti .card_product .product_price {
+  grid-area: price;
+  text-align: right;
+  justify-self:end;
+  align-self: end;
+  /* margin-right: 1em; */
+  font-size: 1.1em;
+  font-weight: bold;
+  margin:0;
+  /* margin-bottom: 1.1em; */
+  /* margin-right: 2em; */
+  float: right;
+  line-height: 1em;
+  /* bottom:0; */
+  display: inline;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+/* SCHEDA PRODOTTO */
+#body_scheda_prodotto .add_to_cart_btn {
+  display: block;
+  margin: 0.5em auto 1em auto;
+  padding: 0.5em 1em 0.4em 1em;
+  border: 3px solid var(--green-main);
+  border-radius: 8px;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: var(--green-main);
+  letter-spacing: 0.07em;
+  transition: 0.5s ease;
+  background-image: none;
+}
+#body_scheda_prodotto #container_scheda_prodotto .add_to_cart_btn:hover{
+  transition: 0.5s ease;
+  background-color: var(--green-main);
+  color: rgba(245, 245, 245);
+}
+
+#body_scheda_prodotto {
+  background-color: #fff;
+
+}
+#container_scheda_prodotto #immagine_prodotto{
+  object-fit: contain;
+  height: 20em;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: -1;
+  background-color: white;
+  margin-top: 4em;
+    padding-bottom: 2em;
+}
+#body_scheda_prodotto  .container  #content{
+  background: rgb(245,245,245);
+  background: linear-gradient(180deg, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 0, rgba(245,245,245,1) 2em);
+  /* padding: 2em; */
+  /* margin-top: 0; */
+  /* background-color: red; */
+}
+/* #container_scheda_prodotto #topbar:before {
+  background-image: url('img/prodotti_background_mobile.jpg');
+} */
+#body_scheda_prodotto #topbar_image{
+  /* filter: brightness(0.7); */
+  position: absolute;
+  background-color: white;
+  object-fit: contain;
+  height: 20em;
+  width: 100%;
+  transform: translateY(-8.45em);
+  /* filter: brightness(0.7); */
+}
+#body_scheda_prodotto #topbar {
+  overflow: hidden;
+  /* z-index: -2; */
+  visibility: hidden;
+  background: rgb(0,0,0);
+  background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 100%);
+}
+
+
+
+#body_scheda_prodotto #topbar:after {
+content: "";
+height: 100%;
+width: 100%;
+position: absolute;
+top: 0;
+background: rgb(0,0,0);
+background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 100%);
+}
+#shadow {
+  position: fixed;
+  top: 0;
+  height: 6em;
+  width: 100%;
+  /* z-index: 1; */
+  background: rgb(0,0,0);
+  background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 100%);
+}
+
+#body_scheda_prodotto #topbar_title {
+  transition: 0.5s;
+  /* background-color: rgb(0,0,0,0.15); */
+  background: rgb(0,0,0);
+  background: linear-gradient(180deg, rgba(0,0,0,0.0) 0%, rgba(0,0,0,0.4) 100%);
+  text-shadow: 0px 0px 6px rgb(0,0,0,0.6);
+
+}
+#body_scheda_prodotto #topbar.visible_topbar {
+  /* z-index: 2; */
+  visibility: visible;
+}
+#body_scheda_prodotto #content h2 {
+  margin-left: 0;
+  margin-right: 0;
+  margin-bottom: 0.7em;
+  font-size: 1.8em;
+}
+#body_scheda_prodotto #content h3 {
+  /* margin-left: 2rem;
+  margin-right: 0; */
+  font-size: 1.2em;
+  color: black;
+  text-align: left;
+}
+#body_scheda_prodotto #content h4 {
+  /* margin-left: 0;
+  margin-right: 0; */
+  color: black;
+  text-align: left;
+  /* font-weight: normal; */
+  text-transform: capitalize;
+  margin-top: 0.7em;
+  margin-bottom: 0.7em;
+}
+#body_scheda_prodotto #content h5 {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 1em;
+  /* margin-left: 0;
+  margin-right: 0; */
+  color: black;
+  text-align: left;
+  /* font-weight: normal; */
+  text-transform: capitalize;
+}
+#body_scheda_prodotto #content p {
+  font-size: 0.9em;
+  margin-top: 1em;
+  /* margin-left: 0;
+  margin-right: 0; */
+}
+#body_scheda_prodotto #content .desc_breve {
+  font-size: 1em;
+  padding:1.8em;
+  color: white;
+  font-style: italic;
+  background-color: var(--green-main);
+  width: auto;
 }
