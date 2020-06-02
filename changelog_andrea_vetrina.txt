@@ -25,7 +25,10 @@ CHANGELOG 2 JUNE MORNING
 CHANGELOG 2 JUNE AFTERNOON
 - fixed some header problems
 - modified some divs to clean the code in the near future
+- added cart top button (still need to make it <a> )
 
 TODO:
+WARNING:- accidentaly fucked up the side menu
 - add tags to product page
+- rework topbar
 - fix the mobile menu close button (actually, redesign the entire mobile menu)

@@ -1089,10 +1089,10 @@ strong {
   color: rgba(245, 245, 245);
 }
 
-#container_scheda_prodotto {
+#body_scheda_prodotto {
   background-color: #fff;
-  z-index: -2;
-  position: relative;
+  /* z-index: -2;
+  position: relative; */
 }
 #container_scheda_prodotto #immagine_prodotto{
   object-fit: contain;
