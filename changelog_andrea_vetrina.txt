@@ -18,11 +18,13 @@ CHANGELOG 29 MAY MORNING
 CHANGELOG 30 MAY
 - added a product page prototype
 - REWORKED HEADER (again...............)
-CHANGELOG 2 JUNE
+CHANGELOG 2 JUNE MORNING
 - added add_to_cart button
 - content now has a trasparent-grey gradient
 - added add_to_cart hover
-
+CHANGELOG 2 JUNE AFTERNOON
+- fixed some header problems
+- modified some divs to clean the code in the near future
 
 TODO:
 - add tags to product page
