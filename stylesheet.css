@@ -1,4 +1,4 @@
-@font-face {font-family: 'Velvetberries'; src: url(fonts/velvetberries.woff);}
+ss@font-face {font-family: 'Velvetberries'; src: url(fonts/velvetberries.woff);}
 * { margin: 0; padding: 0;}
 
                             /* doesn't validate with older css versions */
@@ -1053,6 +1053,24 @@ strong {
 
 /* SCHEDA PRODOTTO */
 
+#body_scheda_prodotto .add_to_cart_btn {
+  display: block;
+  margin: 0.5em auto 1em auto;
+  padding: 0.5em 1em 0.4em 1em;
+  border: 3px solid var(--green-main);
+  border-radius: 8px;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: var(--green-main);
+  letter-spacing: 0.07em;
+    transition: 0.5s ease;
+}
+#body_scheda_prodotto .add_to_cart_btn:hover{
+  transition: 0.5s ease;
+  background-color: var(--green-main);
+  color: rgba(245, 245, 245);
+}
+
 #body_scheda_prodotto {
   background-color: #fff;
 }
@@ -1074,6 +1092,7 @@ strong {
   background-image: url('img/prodotti_background_mobile.jpg');
 } */
 #body_scheda_prodotto #topbar_image{
+  /* filter: brightness(0.7); */
   position: absolute;
   background-color: white;
   object-fit: contain;
@@ -1085,8 +1104,19 @@ strong {
 #body_scheda_prodotto #topbar {
   overflow: hidden;
 }
+#shadow {
+  position: fixed;
+  top: 0;
+  height: 4em;
+  width: 100%;
+  z-index: 1;
+  background: rgb(0,0,0);
+  background: linear-gradient(180deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%);
+}
 #body_scheda_prodotto #topbar_title {
-  background-color: rgba(0,0,0,0.5);
+  transition: none;
+  background: rgb(0,0,0);
+  background: linear-gradient(180deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%);
 }
 #body_scheda_prodotto #content h2 {
   margin-left: 0;

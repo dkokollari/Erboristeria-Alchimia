@@ -15,3 +15,12 @@ CHANGELOG 29 MAY MORNING
 - cards now use float and margins
 - background is now gray(US)/grey(UK) and cards white
 - fixed problem with card_product and small screens
+CHANGELOG 30 MAY
+- added a product page prototype
+- REWORKED HEADER (again...............)
+CHANGELOG 2 JUNE
+- added add_to_cart button
+
+
+TODO:
+-add tags to product page
