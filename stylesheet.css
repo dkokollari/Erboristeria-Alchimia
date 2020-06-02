@@ -258,6 +258,7 @@ margin:0.7em auto 0.7em auto;
                background-size: contain;
                background-image: url(icons/cancel.svg);
                background-repeat: no-repeat;
+               cursor: pointer;
              }
              #menu {
               top:0;
@@ -1014,7 +1015,7 @@ strong {
   height: 6em;
   position: relative;
 }
-#container_prodotti .card_product .product_tags {
+.product_tags {
   font-size: 0.6em;
   letter-spacing: 0.1em;
   align-self: end;
@@ -1029,24 +1030,24 @@ strong {
   line-height: 1.8em;
 
 }
-#container_prodotti .card_product .product_tags span {
+.product_tags span {
   border-radius: 10px;
   /* margin-right: 0.2em; */
   padding: 0.2em 0.5em 0.2em 0.5em;
 }
-#container_prodotti .card_product .product_tags span.cosmetici {
+.product_tags span.cosmetici {
   background-color: #ff9557;
 }
-#container_prodotti .card_product .product_tags span.uomo {
+.product_tags span.uomo {
   background-color: #005377;
 }
-#container_prodotti .card_product .product_tags span.donna {
+.product_tags span.donna {
   background-color: #90323D;
 }
-#container_prodotti .card_product .product_tags span.casa {
+.product_tags span.casa {
   background-color: #E39695;
 }
-#container_prodotti .card_product .product_tags span.bimbi{
+.product_tags span.bimbi{
   background-color: #06a77d;
 }
 #container_prodotti .card_product .product_price {
@@ -1213,4 +1214,13 @@ background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 100%);
   font-style: italic;
   background-color: var(--green-main);
   width: auto;
+}
+#body_scheda_prodotto .menu_btn img {
+  display: none;
+  cursor: pointer;
+}
+#body_scheda_prodotto .product_tags {
+  position: static;
+}
+#body_scheda_prodotto .product_tags > span{
 }

@@ -26,9 +26,9 @@ CHANGELOG 2 JUNE AFTERNOON
 - fixed some header problems
 - modified some divs to clean the code in the near future
 - added cart top button (still need to make it <a> )
-
+- fixed: the user unable to open the side menu after scrolling
+- added tags (in the worst possible way)
 TODO:
-WARNING:- accidentaly fucked up the side menu
 - add tags to product page
 - rework topbar
 - fix the mobile menu close button (actually, redesign the entire mobile menu)
