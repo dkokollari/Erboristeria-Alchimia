@@ -61,7 +61,7 @@
     }
 
     if($_POST['Registrati']){
-      $status = (!empty($errore)
+      $status = (empty($errore)
                 ? "<span>Registrazione riuscita</span>"
                 : "<span>Registrazione fallita</span>");
     }
