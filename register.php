@@ -15,7 +15,7 @@
       $errore_nome = '<p class="errore">Inserisci un nome di lunghezza tra 3 e 200 caratteri</p>'; // riferirsi alle regole di validate_form
       $errore_cognome = '<p class="errore">Inserisci un cognome di lunghezza tra 3 e 200 caratteri</p>'; // riferirsi alle regole di validate_form
       $errore_email = '<p class="errore">Inserisci una email valida</p>';
-      $errore_password = '<p class="errore">Inserisci una password di lunghezza tra 8 e 12 caratteri</p>'; // riferirsi alle regole di validate_form.php
+      $errore_password = '<p class="errore">Inserisci una password di lunghezza tra 8 e 12 caratteri, almeno 1 lettera ed 1 numero</p>'; // riferirsi alle regole di validate_form.php
 
       if(Validate_form::is_empty([$nome, $cognome, $email, $password, $data_nascita])){
         $errore = $errore_empty;
