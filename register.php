@@ -4,8 +4,8 @@
 
     $pagina = file_get_contents('register.html');
     if($_POST['Registrati']){
-      $nome = mysql_real_escape_string(trim($_POST['nome']));
-      $cognome = mysql_real_escape_string(trim($_POST['cognome']));
+      $nome = ucfirst(strtolower(mysql_real_escape_string(trim($_POST['nome']))));
+      $cognome = ucfirst(strtolower(mysql_real_escape_string(trim($_POST['cognome']))));
       $email = mysql_real_escape_string(trim($_POST['email']));
       $password = mysql_real_escape_string(trim($_POST['password']));
       $data_nascita = mysql_real_escape_string(trim($_POST['data_nascita']));
