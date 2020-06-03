@@ -18,7 +18,7 @@ const card = document.getElementsByClassName("card");
 const username = document.querySelector("#username");
 
 const marginTop = document.documentElement.clientWidth*(320-64);  // 75vw di margin-top del #content - 12vw di altezza #topbar
-const marginTopEm = 254;
+// const marginTopEm = 254;
 var multiplier = document.documentElement.clientWidth*0.5;
 var x =-1*430/ 698 ;
 //percorso = w*3/4 - t
@@ -80,18 +80,18 @@ $("#username, #password").on("blur", function() {
 
 
                     /* adds an event listener to create the parallax effect */
-window.addEventListener("DOMContentLoaded", scrollFix, false);
+// window.addEventListener("DOMContentLoaded", scrollFix, false);
 
 
 /* function that actually creates the parallax effect by "slowing" the background movement while scrolling */
-function scrollFix() {
-
-    yScrollPosition = window.scrollY;
-    headerImg.style.transform = "translate3d(" + 0 + ", " +( yScrollPosition*-0.62) + "px, 0)";
-    requestAnimationFrame(scrollFix);
-}
-
-                    /* function that makes the topbar element "sticky" on mobile */
+// function scrollFix() {
+//
+//     yScrollPosition = window.scrollY;
+//     headerImg.style.transform = "translate3d(" + 0 + ", " +( yScrollPosition*-0.62) + "px, 0)";
+//     requestAnimationFrame(scrollFix);
+// }
+//
+//                     /* function that makes the topbar element "sticky" on mobile */
 // window.addEventListener('scroll', showTopbar);
 //  function showTopbar() {
 //     if (window.scrollY > marginTopEm) {
@@ -176,11 +176,16 @@ document.getElementById("torna_su_btn").addEventListener('click', function () {
 
 const immagine_prodotto = document.getElementById("immagine_prodotto");
 
-console.log(immagine_prodotto);
+// console.log(immagine_prodotto);
                     /* adds an event listener to create the parallax effect */
+
+
+const marginTopEm = (document.getElementById("body_scheda_prodotto")) ? 320 : 256;
+// window.addEventListener("DOMContentLoaded", calcMarginTop, false);
+
 window.addEventListener("DOMContentLoaded", scrollFixProdotto, false);
 
-
+console.log(marginTopEm);
 /* function that actually creates the parallax effect by "slowing" the background movement while scrolling */
 function scrollFixProdotto() {
 
@@ -200,10 +205,20 @@ function scrollFixProdotto() {
 //       topbarTitle.classList.remove("nopacity");
 //     }
 //  }
-const marginTopEmProdotto = 320;
+// const marginTopEmProdotto = 320;
+
+// function calcMarginTop() {
+//
+//   var marginTopEm = 256;
+//   if (document.getElementById("body_scheda_prodotto")) {
+//     marginTopEm = 320;
+//   }
+//   console.log(marginTopEm);
+// }
+// const marginTopEmProdotto = 256;
 window.addEventListener('scroll', showTopbar);
  function showTopbar() {
-    if (window.scrollY > marginTopEmProdotto) {
+    if (window.scrollY > marginTopEm) {
       topbar.classList.add("visible_topbar")                        //controllare che gli vada bene usare STYLE (spoiler alert: NON VA BENE => DA CAMBIARE!!!!!!!!!!!!!!!!!)
       topbarTitle.classList.add("nopacity");
     } else {

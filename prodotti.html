@@ -12,6 +12,7 @@
     <link href="https://fonts.googleapis.com/css?family=Material+Icons+Outlined" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Material+Icons+Two+Tone" rel="stylesheet"> -->
     <link href="https://fonts.googleapis.com/css?family=Material+Icons+Round" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons+Outlined" rel="stylesheet" />
     <!-- <link href="https://fonts.googleapis.com/css?family=Material+Icons+Sharp" rel="stylesheet"> -->
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -19,41 +20,46 @@
 
   </head>
 
-  <body>
-    <div class="container" id="container_prodotti">
+    <body>
+      <div class="container" id="container_prodotti">
 
-                          <!--          HEADER             -->
+                            <!--          HEADER             -->
 
-      <div id="header_image" class="fit"></div>
-
-      <h1>Prodotti</h1>
-
-      <div id="topbar">
-        <h1 id="topbar_title">Prodotti</h1>
-      </div>
-
-
-      <button class="menu_btn"><span id="menu_icon" class="material-icons-round">menu</span></button>
-      <div id="menu">
+        <!-- <div id="header_image" class="fit"></div> -->
+        <img id="immagine_prodotto"src="img/prodotti_background_mobile.jpg" alt="sfondo pagina prodotti"/>
+        <!-- <h1>Prodotti</h1> -->
+        <div id="topbar_container_shadow">
+          <div id="topbar">
+            <img id="topbar_image" src="img/prodotti_background_mobile.jpg" alt="sfondo barra in alto"/>
+            <h1 id="topbar_title">Prodotti</h1>
+          </div>
+        </div>
 
 
-        <ul title="Menu">
-          <li><a href="homepage.html" xml:lang="en">Homepage</a></li>
-          <li><a href="eventi.html">Eventi</a></li>
-          <li><a href="teinfusi.html">T&egrave; &amp; Infusi</a></li>
-          <li><a href="prodotti.html">Prodotti</a></li>
-          <li><a href="informazioni.html">Informazioni</a></li>
-          <li><a href="la_mia_storia.html">La mia Storia</a></li>
-          <li class="selected_page"><p>Prodotti</p></li>
+        <!-- <button class="menu_btn"> -->
+          <span id="menu_icon" class="material-icons-round menu_btn top_icon">menu</span>
+          <span id="cart_icon" class="material-icons-outlined top_icon">shopping_cart</span>
+        <!-- </button> -->
+        <div id="menu">
 
-          <li class="menu_btn">
-            <img src="icons/cancel.svg" alt="Chiudi il menu"/>
-          </li>
-        </ul>
 
-      </div>
+          <ul title="Menu">
+            <li><a href="homepage.html" xml:lang="en">Homepage</a></li>
+            <li><a href="eventi.html">Eventi</a></li>
+            <li><a href="teinfusi.html">T&egrave; &amp; Infusi</a></li>
+            <li><a href="prodotti.html">Prodotti</a></li>
+            <li><a href="informazioni.html">Informazioni</a></li>
+            <li><a href="la_mia_storia.html">La mia Storia</a></li>
+            <li class="selected_page"><p>Prodotti</p></li>
 
-      <button id="right-of-menu" class="menu_btn" title="chiudi il menu"></button>
+            <li class="menu_btn">
+              <img src="icons/cancel.svg" alt="Chiudi il menu"/>
+            </li>
+          </ul>
+
+        </div>
+
+        <button id="right-of-menu" class="menu_btn" title="chiudi il menu"></button>
                           <!--         CONTENT            -->
 
       <div id="content">
@@ -88,6 +94,7 @@
 
           </div>
         </div>
+
         <div class="card_product">
 
           <img class="product_image"src="img/products/small_img/erbolario_danza_di_fiori_profumo_50ml_min.jpg" alt="immagine Erbolario danza di fiori profumo 50ml"/>
