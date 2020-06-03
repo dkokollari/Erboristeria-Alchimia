@@ -14,11 +14,9 @@
       foreach ($params as $value){
         if(empty($value)) return true;
       }
-      /* in caso non sia passato alcun parametro */
-      if(empty($params)){
-        return true;
-      }
-      return false;
+      // in caso non sia passato alcun parametro
+      if(empty($params)) return true;
+      else return false;
     }
   }
 ?>
