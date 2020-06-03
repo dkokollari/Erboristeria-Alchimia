@@ -197,7 +197,8 @@ function checkPassword(pwdInput) {
     const emptyField = 'Inserire sia una email che una password(js)';
     showErrorSecurity(emptyField);
     return false;
-  } else if(pwdInput.value.trim().length < 6 || pwdInput.value.trim().length > 12) {
+  } else if(pwdInput.value.trim().length < 6 || pwdInput.value.trim().length > 12
+	|| !(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,12}$/.test(emailInput.value.trim()))) {
     const wrongField = 'La email o la password inserite non sono corrette(js)';
     showErrorSecurity(wrongField);
     return false;
