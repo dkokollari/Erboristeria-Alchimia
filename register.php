@@ -60,9 +60,11 @@
       }
     }
 
-    $status = (($errore=="")
-              ? "<span>Registrazione riuscita</span>"
-              : "<span>Registrazione fallita</span>");
+    if($_POST['Registrati']){
+      $status = (!empty($errore)
+                ? "<span>Registrazione riuscita</span>"
+                : "<span>Registrazione fallita</span>");
+    }
     $pagina = str_replace("%REGISTER_STATUS%", $status, $pagina);
     $pagina = str_replace("%REGISTER_ERROR%", $errore, $pagina);
     echo $pagina;
