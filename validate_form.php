@@ -10,8 +10,15 @@
       return preg_match('^([A-Z] | [a-z])[a-z]{3,200}', $stringa);
     }
 
-    function is_empty($params){
-      return empty($params);
+    function is_empty($params=null){
+      foreach ($params as $value){
+        if(empty($value)) return true;
+      }
+      /* in caso non sia passato alcun parametro */
+      if(empty($params)){
+        return true;
+      }
+      return false;
     }
   }
 ?>
