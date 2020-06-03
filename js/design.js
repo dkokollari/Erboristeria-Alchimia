@@ -185,7 +185,7 @@ const marginTopEm = (document.getElementById("body_scheda_prodotto")) ? 320 : 25
 
 window.addEventListener("DOMContentLoaded", scrollFixProdotto, false);
 
-console.log(marginTopEm);
+// console.log(marginTopEm);
 /* function that actually creates the parallax effect by "slowing" the background movement while scrolling */
 function scrollFixProdotto() {
 
