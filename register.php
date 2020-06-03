@@ -16,7 +16,8 @@
       $errore_nome = '<span class="errore">Inserisci un nome di lunghezza tra 3 e 200 caratteri</span>'; // riferirsi alle regole di validate_form
       $errore_cognome = '<span class="errore">Inserisci un cognome di lunghezza tra 3 e 200 caratteri</span>'; // riferirsi alle regole di validate_form
       $errore_email = '<span class="errore">Inserisci una email valida</span>';
-      $errore_password = '<span class="errore">Inserisci una password di lunghezza tra 8 e 12 caratteri, almeno 1 lettera ed 1 numero</span>'; // riferirsi alle regole di validate_form.php
+      $errore_password = '<span class="errore">Inserisci una password di lunghezza tra 8 e 12 caratteri, almeno 1 lettera ed 1 numero</span>'; // riferirsi alle regole di validate_form
+      $errore_conferma = '<span class="errore">Le password inserite non corrispondono</span>';
 
       $params = [$nome, $cognome, $email, $password, $data_nascita];
       if(Validate_form::is_empty($params)){
@@ -35,7 +36,7 @@
         $errore = $errore_password;
       }
       else if($password != $password_conferma){
-        $errore;
+        $errore = $errore_conferma;
       }
       else{
         $con = new DBAccess();
