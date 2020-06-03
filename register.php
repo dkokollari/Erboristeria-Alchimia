@@ -8,6 +8,7 @@
       $cognome = ucfirst(strtolower(mysql_real_escape_string(trim($_POST['cognome']))));
       $email = mysql_real_escape_string(trim($_POST['email']));
       $password = mysql_real_escape_string(trim($_POST['password']));
+      $password_conferma = mysql_real_escape_string(trim($_POST['password2']));
       $data_nascita = mysql_real_escape_string(trim($_POST['data_nascita']));
       /* messaggi di errore */
       $errore_empty = '<span class="errore">Completa tutti i campi</span>';
