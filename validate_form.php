@@ -16,7 +16,7 @@
       foreach ($params as $value){
         if(empty($value)) return true;
       }
-      // in caso non sia passato alcun parametro
+      // in caso sia stato passato $params non-array oppure nessun parametro
       return empty($params);
     }
   }
