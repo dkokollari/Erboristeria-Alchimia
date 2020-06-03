@@ -34,6 +34,9 @@
       else if(!Validate_form::check_pwd($password)){
         $errore = $errore_password;
       }
+      else if($password != $password_conferma){
+        $errore;
+      }
       else{
         $con = new DBAccess();
         if(!$con->openConnection()){
