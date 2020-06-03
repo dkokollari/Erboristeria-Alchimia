@@ -17,8 +17,7 @@
         if(empty($value)) return true;
       }
       // in caso non sia passato alcun parametro
-      if(empty($params)) return true;
-      else return false;
+      return empty($params);
     }
   }
 ?>
