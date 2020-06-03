@@ -483,6 +483,23 @@ margin:0.7em auto 0.7em auto;
          margin-top: 0.2em;
          margin-bottom: 0.2em;
        }
+       #container_prodotti .card_product {
+       	 float: left;
+         width: 37%;
+         margin-right: 5%;
+         margin-left: 5%;
+         /*display : flex;
+         box-sizing : border-box;
+         width : 100%;*/
+       }
+       #totale {
+       	 clear: both;
+       }
+     /*  ul {
+       	display : flex;
+        flex-direction : row;
+        flex-wrap : wrap;
+       }*/
 }
 
 @media screen and (min-width:700px) and (max-width:1024px) {
@@ -1231,7 +1248,13 @@ background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 100%);
 }
 
 #checkout {
-  margin-left: 3em;
-  margin-right: 3em;
+  margin-left: 25%;
+  margin-right: 25%;
   margin-top: 1em;
+  width: 50%;
+}
+
+ul {
+margin-left: 10%;
+margin-right: 10%;
 }

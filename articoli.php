@@ -135,7 +135,7 @@
       $total_pages = ceil($total_records/$results_per_page); //se c'è una sola pagina non voglio mostrare un link circolare alla pagina stessa!
       while($row = $result->fetch_assoc()) {
         $productToPrint .= '<div class = "col-sn-4 col-md-3">' . "\n" .
-        '<form method="post" action="carrello.php?action=add&id_articolo='. $row["id_articolo"] .  '">'. "\n" .
+        '<form method="post" action="carrello.php?&amp;id_articolo='. $row["id_articolo"] .  '">'. "\n" .
         '<div class="products">' . "\n" .
         '<img src="img/articoli/'.(file_exists("
         img/articoli/".$row["id_articolo"].".jpg") ? $row["id_articolo"].'.jpg' : '0.jpg').'" class="img-responsive"/>'."\n" .
@@ -144,7 +144,8 @@
         '<input type="text" name="quantita" class="form-control" value="1" />' ."\n" .
         '<input type="hidden" name="nome_articolo" value="' . $row["nome_articolo"] . '"/>' . "\n" .
         '<input type="hidden" name="prezzo_articolo" value="' . $row["prezzo_articolo"] . '"/>' . "\n" .
-         '<input type="submit" name="add_to_cart" class="btn btn-info CUSTOM_MARGIN" value="Add to Cart" />' . "\n" .
+        '<input type="hidden" name="redirect" value="' . "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]" . '"/>' . "\n" .
+        '<input type="submit" name="add_to_cart" class="btn btn-info CUSTOM_MARGIN" value="Add to Cart" />' . "\n" .
         '</div>' . "\n" . '</form>' . "\n" . '</div>' ."\n";
       }
     }

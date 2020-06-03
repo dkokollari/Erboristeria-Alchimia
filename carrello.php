@@ -49,6 +49,15 @@ $pagina = file_get_contents('carrello.html');
 $total = 0;
 $orderedProducts = '';
 if(!empty($_SESSION["shopping_cart"])) {
+  $conn = new DBAccess();
+  if(!$conn->openConnection()) {
+   echo '<p class= "errori">' . "Impossibile connettersi al database: riprovare pi&ugrave; tardi" . '</p>';
+   exit(1);
+  }
+  if (!$conn->connection->set_charset("utf8")) {
+    //printf("Error loading character set utf8: %s\n", $con->error);
+    exit(1);
+  }
   $orderedProducts = '<ul>' . "\n";
   foreach($_SESSION["shopping_cart"] as $key => $product) {
     $orderedProducts .=
@@ -57,16 +66,31 @@ if(!empty($_SESSION["shopping_cart"])) {
      img/articoli/".$product["id_articolo"].".jpg") ? $row["id_articolo"].'.jpg' : '0.jpg').'" alt="immagine a scopo presentazionale"/>'."\n" .
       '<div class="product_description">' . "\n" .
         '<h3 class="product_title">' . $product["nome_articolo"] . '</h3 class="product_title">' . "\n" .
-        '<span class="product_manufacturer">Quantit&agrave;: ' . $product["quantita"] . '</span>' . "\n" .
-        '<span class="product_manufacturer">Prezzo unitario: ' . $product["prezzo_articolo"] . ' &euro;</span>' . "\n" .
-        '<span class="product_price">Totale: ' . number_format($product["quantita"] * $product["prezzo_articolo"], 2) . ' &euro;</span>' . "\n" .
-        '<span>' . '<a href="carrello.php?action=delete&id_articolo=' . $product["id_articolo"] . '">' . "\n" .
-        '<button class="button">Rimuovi</button>' . "\n" . '</a></span>' . "\n";
+        '<span class="product_manufacturer">' .
+           $conn->connection->query("SELECT nome_ditta
+           FROM ditte, articoli, produzioni
+           WHERE" . $row["id_articolo"] . " = articolo_produzione AND ditta_produzione = id_ditta").'</span>' . "\n" .
+        '<span class="product_line">' . 'Linea' .
+          $linea = $conn->connection->query("SELECT nome_linea
+          FROM linee, articoli
+          WHERE" . $row["linea_articolo"] . " = id_linea") .'</span>' . "\n" .
+        '<div class="product_tags">' . "\n" .
+            '<span class="' .
+            $categoria = $conn->connection->query("SELECT nome_categoria
+            FROM categorie, articoli
+            WHERE" . $row["categoria_articolo"] . " = id_categoria") . '">' . $categoria . '</span>' . "\n" .
+            '<span class="' . $linea . '">' . $linea . '</span>' . "\n" .
+        '</div>' . "\n" .
+        '<span class="product_manufacturer">Prezzo: ' . $product["prezzo_articolo"] . ' &euro;</span>' . "\n" .
       '</div>' . "\n" .
     '</li>' .  "\n" .
+    '<span class="product_manufacturer">Quantit&agrave;: ' . $product["quantita"] . '</span>' . "\n" .
+    '<span class="product_price">Totale: ' . number_format($product["quantita"] * $product["prezzo_articolo"], 2) . ' &euro;</span>' . "\n" .
+    '<span>' . '<a href="carrello.php?action=delete&id_articolo=' . $product["id_articolo"] . '">' . "\n" .
+    '<button class="button">Rimuovi</button>' . "\n" . '</a></span>' . "\n";
     $total += $product["quantita"] * $product["prezzo_articolo"];
   }
-
+  $conn->closeConnection();
 /*
 <li class="card_product">
 
