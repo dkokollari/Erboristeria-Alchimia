@@ -19,8 +19,8 @@
       $errore_password = '<span class="errore">Inserisci una password di lunghezza tra 8 e 12 caratteri, almeno 1 lettera ed 1 numero</span>'; // riferirsi alle regole di validate_form
       $errore_conferma = '<span class="errore">Le password inserite non corrispondono</span>';
 
-      $params = [$nome, $cognome, $email, $password, $data_nascita];
-      if(Validate_form::is_empty($params)){
+      $fields = [$nome, $cognome, $email, $password, $data_nascita];
+      if(Validate_form::is_empty($fields)){
         $errore = $errore_empty;
       }
       else if(!Validate_form::check_str($nome)){
