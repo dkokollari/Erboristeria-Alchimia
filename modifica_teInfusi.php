@@ -32,8 +32,8 @@
         <p>'.$descrizione.'</p>
         <h4>Preparazione</h4>
         <p>'.$preparazione.'</p>
-        <a href="updateTeInfusi.php?id='.$id.'">Modifica</a>
-        <a href="deleteTeInfusi.php?id='.$id.'">Rimuovi</a>
+        <a href="updateTeInfusi.php?id='.$id.'" class="edit_btn">Modifica</a>
+        <a href="deleteTeInfusi.php?id='.$id.'" class="edit_btn">Rimuovi</a>
         <span class="expand_btn material-icons-round">expand_more</span>
         </div>
 
