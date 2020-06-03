@@ -10,12 +10,12 @@
       $password = mysql_real_escape_string(trim($_POST['password']));
       $data_nascita = mysql_real_escape_string(trim($_POST['data_nascita']));
       /* messaggi di errore */
-      $errore_empty = '<p class="errore">Completa tutti i campi</p>';
-      $errore_full = '<p class="errore">Questo utente sembra essere gi&agrave; registrato. Hai dimenticato la password?</p>';
-      $errore_nome = '<p class="errore">Inserisci un nome di lunghezza tra 3 e 200 caratteri</p>'; // riferirsi alle regole di validate_form
-      $errore_cognome = '<p class="errore">Inserisci un cognome di lunghezza tra 3 e 200 caratteri</p>'; // riferirsi alle regole di validate_form
-      $errore_email = '<p class="errore">Inserisci una email valida</p>';
-      $errore_password = '<p class="errore">Inserisci una password di lunghezza tra 8 e 12 caratteri, almeno 1 lettera ed 1 numero</p>'; // riferirsi alle regole di validate_form.php
+      $errore_empty = '<span class="errore">Completa tutti i campi</span>';
+      $errore_full = '<span class="errore">Questo utente sembra essere gi&agrave; registrato. Hai dimenticato la password?</span>';
+      $errore_nome = '<span class="errore">Inserisci un nome di lunghezza tra 3 e 200 caratteri</span>'; // riferirsi alle regole di validate_form
+      $errore_cognome = '<span class="errore">Inserisci un cognome di lunghezza tra 3 e 200 caratteri</span>'; // riferirsi alle regole di validate_form
+      $errore_email = '<span class="errore">Inserisci una email valida</span>';
+      $errore_password = '<span class="errore">Inserisci una password di lunghezza tra 8 e 12 caratteri, almeno 1 lettera ed 1 numero</span>'; // riferirsi alle regole di validate_form.php
 
       if(Validate_form::is_empty([$nome, $cognome, $email, $password, $data_nascita])){
         $errore = $errore_empty;
@@ -35,7 +35,7 @@
       else{
         $con = new DBAccess();
         if(!$con->openConnection()){
-         echo '<p class="errore">Impossibile connettersi al database riprovare pi&ugrave; tardi</p>';
+         echo '<span class="errore">Impossibile connettersi al database riprovare pi&ugrave; tardi</span>';
          exit;
         }
 
@@ -55,8 +55,8 @@
     }
 
     $status = (($errore=="")?
-                "<p>Registrazione riuscita</p>"
-              : "<p>Registrazione fallita</p>");
+                "<span>Registrazione riuscita</span>"
+              : "<span>Registrazione fallita</span>");
     $pagina = str_replace("%REGISTER_STATUS%", $status, $pagina);
     $pagina = str_replace("%REGISTER_ERROR%", $errore, $pagina);
     echo $pagina;
