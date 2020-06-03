@@ -7,7 +7,7 @@
 
     /* lunghezza minima 3 e massima 200 caratteri */
     function check_str($stringa){
-      return preg_match('^([A-Z] | [a-z])[a-z]{3,200}', $stringa);
+      return preg_match('/^([A-Z]|[a-z])[a-z]{2,255}$/', $stringa);
     }
 
     function is_empty($params=null){
