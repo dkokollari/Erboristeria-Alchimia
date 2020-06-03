@@ -17,11 +17,7 @@
       $errore_email = '<p class="errore">Inserisci una email valida</p>';
       $errore_password = '<p class="errore">Inserisci una password di lunghezza tra 8 e 12 caratteri</p>'; // riferirsi alle regole di validate_form.php
 
-      if(empty($nome)
-      || empty($cognome)
-      || empty($email)
-      || empty($password)
-      || empty($data_nascita)){
+      if(Validate_form::is_empty([$nome, $cognome, $email, $password, $data_nascita])){
         $errore = $errore_empty;
       }
       else if(!Validate_form::check_str($nome)){
