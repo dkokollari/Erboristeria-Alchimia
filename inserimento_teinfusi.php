@@ -7,6 +7,7 @@ $con = new DBAccess();
 if($con->openConnection()){
   $pagina = file_get_contents('inserimento_teinfusi.html');
 
+  $messaggio = "";
   $valnome = "";
   $valingre = "";
   $valdescr = "";

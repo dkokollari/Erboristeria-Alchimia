@@ -1,0 +1,8 @@
+ErrorDocument 404 /redirect.php
+
+ErrorDocument 403 /redirect.php
+
+<Files ~ "\.html$">
+Order Allow,Deny
+Deny from All
+</Files>
