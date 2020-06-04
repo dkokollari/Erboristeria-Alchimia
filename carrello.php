@@ -33,6 +33,7 @@
       'quantita' => filter_input(INPUT_POST, 'quantita')
       );
     }
+    header('location:' . $_POST['redirect']);
   }
 
   if(filter_input(INPUT_GET, 'action') == 'delete') {
@@ -45,6 +46,7 @@
   }
 /*-------------------------FINE SESSIONE(Meglio metterla in un file a parte!)----------------------------*/
 
+require_once("DBAccess.php");
 $pagina = file_get_contents('carrello.html');
 $total = 0;
 $orderedProducts = '';
@@ -84,8 +86,8 @@ if(!empty($_SESSION["shopping_cart"])) {
         '<span class="product_manufacturer">Prezzo: ' . $product["prezzo_articolo"] . ' &euro;</span>' . "\n" .
       '</div>' . "\n" .
     '</li>' .  "\n" .
-    '<span class="product_manufacturer">Quantit&agrave;: ' . $product["quantita"] . '</span>' . "\n" .
-    '<span class="product_price">Totale: ' . number_format($product["quantita"] * $product["prezzo_articolo"], 2) . ' &euro;</span>' . "\n" .
+    '<span class="product_manufacturer other">Quantit&agrave;: ' . $product["quantita"] . '</span>' . "\n" .
+    '<span class="product_price other">Totale: ' . number_format($product["quantita"] * $product["prezzo_articolo"], 2) . ' &euro;</span>' . "\n" .
     '<span>' . '<a href="carrello.php?action=delete&id_articolo=' . $product["id_articolo"] . '">' . "\n" .
     '<button class="button">Rimuovi</button>' . "\n" . '</a></span>' . "\n";
     $total += $product["quantita"] * $product["prezzo_articolo"];

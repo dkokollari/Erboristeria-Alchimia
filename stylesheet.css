@@ -1222,6 +1222,7 @@ background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 100%);
 
 
 .button {
+  clear: both;
   background: #6394F8;
   color: white;
   text-align: center;
@@ -1255,6 +1256,11 @@ background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 100%);
 }
 
 ul {
+list-style: none;
 margin-left: 10%;
 margin-right: 10%;
+}
+
+.other {
+  clear: both;
 }
