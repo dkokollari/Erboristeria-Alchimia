@@ -31,11 +31,11 @@ if(isset($_POST['submit'])){
       $prepa = control_input::control($_POST['Preparazione']);
       if(!$nome){
         $errori++;
-        $errNome='<span class="error-msg">deve contenere solo caratteri: a-z A-Z 0-9 - _, con lunghezza minima 5 e massima 50</span>';
-      }
+        $errNome='deve contenere solo caratteri: a-z A-Z 0-9 - _, con lunghezza minima 5 e massima 50';
+    }
       if(!$descr){
         $errori++;
-        $errDescr='<span class="error-msg">deve contenere almeno 20 caratteri e non pi&ugrave; di 50 caratteri</span>';
+        $errDescr='deve contenere almeno 20 caratteri e non pi&ugrave; di 50 caratteri';
       }
 
       $image = new Image();
@@ -46,7 +46,7 @@ if(isset($_POST['submit'])){
         $descImg = control_input::description_control($_POST['desc_img']);
         if(!$descImg){
           $errori++;
-          $errDescImg = '<span class="error-msg">deve contenere almeno 20 caratteri e non pi&ugrave; di 50 caratteri</span>';
+          $errDescImg = 'deve contenere almeno 20 caratteri e non pi&ugrave; di 50 caratteri';
         }
         $errImg = $image->isValid($_FILES['immagine']['name']);
         if($errImg!=""){

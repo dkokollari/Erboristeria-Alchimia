@@ -29,17 +29,19 @@
     <body>
       <h1>Inserimento t&egrave; e infusi</h1>
 
-      <form method="post" action="inserimento_teinfusi.php" enctype="multipart/form-data">
+      <form name="form_teinfusi" method="post" action="inserimento_teinfusi.php" enctype="multipart/form-data">
       <fieldset>
         <legend>Form T&egrave; e infuso</legend>
-        %MESSAGGIO%
-        <p>campi obbligatori(*)</p>
+        <div>
+          %MESSAGGIO%
+          <p>campi obbligatori(*)</p>
+        </div>
 
         <label for="Nome">Nome*</label>
         <div>
         <input type="text" name="Nome" id="Nome" maxlength="15" value="%nome%" tabindex="1"/>
-        %ERR_NOME%
-		</div>
+        <span class="error-msg" id="err_nome">%ERR_NOME%</span>
+		    </div>
 
         <label for="Tipo">Tipo</label>
         <div>
@@ -57,7 +59,7 @@
         <label for="Descrizione">Descrizione*</label>
         <div>
         <input id="Descrizione" name="Descrizione" value="%descr%" tabindex="4"/>
-        %ERR_DESC%
+        <span class="error-msg" id="err_desc">%ERR_DESC%</span>
         </div>
 
         <label for="Preparazione">Preparazione</label>
@@ -81,4 +83,5 @@
       </fieldset>
     </form>
     </body>
+    <script src="validationFormTeInfusi.js" type="text/javascript"></script>
 </html>
