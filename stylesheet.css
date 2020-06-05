@@ -107,7 +107,7 @@ body:not(.show-focus-outlines) [tabindex]:focus {
   width: 100vw;
   height: 30em;
   z-index: -1;
-  filter: brightness(0.7);
+  filter: brightness(0.65);
   /* pointer-events: none; */
 }
 
@@ -812,7 +812,7 @@ strong {
   height: 20em;
   width: 100%;
   transform: translateY(-8.45em);
-  /* filter: brightness(0.7); */
+  filter: brightness(1);
 }
 #body_scheda_prodotto #topbar {
   overflow: hidden;
@@ -960,7 +960,7 @@ repeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeat */
   height: 20em;
   width: 100%;
   transform: translateY(-9.8em);
-  /* filter: brightness(0.7); */
+  filter: brightness(0.7);
 }
 #topbar_title {
   color: white;
@@ -1117,7 +1117,7 @@ background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 100%);
               background-size: cover;
               background-position: 0 -10em;
               background-repeat: no-repeat;
-              filter: brightness(0.7);
+              filter: brightness(0.65);
               position: absolute;
               top: 0;
               left: 0;
@@ -1134,7 +1134,7 @@ background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 100%);
             }
             #topbar_title {
               padding-top: 0;
-              background-color: rgba(0,0,0,0.3);
+              background-color: rgba(0,0,0,0.1);
               text-transform: capitalize;
               font-size: 2.5em;
               padding-left: 1.5em;
