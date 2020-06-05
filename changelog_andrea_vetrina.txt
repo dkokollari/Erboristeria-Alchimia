@@ -34,6 +34,9 @@ CHANGELOG 5 JUNE MORNING
 - moved @media styles at the bottom to make them override previous rules
 - fixed header for desktop and tablet
 - changed side menu translate behaviour (menu is created -66vw left and THEN moved)
+- changed <h> behaviour in the product page
+- re-added brightness filter in non product pages
+- re-added title in non product pages
 
 TODO:
 - rework topbar

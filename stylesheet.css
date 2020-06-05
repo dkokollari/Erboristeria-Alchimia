@@ -1,4 +1,4 @@
-ss@font-face {font-family: 'Velvetberries'; src: url(fonts/velvetberries.woff);}
+@font-face {font-family: 'Velvetberries'; src: url(fonts/velvetberries.woff);}
 * { margin: 0; padding: 0;}
 
                             /* doesn't validate with older css versions */
@@ -72,18 +72,18 @@ body:not(.show-focus-outlines) [tabindex]:focus {
 
                                   /*       HEADER       */
 
-h1 {
+#title {
   text-align: center;
-  width: 100%;
+  /* width: 100%; */
   color: white;
   font-family: 'Velvetberries', serif;
   font-weight: lighter;
   font-size: 7em;
   position: fixed;
   z-index: -1;
-  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.9);
+  text-shadow: 0px 0px 6px rgba(0, 0, 0, 0.9);
 }
-h1 span {
+#title span {
   margin-left: 40vw;
 }
 
@@ -134,15 +134,15 @@ h1 span {
   margin-left: 0;
   margin-right: 0;
 }
-#content h2 {
+#content h2, #body_scheda_prodotto #content h1 {
   text-transform: capitalize;
-  font-size: 2em;
+  font-size: 1.9em;
   letter-spacing: 0.1em;
-  margin-left: 1.2em;
-  margin-right: 1.2em;
+  margin-left: 1.8rem;
+  margin-right: 1.8rem;
   font-weight: 300;
   text-align: center;
-  color: var(--yellow-dark);
+  color: var(--green-main);
 }
 /* TODO queste proprieta' generiche non vanno cosi'bene */
 h3 {
@@ -790,6 +790,7 @@ strong {
   background-color: white;
   padding-top: 4em;
   padding-bottom: 2em;
+  filter: brightness(1);
 }
 #body_scheda_prodotto  .container  #content{
   background: rgb(245,245,245);
@@ -855,11 +856,15 @@ background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 100%);
   visibility: visible;
 }
 #body_scheda_prodotto #content h2 {
-  margin-left: 0;
-  margin-right: 0;
+  /* margin-left: 0;
+  margin-right: 0; */
+  margin-top: 0.8em;
   margin-bottom: 0.7em;
-  font-size: 1.8em;
-  color: var(--green-main);
+  font-size: 1.3em;
+  color: black;
+  font-weight: bold;
+  text-align: left;
+  text-transform: uppercase;
 }
 #body_scheda_prodotto #content h3 {
   /* margin-left: 2rem;
@@ -914,9 +919,10 @@ background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 100%);
 }
 #body_scheda_prodotto #content .prezzo {
   font-size: 2em;
-  margin-top: 0.5em;
-  margin-bottom: 0.5em;
+  margin-top: 0.25em;
+  margin-bottom: 0.25em;
 }
+
 /* TODO /* WARNIN2G: /* FIXME:
 repeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeat */
 
@@ -930,6 +936,7 @@ repeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeat */
   background-color: white;
   /* padding-top: 4em; */
   padding-bottom: 2em;
+  filter: brightness(0.65);
 }
 #topbar.visible_topbar {
   /* z-index: 2; */
@@ -954,6 +961,7 @@ repeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeat */
   /* filter: brightness(0.7); */
 }
 #topbar_title {
+  color: white;
   transition: 0.5s;
   /* background-color: rgb(0,0,0,0.15); */
   background: rgb(0,0,0);
@@ -1140,14 +1148,15 @@ background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 100%);
               position: relative;
               z-index: 2;
             }
-            #topbar_title.nopacity{
+            #topbar_title.nopacity {
               opacity: 1;
             }
-            h1 {
+            #title {
               font-size: 6em;
               /* line-height: 75vw; */
               top:0;
-              padding-top:1em;
+              margin-top:8rem;
+              width: 100%;
             }
             #content {
               margin-top: 20em;
@@ -1257,7 +1266,7 @@ background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 100%);
         #header_image {
           top: -10em;
         }
-        h1 {
+        #title {
           top: 0em;
         }
 
@@ -1273,7 +1282,7 @@ background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 100%);
         box-shadow: 0 3px 6px rgba(0,0,0,0.10), 0 3px 6px rgba(0,0,0,0.17);
       }
 
-      .container, #header_image, body #container_scheda_prodotto #immagine_prodotto, h1, body #footer {
+      .container, #header_image, body #container_scheda_prodotto #immagine_prodotto, #title, body #footer {
               width: 1025px;
         }
 
@@ -1298,7 +1307,7 @@ background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 100%);
         top: -300px;
         height: 40em;
       }
-      h1 {
+      #title {
         font-size: 11em;
         top: 20px;
 
