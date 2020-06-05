@@ -1039,7 +1039,7 @@ strong {
 #container_prodotti .card_product .product_tags span.Cosmetico {
   background-color: #ff9557;
 }
-#container_prodotti .card_product .product_tags span.Uomo {
+#container_prodotti .card_product .product_tags span.Uomo, #container_prodotti .card_product .product_tags span.Unisex {
   background-color: #005377;
 }
 #container_prodotti .card_product .product_tags span.Donna {
