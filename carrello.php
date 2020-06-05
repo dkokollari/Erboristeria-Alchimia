@@ -60,58 +60,45 @@ if(!empty($_SESSION["shopping_cart"])) {
     //printf("Error loading character set utf8: %s\n", $con->error);
     exit(1);
   }
+
   $orderedProducts = '<ul>' . "\n";
   foreach($_SESSION["shopping_cart"] as $key => $product) {
+    $query_ditta = "SELECT nome_ditta
+    FROM ditte, articoli, produzioni
+    WHERE articolo_produzione = '" . $product["id_articolo"] . "' AND ditta_produzione = id_ditta";
+
+    $query_linea = "SELECT nome_linea
+    FROM linee, articoli
+    WHERE id_linea = '" . $product["linea_articolo"] . "'";
+
+    $query_categoria = "SELECT nome_categoria
+    FROM categorie, articoli
+    WHERE '" . $product["categoria_articolo"] . "' = id_categoria";
     $orderedProducts .=
     '<li class="card_product">' . "\n" .
     '<img class="product_image" src="img/articoli/'.(file_exists("
-     img/articoli/".$product["id_articolo"].".jpg") ? $row["id_articolo"].'.jpg' : '0.jpg').'" alt="immagine a scopo presentazionale"/>'."\n" .
+     img/articoli/".$product["id_articolo"].".jpg") ? $product["id_articolo"].'.jpg' : '0.jpg').'" alt="immagine a scopo presentazionale"/>'."\n" .
       '<div class="product_description">' . "\n" .
-        '<h3 class="product_title">' . $product["nome_articolo"] . '</h3 class="product_title">' . "\n" .
+        '<h3 class="product_title">' . $product["nome_articolo"] . '</h3>' . "\n" .
         '<span class="product_manufacturer">' .
-           $conn->connection->query("SELECT nome_ditta
-           FROM ditte, articoli, produzioni
-           WHERE" . $row["id_articolo"] . " = articolo_produzione AND ditta_produzione = id_ditta").'</span>' . "\n" .
+           mysqli_query($conn->connection, $query_ditta)->fetch_assoc()['nome_ditta'] . '</span>' . "\n" .
         '<span class="product_line">' . 'Linea' .
-          $linea = $conn->connection->query("SELECT nome_linea
-          FROM linee, articoli
-          WHERE" . $row["linea_articolo"] . " = id_linea") .'</span>' . "\n" .
+          $linea = mysqli_query($conn->connection, $query_linea)->fetch_assoc()['nome_linea'] .'</span>' . "\n" .
         '<div class="product_tags">' . "\n" .
             '<span class="' .
-            $categoria = $conn->connection->query("SELECT nome_categoria
-            FROM categorie, articoli
-            WHERE" . $row["categoria_articolo"] . " = id_categoria") . '">' . $categoria . '</span>' . "\n" .
+            $categoria = mysqli_query($conn->connection, $query_categoria)->fetch_assoc()['nome_categoria'] . '">' . $categoria . '</span>' . "\n" .
             '<span class="' . $linea . '">' . $linea . '</span>' . "\n" .
         '</div>' . "\n" .
-        '<span class="product_manufacturer">Prezzo: ' . $product["prezzo_articolo"] . ' &euro;</span>' . "\n" .
+        /*'<span class="product_manufacturer">Prezzo: ' . $product["prezzo_articolo"] . ' &euro;</span>' . "\n" .*/
       '</div>' . "\n" .
     '</li>' .  "\n" .
-    '<span class="product_manufacturer other">Quantit&agrave;: ' . $product["quantita"] . '</span>' . "\n" .
-    '<span class="product_price other">Totale: ' . number_format($product["quantita"] * $product["prezzo_articolo"], 2) . ' &euro;</span>' . "\n" .
+  /*  '<span class="other">Quantit&agrave;: ' . $product["quantita"] . '</span>' . "\n" .
+    '<span class="other">Totale: ' . number_format($product["quantita"] * $product["prezzo_articolo"], 2) . ' &euro;</span>' . "\n" .
     '<span>' . '<a href="carrello.php?action=delete&id_articolo=' . $product["id_articolo"] . '">' . "\n" .
-    '<button class="button">Rimuovi</button>' . "\n" . '</a></span>' . "\n";
+    '<button class="button">Rimuovi</button>' . "\n" . '</a></span>' . "\n";*/
     $total += $product["quantita"] * $product["prezzo_articolo"];
   }
   $conn->closeConnection();
-/*
-<li class="card_product">
-
-  <img class="product_image"src="img/products/small_img/helan_linea_bimbi_amido_di_riso_min.jpg" alt="immagine linea bimbi amido di riso di Helan"/>
-
-  <div class="product_description"> <!-- TODO : sarebbe da rendere un p, ma se metto p succede un casino -->
-    <h3 class="product_title">Amido di riso</h3>
-    <span class="product_manufacturer">Helan</span>
-    <span class="product_line">Linea bimbi</span>
-
-      <div class="product_tags">    <!-- TODO : trovare soluzione semantica (l'ideale sarebbe togliere il blocco) -->
-        <span class="cosmetici">cosmetici</span>
-        <span class="bimbi">bimbi</span>
-      </div>
-      <span class="product_price">10,50 &euro;</span>
-
-  </div>
-</li>
-*/
 
   $orderedProducts .= '</ul>' . '<span class="product_price" id="totale">Totale carrello: ' .  number_format($total, 2) . ' &euro;</span>'. "\n";
 
@@ -123,6 +110,6 @@ if(!empty($_SESSION["shopping_cart"])) {
   $orderedProducts = '<p id="emptyCart">Il tuo carrello e\' vuoto: consulta la pagina dei nostri <a href= "articoli.php">prodotti</a>,
   potremmo avere qualcosa che fa per te!<p>';
 }
-$pagina = str_replace("%ORDERS%", $orderedProducts, $pagina);
+$pagina = str_replace("%ORDERS%", $query_ditta, $pagina);
 echo $pagina;
 ?>
