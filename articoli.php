@@ -21,9 +21,10 @@
   $opt_sesso = '<label for="sesso">Sesso</label>' . "\n" .
                 '<select name="sesso" id="sesso">' . "\n" .
                 '<option selected value="none">Seleziona filtro</option>' . "\n" .
+                '<option value="Per bimbi">Bimbo</option>' . "\n" .
                 '<option value="Unisex">Unisex</option>' . "\n" .
-                '<option value="Per lei">Per lei</option>' . "\n" .
-                '<option value="Per lui">Per lui</option>' . "\n" .'</select>' . "\n";
+                '<option value="Per lei">Donna</option>' . "\n" .
+                '<option value="Per lui">Uomo</option>' . "\n" .'</select>' . "\n";
 
   /*-------------menu a tendina categoria---------------*/
   $opt_categoria = '<label for="categoria">Categoria</label>' . "\n" .
