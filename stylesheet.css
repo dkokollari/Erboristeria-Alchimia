@@ -1179,6 +1179,11 @@ background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 100%);
       body {
         margin-top: 20em;
       }
+      #title {
+        font-size: 10em;
+        top: 20px;
+        width: 100%;
+      }
       #container_te_e_infusi #header_image {
         background-image: url(img/home_background.jpg);
       }
@@ -1268,9 +1273,9 @@ background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 100%);
         #header_image {
           top: -10em;
         }
-        #title {
+        /* #title {
           top: 0em;
-        }
+        } */
 
 }
                         /*        DESKTOP MODE HEADER          */
@@ -1309,9 +1314,5 @@ background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 100%);
         top: -300px;
         height: 40em;
       }
-      #title {
-        font-size: 11em;
-        top: 20px;
 
-      }
 }
