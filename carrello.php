@@ -61,37 +61,40 @@ if(!empty($_SESSION["shopping_cart"])) {
     exit(1);
   }
 
+
   $orderedProducts = '<ul>' . "\n";
   foreach($_SESSION["shopping_cart"] as $key => $product) {
-    $query_ditta = "SELECT nome_ditta
-    FROM ditte, articoli, produzioni
-    WHERE articolo_produzione = '" . $product["id_articolo"] . "' AND ditta_produzione = id_ditta";
 
-    $query_linea = "SELECT nome_linea
-    FROM linee, articoli
-    WHERE id_linea = '" . $product["linea_articolo"] . "'";
+    $query = "SELECT nome_articolo, prezzo_articolo, sesso_target, nome_ditta, nome_linea, nome_categoria
+    FROM articoli, ditte, produzioni, linee, categorie
+    WHERE  id_articolo = '" . $product["id_articolo"] . "' AND articolo_produzione = id_articolo AND ditta_produzione = id_ditta
+    AND id_linea = linea_articolo AND categoria_articolo = id_categoria";
+    $result = mysqli_query($conn->connection, $query);
+    $row = '';
+    if($result) { /*brutto if .... non ce l'else!!!!!!!!!!!!!!*/
+      $row = $result->fetch_assoc();
+    }/* else {
+      printf("Error: %s\n", mysqli_error($conn->connection));
+      break;
+    }*/
 
-    $query_categoria = "SELECT nome_categoria
-    FROM categorie, articoli
-    WHERE '" . $product["categoria_articolo"] . "' = id_categoria";
     $orderedProducts .=
     '<li class="card_product">' . "\n" .
     '<img class="product_image" src="img/articoli/'.(file_exists("
      img/articoli/".$product["id_articolo"].".jpg") ? $product["id_articolo"].'.jpg' : '0.jpg').'" alt="immagine a scopo presentazionale"/>'."\n" .
       '<div class="product_description">' . "\n" .
-        '<h3 class="product_title">' . $product["nome_articolo"] . '</h3>' . "\n" .
-        '<span class="product_manufacturer">' .
-           mysqli_query($conn->connection, $query_ditta)->fetch_assoc()['nome_ditta'] . '</span>' . "\n" .
-        '<span class="product_line">' . 'Linea' .
-          $linea = mysqli_query($conn->connection, $query_linea)->fetch_assoc()['nome_linea'] .'</span>' . "\n" .
+        '<h3 class="product_title">' . $row["nome_articolo"] . '</h3>' . "\n" .
+        '<span class="product_manufacturer">' . $row["nome_ditta"]
+            . '</span>' . "\n" .
+        '<span class="product_line">' . 'Linea ' . $row["nome_linea"]
+           .'</span>' . "\n" .
         '<div class="product_tags">' . "\n" .
-            '<span class="' .
-            $categoria = mysqli_query($conn->connection, $query_categoria)->fetch_assoc()['nome_categoria'] . '">' . $categoria . '</span>' . "\n" .
-            '<span class="' . $linea . '">' . $linea . '</span>' . "\n" .
+            '<span class="' . $row["nome_categoria"] . '">' . $row["nome_categoria"] . '</span>' . "\n" .
+            '<span class="' . $row["sesso_target"] . '">' . $row["sesso_target"] . '</span>' . "\n" .
         '</div>' . "\n" .
-        /*'<span class="product_manufacturer">Prezzo: ' . $product["prezzo_articolo"] . ' &euro;</span>' . "\n" .*/
+        '<span class="product_price">Prezzo: ' . $row["prezzo_articolo"] . ' &euro;</span>' . "\n" .
       '</div>' . "\n" .
-    '</li>' .  "\n" .
+    '</li>' .  "\n";
   /*  '<span class="other">Quantit&agrave;: ' . $product["quantita"] . '</span>' . "\n" .
     '<span class="other">Totale: ' . number_format($product["quantita"] * $product["prezzo_articolo"], 2) . ' &euro;</span>' . "\n" .
     '<span>' . '<a href="carrello.php?action=delete&id_articolo=' . $product["id_articolo"] . '">' . "\n" .
@@ -110,6 +113,6 @@ if(!empty($_SESSION["shopping_cart"])) {
   $orderedProducts = '<p id="emptyCart">Il tuo carrello e\' vuoto: consulta la pagina dei nostri <a href= "articoli.php">prodotti</a>,
   potremmo avere qualcosa che fa per te!<p>';
 }
-$pagina = str_replace("%ORDERS%", $query_ditta, $pagina);
+$pagina = str_replace("%ORDERS%", $orderedProducts, $pagina);
 echo $pagina;
 ?>
