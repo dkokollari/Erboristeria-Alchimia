@@ -902,6 +902,7 @@ background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 100%);
   margin-right: 0; */
 }
 #body_scheda_prodotto #content .desc_breve {
+  text-align: center;
   font-size: 1em;
   padding:1.8em;
   color: white;
