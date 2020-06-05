@@ -1176,14 +1176,16 @@ background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 100%);
                         /*        TABLET MODE HEADER          */
 
 @media screen and (min-width:700px)   {
-
+      body {
+        margin-top: 20em;
+      }
       #container_te_e_infusi #header_image {
         background-image: url(img/home_background.jpg);
       }
       #container_prodotti #header_image {
         background-image: url(img/prodotti_background.jpg);
       }
-      body {
+      #body_scheda_prodotto {
         margin-top: 24em;
       }
       #body_scheda_prodotto .container #content {
@@ -1282,7 +1284,7 @@ background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 100%);
         box-shadow: 0 3px 6px rgba(0,0,0,0.10), 0 3px 6px rgba(0,0,0,0.17);
       }
 
-      .container, #header_image, body #container_scheda_prodotto #immagine_prodotto, #title, body #footer {
+      .container, #header_image, body #container_scheda_prodotto #immagine_prodotto, #immagine_prodotto, #title, body #footer {
               width: 1025px;
         }
 
