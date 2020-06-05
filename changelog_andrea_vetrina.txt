@@ -30,7 +30,10 @@ CHANGELOG 2 JUNE AFTERNOON
 - added tags (in the worst possible way)
 CHANGELOG 3 JUNE MORNING
 - fixed header in prodotti.html
-
+CHANGELOG 5 JUNE MORNING
+- moved @media styles at the bottom to make them override previous rules
+- fixed header for desktop and tablet
+- changed side menu translate behaviour (menu is created -66vw left and THEN moved)
 
 TODO:
 - rework topbar

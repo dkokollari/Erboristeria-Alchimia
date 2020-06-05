@@ -241,323 +241,6 @@ margin:0.7em auto 0.7em auto;
   font-size: 0.7em;
 }
 
-                                  /*   ----------------  MOBILE   ------------------   */
-
-@media screen and (max-width:699px) {
-              #container_te_e_infusi #header_image {
-                background-image: url(img/home_background_mobile.jpg);
-              }
-              #container_prodotti #header_image {
-                background-image: url(img/prodotti_background_mobile.jpg);
-              }
-              #close_menu {
-                margin:auto;
-              }
-              #menu .menu_btn {
-               height: 3em;
-               width: 3em;
-               background-size: contain;
-               background-image: url(icons/cancel.svg);
-               background-repeat: no-repeat;
-               cursor: pointer;
-             }
-             #menu {
-              top:0;
-              z-index: 5;
-              position: fixed;
-              opacity: 1;
-              width: 65vw;
-              height: 100vh;
-              background-color: white;
-              transform: translateX(-66vw);
-              transition: all 0.5s ease;
-            }
-            #menu.showmenu {
-              transform: translateX(0vw);
-              transition: all 0.5s ease;
-            }
-            #right-of-menu {
-              top: 0;
-              position: fixed;
-              opacity: 0;
-              width: 100vw;
-              height: 100vh;
-              z-index: 4;
-              background-color: black;
-              transform: translateX(-100vw);
-              transition: opacity 0.2s ease;
-            }
-            #right-of-menu.hidemenu {
-              transform: translateX(0);
-              opacity: 0.5;
-            }
-
-            #menu .menu_btn {
-              margin-left: auto;
-              margin-right: auto;
-            }
-
-            #menu  .menu_btn  img{
-              width: 100%;
-              height: 100%;
-              cursor: pointer;
-            }
-
-            #menu ul li a{
-              font-size: 1.1em;
-              line-height: 2.5em;
-              margin: auto;
-              display: block;
-              width: 85%;
-              /* border: 2px solid var(--yellow-dark); */
-              border-radius: 7px;
-              background-color: var(--yellow-light);
-              box-shadow: 0 3px 6px rgba(0,0,0,0.10), 0 3px 6px rgba(0,0,0,0.17);
-            }
-            #menu ul .selected_page {
-              color: var(--grey-light);
-            }
-            #menu_icon {
-              /* position: fixed; */
-              top: 0;
-              /* z-index: 3;
-              color: white;
-              font-size: 2.5em;
-              line-height: 1.6em; */
-              margin-left: 0.2em;
-              /* text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
-              cursor: pointer; */
-            }
-            #menu_icon.top_icon, #cart_icon.top_icon {
-              position: fixed;
-              /* top: 0; */
-              z-index: 3;
-              color: white;
-              font-size: 2.5em;
-              line-height: 1.6em;
-              /* margin-left: 0.2em; */
-              text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
-              cursor: pointer;
-            }
-            #cart_icon {
-              top: 0;
-              right: 0;
-              margin-right: 0.2em;
-            }
-            #container_informazioni #topbar:before {
-              background-image: url(img/informazioni_background.jpg);
-            }
-
-            #container_te_e_infusi #topbar:before {
-              background-image: url(img/home_background_mobile.jpg);
-            }
-            /*  TODO: remember to reduce image size for loading time and performance*/
-            #container_la_mia_storia #topbar:before {
-              background-image: url(img/la_mia_storia_background.jpg);
-            }
-            #container_prodotti #topbar:before {
-              background-image: url(img/prodotti_background_mobile.jpg);
-            }
-
-            #topbar:before {              /* necessary element to correctly apply filter:brightness() only to the image, not the text */
-              content: "";
-              background-size: cover;
-              background-position: 0 -10em;
-              background-repeat: no-repeat;
-              filter: brightness(0.7);
-              position: absolute;
-              top: 0;
-              left: 0;
-              width: 100%;
-              height: 100%;
-            }
-
-            #topbar {
-              width: 100vw;
-              height: 4em;
-              top: 0;
-              position: fixed;
-              z-index: -2;
-            }
-            #topbar_title {
-              padding-top: 0;
-              background-color: rgba(0,0,0,0.3);
-              text-transform: capitalize;
-              font-size: 2.5em;
-              padding-left: 1.5em;
-              line-height: 1.6em;
-              letter-spacing: 0.06em;
-              font-family: 'Poppins', sans-serif;
-              font-weight: 300;
-              opacity: 0;
-              transition: opacity 0.6s ease;
-              text-align: left;       /* overwrite h1 property */
-              position: static;       /* overwrite h1 property */
-              text-shadow: none;      /* overwrite h1 property */
-              position: relative;
-              z-index: 2;
-            }
-            #topbar_title.nopacity{
-              opacity: 1;
-            }
-            h1 {
-              font-size: 6em;
-              /* line-height: 75vw; */
-              top:0;
-              padding-top:1em;
-            }
-            #content {
-              margin-top: 20em;
-            }
-            #footer {
-                width: 100%;
-            }
-
-            /* #footer li > * {
-            padding: 0.1em 0.3em 0.1em 0.3em;
-            } */
-
-}
-
-
-
-                        /*        TABLET MODE HEADER          */
-
-@media screen and (min-width:700px)   {
-
-      #container_te_e_infusi #header_image {
-        background-image: url(img/home_background.jpg);
-      }
-      #container_prodotti #header_image {
-        background-image: url(img/prodotti_background.jpg);
-      }
-      body {
-        margin-top: 10em;
-      }
-
-      #right-of-menu, #menu_icon, .menu_btn,#menu li.menu_btn, #topbar, #menu button:first-child {
-         display: none;
-       }
-       .container {
-         width:100vw;
-       }
-
-       #content {
-         margin-top: 0;
-       }
-       #menu {
-         z-index: 5;
-         height: 2.8em;
-         margin-top:0;
-         position: sticky;
-         top:0;
-         background-color: var(--yellow-light);
-         transform: translateX(0);
-         text-align: center;
-       }
-       #menu ul {
-         text-align: center;
-         display: flex;
-         height: 100%;
-       }
-       #menu li {
-         display: flex;
-         justify-content: center;
-         color: var(--grey-dark);
-         flex-grow: 1;
-         margin: auto;
-         height: 100%;
-       }
-       #menu li > * {
-         margin: auto;
-         color: var(--grey-dark);
-       }
-       #menu li > a {
-         border-bottom: var(--grey-dark) dashed;
-       }
-       #menu .selected_page {
-         background-color: var(--yellow-main);
-       }
-       /*  for those that use the tablet with a mouse :) */
-       #menu li a:hover {
-         /* color: var(--yellow-dark); */
-         /* border-bottom: var(--yellow-dark) dashed; */
-         border-bottom: var(--grey-dark) solid;
-       }
-       #footer {
-           width: 100%;
-       }
-       body #content {
-         margin-top: 0;
-         min-height: 90%;
-       }
-       /* #footer li > * {
-       padding: 0.5em;
-       } */
-       #footer li{
-         width: 7em;
-         /* height: 1.8em; */
-         margin-left: 1em;
-         margin-right: 1em;
-         margin-top: 0.2em;
-         margin-bottom: 0.2em;
-       }
-}
-
-@media screen and (min-width:700px) and (max-width:1024px) {
-
-        #header_image {
-          top: -10em;
-        }
-        h1 {
-          top: 0em;
-        }
-
-}
-                        /*        DESKTOP MODE HEADER          */
-
-/* added "body" to almost every rule to increase specificity, but instead I should just create a different @media for mobile */
-
-@media screen and (min-width: 1025px) {
-
-      body{
-        margin-top: 250px;
-      }
-      .container {
-        margin: 0 auto 0 auto;
-        box-shadow: 0 3px 6px rgba(0,0,0,0.10), 0 3px 6px rgba(0,0,0,0.17);
-      }
-
-      .container, #header_image, h1, body #footer {
-              width: 1001px;
-        }
-
-      #informazioni #orari li {
-        display: block;
-        text-align: center;
-        margin-left: 30%;
-      }
-
-      #informazioni li p {
-          float: left;
-      }
-
-      #informazioni .giornoSett {
-        min-width: 20%;
-        float: left;
-      }
-
-      #header_image {
-        top: -300px;
-        height: 40em;
-      }
-      h1 {
-        font-size: 11em;
-        top: 20px;
-
-      }
-}
-
 
                             /*     CONSIGLI DI MARIKA       */
 
@@ -1176,6 +859,7 @@ background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 100%);
   margin-right: 0;
   margin-bottom: 0.7em;
   font-size: 1.8em;
+  color: var(--green-main);
 }
 #body_scheda_prodotto #content h3 {
   /* margin-left: 2rem;
@@ -1228,8 +912,12 @@ background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 100%);
 }
 #body_scheda_prodotto .product_tags > span{
 }
-
-/* TODO /* WARNING: /* FIXME:
+#body_scheda_prodotto #content .prezzo {
+  font-size: 2em;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+/* TODO /* WARNIN2G: /* FIXME:
 repeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeat */
 
 #immagine_prodotto{
@@ -1284,10 +972,335 @@ background: rgb(0,0,0);
 background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 100%);
 }
 
-.container  #content{
+.container  #content {
   background: rgb(245,245,245);
   /* background: linear-gradient(180deg, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 0, rgba(245,245,245,1) 2em); */
   /* padding: 2em; */
   /* margin-top: 0; */
   /* background-color: red; */
+}
+
+
+
+
+                                  /*   ----------------  MOBILE   ------------------   */
+
+@media screen and (max-width:699px) {
+              #container_te_e_infusi #header_image {
+                background-image: url(img/home_background_mobile.jpg);
+              }
+              #container_prodotti #header_image {
+                background-image: url(img/prodotti_background_mobile.jpg);
+              }
+              #close_menu {
+                margin:auto;
+              }
+              #menu .menu_btn {
+               height: 3em;
+               width: 3em;
+               background-size: contain;
+               background-image: url(icons/cancel.svg);
+               background-repeat: no-repeat;
+               cursor: pointer;
+             }
+             #menu {
+              top:0;
+              left: -66vw;
+              z-index: 5;
+              position: fixed;
+              opacity: 1;
+              width: 65vw;
+              height: 100vh;
+              background-color: white;
+              /* transform: translateX(-66vw); */
+              transition: all 0.5s ease;
+            }
+            #menu.showmenu {
+              transform: translateX(66vw);
+              transition: all 0.5s ease;
+            }
+            #right-of-menu {
+              top: 0;
+              position: fixed;
+              opacity: 0;
+              width: 100vw;
+              height: 100vh;
+              z-index: 4;
+              background-color: black;
+              transform: translateX(-100vw);
+              transition: opacity 0.2s ease;
+            }
+            #right-of-menu.hidemenu {
+              transform: translateX(0);
+              opacity: 0.5;
+            }
+
+            #menu .menu_btn {
+              margin-left: auto;
+              margin-right: auto;
+            }
+
+            #menu  .menu_btn  img{
+              width: 100%;
+              height: 100%;
+              cursor: pointer;
+            }
+
+            #menu ul li a{
+              font-size: 1.1em;
+              line-height: 2.5em;
+              margin: auto;
+              display: block;
+              width: 85%;
+              /* border: 2px solid var(--yellow-dark); */
+              border-radius: 7px;
+              background-color: var(--yellow-light);
+              box-shadow: 0 3px 6px rgba(0,0,0,0.10), 0 3px 6px rgba(0,0,0,0.17);
+            }
+            #menu ul .selected_page {
+              color: var(--grey-light);
+            }
+            #menu_icon {
+              /* position: fixed; */
+              top: 0;
+              /* z-index: 3;
+              color: white;
+              font-size: 2.5em;
+              line-height: 1.6em; */
+              margin-left: 0.2em;
+              /* text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
+              cursor: pointer; */
+            }
+            #menu_icon.top_icon, #cart_icon.top_icon {
+              position: fixed;
+              /* top: 0; */
+              z-index: 3;
+              color: white;
+              font-size: 2.5em;
+              line-height: 1.6em;
+              /* margin-left: 0.2em; */
+              text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
+              cursor: pointer;
+            }
+            #cart_icon {
+              top: 0;
+              right: 0;
+              margin-right: 0.2em;
+            }
+            #container_informazioni #topbar:before {
+              background-image: url(img/informazioni_background.jpg);
+            }
+
+            #container_te_e_infusi #topbar:before {
+              background-image: url(img/home_background_mobile.jpg);
+            }
+            /*  TODO: remember to reduce image size for loading time and performance*/
+            #container_la_mia_storia #topbar:before {
+              background-image: url(img/la_mia_storia_background.jpg);
+            }
+            #container_prodotti #topbar:before {
+              background-image: url(img/prodotti_background_mobile.jpg);
+            }
+
+            #topbar:before {              /* necessary element to correctly apply filter:brightness() only to the image, not the text */
+              content: "";
+              background-size: cover;
+              background-position: 0 -10em;
+              background-repeat: no-repeat;
+              filter: brightness(0.7);
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+            }
+
+            #topbar {
+              width: 100vw;
+              height: 4em;
+              top: 0;
+              position: fixed;
+              z-index: -2;
+            }
+            #topbar_title {
+              padding-top: 0;
+              background-color: rgba(0,0,0,0.3);
+              text-transform: capitalize;
+              font-size: 2.5em;
+              padding-left: 1.5em;
+              line-height: 1.6em;
+              letter-spacing: 0.06em;
+              font-family: 'Poppins', sans-serif;
+              font-weight: 300;
+              opacity: 0;
+              transition: opacity 0.6s ease;
+              text-align: left;       /* overwrite h1 property */
+              position: static;       /* overwrite h1 property */
+              text-shadow: none;      /* overwrite h1 property */
+              position: relative;
+              z-index: 2;
+            }
+            #topbar_title.nopacity{
+              opacity: 1;
+            }
+            h1 {
+              font-size: 6em;
+              /* line-height: 75vw; */
+              top:0;
+              padding-top:1em;
+            }
+            #content {
+              margin-top: 20em;
+            }
+            #footer {
+                width: 100%;
+            }
+
+            /* #footer li > * {
+            padding: 0.1em 0.3em 0.1em 0.3em;
+            } */
+
+}
+
+
+
+                        /*        TABLET MODE HEADER          */
+
+@media screen and (min-width:700px)   {
+
+      #container_te_e_infusi #header_image {
+        background-image: url(img/home_background.jpg);
+      }
+      #container_prodotti #header_image {
+        background-image: url(img/prodotti_background.jpg);
+      }
+      body {
+        margin-top: 24em;
+      }
+      #body_scheda_prodotto .container #content {
+        margin-top: 0;
+        background: rgb(245,245,245);
+      }
+
+      #right-of-menu, #menu_icon, .menu_btn,#menu li.menu_btn, #topbar_container_shadow, #menu button:first-child , #cart_icon{
+         display: none;
+       }
+       .container {
+         width:100vw;
+       }
+
+       #content {
+         margin-top: 0;
+       }
+       #menu {
+         z-index: 5;
+         height: 2.8em;
+         margin-top:0;
+         position: sticky;
+         top:0;
+         background-color: var(--yellow-light);
+         transform: translateX(0);
+         text-align: center;
+       }
+       #menu ul {
+         text-align: center;
+         display: flex;
+         height: 100%;
+       }
+       #menu li {
+         display: flex;
+         justify-content: center;
+         color: var(--grey-dark);
+         flex-grow: 1;
+         margin: auto;
+         height: 100%;
+       }
+       #menu li > * {
+         margin: auto;
+         color: var(--grey-dark);
+       }
+       #menu li > a {
+         border-bottom: var(--grey-dark) dashed;
+       }
+       #menu .selected_page {
+         background-color: var(--yellow-main);
+       }
+       /*  for those that use the tablet with a mouse :) */
+       #menu li a:hover {
+         /* color: var(--yellow-dark); */
+         /* border-bottom: var(--yellow-dark) dashed; */
+         border-bottom: var(--grey-dark) solid;
+       }
+       #footer {
+           width: 100%;
+       }
+       body #content {
+         margin-top: 0;
+         padding-top: 1em;
+         min-height: 90%;
+       }
+       /* #footer li > * {
+       padding: 0.5em;
+       } */
+       #footer li{
+         width: 7em;
+         /* height: 1.8em; */
+         margin-left: 1em;
+         margin-right: 1em;
+         margin-top: 0.2em;
+         margin-bottom: 0.2em;
+       }
+}
+
+@media screen and (min-width:700px) and (max-width:1024px) {
+
+        #header_image {
+          top: -10em;
+        }
+        h1 {
+          top: 0em;
+        }
+
+}
+                        /*        DESKTOP MODE HEADER          */
+
+/* added "body" to almost every rule to increase specificity, but instead I should just create a different @media for mobile */
+
+@media screen and (min-width: 1025px) {
+
+      .container {
+        margin: 0 auto 0 auto;
+        box-shadow: 0 3px 6px rgba(0,0,0,0.10), 0 3px 6px rgba(0,0,0,0.17);
+      }
+
+      .container, #header_image, body #container_scheda_prodotto #immagine_prodotto, h1, body #footer {
+              width: 1025px;
+        }
+
+
+
+      #informazioni #orari li {
+        display: block;
+        text-align: center;
+        margin-left: 30%;
+      }
+
+      #informazioni li p {
+          float: left;
+      }
+
+      #informazioni .giornoSett {
+        min-width: 20%;
+        float: left;
+      }
+
+      #header_image {
+        top: -300px;
+        height: 40em;
+      }
+      h1 {
+        font-size: 11em;
+        top: 20px;
+
+      }
 }
