@@ -1154,7 +1154,7 @@ background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 100%);
               opacity: 1;
             }
             #title {
-              font-size: 6em;
+              font-size: 7em;
               /* line-height: 75vw; */
               top:0;
               margin-top:8rem;
@@ -1183,7 +1183,7 @@ background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 100%);
       }
       #title {
         font-size: 10em;
-        top: 20px;
+        top: 5rem;
         width: 100%;
       }
       #container_te_e_infusi #header_image {
