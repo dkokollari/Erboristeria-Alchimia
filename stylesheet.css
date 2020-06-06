@@ -965,7 +965,7 @@ strong {
 #container_prodotti .card_product .product_line,
 #container_prodotti .card_product .product_manufacturer,
 #container_prodotti .card_product .product_bottom{
-  margin: 0;
+  margin-left: 7em;
   line-height: 1em;
 }
 #container_prodotti .card_product .product_image {
@@ -1003,8 +1003,7 @@ strong {
   grid-area: line;
   font-weight: lighter;
   font-style: italic;
-  font-size: 0.8em;
-  /* font-size: 0.9em; */
+  font-size: 0.9em; 
 }
 #container_prodotti .card_product .product_description {
   margin:0 0 0 6.5em;
@@ -1016,25 +1015,26 @@ strong {
   letter-spacing: 0.1em;
   align-self: end;
   justify-self: start;
-  /* margin-bottom: 1.6em; */
+  margin-bottom: 0.5em;
   text-transform: uppercase;
   font-weight: bold;
   color: #fff;
   display: inline;
   position: absolute;
-  bottom: 0;
+  bottom: 0.5em; /*/* WARNING: SIA QUESTO CHE IL MARGIN ALTRIMENTI FA SKIFO, NON SO PERCHÈ! */*/
   line-height: 1.8em;
 
 }
-#container_prodotti .card_product .product_tags span {
+#container_prodotti .card_product .product_tags {
   border-radius: 10px;
   /* margin-right: 0.2em; */
   padding: 0.2em 0.5em 0.2em 0.5em;
 }
-#container_prodotti .card_product .product_tags span.Cosmetico {
+#container_prodotti .card_product .product_tags.Cosmetico {
   background-color: #ff9557;
+  margin-left: 5em;
 }
-#container_prodotti .card_product .product_tags span.Uomo, #container_prodotti .card_product .product_tags span.Unisex {
+#container_prodotti .card_product .product_tags.Uomo, #container_prodotti .card_product .product_tags.Unisex {
   background-color: #005377;
 }
 #container_prodotti .card_product .product_tags span.Donna {
@@ -1043,7 +1043,7 @@ strong {
 #container_prodotti .card_product .product_tags span.casa {
   background-color: #E39695;
 }
-#container_prodotti .card_product .product_tags span.Bimbo{
+#container_prodotti .card_product .product_tags.Bimbo{
   background-color: #06a77d;
 }
 #container_prodotti .card_product .product_price {
@@ -1062,8 +1062,8 @@ strong {
   /* bottom:0; */
   display: inline;
   position: absolute;
-  bottom: 0;
-  right: 0;
+  bottom: 0.5em;
+  right: 0.5em;
 }
 
 /* SCHEDA PRODOTTO */
@@ -1250,11 +1250,23 @@ background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 100%);
   width: 50%;
 }
 
-ul {
+
+
+#container_prodotti ul {
   list-style: none;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 2em;
+}
+
+#container_prodotti.recap_product ul {
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 1em;
+}
+
+#container_prodotti .recap_product ul li {
+  border-right: 2px solid #599cc1;
+  padding: 5px 14px 5px 10px;
 }
 
 .other {
