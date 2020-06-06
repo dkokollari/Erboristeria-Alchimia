@@ -94,8 +94,8 @@ if(!empty($_SESSION["shopping_cart"])) {
       '</div>' . "\n" .
       '<ul class="recap_product">' . "\n" .
           '<li>Quantit&agrave; : ' . $product["quantita"] . '</li>' . "\n" .
-          '<li>Totale: ' . number_format($product["quantita"] * $product["prezzo_articolo"], 2) . ' &euro;</li>' . "\n" .
-          '<li class="no_border-right">' . '<a href="carrello.php?action=delete&id_articolo=' . $product["id_articolo"] . '">' . "\n" .
+          '<li>Totale : ' . number_format($product["quantita"] * $product["prezzo_articolo"], 2) . ' &euro;</li>' . "\n" .
+          '<li>' . '<a href="carrello.php?action=delete&id_articolo=' . $product["id_articolo"] . '">' . "\n" .
           '<button class="button">Rimuovi</button>' . "\n" . '</a></li>' . "\n" .
       '</ul>'. "\n" .
     '</li>' .  "\n";
@@ -103,7 +103,7 @@ if(!empty($_SESSION["shopping_cart"])) {
   }
   $conn->closeConnection();
 
-  $orderedProducts .= '</ul>' . '<span class="product_price" id="totale">Totale carrello: ' .  number_format($total, 2) . ' &euro;</span>'. "\n";
+  $orderedProducts .= '</ul>' . '<span class="product_price">Totale carrello : ' .  number_format($total, 2) . ' &euro;</span>'. "\n";
 
   if(isset($_SESSION['shopping_cart'])
       && count($_SESSION['shopping_cart']) > 0) {

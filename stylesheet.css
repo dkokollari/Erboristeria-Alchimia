@@ -242,7 +242,7 @@ margin:0.7em auto 0.7em auto;
 
                                   /*   ----------------  MOBILE   ------------------   */
 
-@media screen and (max-width:699px) {
+@media screen and (max-width:750px) {
               #container_te_e_infusi #header_image {
                 background-image: url(img/home_background_mobile.jpg);
               }
@@ -394,13 +394,9 @@ margin:0.7em auto 0.7em auto;
                 width: 100%;
             }
 
-            #container_prodotti .card_product {
+            #container_prodotti .card_product, #container_prodotti ul ul.recap_product {
                margin-left: 1.2em;
                margin-right: 1.2em;
-            }
-
-            #container_prodotti ul {
-              display: block;
             }
 
             /* #footer li > * {
@@ -413,7 +409,7 @@ margin:0.7em auto 0.7em auto;
 
                         /*        TABLET MODE HEADER          */
 
-@media screen and (min-width:700px)   {
+@media screen and (min-width:750px)   {
 
       #container_te_e_infusi #header_image {
         background-image: url(img/home_background.jpg);
@@ -497,7 +493,7 @@ margin:0.7em auto 0.7em auto;
        }
 }
 
-@media screen and (min-width:700px) and (max-width:1024px) {
+@media screen and (min-width:750px) and (max-width:1024px) {
 
         #header_image {
           top: -10em;
@@ -1032,7 +1028,7 @@ strong {
 }
 #container_prodotti .card_product .product_tags.Cosmetico {
   background-color: #ff9557;
-  margin-left: 3rem;
+  margin-left: 3.5rem;
 }
 #container_prodotti .card_product .product_tags.Uomo, #container_prodotti .card_product .product_tags.Unisex {
   background-color: #005377;
@@ -1046,24 +1042,33 @@ strong {
 #container_prodotti .card_product .product_tags.Bimbo{
   background-color: #06a77d;
 }
-#container_prodotti .card_product .product_price {
+#container_prodotti span.product_price,
+#container_prodotti ul li.product_price { //prezzo totale
+
+  /* margin-right: 1em; */
+  font-size: 1.1em;  //* WARNING: Lho modificato io (Fouad) perche è troppo grande il font sui cellulari! */
+  margin:0;
+  /* margin-bottom: 1.1em; */
+  /* margin-right: 2em; */
+  line-height: 1em;
+  /* bottom:0; */
+  display: block;
+  text-align: center;
+  font-weight: bold;
+}
+#container_prodotti ul li.product_price { //prezzo singola card
   grid-area: price;
   text-align: right;
   justify-self:end;
   align-self: end;
-  /* margin-right: 1em; */
-  font-size: 1em;  //* WARNING: Lho modificato io (Fouad) perche è troppo grande il font sui cellulari! */
-  font-weight: bold;
-  margin:0;
-  /* margin-bottom: 1.1em; */
-  /* margin-right: 2em; */
-  float: right;
-  line-height: 1em;
-  /* bottom:0; */
-  display: inline;
   position: absolute;
+  display: inline;
   bottom: 0.5em;
   right: 0.5em;
+  float: right;
+}
+#container_prodotti span.product_price {
+  margin: 2em 0 0 2em;
 }
 
 /* SCHEDA PRODOTTO */
@@ -1217,14 +1222,13 @@ background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 100%);
 
 
 .button {
-  clear: both;
   background: #6394F8;
   color: white;
   text-align: center;
   padding: 0.1em;
   text-decoration: none;
-  display: block;
   border-radius: 3px;
+  margin: 0 25% 0 25%;
 }
 
 .button:visited, .button:active  {
@@ -1238,15 +1242,17 @@ background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 100%);
   color: white;
 }
 
-#totale {
+#totale { /*WARNING:  non mi prende il margin-top: !!!*/
   display: block;
   text-align: center;
+  margin-top: 3em;
 }
 
 #checkout {
   margin-left: 25%;
   margin-right: 25%;
-  margin-top: 1em;
+  margin-top: 3em;
+  display: block;
   width: 50%;
 }
 
@@ -1265,19 +1271,25 @@ background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 100%);
 
 #container_prodotti ul ul.recap_product  {
   display: flex;
+  align-items: center;
+  grid-template-columns: none;
+  grid-gap: 0;
 }
 
 #container_prodotti ul ul.recap_product li {
-  border-right: 2px solid #599cc1;
-  padding: 0em 0.7em 0em 0.7em;
+  text-align: center;
+  width: 33.3%;
+}
+
+#container_prodotti ul ul.recap_product  {
+  display: flex;
   align-items: center;
-  width: 30%;
+  grid-template-columns: none;
+  grid-gap: 0;
 }
 
-#container_prodotti ul ul.recap_product li.no_border-right {
-  border-right: none;
-}
-
-.other {
-  clear: both;
+@media screen and (max-width:750px) {
+  #container_prodotti ul {
+    display: block;
+  }
 }
