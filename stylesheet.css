@@ -965,7 +965,7 @@ strong {
 #container_prodotti .card_product .product_line,
 #container_prodotti .card_product .product_manufacturer,
 #container_prodotti .card_product .product_bottom{
-  margin-left: 7em;
+  margin-left: 6rem;
   line-height: 1em;
 }
 #container_prodotti .card_product .product_image {
@@ -1003,7 +1003,7 @@ strong {
   grid-area: line;
   font-weight: lighter;
   font-style: italic;
-  font-size: 0.9em; 
+  font-size: 0.8em;
 }
 #container_prodotti .card_product .product_description {
   margin:0 0 0 6.5em;
@@ -1032,7 +1032,7 @@ strong {
 }
 #container_prodotti .card_product .product_tags.Cosmetico {
   background-color: #ff9557;
-  margin-left: 5em;
+  margin-left: 3rem;
 }
 #container_prodotti .card_product .product_tags.Uomo, #container_prodotti .card_product .product_tags.Unisex {
   background-color: #005377;
@@ -1257,6 +1257,10 @@ background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 100%);
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 2em;
+}
+
+#container_prodotti li ul {
+  display: block;
 }
 
 #container_prodotti.recap_product ul {

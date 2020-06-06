@@ -94,13 +94,13 @@ if(!empty($_SESSION["shopping_cart"])) {
         '</div>' . "\n" .
         '<span class="product_price">' . $row["prezzo_articolo"] . ' &euro;</span>' . "\n" .
       '</div>' . "\n" .
-    '</li>' .  "\n" ; //.
-  /*  '<ul class="recap_product">' . "\n" .
+    '</li>' .  "\n" .
+    '<ul class="recap_product">' . "\n" .
     '<li>Quantit&agrave;: ' . $product["quantita"] . '</li>' . "\n" .
     '<li>Totale: ' . number_format($product["quantita"] * $product["prezzo_articolo"], 2) . ' &euro;</li>' . "\n" .
     '<li>' . '<a href="carrello.php?action=delete&id_articolo=' . $product["id_articolo"] . '">' . "\n" .
     '<button class="button">Rimuovi</button>' . "\n" . '</a></span>' . "\n" .
-    '</ul>'. "\n";*/
+    '</ul>'. "\n";
     $total += $product["quantita"] * $product["prezzo_articolo"];
   }
   $conn->closeConnection();
