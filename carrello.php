@@ -92,7 +92,7 @@ if(!empty($_SESSION["shopping_cart"])) {
             '<span class="' . $row["nome_categoria"] . '">' . $row["nome_categoria"] . '</span>' . "\n" .
             '<span class="' . $row["sesso_target"] . '">' . $row["sesso_target"] . '</span>' . "\n" .
         '</div>' . "\n" .
-        '<span class="product_price">Prezzo: ' . $row["prezzo_articolo"] . ' &euro;</span>' . "\n" .
+        '<span class="product_price">' . $row["prezzo_articolo"] . ' &euro;</span>' . "\n" .
       '</div>' . "\n" .
     '</li>' .  "\n";
   /*  '<span class="other">Quantit&agrave;: ' . $product["quantita"] . '</span>' . "\n" .
