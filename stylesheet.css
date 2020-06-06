@@ -1259,18 +1259,23 @@ background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 100%);
   grid-gap: 2em;
 }
 
-#container_prodotti li ul {
+#container_prodotti ul ul {
   display: block;
 }
 
-#container_prodotti.recap_product ul {
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 1em;
+#container_prodotti ul ul.recap_product  {
+  display: flex;
 }
 
-#container_prodotti .recap_product ul li {
+#container_prodotti ul ul.recap_product li {
   border-right: 2px solid #599cc1;
-  padding: 5px 14px 5px 10px;
+  padding: 0em 0.7em 0em 0.7em;
+  align-items: center;
+  width: 30%;
+}
+
+#container_prodotti ul ul.recap_product li.no_border-right {
+  border-right: none;
 }
 
 .other {

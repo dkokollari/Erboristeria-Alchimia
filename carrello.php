@@ -81,26 +81,24 @@ if(!empty($_SESSION["shopping_cart"])) {
     $orderedProducts .=
     '<li>' . "\n" .
       '<div class="card_product product_description">' . "\n" .
-      '<img class="product_image" src="img/articoli/'.(file_exists("
-       img/articoli/".$product["id_articolo"].".jpg") ? $product["id_articolo"].'.jpg' : '0.jpg').'" alt="immagine a scopo presentazionale"/>'."\n" .
-        '<h3 class="product_title">' . $row["nome_articolo"] . '</h3>' . "\n" .
-        '<span class="product_manufacturer">' . $row["nome_ditta"]
-            . '</span>' . "\n" .
-        '<span class="product_line">' . 'Linea ' . $row["nome_linea"]
-           .'</span>' . "\n" .
-        '<div class="product_tags">' . "\n" .
-            '<span class="' . $row["nome_categoria"] . '">' . $row["nome_categoria"] . '</span>' . "\n" .
-            '<span class="' . $row["sesso_target"] . '">' . $row["sesso_target"] . '</span>' . "\n" .
-        '</div>' . "\n" .
-        '<span class="product_price">' . $row["prezzo_articolo"] . ' &euro;</span>' . "\n" .
+          '<img class="product_image" src="img/articoli/'.(file_exists("
+           img/articoli/".$product["id_articolo"].".jpg") ? $product["id_articolo"].'.jpg' : '0.jpg').'" alt="immagine a scopo presentazionale"/>'."\n" .
+          '<h3 class="product_title">' . $row["nome_articolo"] . '</h3>' . "\n" .
+          '<ul>' . "\n" .
+              '<li class="product_manufacturer">' . $row["nome_ditta"] . '</li>' . "\n" .
+              '<li class="product_line">' . 'Linea ' . $row["nome_linea"] .'</li>' . "\n" .
+              '<li class="product_tags ' . $row["nome_categoria"] . '">' . $row["nome_categoria"] . '</li>' . "\n" .
+              '<li class="product_tags ' . $row["sesso_target"] . '">' . $row["sesso_target"] . '</li>' . "\n" .
+              '<li class="product_price">' . $row["prezzo_articolo"] . ' &euro;</li>' . "\n" .
+          '</ul>' . "\n" .
       '</div>' . "\n" .
-    '</li>' .  "\n" .
-    '<ul class="recap_product">' . "\n" .
-    '<li>Quantit&agrave;: ' . $product["quantita"] . '</li>' . "\n" .
-    '<li>Totale: ' . number_format($product["quantita"] * $product["prezzo_articolo"], 2) . ' &euro;</li>' . "\n" .
-    '<li>' . '<a href="carrello.php?action=delete&id_articolo=' . $product["id_articolo"] . '">' . "\n" .
-    '<button class="button">Rimuovi</button>' . "\n" . '</a></span>' . "\n" .
-    '</ul>'. "\n";
+      '<ul class="recap_product">' . "\n" .
+          '<li>Quantit&agrave; : ' . $product["quantita"] . '</li>' . "\n" .
+          '<li>Totale: ' . number_format($product["quantita"] * $product["prezzo_articolo"], 2) . ' &euro;</li>' . "\n" .
+          '<li class="no_border-right">' . '<a href="carrello.php?action=delete&id_articolo=' . $product["id_articolo"] . '">' . "\n" .
+          '<button class="button">Rimuovi</button>' . "\n" . '</a></li>' . "\n" .
+      '</ul>'. "\n" .
+    '</li>' .  "\n";
     $total += $product["quantita"] * $product["prezzo_articolo"];
   }
   $conn->closeConnection();
