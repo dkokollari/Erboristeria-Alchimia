@@ -37,7 +37,9 @@ CHANGELOG 5 JUNE MORNING
 - changed <h> behaviour in the product page
 - re-added brightness filter in non product pages
 - re-added title in non product pages
+- solved brightness problem in the topbar
+CHANGELOG 6 JUNE MORNING
+- added homepage
 
 TODO:
 - rework topbar
-- fix brightness topbar

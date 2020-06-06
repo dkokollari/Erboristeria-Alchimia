@@ -180,7 +180,19 @@ const immagine_prodotto = document.getElementById("immagine_prodotto");
                     /* adds an event listener to create the parallax effect */
 
 
-const marginTopEm = (document.getElementById("body_scheda_prodotto")) ? 320 : 256;
+var marginTopEm = calcVar();
+function calcVar() {
+  x = 256;
+  if(document.getElementById("body_scheda_prodotto")){
+    x = 320;
+  }
+  else if(document.getElementsByClassName("home").length > 0){
+    x = 544;
+  }
+  return x;
+}
+// console.log(marginTopEm);
+// console.log(document.getElementsByClassName("home").length);
 // window.addEventListener("DOMContentLoaded", calcMarginTop, false);
 
 window.addEventListener("DOMContentLoaded", scrollFixProdotto, false);
@@ -216,13 +228,30 @@ function scrollFixProdotto() {
 //   console.log(marginTopEm);
 // }
 // const marginTopEmProdotto = 256;
-window.addEventListener('scroll', showTopbar);
- function showTopbar() {
-    if (window.scrollY > marginTopEm) {
-      topbar.classList.add("visible_topbar")                        //controllare che gli vada bene usare STYLE (spoiler alert: NON VA BENE => DA CAMBIARE!!!!!!!!!!!!!!!!!)
-      topbarTitle.classList.add("nopacity");
-    } else {
-      topbar.classList.remove("visible_topbar")
-      topbarTitle.classList.remove("nopacity");
-    }
- }
+// window.addEventListener('scroll', showTopbar);
+//  function showTopbar() {
+//     if (window.scrollY > marginTopEm) {
+//       topbar.classList.add("visible_topbar")                        //controllare che gli vada bene usare STYLE (spoiler alert: NON VA BENE => DA CAMBIARE!!!!!!!!!!!!!!!!!)
+//       topbarTitle.classList.add("nopacity");
+//     } else {
+//       topbar.classList.remove("visible_topbar")
+//       topbarTitle.classList.remove("nopacity");
+//     }
+//  }
+
+const scopri = document.getElementById("scopri_il_sito");
+const title = document.getElementById("title");
+ window.addEventListener('scroll', showTopbar2);
+  function showTopbar2() {
+     if (window.scrollY > marginTopEm) {
+       topbar.classList.add("visible_topbar");
+       topbarTitle.classList.add("nopacity");
+       if(scopri) scopri.classList.add("hide_header_elements");
+       title.classList.add("hide_header_elements");
+     } else {
+       topbar.classList.remove("visible_topbar")
+       topbarTitle.classList.remove("nopacity");
+       if(scopri) scopri.classList.remove("hide_header_elements");
+       title.classList.remove("hide_header_elements");
+     }
+  }
