@@ -137,7 +137,7 @@ body:not(.show-focus-outlines) [tabindex]:focus {
 }
 #content h2, #body_scheda_prodotto #content h1 {
   text-transform: capitalize;
-  font-size: 1.9em;
+  font-size: 1.8em;
   letter-spacing: 0.1em;
   margin-left: 1.8rem;
   margin-right: 1.8rem;
@@ -753,11 +753,12 @@ strong {
   position: absolute;
   bottom: 0;
   right: 0;
+  color: var(--grey-dark);
 }
 
 /* SCHEDA PRODOTTO */
 
-#body_scheda_prodotto .add_to_cart_btn {
+#body_scheda_prodotto .classic_btn {
   display: block;
   margin: 0.5em auto 1em auto;
   padding: 0.5em 1em 0.4em 1em;
@@ -770,7 +771,7 @@ strong {
   transition: 0.5s ease;
   background-image: none;
 }
-#body_scheda_prodotto #container_scheda_prodotto .add_to_cart_btn:hover{
+#body_scheda_prodotto #container_scheda_prodotto .classic_btn:hover{
   transition: 0.5s ease;
   background-color: var(--green-main);
   color: rgba(245, 245, 245);
@@ -1336,7 +1337,7 @@ background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 100%);
   background: rgb(245,245,245);
   background: linear-gradient(180deg, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 3em, rgba(245,245,245,1) 8em);
 }
-#container_prodotti.home #content #home_title {
+#container_prodotti.home #content .home_subtitle {
   margin-top: 3rem;
   padding-top: 3em;
 }
@@ -1382,6 +1383,7 @@ z-index: -1; */
   text-align: left;
   margin-left: 1.5rem;
   pointer-events: none;
+  width: 90%;
 }
 #scopri_il_sito {
     top: 34em;
@@ -1403,10 +1405,11 @@ z-index: -1; */
     transition: background-color 0.5s ease;
     background-image: none;
     text-shadow: 0px 0px 6px rgba(0, 0, 0, 0.9);
+    -webkit-tap-highlight-color: transparent;
 
 }
 
-
+/* da migliorare */
 #scopri_il_sito:hover {
   transition: 0.5s ease;
   background-color:rgba(255,255,255,0.2);
@@ -1416,3 +1419,14 @@ z-index: -1; */
   opacity: 0;
   pointer-events: none;
 }
+
+
+#container_prodotti.home h3 {
+  text-align: left;
+  margin-bottom: 1em;
+  color: var(--grey-dark);
+}
+#container_prodotti.home p {
+  line-height: 1.8em;
+  margin-bottom:1em;
+  margin-top: 1em;
