@@ -137,8 +137,8 @@ h1 span {
   text-transform: capitalize;
   font-size: 2em;
   letter-spacing: 0.1em;
-  margin-left: 1.2em;
-  margin-right: 1.2em;
+  margin-left: 1.2rem;
+  margin-right: 1.2rem;
   font-weight: 300;
   text-align: center;
   color: var(--yellow-dark);
@@ -392,11 +392,6 @@ margin:0.7em auto 0.7em auto;
             }
             #footer {
                 width: 100%;
-            }
-
-            #container_prodotti .card_product, #container_prodotti ul ul.recap_product {
-               margin-left: 1.2em;
-               margin-right: 1.2em;
             }
 
             /* #footer li > * {
@@ -934,10 +929,10 @@ strong {
 
                             /* PAGINA PRODUCTS */
 #container_prodotti .card_product {
+  margin: 0em 1.2em 0em 1.2em;
   height: 6em;
   border-radius: 7px;
   box-shadow: 0 3px 6px rgba(0,0,0,0.10), 0 3px 6px rgba(0,0,0,0.17);
-  margin-bottom: 1.5em;
   padding:0.7em;
 /*  margin-left: 1.2em;
   margin-right: 1.2em;*/
@@ -977,6 +972,7 @@ strong {
 }
 #container_prodotti .card_product .product_title {
   /* margin-top:1em; */
+  margin-left: 6.5rem;
   color: var(--yellow-dark);
   grid-area: title;
   font-size: 0.9em;
@@ -987,6 +983,7 @@ strong {
 }
 #container_prodotti .card_product .product_manufacturer {
   /* margin-top:0.5em; */
+  margin-left: 6.5rem;
   grid-area: manufacturer;
   font-size: 0.9em;
   margin-bottom: 0.4em;
@@ -995,6 +992,7 @@ strong {
 }
 #container_prodotti .card_product .product_line {
   /* margin-top:0.3em; */
+  margin-left: 6.5rem;
   display: block;
   grid-area: line;
   font-weight: lighter;
@@ -1022,13 +1020,14 @@ strong {
 
 }
 #container_prodotti .card_product .product_tags {
+  margin-left: 0.5rem;
   border-radius: 10px;
   /* margin-right: 0.2em; */
   padding: 0.2em 0.5em 0.2em 0.5em;
 }
 #container_prodotti .card_product .product_tags.Cosmetico {
   background-color: #ff9557;
-  margin-left: 3.5rem;
+  margin-left: 6.5em;
 }
 #container_prodotti .card_product .product_tags.Uomo, #container_prodotti .card_product .product_tags.Unisex {
   background-color: #005377;
@@ -1044,10 +1043,9 @@ strong {
 }
 #container_prodotti span.product_price,
 #container_prodotti ul li.product_price { //prezzo totale
-
   /* margin-right: 1em; */
   font-size: 1.1em;  //* WARNING: Lho modificato io (Fouad) perche è troppo grande il font sui cellulari! */
-  margin:0;
+  margin : 0;
   /* margin-bottom: 1.1em; */
   /* margin-right: 2em; */
   line-height: 1em;
@@ -1264,7 +1262,9 @@ background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 100%);
   grid-template-columns: 1fr 1fr;
   grid-gap: 2em;
 }
-
+#container_prodotti ul.adjust_margins {
+  margin: 0em 1.2em 0em 1.2em;
+}
 #container_prodotti ul ul {
   display: block;
 }
@@ -1274,6 +1274,7 @@ background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 100%);
   align-items: center;
   grid-template-columns: none;
   grid-gap: 0;
+  margin: 0.7em 0 2.1em 0;
 }
 
 #container_prodotti ul ul.recap_product li {
@@ -1286,6 +1287,11 @@ background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 100%);
   align-items: center;
   grid-template-columns: none;
   grid-gap: 0;
+}
+
+abbr {
+  border: none;
+  text-decoration: none;
 }
 
 @media screen and (max-width:750px) {

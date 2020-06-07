@@ -62,7 +62,7 @@ if(!empty($_SESSION["shopping_cart"])) {
   }
 
 
-  $orderedProducts = '<ul>' . "\n";
+  $orderedProducts = '<ul class="adjust_margins">' . "\n";
   foreach($_SESSION["shopping_cart"] as $key => $product) {
 
     $query = "SELECT nome_articolo, prezzo_articolo, sesso_target, nome_ditta, nome_linea, nome_categoria
@@ -93,8 +93,8 @@ if(!empty($_SESSION["shopping_cart"])) {
           '</ul>' . "\n" .
       '</div>' . "\n" .
       '<ul class="recap_product">' . "\n" .
-          '<li>Quantit&agrave; : ' . $product["quantita"] . '</li>' . "\n" .
-          '<li>Totale : ' . number_format($product["quantita"] * $product["prezzo_articolo"], 2) . ' &euro;</li>' . "\n" .
+          '<li><abbr title="Quantit&agrave;">Q.ta : ' . $product["quantita"] . '</li>' . "\n" .
+          '<li><abbr title="Totale">Tot</abbr>. : ' . number_format($product["quantita"] * $product["prezzo_articolo"], 2) . ' &euro;</li>' . "\n" .
           '<li>' . '<a href="carrello.php?action=delete&id_articolo=' . $product["id_articolo"] . '">' . "\n" .
           '<button class="button">Rimuovi</button>' . "\n" . '</a></li>' . "\n" .
       '</ul>'. "\n" .
