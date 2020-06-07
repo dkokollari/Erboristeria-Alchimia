@@ -1079,26 +1079,27 @@ z-index: -1; */
   width: 90%;
 }
 #scopri_il_sito {
-    top: 33em;
-    position: fixed;
-    z-index: -1;
-    width: 50%;
-    left: 25%;
-    text-align: center;
+  margin-left: -7rem;
+  width: 14rem;
+  top: 33em;
+  position: fixed;
+  z-index: -1;
+  left: 50%;
+  text-align: center;
 
 
-    display: block;
-    padding: 0.5em 0 0.4em 0;
-    border: 3px solid white;
-    border-radius: 8px;
-    text-transform: uppercase;
-    font-weight: bold;
-    color: white;
-    letter-spacing: 0.07em;
-    transition: background-color 0.5s ease;
-    background-image: none;
-    text-shadow: 0px 0px 6px rgba(0, 0, 0, 0.9);
-    -webkit-tap-highlight-color: transparent;
+  display: block;
+  padding: 0.5em 0 0.4em 0;
+  border: 3px solid white;
+  border-radius: 8px;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: white;
+  letter-spacing: 0.07em;
+  transition: background-color 0.5s ease;
+  background-image: none;
+  text-shadow: 0px 0px 6px rgba(0, 0, 0, 0.9);
+  -webkit-tap-highlight-color: transparent;
 
 }
 
