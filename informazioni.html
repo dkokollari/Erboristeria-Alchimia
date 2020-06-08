@@ -1,50 +1,49 @@
-<!doctype html>
-<html lang="en" >
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
   <head>
-                        <!-- da rivedere  -->
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>Informazioni - Erboristeria Alchimia</title>
-    <link rel="stylesheet" href="stylesheet.css"></link>
-    <link href="https://fonts.googleapis.com/css?family=Poppins:300,600&display=swap" rel="stylesheet">
-
-    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
+    <meta name="title" content="Informazioni utili per contattarci" />
+    <meta name="description" content="Pagina informazioni di Erboristeria Alchimia: qui trovi i nostri contatti, gli orari di apertura e il nostro indirizzo."/>
+    <meta name="keywords" content="informazioni, orari, apertura, chiusura, email, mail, telefono, cellulare, posizione, mappa"/>
+    <meta name="language" content="italian it"/>
+    <meta name="author" content="Fouad Mouad, Andrea Dorigo, Dardan Kokollari, Marcel Wandji"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/> <!-- WARNING: is it necessary? -->
+    <link rel="icon" href="img/favicon.ico"/>
+    <link rel="stylesheet" type="text/css" href="stylesheet.css" media="handheld, screen"/>
+    <link rel="stylesheet" type="text/css" href="print.css"  media="print"/>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,600&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet"/>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="js/design.js"></script>
   </head>
-
   <body>
     <div class="container" id="container_informazioni">
-
-
-                          <!--          HEADER             -->
-
+      <!--          HEADER             -->
       <div id="menu">
         <button><i class="material-icons-round" onclick="showMenu()">cancel</i></button>
-
         <ul>
           <li><a href="homepage.html">Homepage</a></li>
           <li><a href="eventi.html">Eventi</a></li>
           <li><a href="teinfusi.html">T&egrave; e Infusi</a></li>
           <li><a href="prodotti.html">Prodotti</a></li>
-          <li class="selected_page"><p>Informazioni</p></li>
+          <li class="selected_page"><p>Informazioni</p></li> <!-- WARNING: Do, inizio a odiarti.. che ci fa un p qua?? -->
+          <li><a href="la_mia_storia.html">La mia Storia</a></li>
+          <li class="menu_btn">
+            <img src="icons/cancel.svg" alt="Chiudi il menu"/>
+          </li>
         </ul>
         <!-- <h4>Erboristeria <span>Alchimia</span></h4> -->        <!-- non c'e' spazio nei dispositivi piu' vecchi come iPhone 4, magari da implementare in futuro -->
       </div>
-
-      <button id="right-of-menu" onclick="showMenu()"></button>
-
+       <button id="right-of-menu" class="menu_btn" title="chiudi il menu"/>
       <button><i id="menu_icon" class="material-icons-round" onclick="showMenu()">menu</i></button>
-
       <div id="topbar">
         <h1 id="topbar_title">Informazioni</h1>
       </div>
-
       <div id="header_image" class="fit"></div>
       <h1>Informazioni</h1>
-
-                          <!--         CONTENT            -->
-
+      <!--         CONTENT            -->
       <div id= "content">
         <h2>Come trovarmi</h2>
         <p>
@@ -52,88 +51,73 @@
           conoscere gli orari di apertura e raggiungerci. Vieni a trovarci !
         </p>
         <h3 >Mappa</h3>
-        <span>Ci trovi qui</span><a id= "linkMappa" href= "https://www.google.com/maps/place/Erboristeria+Alchimia/@45.922557,12.5720543,17z" tabindex="2">Piazza S. Anna, 15, 33070 Tamai PN</a>
+        <span>Ci trovi qui</span><a id="linkMappa" href="https://www.google.com/maps/place/Erboristeria+Alchimia/@45.922557,12.5720543,17z" tabindex="2">Piazza S. Anna, 15, 33070 Tamai PN</a>
         <h3>Contatti</h3>
-          <ul id= "contatti">
+          <ul id="contatti">
             <li><span>Telefono</span>345 879 0235</li>
             <li><span>Email</span> <a href="mailto:erbalchimia@gmail.com" tabindex="3">erbalchimia@gmail.com</a></li>
           </ul>
         <h3>Orari di apertura</h3>
           <ul id="orario">
             <li>
-              <div>
-              <strong>Luned&igrave</strong>    <!--  TODO mettere gli accenti -->
-              </div>
-              <div>
-                <p>Chiuso</p>
+              <span>Luned&igrave;</span>
+              <span class="closed">Chiuso</span>
+            </li>
+            <li>
+              <span>Marted&igrave;</span>
+              <div> <!-- WARNING: mi rassegno: senza questo div non si puo ottenere l'effetto che vogliamo -->
+                <span>08:45 - 12:00</span>
+                <span>15:30 - 19:30</span>
               </div>
             </li>
             <li>
-              <div>
-                <strong>Marted&igrave</strong>
-              </div>
-              <div>
-                <p>08:45 - 12:00</p>
-                <p>15:30 - 19:30</p>
+              <span>Mercoled&igrave;</span>
+              <div> <!-- WARNING: mi rassegno: senza questo div non si puo ottenere l'effetto che vogliamo -->
+                <span>08:45 - 12:00</span>
+                <span>15:30 - 19:30</span>
               </div>
             </li>
             <li>
-              <div>
-                <strong>Mercoled&igrave</strong>
-              </div>
-              <div>
-                <p>08:45 - 12:00</p>
-                <p>15:30 - 19:30</p>
+              <span>Gioved&igrave;</span>
+              <div> <!-- WARNING: mi rassegno: senza questo div non si puo ottenere l'effetto che vogliamo -->
+                <span>08:45 - 12:00</span>
+                <span>15:30 - 19:30</span>
               </div>
             </li>
             <li>
-              <div>
-                <strong>Gioved&igrave</strong>
-              </div>
-              <div>
-                <p>08:45 - 12:00</p>
-                <p>15:30 - 19:30</p>
+              <span>Venerd&igrave;</span>
+              <div> <!-- WARNING: mi rassegno: senza questo div non si puo ottenere l'effetto che vogliamo -->
+                <span>08:45 - 12:00</span>
+                <span>15:30 - 19:30</span>
               </div>
             </li>
             <li>
-              <div>
-                <strong>Venerd&igrave</strong>
-              </div>
-              <div>
-                <p>08:45 - 12:00</p>
-                <p>15:30 - 19:30</p>
+              <span>Sabato</span>
+              <div> <!-- WARNING: mi rassegno: senza questo div non si puo ottenere l'effetto che vogliamo -->
+                <span>08:45 - 12:00</span>
+                <span>15:30 - 19:30</span>
               </div>
             </li>
             <li>
-              <div>
-                <strong>Sabato</strong>
-              </div>
-              <div>
-                <p>08:45 - 12:00</p>
-                <p>15:30 - 19:30</p>
-              </div>
+              <span>Domenica</span>
+              <span class="closed">Chiuso</span>
             </li>
-            <li>
-              <div>
-              <strong>Domenica</strong>
-              </div>
-              <div>
-                <p>Chiuso</p>
-              </div>
-            </li>
-
           </ul>
       </div>
-
-
-                          <!--          FOOTER            -->
+      <!--          FOOTER            -->
       <div id="footer">
-        I piedi in doccia si lavano da soli con l'acqua che cade
+        <a id="torna_su_btn">Torna all'inizio della pagina</a>
+        <p id="footer_menu">Menu</p>
+        <ul>
+          <li><a href="homepage.html" xml:lang="en">Homepage</a></li>
+          <li><a href="eventi.html">Eventi</a></li>
+          <li><a href="teinfusi.html">T&egrave; &amp; Infusi</a></li>
+          <li><a href="prodotti.html">Prodotti</a></li>
+          <li>Informazioni</li>
+          <li><a href="la_mia_storia.html">La mia Storia</a></li>
+        </ul>
+        <p id="copyright">Copyright &#64; 2020 erbalchimia@gmail.com. Tutti i diritti riservati</p>
       </div>
-
     </div>
   </body>
-
-  <script src="js/design.js"></script>
-
 </html>
