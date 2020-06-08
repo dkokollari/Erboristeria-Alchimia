@@ -697,6 +697,10 @@ margin:0.7em auto 0.7em auto;
                           /*       INFORMAZIONI */
 
 
+#container_informazioni #content p {
+  text-align: center;
+}
+
 #container_informazioni #linkMappa {
   display: block;
   text-align: center;
@@ -712,7 +716,6 @@ margin:0.7em auto 0.7em auto;
   height: 4em;
 }
 
-#container_informazioni #giorniSett > li,
 #container_informazioni span {
   display: block;
   text-align: center;
@@ -727,8 +730,7 @@ margin:0.7em auto 0.7em auto;
 }
 
 /* PER RIMUOVERE PRECEDENTI STILI */
-#orario p {
-
+#orario span {
   margin: auto;
 }
 #orario {
@@ -738,7 +740,7 @@ margin:0.7em auto 0.7em auto;
 
 #orario li {
   display: flex;
-  margin: 1em auto 1em auto
+  margin: 1em auto 1em auto;
 }
 
 #orario li > div {
@@ -746,17 +748,11 @@ margin:0.7em auto 0.7em auto;
   display: flex;
   flex-direction: column;
 }
-/* NON NECESSARIO */
-strong {
-  color: var(--grey-dark);
-  margin: auto;
-}
-/* NON NECESSARIO */
-#informazioni h3 {
-  margin-top:2em;
-  margin-bottom: 0.7em;
-}
 
+#orario li span.closed, #orario li div span {
+  color: initial;
+  font-weight: normal;
+}
 
 
                               /*       LOGIN & REGISTRAZIONE      */
