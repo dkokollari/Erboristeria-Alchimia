@@ -14,7 +14,7 @@ a {
     text-decoration: none;
 }
 
-#topbar_title, #menu, #menu, #right-of-menu, #menu_icon {
+#topbar_title, #menu, #menu, #right-of-menu, #menu_icon, button + button {
   display: none;
 }
 
@@ -88,5 +88,5 @@ h1 {
 #copyright {
   clear: left;
   display: block;
-  margin-top: 1cm;
+  margin-top: 1.5cm;
 }
