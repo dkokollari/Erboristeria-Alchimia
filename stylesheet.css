@@ -24,6 +24,10 @@
   --grey-main: #4e5166;
   --grey-light: #bfbfca;
 
+  --accent3Shade1: #ffdde0;
+  --accent3Shade4: #d32f2f;
+  --borderRadius: 6px;
+
 }
 /* activate border outline for keyboard navigation */
 /* I added 'em all, you never know....*/
@@ -943,4 +947,18 @@ margin:0.7em auto 0.7em auto;
 
 #myUL li a:hover:not(.header) {
   background-color: #eee;
+}
+
+/*------- ERRORI FORM --------------*/
+
+.errore {
+  background: var(--accent3Shade1);
+  color: var(--accent3Shade4);
+  margin: 0.5em 0.5em;
+  display: block;
+  padding: 1em 1em;
+  border-radius: var(--borderRadius);
+  font-weight: 500;
+  position: relative;
+  cursor: pointer;
 }

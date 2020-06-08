@@ -159,3 +159,67 @@ function expandCard() {
 document.getElementById("torna_su_btn").addEventListener('click', function () {
       window.scrollTo(0,0);
 });
+
+
+/*----------------------VALIDAZIONE FORM LOGIN -----------------------*/
+
+/*
+NON VA DC!!!!!!!!!!
+document.getElementById("form").addEventListener("submit", (e) => {
+  if(!validazioneForm()) {
+    e.preventDefault();
+  }
+});*/
+
+
+function validazioneForm() {
+  var email = document.getElementById("email");
+  var password = document.getElementById("password");
+  //voglio mostrare un solo errore: per questo se una delle due mostra un errore, non invoco l'altra!
+  return checkEmail(email) && checkPassword(password);
+}
+
+function checkEmail(emailInput) {
+  if(!emailInput.value || emailInput.value.trim().length == 0) {
+    const emptyField = 'Inserire sia una email che una password(js)';
+    showErrorSecurity(emptyField);
+    return false;
+  } else if(!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(emailInput.value.trim()))) {
+    const wrongField = 'La email o la password inserite non sono corrette(js)';
+    showErrorSecurity(wrongField);
+    return false;
+  }
+  return true;
+}
+
+function checkPassword(pwdInput) {
+  if(!pwdInput.value || pwdInput.value.trim().length == 0) {
+    const emptyField = 'Inserire sia una email che una password(js)';
+    showErrorSecurity(emptyField);
+    return false;
+  } else if(pwdInput.value.trim().length < 6 || pwdInput.value.trim().length > 12
+	|| !(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,12}$/.test(emailInput.value.trim()))) {
+    const wrongField = 'La email o la password inserite non sono corrette(js)';
+    showErrorSecurity(wrongField);
+    return false;
+  }
+  removeErrorSecurity(pwdInput);
+  return true;
+}
+
+function showErrorSecurity(textError) {
+    var form = document.getElementById('log_in_form');
+    const errorsShown = form.getElementsByClassName("errore");
+    removeErrorSecurity(errorsShown);
+    var span = document.createElement("span");
+    span.className = "errore";
+    span.append(textError);
+    form.prepend(span);
+    console.log(form);
+}
+
+function removeErrorSecurity(errorsToRemove) {
+  for(var error of errorsToRemove) {
+    error.remove();
+  }
+}
