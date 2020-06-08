@@ -701,6 +701,10 @@ margin:0.7em auto 0.7em auto;
                           /*       INFORMAZIONI */
 
 
+#container_informazioni #content p {
+  text-align: center;
+}
+
 #container_informazioni #linkMappa {
   display: block;
   text-align: center;
@@ -716,7 +720,6 @@ margin:0.7em auto 0.7em auto;
   height: 4em;
 }
 
-#container_informazioni #giorniSett > li,
 #container_informazioni span {
   display: block;
   text-align: center;
@@ -731,8 +734,7 @@ margin:0.7em auto 0.7em auto;
 }
 
 /* PER RIMUOVERE PRECEDENTI STILI */
-#orario p {
-
+#orario span {
   margin: auto;
 }
 #orario {
@@ -742,7 +744,7 @@ margin:0.7em auto 0.7em auto;
 
 #orario li {
   display: flex;
-  margin: 1em auto 1em auto
+  margin: 1em auto 1em auto;
 }
 
 #orario li > div {
@@ -750,20 +752,14 @@ margin:0.7em auto 0.7em auto;
   display: flex;
   flex-direction: column;
 }
-/* NON NECESSARIO */
-strong {
-  color: var(--grey-dark);
-  margin: auto;
-}
-/* NON NECESSARIO */
-#informazioni h3 {
-  margin-top:2em;
-  margin-bottom: 0.7em;
+
+#orario li span.closed, #orario li div span {
+  color: initial;
+  font-weight: normal;
 }
 
 
-
-                              /*       LOGIN       */
+                              /*       LOGIN & REGISTRAZIONE      */
 #log_in_box_container {
   display: flex;
   height: 100%;
@@ -804,12 +800,16 @@ strong {
 #log_in_box fieldset {
   border:none;
 }
-#username, #password {
+#username, #password, #nome, #cognome, #password_conferma, #data_nascita{
   width: 100%;
 }
-.form_field {
+.form_field{
   position: relative;
   margin-top: 2.5em;
+}
+.form_field_static {
+  position: relative;
+  margin-top: 4.5em;
 }
 .form_field label {
   color: #666;
@@ -819,7 +819,15 @@ strong {
   transition: ease 0.2s;
   transform-origin: left;
   cursor: text;
-  font: 400 1.5em 'Poppins', sans-serif;
+  font: 400 1.2em 'Poppins', sans-serif;
+}
+.form_field_static label {
+  color: #666;
+  position: absolute;
+  left:0;
+  bottom: 2em;
+  cursor: text;
+  font: 400 1.2em 'Poppins', sans-serif;
 }
 .form_field:focus-within label,
 .form_field .filled {
@@ -828,7 +836,12 @@ strong {
   transition: ease 0.2s;
   color: var(--yellow-dark);
 }
-.form_field input {
+.form_field_static:focus-within label,
+.form_field_static .filled{
+  color: var(--yellow-dark);
+}
+.form_field input,
+.form_field_static input {
   line-height: 2.5em;
   border-bottom: 1px solid #aaa;
   border-top: none;
@@ -837,6 +850,33 @@ strong {
   padding: 0.2em 0 0.2em 0;
   outline: none;
   font: 300 1.3em 'Poppins', sans-serif;
+}
+#input-requirements ul {
+	list-style: none;
+}
+.input-requirements {
+  font-size: 0.7rem;
+  font-style: italic;
+  text-align: left;
+  list-style: disc;
+  list-style-position: inside;
+  max-width: 400px;
+  margin: 10px auto;
+  color: rgb(150,150,150);
+}
+
+
+.input-requirements li.invalid {
+	color: #e74c3c;
+}
+.input-requirements li.valid {
+	color: #2ecc71;
+}
+
+.input-requirements li.valid:after {
+	display: inline-block;
+	padding-left: 10px;
+	content: "\2713";
 }
 
 #log_in{
