@@ -31,9 +31,18 @@ h1 {
   text-align: center;
 }
 
-#container_informazioni h2, #container_informazioni h3 {
+#container_informazioni h2{
   display: none;
 }
+
+#container_informazioni h3 {
+  margin-top: 1cm;
+}
+
+ul + h3 {
+  text-align: center;
+}
+
 
 #container_informazioni p {
   margin-bottom: 0.5cm;
@@ -56,4 +65,23 @@ h1 {
   margin-top: 0.5cm;
   list-style: none;
   margin-bottom: 0.5cm;
+  min-width: 7cm;
+}
+
+#container_informazioni #orario li {
+  float: left;
+}
+
+#container_informazioni ul li div, #container_informazioni ul li span + span {
+  margin-left: 3cm;
+  float: none;
+  clear: none;
+  font-weight: normal;
+}
+
+#container_informazioni ul li div span {
+  float: none;
+  clear: none;
+  margin-left: 0cm;
+  font-weight: normal;
 }
