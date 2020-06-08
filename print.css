@@ -14,7 +14,7 @@ a {
     text-decoration: none;
 }
 
-#topbar_title, #menu, #footer, #menu, #right-of-menu, #menu_icon {
+#topbar_title, #menu, #menu, #right-of-menu, #menu_icon {
   display: none;
 }
 
@@ -36,7 +36,7 @@ h1 {
 }
 
 #container_informazioni h3 {
-  margin-top: 1cm;
+  margin-top: 1.5cm;
 }
 
 #container_informazioni p {
@@ -60,7 +60,7 @@ h1 {
   margin-top: 0.5cm;
   list-style: none;
   margin-bottom: 0.5cm;
-  min-width: 7cm;
+  min-width: 6cm;
 }
 
 #container_informazioni #orario li {
@@ -79,4 +79,14 @@ h1 {
   clear: none;
   margin-left: 0cm;
   font-weight: normal;
+}
+
+#footer > * {
+  display: none;
+}
+
+#copyright {
+  clear: left;
+  display: block;
+  margin-top: 1cm;
 }
