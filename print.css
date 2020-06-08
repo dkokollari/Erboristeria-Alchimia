@@ -6,6 +6,7 @@
 body {
     font-family: "Times New Roman", Times, serif;
     font-size: 0.5cm;
+    margin-left: 0.5cm;
 }
 
 a {
@@ -13,27 +14,46 @@ a {
     text-decoration: none;
 }
 
-h1, h2, h3, h4 {
-  color: black;
-}
-
- #container_informazioni h3, #container_informazioni #content span {
-   margin: 1em 0em 1em 0em;
-   color: black;
- }
-
- #container_informazioni #content #orario span {
-   margin: auto;
- }
-
-#container_informazioni span {
-  font-weight: bold;
-}
-
-#menu, #footer, #menu, #right-of-menu, #menu_icon {
+#topbar_title, #menu, #footer, #menu, #right-of-menu, #menu_icon {
   display: none;
 }
 
 #header_image {
   display: none;
+}
+
+h1, h2, h3, h4 {
+  margin: 0.5cm 0cm 0.5cm 0cm;
+  color: black;
+}
+
+h1 {
+  text-align: center;
+}
+
+#container_informazioni h2, #container_informazioni h3 {
+  display: none;
+}
+
+#container_informazioni p {
+  margin-bottom: 0.5cm;
+}
+
+#container_informazioni span {
+  font-weight: bold;
+  clear: both;
+  min-width: 3cm;
+  display: block;
+  float: left;
+}
+
+#linkMappa {
+  display: block;
+  margin-left: 3cm;
+}
+
+#container_informazioni ul li {
+  margin-top: 0.5cm;
+  list-style: none;
+  margin-bottom: 0.5cm;
 }
