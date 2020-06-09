@@ -1,18 +1,16 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
   <head>
-    <!-- DA RIVEDERE TITOLO E ICONA  -->
     <title>Articoli - Erboristeria Alchimia</title>
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png"/>
     <link rel="stylesheet" href="shopping-cart.css"/> <!-- d spostare in stylesheet.css -->
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/> <!-- bootstrap (chiedere se si può tenere)-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/> <!-- bootstrap (chiedere se si può tenere)-->
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,600&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
   </head>
-
   <body>
     <!--          HEADER             -->
     <button>
@@ -26,7 +24,6 @@
     <!--         CONTENT            -->
     <div id="content">
       <h2>Trova ci&ograve; che ti serve</h2>
-      <!--      https://www.w3schools.com/howto/howto_js_filter_lists.asp      -->
       <form action="articoli.php" method = "get"> <!--ora che il method e' get va fatto controllo anche sul valore dei filtri! -->
         <input type="text" id="myInput" onkeyup="myFunction()"
               placeholder="Inserisci il nome.." name = "search" title="Inserisci un nome"></input>
@@ -36,12 +33,12 @@
         %COMPANY_FILTER%
       </form>
       <div class="container">
-       %PRODUCTS%
+        %PRODUCTS%
       </div>
        <div class = "FaiBelliILink:)">
-      %PAGES_MENU%
-      </div>
-  </div>
+         %PAGES_MENU%
+       </div>
+    </div>
     <div id="footer"> I piedi in doccia si lavano da soli con l'acqua che cade </div>
   </body>
 </html>
