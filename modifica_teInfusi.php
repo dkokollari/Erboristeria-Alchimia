@@ -6,34 +6,35 @@
 
   $con = new DBAccess();
   if($con->openConnection()){
-    if (!$con->connection->set_charset("utf8")){
+    if(!$con->connection->set_charset("utf8")){
       //printf("Error loading character set utf8: %s\n", $con->error);
       exit;
     }
-
-    $pagina = file_get_contents('teinfusi.html');
+    $pagina = file_get_contents('modifica_teInfusi.html');
     $lista_te_e_infusi = $con->getTeInfusi();
 
     foreach ($lista_te_e_infusi as $row){
+      $id = $row["id_te_e_infusi"];
       $immagine = Image::getImage("./img/te_e_infusi/", $row["id_te_e_infusi"]);
       $descrizione_immagine = htmlentities($row["descrizione_immagine_te_e_infusi"]);
       $nome = htmlentities($row["nome_te_e_infusi"]);
       $ingredienti = nl2p(htmlentities($row["ingredienti_te_e_infusi"]));
       $descrizione = nl2p(htmlentities($row["descrizione_te_e_infusi"]));
       $preparazione = nl2p(htmlentities($row["preparazione_te_e_infusi"]));
-
       $lista .=
         '<div class="card collapsed" title="'.$nome.'. Premi per espandere la descrizione">
-          <h3>'.$nome.'</h3>
-          <a class="accessibility_hidden">Salta la descrizione di questo t&egrave; o infuso</a>
-          <img src="'.$immagine.'" alt="'.$descrizione_immagine.'"/>
-          <h4>Ingredienti</h4>
-          <p>'.$ingredienti.'</p>
-          <h4>Descrizione</h4>
-          <p>'.$descrizione.'</p>
-          <h4>Preparazione</h4>
-          <p>'.$preparazione.'</p>
-          <span class="expand_btn material-icons-round">expand_more</span>
+        <h3>'.$nome.'</h3>
+        <a class="accessibility_hidden">Salta la descrizione di questo t&egrave; o infuso</a>
+        <img src="'.$immagine.'" alt="'.$descrizione_immagine.'"/>
+        <h4>Ingredienti</h4>
+        <p>'.$ingredienti.'</p>
+        <h4>Descrizione</h4>
+        <p>'.$descrizione.'</p>
+        <h4>Preparazione</h4>
+        <p>'.$preparazione.'</p>
+        <a href="updateTeInfusi.php?id='.$id.'">Modifica</a>
+        <a href="deleteTeInfusi.php?id='.$id.'">Rimuovi</a>
+        <span class="expand_btn material-icons-round">expand_more</span>
         </div>
 
         ';

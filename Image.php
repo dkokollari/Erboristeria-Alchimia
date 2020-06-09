@@ -15,6 +15,9 @@ class Image {
   public function uploadImageTeInfusi($name , $temp, $id){
    if($id!="errore"){
       $dir = "img/te_e_infusi/";
+      if(file_exists($dir.$id."jpg")){
+          deleteImage($dir.$id."jpg");
+      }
       move_uploaded_file($temp, $dir.$name);
       $split = explode('.',$name);
       $ext = array_pop($split);
@@ -29,7 +32,14 @@ class Image {
   }
 
   public function deleteImage($file){
-    unlink($file);
+    if(file_exists($file)){
+      unlink($file);
+    }
+  }
+
+  public function getImage($path, $id){
+    $result = glob($path.$id.".{jpg,jpeg,png,gif}", GLOB_BRACE);
+    return ($result[0] ? $result[0]: $path."0.jpg");
   }
 
   /* ritorna, se esiste, il path completo dell'immagine con estensione jpg/jpeg/png/gif
