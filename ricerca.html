@@ -36,35 +36,37 @@
         <h2>Trova ci&ograve; che ti serve</h2>
         <!--      https://www.w3schools.com/howto/howto_js_filter_lists.asp      -->
         <form action="ricerca.php" method="post">
-          <input type="text" id="myInput" onkeyup="myFunction()"
-                placeholder="Inserisci il nome.." name="search" title="Inserisci un nome"></input>
-          <input type="submit" value="invia"/>
-          <!-- <div class="form_field"> -->
-          <label for="sesso">Sesso</label>
-          <select name="sesso" id="sesso">
-        	  <option selected value="none">Seleziona filtro</option>
-            <option value="per lui">Per lui</option>
-            <option value="per lei">Per lei</option>
-            <option value="unisex">Unisex</option>
-          </select>
-          <!-- </div> -->
-          <!-- <div class="form_field"> -->
-          <label for="categoria">Categoria</label>
-          <select name="categoria" id="categoria">
-         	  <option selected value="none">Seleziona filtro</option>
-              <option value="Alimentare">Alimentare</option>
-              <option value="Cosmetico">Cosmetico</option>
-          </select>
-          <!-- </div> -->
-          <!-- <div class="form_field"> -->
-          <label for="casa_prod">Casa produttrice</label>
-          <select name="casa_prod" id="casa_prod">
+          <fieldset>
+            <input type="text" id="myInput" onkeyup="myFunction()"
+                  placeholder="Inserisci il nome.." name="search" title="Inserisci un nome"></input>
+            <input type="submit" value="invia"/>
+            <!-- <div class="form_field"> -->
+            <label for="sesso">Sesso</label>
+            <select name="sesso" id="sesso">
           	  <option selected value="none">Seleziona filtro</option>
-              <option value="Baule Volante &amp; Fior di Loto">Baule Volante & Fior di Loto</option>
-              <option value="Helan">Helan</option>
-              <option value="L'Erbolario">L'Erbolario</option>
-          </select>
-         <!-- </div> -->
+              <option value="per lui">Per lui</option>
+              <option value="per lei">Per lei</option>
+              <option value="unisex">Unisex</option>
+            </select>
+            <!-- </div> -->
+            <!-- <div class="form_field"> -->
+            <label for="categoria">Categoria</label>
+            <select name="categoria" id="categoria">
+           	  <option selected value="none">Seleziona filtro</option>
+                <option value="Alimentare">Alimentare</option>
+                <option value="Cosmetico">Cosmetico</option>
+            </select>
+            <!-- </div> -->
+            <!-- <div class="form_field"> -->
+            <label for="casa_prod">Casa produttrice</label>
+            <select name="casa_prod" id="casa_prod">
+            	  <option selected value="none">Seleziona filtro</option>
+                <option value="Baule Volante &amp; Fior di Loto">Baule Volante & Fior di Loto</option>
+                <option value="Helan">Helan</option>
+                <option value="L'Erbolario">L'Erbolario</option>
+            </select>
+           <!-- </div> -->
+         </fieldset>
         </form>
         %SEARCH_RESULTS%
       </div>
