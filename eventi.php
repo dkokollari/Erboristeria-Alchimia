@@ -44,25 +44,24 @@
       $organizzazione = DBAccess::nl2p(htmlentities($row["organizzazione_evento"]));
       $posti_limitati = $row["prenotazione_posti_evento"];
 
-      $backgroundImg = "\n" . '#n' . $row['id_evento'] . '{
+    /*  $backgroundImg = "\n" . '#n' . $row['id_evento'] . '{ // WARNING: puo tornare utile: codice per mettere background-image univoche
         background-image: url(' . $immagine . ');
       }' . "\n";
 
       if(!strpos($style, $backgroundImg)) {
         $style .= $backgroundImg;
-      }
+      }*/
 
       $lista .=
-      '<div id= ' . $row['id_evento'] . ' class="card eventi">
-          <span class="data">'.$giorno_testo.' <span>'.$giorno_numero.'</span> '.$mese.'</span>
-          <img src="'.$immagine.'" alt="'.$descrizione_immagine.'"/>
-          <h3 class="titoletto">'.$titolo.'</h3>
+      '<div class="card eventi">
+         <span class="data">'.$giorno_testo.' <span>'.$giorno_numero.'</span> '.$mese.'</span>
+         <h3 class="titoletto">'.$titolo.'</h3>
           <ul>
             '.$descrizione_formattata.'
           </ul>
-          <h3 class="titoletto">Relatori</h3>
+          <h4 class="titoletto">Relatori</h3>
           <p>'.$relatori.'</p>
-          <h3 class="titoletto">Mappa e data</h3>
+          <h4 class="titoletto">Mappa e data</h3>
           <a id="linkMappa" href="'.$url_mappa.'">'.$indirizzo_mappa.'</a>
           <p>'.$descrizione_mappa.'</p>
           <p id="dataEvento">
@@ -80,7 +79,7 @@
       ';
     }
 
-    file_put_contents('stylesheet.css', $style);
+    /*file_put_contents('stylesheet.css', $style);*/
     $pagina = str_replace("%LISTA_EVENTI%", $lista, $pagina);
     echo $pagina;
   }

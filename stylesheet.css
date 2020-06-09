@@ -147,6 +147,7 @@ h3 {
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--yellow-dark);
+  margin: 0em 7% 0em 7.2em; /*Fouad: ora l'h3 e' accanto data evento al posto immagine*/
 }
 h4, #menu li {                                     /*       DA RIVERE         */
   text-transform: uppercase;
@@ -599,15 +600,16 @@ margin:0.7em auto 0.7em auto;
 .card.collapsed h3 {
   margin-top: 7em;
 }
-.card h3 {
-  margin: 0.3em 0.6em 1.2em 0.6em;
+.card h4 {
+  margin: 1.2em 0.6em 0.7em 0.6em;
   line-height: 1.1em;
-  display: flex;
+  /*display: flex; Fouad: scusa l'ignoranza Do, ma mi pare senza senso!*/
+  /*align-items: center;
+  justify-content: center;*/
   height: 2em;
-  align-items: center;
-  justify-content: center;
   transition: 0.4s ease;
-  margin-top: 11.5em;
+  text-align: left;
+  /*margin-top: 11.5em; WARNING: (Fouad): maybe it messes with the js if commented!!!*/
 }
 .card .expand_btn {
   position: absolute;
@@ -626,6 +628,16 @@ margin:0.7em auto 0.7em auto;
 
                           /*        EVENTI      */
 
+.card.eventi #linkMappa {
+  margin-left: 7%;
+}
+
+.card ul {
+  clear: both;
+  list-style: circle; /*FOUAD: brutto, ma si deve capire che è una lista per facilità di lettura! Stronzi, cosi imparate a bocciarmi le ampolle!*/
+  margin: 6.5em 7% 2em 7%;
+}
+
 /* .card span {} */
 #eventi #prenotazione span {
   font-weight: bold;
@@ -636,6 +648,10 @@ margin:0.7em auto 0.7em auto;
 #eventi #dataEvento {
   font-weight: bold;
   color: var(--grey-dark);
+}
+
+.eventi h3.titoletto {
+  clear : none;
 }
 
 #eventi ul {
@@ -662,8 +678,9 @@ margin:0.7em auto 0.7em auto;
   text-align: center;
   font-weight: bold;
   letter-spacing: 0.1em;
-  width: 7em;
-  height: 7em;
+  width: 6.8em; /*FOUAD: altezza e larghezza rimangono a 7em grazie al padding di 0.1em: trucchetto per ottenere la scritta del giorno allineata perfettamente col titolo a destra (h3)*/
+  height: 6.8em;
+  padding: 0.1em;
 /*  display: table-cell;
   vertical-align: middle;*/
   color: white;
