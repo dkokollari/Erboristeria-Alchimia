@@ -5,7 +5,7 @@
   require_once("Image.php");
 
   $con = new DBAccess();
-  if($con->openConnection()){
+  if($con->openConnection()) {
     $pagina = file_get_contents('eventi.html');
     $style = file_get_contents('stylesheet.css');
     $lista_eventi = $con->getEventi();
@@ -14,7 +14,7 @@
     //necessario se il locale non è ancora impostato
     setlocale(LC_TIME, "it_IT");
 
-    foreach ($lista_eventi as $row){
+    foreach ($lista_eventi as $row) {
       //strftime() visualizza la data nella lingua definita dal locale
       $data_ora = new DateTime($row["data_ora_evento"]);
       $giorno_testo = htmlentities(utf8_encode(strftime("%A", $data_ora->getTimestamp())));
@@ -25,8 +25,8 @@
       $descrizione_immagine = htmlentities($row["descrizione_immagine_evento"]);
       $titolo = htmlentities($row["titolo_evento"]);
       $descrizione_formattata="";
-      foreach ($lista_descrizione as $row_descr){
-        if($row_descr["evento"]==$row["id_evento"]){
+      foreach ($lista_descrizione as $row_descr) {
+        if($row_descr["evento"]==$row["id_evento"]) {
           $sottotitolo = htmlentities($row_descr["sottotitolo"]);
           $descrizione_formattata .= '<li>'.$sottotitolo.'</li>
             ';
@@ -39,13 +39,15 @@
       $organizzazione = DBAccess::nl2p(htmlentities($row["organizzazione_evento"]));
       $posti_limitati = $row["prenotazione_posti_evento"];
 
+
+
       $backgroundImg = "\n" . '#n' . $row['id_evento'] . '{
         background-image: url(' . $immagine . ');
       }' . "\n";
 
-      if(!strpos($style, $backgroundImg)) {
-        $style .= $backgroundImg;
-      }
+      if(!strpos($style, $backgroundImg)) $style .= $backgroundImg;
+
+
 
       $lista .=
        '<div id= ' . $row['id_evento'] . ' class="card eventi">
@@ -78,7 +80,7 @@
     $pagina = str_replace("%LISTA_EVENTI%", $lista, $pagina);
     echo $pagina;
   }
-  else{
+  else {
     echo "<h1>Impossibile connettersi al database riprovare pi&ugrave; tardi<h1>";
     exit;
   }
