@@ -35,7 +35,8 @@ class Image {
     if(file_exists($file)){
       unlink($file);
     }
-    
+  }
+
   /* ritorna, se esiste, il path completo dell'immagine con estensione jpg/jpeg/png/gif
   *  altrimenti path/0.jpg
   */
