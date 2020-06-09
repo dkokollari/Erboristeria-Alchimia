@@ -18,9 +18,9 @@
       $immagine = Image::getImage("./img/te_e_infusi/", $row["id_te_e_infusi"]);
       $descrizione_immagine = htmlentities($row["descrizione_immagine_te_e_infusi"]);
       $nome = htmlentities($row["nome_te_e_infusi"]);
-      $ingredienti = nl2p(htmlentities($row["ingredienti_te_e_infusi"]));
-      $descrizione = nl2p(htmlentities($row["descrizione_te_e_infusi"]));
-      $preparazione = nl2p(htmlentities($row["preparazione_te_e_infusi"]));
+      $ingredienti = DBAccess::nl2p(htmlentities($row["ingredienti_te_e_infusi"]));
+      $descrizione = DBAccess::nl2p(htmlentities($row["descrizione_te_e_infusi"]));
+      $preparazione = DBAccess::nl2p(htmlentities($row["preparazione_te_e_infusi"]));
 
       $lista .=
         '<div class="card collapsed" title="'.$nome.'. Premi per espandere la descrizione">
