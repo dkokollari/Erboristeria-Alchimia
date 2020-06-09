@@ -36,7 +36,7 @@ if(isset($_POST['submit'])){
       //se non ci sono errori
       if($errori==0){
         if($imgpresent && $con->insertTeInfusi($descImg, $tipo, $nome, $ingre, $descr, $prepa)){
-          $id = $con->getId_te_e_infusi($nome);
+          $id = $con->getId_TeInfusi($nome);
           if($image->uploadImageTeInfusi($_FILES['immagine']['name'],$_FILES['immagine']['tmp_name'],$id)){
             $messaggio = "";
           } else {
