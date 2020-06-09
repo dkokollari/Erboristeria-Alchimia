@@ -6,11 +6,6 @@
 
   $con = new DBAccess();
   if($con->openConnection()){
-    if (!$con->connection->set_charset("utf8")){
-      //printf("Error loading character set utf8: %s\n", $con->error);
-      exit;
-    }
-
     $pagina = file_get_contents('eventi.html');
     $style = file_get_contents('stylesheet.css');
     $lista_eventi = $con->getEventi();
