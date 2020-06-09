@@ -13,7 +13,7 @@
 
     public function openConnection() {
       $this->connection = mysqli_connect(static::HOST_DB, static::USER_NAME, static::PASSWORD, static::DB_NAME);
-      return ($this->connection ? true : false);
+      return ($this->connection->set_charset("utf8") ? true : false);
     }
 
     public function closeConnection() {
