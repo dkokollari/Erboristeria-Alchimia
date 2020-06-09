@@ -5,12 +5,7 @@
   require_once("Image.php");
 
   $con = new DBAccess();
-  if($con->openConnection()){
-    if (!$con->connection->set_charset("utf8")){
-      //printf("Error loading character set utf8: %s\n", $con->error);
-      exit;
-    }
-
+  if($con->openConnection()) {
     $pagina = file_get_contents('eventi.html');
     $style = file_get_contents('stylesheet.css');
     $lista_eventi = $con->getEventi();
@@ -19,7 +14,7 @@
     //necessario se il locale non è ancora impostato
     setlocale(LC_TIME, "it_IT");
 
-    foreach ($lista_eventi as $row){
+    foreach ($lista_eventi as $row) {
       //strftime() visualizza la data nella lingua definita dal locale
       $data_ora = new DateTime($row["data_ora_evento"]);
       $giorno_testo = htmlentities(utf8_encode(strftime("%A", $data_ora->getTimestamp())));
@@ -30,11 +25,11 @@
       $descrizione_immagine = htmlentities($row["descrizione_immagine_evento"]);
       $titolo = htmlentities($row["titolo_evento"]);
       $descrizione_formattata="";
-      foreach ($lista_descrizione as $row_descr){
-        if($row_descr["evento"]==$row["id_evento"]){
+      foreach ($lista_descrizione as $row_descr) {
+        if($row_descr["evento"]==$row["id_evento"]) {
           $sottotitolo = htmlentities($row_descr["sottotitolo"]);
           $descrizione_formattata .= '<li>'.$sottotitolo.'</li>
-          ';
+            ';
         }
       }
       $relatori = DBAccess::nl2p(htmlentities($row["relatore_evento"]));
@@ -49,13 +44,11 @@
       }' . "\n";
 
       if(!strpos($style, $backgroundImg)) {
-        $style .= $backgroundImg;
-      }*/
+
+
 
       $lista .=
       '<div class="card eventi">
-         <span class="data">'.$giorno_testo.' <span>'.$giorno_numero.'</span> '.$mese.'</span>
-         <h3 class="titoletto">'.$titolo.'</h3>
           <ul>
             '.$descrizione_formattata.'
           </ul>
@@ -70,12 +63,11 @@
           <p id="org">
             '.$organizzazione.'
           </p>
-        '.($posti_limitati ?
-        '<p id="prenotazione">
-          <span>I posti sono limitati, &egrave; gradita la prenotazione</span> (i contatti si trovano <a href="pagina_informazioni.html#contatti">qui</a>)
-        </p>' : "").'
-      </div>
-
+          '.($posti_limitati ?
+          '<p id="prenotazione">
+            <span>I posti sono limitati, &egrave; gradita la prenotazione</span> (i contatti si trovano <a href="pagina_informazioni.html#contatti">qui</a>)
+          </p>' : "").'
+        </div>
       ';
     }
 
@@ -83,7 +75,7 @@
     $pagina = str_replace("%LISTA_EVENTI%", $lista, $pagina);
     echo $pagina;
   }
-  else{
+  else {
     echo "<h1>Impossibile connettersi al database riprovare pi&ugrave; tardi<h1>";
     exit;
   }

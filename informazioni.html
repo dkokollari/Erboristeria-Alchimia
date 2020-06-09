@@ -2,19 +2,23 @@
    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>Informazioni - Erboristeria Alchimia</title>
-    <meta name="title" content="Informazioni utili per contattarci" />
-    <meta name="description" content="Pagina informazioni di Erboristeria Alchimia: qui trovi i nostri contatti, gli orari di apertura e il nostro indirizzo."/>
+    <meta name="title" content="Pagina informazioni di Erboristeria Alchimia"/>
+    <meta name="description" content="Informazioni utili per contattarci: qui trovi i nostri contatti, gli orari di apertura e il nostro indirizzo."/>
     <meta name="keywords" content="informazioni, orari, apertura, chiusura, email, mail, telefono, cellulare, posizione, mappa"/>
     <meta name="language" content="italian it"/>
-    <meta name="author" content="Fouad Mouad, Andrea Dorigo, Dardan Kokollari, Marcel Wandji"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/> <!-- WARNING: is it necessary? -->
+    <meta name="author" content="Andrea Dorigo, Fouad Mouad, Dardan Kokollari, Marcel Wandji"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link rel="icon" href="img/favicon.ico"/>
-    <link rel="stylesheet" type="text/css" href="stylesheet.css" media="handheld, screen"/>
-    <link rel="stylesheet" type="text/css" href="print.css"  media="print"/>
-    <link href="https://fonts.googleapis.com/css?family=Poppins:300,600&amp;display=swap" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" media="handheld, screen" href="stylesheet.css"/>
+    <link rel="stylesheet" type="text/css" media="print" href="print.css"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,600&amp;display=swap"/>
+    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons"/> -->
+    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons+Outlined"/> -->
+    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons+Two+Tone"/> -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons+Round"/>
+    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons+Sharp"/> -->
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script type="text/javascript" src="js/design.js"></script>
   </head>
@@ -22,13 +26,15 @@
     <div class="container" id="container_informazioni">
       <!--          HEADER             -->
       <div id="menu">
-        <button><i class="material-icons-round" onclick="showMenu()">cancel</i></button>
+        <button>
+          <i class="material-icons-round" onclick="showMenu()">cancel</i>
+        </button>
         <ul>
           <li><a href="homepage.html">Homepage</a></li>
           <li><a href="eventi.html">Eventi</a></li>
           <li><a href="teinfusi.html">T&egrave; e Infusi</a></li>
           <li><a href="prodotti.html">Prodotti</a></li>
-          <li class="selected_page"><p>Informazioni</p></li> <!-- WARNING: Do, inizio a odiarti.. che ci fa un p qua?? -->
+          <li class="selected_page"><p>Informazioni</p></li>
           <li><a href="la_mia_storia.html">La mia Storia</a></li>
           <li class="menu_btn">
             <img src="icons/cancel.svg" alt="Chiudi il menu"/>
@@ -36,26 +42,28 @@
         </ul>
         <!-- <h4>Erboristeria <span>Alchimia</span></h4> -->        <!-- non c'e' spazio nei dispositivi piu' vecchi come iPhone 4, magari da implementare in futuro -->
       </div>
-       <button id="right-of-menu" class="menu_btn" title="chiudi il menu"/>
-      <button><i id="menu_icon" class="material-icons-round" onclick="showMenu()">menu</i></button>
+      <button id="right-of-menu" class="menu_btn" title="chiudi il menu"/>
+      <button>
+        <i id="menu_icon" class="material-icons-round" onclick="showMenu()">menu</i>
+      </button>
       <div id="topbar">
         <h1 id="topbar_title">Informazioni</h1>
       </div>
       <div id="header_image" class="fit"></div>
       <h1>Informazioni</h1>
       <!--         CONTENT            -->
-      <div id= "content">
+      <div id="content">
         <h2>Come trovarmi</h2>
         <p>
           In questa pagina &egrave; possibile trovare tutte le informazioni necessarie per contattarci,
-          conoscere gli orari di apertura e raggiungerci. Vieni a trovarci !
+          conoscere gli orari di apertura e raggiungerci. Vieni a trovarci!
         </p>
         <h3 >Mappa</h3>
         <span>Ci trovi qui</span><a id="linkMappa" href="https://www.google.com/maps/place/Erboristeria+Alchimia/@45.922557,12.5720543,17z" tabindex="2">Piazza S. Anna, 15, 33070 Tamai PN</a>
         <h3>Contatti</h3>
           <ul id="contatti">
             <li><span>Telefono</span>345 879 0235</li>
-            <li><span>Email</span> <a href="mailto:erbalchimia@gmail.com" tabindex="3">erbalchimia@gmail.com</a></li>
+            <li><span>Email</span><a href="mailto:erbalchimia@gmail.com" tabindex="3">erbalchimia@gmail.com</a></li>
           </ul>
         <h3>Orari di apertura</h3>
           <ul id="orario">
@@ -72,29 +80,28 @@
             </li>
             <li>
               <span>Mercoled&igrave;</span>
-              <div> <!-- WARNING: mi rassegno: senza questo div non si puo ottenere l'effetto che vogliamo -->
+              <div>
                 <span>08:45 - 12:00</span>
                 <span>15:30 - 19:30</span>
               </div>
             </li>
             <li>
               <span>Gioved&igrave;</span>
-              <div> <!-- WARNING: mi rassegno: senza questo div non si puo ottenere l'effetto che vogliamo -->
+              <div>
                 <span>08:45 - 12:00</span>
                 <span>15:30 - 19:30</span>
               </div>
             </li>
             <li>
               <span>Venerd&igrave;</span>
-              <div> <!-- WARNING: mi rassegno: senza questo div non si puo ottenere l'effetto che vogliamo -->
+              <div>
                 <span>08:45 - 12:00</span>
                 <span>15:30 - 19:30</span>
               </div>
             </li>
             <li>
               <span>Sabato</span>
-              <div> <!-- WARNING: mi rassegno: senza questo div non si puo ottenere l'effetto che vogliamo -->
-                <span>08:45 - 12:00</span>
+              <div>
                 <span>15:30 - 19:30</span>
               </div>
             </li>
@@ -113,7 +120,7 @@
           <li><a href="eventi.html">Eventi</a></li>
           <li><a href="teinfusi.html">T&egrave; &amp; Infusi</a></li>
           <li><a href="prodotti.html">Prodotti</a></li>
-          <li>Informazioni</li>
+          <li><span>Informazioni</span></li>
           <li><a href="la_mia_storia.html">La mia Storia</a></li>
         </ul>
         <p id="copyright">Copyright &#64; 2020 erbalchimia@gmail.com. Tutti i diritti riservati</p>
