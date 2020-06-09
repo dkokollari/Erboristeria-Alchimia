@@ -12,6 +12,7 @@
     }
 
     $pagina = file_get_contents('eventi.html');
+    $style = file_get_contents('stylesheet.css');
     $lista_eventi = $con->getEventi();
     $lista_descrizione = $con->getDescrizione_eventi();
 
@@ -43,31 +44,33 @@
       $organizzazione = DBAccess::nl2p(htmlentities($row["organizzazione_evento"]));
       $posti_limitati = $row["prenotazione_posti_evento"];
 
+      $backgroundImg = "\n" . '#n' . $row['id_evento'] . '{
+        background-image: url(' . $immagine . ');
+      }' . "\n";
+
+      if(!strpos($style, $backgroundImg)) {
+        $style .= $backgroundImg;
+      }
+
       $lista .=
-      '<div class="card eventi">
-        <div class= "tolgoLineaBianca">
-          <div class="databox">
-            <p class="data">'.$giorno_testo.' <span>'.$giorno_numero.'</span> '.$mese.'</p>
-          </div>
-          <div class="imgwrap">
-            <img src="'.$immagine.'" alt="'.$descrizione_immagine.'"/>
-          </div>
-        </div>
-        <h3 class="titoletto">'.$titolo.'</h3>
-        <ul>
-          '.$descrizione_formattata.'
-        </ul>
-        <h3 class="titoletto">Relatori</h3>
+      '<div id= ' . $row['id_evento'] . ' class="card eventi">
+          <span class="data">'.$giorno_testo.' <span>'.$giorno_numero.'</span> '.$mese.'</span>
+          <img src="'.$immagine.'" alt="'.$descrizione_immagine.'"/>
+          <h3 class="titoletto">'.$titolo.'</h3>
+          <ul>
+            '.$descrizione_formattata.'
+          </ul>
+          <h3 class="titoletto">Relatori</h3>
           <p>'.$relatori.'</p>
-        <h3 class="titoletto">Mappa e data</h3>
+          <h3 class="titoletto">Mappa e data</h3>
           <a id="linkMappa" href="'.$url_mappa.'">'.$indirizzo_mappa.'</a>
           <p>'.$descrizione_mappa.'</p>
           <p id="dataEvento">
-            '.$giorno_testo.' '.$giorno_numero.' '.$mese.' - ore '.$ore_minuti.'
+              '.$giorno_testo.' '.$giorno_numero.' '.$mese.' - ore '.$ore_minuti.'
           </p>
-        <p id="org">
-          '.$organizzazione.'
-        </p>
+          <p id="org">
+            '.$organizzazione.'
+          </p>
         '.($posti_limitati ?
         '<p id="prenotazione">
           <span>I posti sono limitati, &egrave; gradita la prenotazione</span> (i contatti si trovano <a href="pagina_informazioni.html#contatti">qui</a>)
@@ -77,6 +80,7 @@
       ';
     }
 
+    file_put_contents('stylesheet.css', $style);
     $pagina = str_replace("%LISTA_EVENTI%", $lista, $pagina);
     echo $pagina;
   }
