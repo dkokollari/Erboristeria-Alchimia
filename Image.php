@@ -35,13 +35,7 @@ class Image {
     if(file_exists($file)){
       unlink($file);
     }
-  }
-
-  public function getImage($path, $id){
-    $result = glob($path.$id.".{jpg,jpeg,png,gif}", GLOB_BRACE);
-    return ($result[0] ? $result[0]: $path."0.jpg");
-  }
-
+    
   /* ritorna, se esiste, il path completo dell'immagine con estensione jpg/jpeg/png/gif
   *  altrimenti path/0.jpg
   */
