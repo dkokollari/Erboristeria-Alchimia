@@ -22,33 +22,36 @@
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   </head>
   <body>
-    <!--          HEADER             -->
-    <button>
-      <i id="menu_icon" class="material-icons-round">menu</i>
-    </button>
-    <div id="topbar">
-      <h1 id="topbar_title">Articoli</h1>
-    </div>
-    <div id="header_image"></div>
-    <h1>Ricerca articoli</h1>
-    <!--         CONTENT            -->
-    <div id="content">
-      <h2>Trova ci&ograve; che ti serve</h2>
-      <form action="articoli.php" method = "get"> <!--ora che il method e' get va fatto controllo anche sul valore dei filtri! -->
-        <input type="text" id="myInput" onkeyup="myFunction()"
-              placeholder="Inserisci il nome.." name="search" title="Inserisci un nome"></input>
-        <input type="submit" value="invia"/>
-        %SEX_FILTER%
-        %CATEGORY_FILTER%
-        %COMPANY_FILTER%
-      </form>
-      <div class="container">
-        %PRODUCTS%
+    <div class="container" id="container_articoli">
+      <!--          HEADER             -->
+      <button>
+        <i id="menu_icon" class="material-icons-round">menu</i>
+      </button>
+      <div id="topbar">
+        <h1 id="topbar_title">Articoli</h1>
       </div>
-      <div class="FaiBelliILink:)">
-        %PAGES_MENU%
+      <div id="header_image"></div>
+      <h1>Ricerca articoli</h1>
+      <!--         CONTENT            -->
+      <div id="content">
+        <h2>Trova ci&ograve; che ti serve</h2>
+        <form action="articoli.php" method="get"> <!--ora che il method e' get va fatto controllo anche sul valore dei filtri! -->
+          <fieldset>
+            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Inserisci il nome.." name="search" title="Inserisci un nome"></input>
+            <input type="submit" value="invia"/>
+            %SEX_FILTER%
+            %CATEGORY_FILTER%
+            %COMPANY_FILTER%
+          </fieldset>
+        </form>
+        <div class="container">
+          %PRODUCTS%
+        </div>
+        <div class="FaiBelliILink:)">
+          %PAGES_MENU%
+        </div>
       </div>
+      <div id="footer"> I piedi in doccia si lavano da soli con l'acqua che cade </div>
     </div>
-    <div id="footer"> I piedi in doccia si lavano da soli con l'acqua che cade </div>
   </body>
 </html>
