@@ -34,7 +34,7 @@
         if($row_descr["evento"]==$row["id_evento"]){
           $sottotitolo = htmlentities($row_descr["sottotitolo"]);
           $descrizione_formattata .= '<li>'.$sottotitolo.'</li>
-          ';
+            ';
         }
       }
       $relatori = DBAccess::nl2p(htmlentities($row["relatore_evento"]));
@@ -53,7 +53,7 @@
       }
 
       $lista .=
-      '<div id= ' . $row['id_evento'] . ' class="card eventi">
+       '<div id= ' . $row['id_evento'] . ' class="card eventi">
           <span class="data">'.$giorno_testo.' <span>'.$giorno_numero.'</span> '.$mese.'</span>
           <img src="'.$immagine.'" alt="'.$descrizione_immagine.'"/>
           <h3 class="titoletto">'.$titolo.'</h3>
@@ -71,12 +71,11 @@
           <p id="org">
             '.$organizzazione.'
           </p>
-        '.($posti_limitati ?
-        '<p id="prenotazione">
-          <span>I posti sono limitati, &egrave; gradita la prenotazione</span> (i contatti si trovano <a href="pagina_informazioni.html#contatti">qui</a>)
-        </p>' : "").'
-      </div>
-
+          '.($posti_limitati ?
+          '<p id="prenotazione">
+            <span>I posti sono limitati, &egrave; gradita la prenotazione</span> (i contatti si trovano <a href="pagina_informazioni.html#contatti">qui</a>)
+          </p>' : "").'
+        </div>
       ';
     }
 
