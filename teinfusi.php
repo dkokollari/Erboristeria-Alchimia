@@ -46,9 +46,4 @@
     echo "<h1>Impossibile connettersi al database riprovare pi&ugrave; tardi<h1>";
     exit;
   }
-
-  /* mette i tag di paragrafo ad ogni nuova riga */
-  function nl2p($text){
-    return str_replace(array("\r\n", "\r", "\n"), "</p><p>", $text);
-  }
 ?>
