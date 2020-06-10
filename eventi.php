@@ -45,12 +45,13 @@
 
       if(!strpos($style, $backgroundImg)) {
       $style .= $backgroundImg;
-    }
+    }*/
 
 
 
       $lista .=
       '<div class="card eventi">
+          <h3>' . $titolo . '<h3>
           <ul>
             '.$descrizione_formattata.'
           </ul>
