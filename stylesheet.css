@@ -600,6 +600,9 @@ margin:0.7em auto 0.7em auto;
 .card.collapsed h3 {
   margin-top: 7em;
 }
+.eventi.card.collapsed h3 {
+  margin-top: 0em;
+}
 .card h4 {
   margin: 1.2em 0.6em 0.7em 0.6em;
   line-height: 1.1em;
