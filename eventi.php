@@ -38,20 +38,16 @@
       $descrizione_mappa = DBAccess::nl2p(htmlentities($row["descrizione_mappe_evento"]));
       $organizzazione = DBAccess::nl2p(htmlentities($row["organizzazione_evento"]));
       $posti_limitati = $row["prenotazione_posti_evento"];
-
     /*  $backgroundImg = "\n" . '#n' . $row['id_evento'] . '{ // WARNING: puo tornare utile: codice per mettere background-image univoche
         background-image: url(' . $immagine . ');
       }' . "\n";
-
       if(!strpos($style, $backgroundImg)) {
       $style .= $backgroundImg;
     }*/
-
-
-
       $lista .=
       '<div class="card eventi">
-          <h3>' . $titolo . '<h3>
+          <h3>' . $titolo . '</h3>
+          <img>' . $immagine . '</img>
           <ul>
             '.$descrizione_formattata.'
           </ul>
@@ -77,8 +73,7 @@
     /*file_put_contents('stylesheet.css', $style);*/
     $pagina = str_replace("%LISTA_EVENTI%", $lista, $pagina);
     echo $pagina;
-  }
-}  else {
+  } else {
     echo "<h1>Impossibile connettersi al database riprovare pi&ugrave; tardi<h1>";
     exit;
   }
