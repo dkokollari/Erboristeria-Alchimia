@@ -44,6 +44,8 @@
       }' . "\n";
 
       if(!strpos($style, $backgroundImg)) {
+      $style .= $backgroundImg;
+    }
 
 
 
