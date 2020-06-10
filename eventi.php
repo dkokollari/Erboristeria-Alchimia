@@ -77,7 +77,7 @@
     $pagina = str_replace("%LISTA_EVENTI%", $lista, $pagina);
     echo $pagina;
   }
-  else {
+}  else {
     echo "<h1>Impossibile connettersi al database riprovare pi&ugrave; tardi<h1>";
     exit;
   }
