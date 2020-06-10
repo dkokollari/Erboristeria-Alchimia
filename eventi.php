@@ -45,7 +45,8 @@
       $style .= $backgroundImg;
     }*/
       $lista .=
-      '<div class="card eventi">
+      '<strong>' . '<span class="data">' . $giorno_testo . ' ' . $giorno_numero . ' ' . $mese . '</span>' . '</strong>
+       <div class="card eventi">
           <h3>' . $titolo . '</h3>
           <img src="'.$immagine.'" alt="'.$descrizione_immagine.'"/>
           <ul>

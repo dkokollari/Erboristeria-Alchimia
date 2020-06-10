@@ -404,6 +404,11 @@ margin:0.7em auto 0.7em auto;
 
 }
 
+@media screen and (max-width:410px) {
+  #content .card.eventi img {
+    height: 12em;
+  }
+}
 
 
                         /*        TABLET MODE HEADER          */
@@ -627,6 +632,16 @@ margin:0.7em auto 0.7em auto;
 .eventi.card.collapsed h3 {
   margin-top: 0em;
 }
+.eventi.card.collapsed {
+  max-height: none;
+}
+.eventi.card.collapsed img {
+  max-height: none;
+}
+ #prenotazione { /*sovrascrivo .rotated per eventi*/
+  transform: none;
+  transition: none;
+}
 .card h4 {
   margin: 1.2em 5% 0.7em 5%; /*WARNING(FOUAD) messo 5% al posto 7% dx e sx ovunque!*/
   line-height: 1.1em;
@@ -700,20 +715,23 @@ margin:0.7em auto 0.7em auto;
   font-size: 2.5em;
 }
 
-.data {
-  float: left;
+#content .data {
   text-transform: uppercase;
   text-align: center;
   font-weight: bold;
   letter-spacing: 0.1em;
-  width: 6.8em; /*FOUAD: altezza e larghezza rimangono a 7em grazie al padding di 0.1em: trucchetto per ottenere la scritta del giorno allineata perfettamente col titolo a destra (h3)*/
-  height: 6.8em;
-  padding: 0.1em;
-/*  display: table-cell;
-  vertical-align: middle;*/
+  width: 16em; /*FOUAD: altezza e larghezza rimangono a 7em grazie al padding di 0.1em: trucchetto per ottenere la scritta del giorno allineata perfettamente col titolo a destra (h3)*/
+  padding: 0.2em;
+  margin-bottom: 0.8em;
+  display: block;
   color: white;
-  background-color: #8F250C;
-  border-top-left-radius: 10px;
+  background-color: #d32f2f;
+  border-radius: 10px;
+}
+strong {
+  border-bottom: 2px dotted #404354;
+  margin-bottom: 1.2em;
+  display: block;
 }
 #eventi .eventi img {
   margin-left: 7em;
