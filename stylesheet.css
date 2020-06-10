@@ -612,7 +612,7 @@ margin:0.7em auto 0.7em auto;
   max-height: 7em;
 }
 .card img {
-  border-radius: 7px 7px 0 0;
+  border-radius: 7px 7px 7px 7px;
   width: 100%;
   object-fit: cover;
   transition: max-height 0.4s ease;
@@ -638,7 +638,7 @@ margin:0.7em auto 0.7em auto;
 .eventi.card.collapsed img {
   max-height: none;
 }
- #prenotazione { /*sovrascrivo .rotated per eventi*/
+ #prenotazione, #org { /*sovrascrivo .rotated per eventi*/
   transform: none;
   transition: none;
 }
