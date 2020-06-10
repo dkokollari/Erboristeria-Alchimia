@@ -47,7 +47,7 @@
       $lista .=
       '<div class="card eventi">
           <h3>' . $titolo . '</h3>
-          <img>' . $immagine . '</img>
+          <img src="'.$immagine.'" alt="'.$descrizione_immagine.'"/>
           <ul>
             '.$descrizione_formattata.'
           </ul>
