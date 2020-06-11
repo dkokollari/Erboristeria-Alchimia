@@ -28,6 +28,8 @@
     }
     else {
       /*password e email inserite dall'utente: ora controllo che ci siano nel db*/
+      // WARNING: possibile codice duplicato e non aggiornato
+      // TODO: usare DBAccess
       $conn = new DBAccess();
       if(!$conn->openConnection()) {
        echo '<span class="errore">Impossibile connettersi al database riprovare pi&ugrave; tardi</span>';
