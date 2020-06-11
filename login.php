@@ -30,16 +30,16 @@
       /*password e email inserite dall'utente: ora controllo che ci siano nel db*/
       // WARNING: possibile codice duplicato e non aggiornato
       // TODO: usare DBAccess
-      $conn = new DBAccess();
-      if(!$conn->openConnection()) {
+      $con = new DBAccess();
+      if(!$con->openConnection()) {
        echo '<span class="errore">Impossibile connettersi al database riprovare pi&ugrave; tardi</span>';
        exit;
       }
       //Stabilita connessione al db
       $query = "SELECT * FROM `utenti` WHERE `email_utente`=?";
 
-      if(!$stmt = mysqli_prepare($conn->connection, $query)) {
-        die('prepare() failed: '.htmlspecialchars(mysqli_error($conn->$connection)));
+      if(!$stmt = mysqli_prepare($con->connection, $query)) {
+        die('prepare() failed: '.htmlspecialchars(mysqli_error($con->$conection)));
       }
 
       $stmt->bind_param("s", $email);
@@ -62,7 +62,7 @@
         }
         $stmt->close();
       }
-      $conn->closeConnection();
+      $con->closeConnection();
     }
 
     $pagina = str_replace("%ERR_LOGIN%", $errore, $pagina);
