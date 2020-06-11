@@ -5,8 +5,8 @@
 
 body {
     font-family: "Times New Roman", Times, serif;
-    font-size: 0.5cm;
-    margin-left: 0.5cm;
+    font-size: 0.5em;
+    margin-left: 0.5em;
 }
 
 a {
@@ -23,7 +23,7 @@ a {
 }
 
 h1, h2, h3, h4 {
-  margin: 0.5cm 0cm 0.5cm 0cm;
+  margin: 0.5em 0em 0.5em 0em;
   color: black;
 }
 
@@ -31,54 +31,80 @@ h1 {
   text-align: center;
 }
 
-#container_informazioni h2{
+h2 {
   display: none;
 }
 
-#container_informazioni h3 {
-  margin-top: 1.5cm;
+h3 {
+  margin-top: 1.5em;
+  margin-bottom: 1em;
 }
 
-#container_informazioni p {
-  margin-bottom: 0.5cm;
+p {
+  margin-bottom: 0.5em;
 }
 
-#container_informazioni span {
+span {
   font-weight: bold;
   clear: both;
-  min-width: 2cm;
   display: block;
   float: left;
+  line-height: 1.5em;
 }
 
 #linkMappa {
   display: block;
-  margin-left: 3cm;
+  margin-left: 3em;
 }
 
-#container_informazioni ul li {
-  margin-top: 0.5cm;
+ul li {
+  margin-top: 0.5em;
   list-style: none;
-  margin-bottom: 0.5cm;
-  min-width: 6cm;
+  margin-bottom: 0.5em;
+  width: 23%;
 }
 
-#container_informazioni #orario li {
+#contatti li {
+  width: auto;
+}
+
+#contatti span {
+    line-height: normal;
+}
+
+#orario {
+ min-height: 8em;
+ display: block;
+}
+
+#contatti span, h3 + span {
+  min-width: 15%;
+  display: block;
+}
+
+#orario li {
   float: left;
 }
 
-#container_informazioni ul li div, #container_informazioni ul li span + span {
-  margin-left: 2.5cm;
+ul li div, ul li span + span {
+  margin-left: 40%;
   float: none;
   clear: none;
+  font-weight: normal;
+  display: block;
+}
+
+ul li div span {
+  float: none;
+  clear: none;
+  margin-left: 0em;
   font-weight: normal;
 }
 
-#container_informazioni ul li div span {
-  float: none;
-  clear: none;
-  margin-left: 0cm;
-  font-weight: normal;
+#footer {
+  clear: left;
+  text-align: center;
+  margin-top:1.5em;
 }
 
 #footer > * {
@@ -86,7 +112,5 @@ h1 {
 }
 
 #copyright {
-  clear: left;
   display: block;
-  margin-top: 1.5cm;
 }
