@@ -6,10 +6,6 @@
 
   $con = new DBAccess();
   if($con->openConnection()){
-    if(!$con->connection->set_charset("utf8")){
-      //printf("Error loading character set utf8: %s\n", $con->error);
-      exit;
-    }
     $pagina = file_get_contents('inserimento_teinfusi.html');
 
     $errori=0;
@@ -49,8 +45,8 @@
 
       //se non ci sono errori
       if($errori==0){
-        if($imgpresent && $con->InsertTeInfusi($descImg, $tipo, $nome, $ingre, $descr, $prepa)){
-          $id = $con->getId($nome);
+        if($imgpresent && $con->insertTeInfusi($descImg, $tipo, $nome, $ingre, $descr, $prepa)){
+          $id = $con->getId_TeInfusi($nome);
           if($image->uploadImageTeInfusi($_FILES['immagine']['name'], $_FILES['immagine']['tmp_name'], $id)){
             $messaggio = "";
           }
@@ -59,7 +55,7 @@
             $con->deleteTeInfusi_by_name($nome);
           }
         }
-        else if(!$imgpresent && $con->InsertTeInfusi($descImg, $tipo, $nome, $ingre, $descr, $prepa)){
+        else if(!$imgpresent && $con->insertTeInfusi($descImg, $tipo, $nome, $ingre, $descr, $prepa)){
           $messaggio = "";
         }
         else{

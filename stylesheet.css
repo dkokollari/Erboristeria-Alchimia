@@ -147,7 +147,12 @@ h3 {
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--yellow-dark);
+  margin: 0em 7% 0em 7.2em; /*Fouad: ora l'h3 e' accanto data evento al posto immagine*/
 }
+.card.eventi h3 {
+  margin: 0.5em 5% 0.5em 5%;
+}
+
 h4, #menu li {                                     /*       DA RIVERE         */
   text-transform: uppercase;
   letter-spacing: 0.02em;
@@ -382,12 +387,28 @@ margin:0.7em auto 0.7em auto;
                 width: 100%;
             }
 
+            #content .card.eventi img { //id messo per essere piu potente dell'altra proprieta per schermi grandi
+              margin-right: 10%;
+              margin-left: 10%;
+              width: 80%;
+              float: none;
+            }
+
+            .card.eventi ul {
+              clear: both;
+              margin: 0.5em 5% 2em 7%;
+            }
             /* #footer li > * {
             padding: 0.1em 0.3em 0.1em 0.3em;
             } */
 
 }
 
+@media screen and (max-width:410px) {
+  #content .card.eventi img {
+    height: 12em;
+  }
+}
 
 
                         /*        TABLET MODE HEADER          */
@@ -581,6 +602,9 @@ margin:0.7em auto 0.7em auto;
   padding-bottom: 1em;
   cursor: pointer;
 }
+.card.eventi {
+  max-height: none;
+}
 .card.collapsed {
   max-height: 10.5em;
 }
@@ -588,26 +612,46 @@ margin:0.7em auto 0.7em auto;
   max-height: 7em;
 }
 .card img {
+  border-radius: 7px 7px 7px 7px;
   width: 100%;
-  border-radius: 7px 7px 0 0;
-  max-height: 10.5em;
   object-fit: cover;
   transition: max-height 0.4s ease;
   position: absolute;
   top: 0;
 }
+.card.eventi img {
+  height: 15em;
+  width: 15em;
+  margin: 0% 0% 2em 5%;
+  float: left;
+  position:static;
+}
 .card.collapsed h3 {
   margin-top: 7em;
 }
-.card h3 {
-  margin: 0.3em 0.6em 1.2em 0.6em;
+.eventi.card.collapsed h3 {
+  margin-top: 0em;
+}
+.eventi.card.collapsed {
+  max-height: none;
+}
+.eventi.card.collapsed img {
+  max-height: none;
+}
+ #prenotazione, #org { /*sovrascrivo .rotated per eventi*/
+  transform: none;
+  transition: none;
+}
+.card h4 {
+  margin: 1.2em 5% 0.7em 5%; /*WARNING(FOUAD) messo 5% al posto 7% dx e sx ovunque!*/
   line-height: 1.1em;
-  display: flex;
+  /*display: flex; Fouad: scusa l'ignoranza Do, ma mi pare senza senso!*/
+  /*align-items: center;
+  justify-content: center;*/
   height: 2em;
-  align-items: center;
-  justify-content: center;
   transition: 0.4s ease;
-  margin-top: 11.5em;
+  text-align: left;
+  /*margin-top: 11.5em; WARNING: (Fouad): maybe it messes with the js if commented!!!*/
 }
 .card .expand_btn {
   position: absolute;
@@ -619,13 +663,24 @@ margin:0.7em auto 0.7em auto;
   color: var(--yellow-dark);
 }
 #content .card p, #eventi #linkMappa {
-  margin: 0.7em 7% 0.7em 7%;
+  margin: 0.7em 5% 0.7em 7%;
   font-size: 0.9em;
 }
 
 
                           /*        EVENTI      */
 
+.card.eventi #linkMappa {
+  margin-left: 7%;
+}
+
+.card ul {
+  list-style: disc; /*FOUAD: brutto, ma si deve capire che è una lista per facilità di lettura! Stronzi, cosi imparate a bocciarmi le ampolle!*/
+  margin: 0.5em 5% 2em 20.5em;
+}
+.card ul li {
+  margin-bottom: 1.2em;
+}
 /* .card span {} */
 #eventi #prenotazione span {
   font-weight: bold;
@@ -638,18 +693,14 @@ margin:0.7em auto 0.7em auto;
   color: var(--grey-dark);
 }
 
+.eventi h3.titoletto {
+  clear : none;
+}
+
 #eventi ul {
   list-style: none;
   margin-left: 5%;
-  margin-right: 7%;
-}
-
-#eventi ul li {
-  background-image: url('img/ampolla.jpeg');
-  background-position: top left;
-  background-size: 1.5em;
-  background-repeat: no-repeat;
-  padding-left: 1.6em;
+  margin-right: 5%;
 }
 
 #eventi #org {
@@ -664,25 +715,26 @@ margin:0.7em auto 0.7em auto;
   font-size: 2.5em;
 }
 
-.databox {
-  float: left;
-}
-
-.data {
+#content .data {
   text-transform: uppercase;
   text-align: center;
   font-weight: bold;
   letter-spacing: 0.1em;
-  width: 7em;
-  height: 7em;
-  display: table-cell; /*DEVO CAPIRE COSA FACCIA  (FOUAD)*/
-  vertical-align: middle;
+  width: 16em; /*FOUAD: altezza e larghezza rimangono a 7em grazie al padding di 0.1em: trucchetto per ottenere la scritta del giorno allineata perfettamente col titolo a destra (h3)*/
+  padding: 0.2em;
+  margin-bottom: 0.8em;
+  display: block;
   color: white;
-  background-color: #8F250C;
-  border-top-left-radius: 10px;
+  background-color: #d32f2f;
+  border-radius: 10px;
+}
+strong {
+  border-bottom: 2px dotted #404354;
+  margin-bottom: 1.2em;
+  display: block;
 }
 #eventi .eventi img {
-  max-width: 100%;
+  margin-left: 7em;
   object-fit: cover;
   border-top-right-radius: 10px;
   border-top-left-radius: 0px;
