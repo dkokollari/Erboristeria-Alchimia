@@ -76,7 +76,7 @@ ul li {
   margin-top: 0.5em;
   list-style: none;
   margin-bottom: 0.5em;
-  width: 23%;
+  width: 11em;
 }
 
 #contatti li {
@@ -102,11 +102,15 @@ ul li {
 }
 
 ul li div, ul li span + span {
-  margin-left: 40%;
+  margin-left: 5em;
   float: none;
   clear: none;
   font-weight: normal;
   display: block;
+}
+
+#orario li:last-child {
+  clear: left;
 }
 
 ul li div span {
