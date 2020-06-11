@@ -25,6 +25,10 @@
   --grey-main: #4e5166;
   --grey-light: #bfbfca;
 
+  --accent3Shade1: #ffdde0;
+  --accent3Shade4: #d32f2f;
+  --borderRadius: 6px;
+
 }
 /* activate border outline for keyboard navigation */
 /* I added 'em all, you never know....*/
@@ -153,7 +157,12 @@ h3 {
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--yellow-dark);
+  margin: 0em 7% 0em 7.2em; /*Fouad: ora l'h3 e' accanto data evento al posto immagine*/
 }
+.card.eventi h3 {
+  margin: 0.5em 5% 0.5em 5%;
+}
+
 h4, #menu li {                                     /*       DA RIVERE         */
   text-transform: uppercase;
   letter-spacing: 0.02em;
@@ -342,7 +351,22 @@ margin:0.7em auto 0.7em auto;
 }
 
 
-                          /*        EVENTI      */
+
+                          /*        EVENTI 
+            #content .card.eventi img { //id messo per essere piu potente dell'altra proprieta per schermi grandi
+              margin-right: 10%;
+              margin-left: 10%;
+              width: 80%;
+              float: none;
+            }
+
+            .card.eventi ul {
+              clear: both;
+              margin: 0.5em 5% 2em 7%;
+            }
+            /* #footer li > * {
+            padding: 0.1em 0.3em 0.1em 0.3em;
+            } */
 
 /* .card span {} */
 #eventi #prenotazione span {
@@ -354,6 +378,11 @@ margin:0.7em auto 0.7em auto;
 #eventi #dataEvento {
   font-weight: bold;
   color: var(--grey-dark);
+}
+@media screen and (max-width:410px) {
+  #content .card.eventi img {
+    height: 12em;
+  }
 }
 
 #eventi ul {
@@ -369,6 +398,297 @@ margin:0.7em auto 0.7em auto;
   background-repeat: no-repeat;
   padding-left: 1.6em;
 }
+                        /*        TABLET MODE HEADER          */
+
+@media screen and (min-width:700px)   {
+
+      #container_te_e_infusi #header_image {
+        background-image: url(img/home_background.jpg);
+      }
+      body {
+        margin-top: 10em;
+      }
+
+      #right-of-menu, #menu_icon, .menu_btn,#menu li.menu_btn, #topbar, #menu button:first-child {
+         display: none;
+       }
+       .container {
+         width:100vw;
+       }
+
+       #content {
+         margin-top: 0;
+       }
+       #menu {
+         z-index: 5;
+         height: 2.8em;
+         margin-top:0;
+         position: sticky;
+         top:0;
+         background-color: var(--yellow-light);
+         transform: translateX(0);
+         text-align: center;
+       }
+       #menu ul {
+         text-align: center;
+         display: flex;
+         height: 100%;
+       }
+       #menu li {
+         display: flex;
+         justify-content: center;
+         color: var(--grey-dark);
+         flex-grow: 1;
+         margin: auto;
+         height: 100%;
+       }
+       #menu li > * {
+         margin: auto;
+         color: var(--grey-dark);
+       }
+       #menu li > a {
+         border-bottom: var(--grey-dark) dashed;
+       }
+       #menu .selected_page {
+         background-color: var(--yellow-main);
+       }
+       /*  for those that use the tablet with a mouse :) */
+       #menu li a:hover {
+         /* color: var(--yellow-dark); */
+         /* border-bottom: var(--yellow-dark) dashed; */
+         border-bottom: var(--grey-dark) solid;
+       }
+       #footer {
+           width: 100%;
+       }
+       body #content {
+         margin-top: 0;
+         min-height: 90%;
+       }
+       /* #footer li > * {
+       padding: 0.5em;
+       } */
+       #footer li{
+         width: 7em;
+         /* height: 1.8em; */
+         margin-left: 1em;
+         margin-right: 1em;
+         margin-top: 0.2em;
+         margin-bottom: 0.2em;
+       }
+}
+
+@media screen and (min-width:700px) and (max-width:1024px) {
+
+        #header_image {
+          top: -10em;
+        }
+        h1 {
+          top: 0em;
+        }
+
+}
+                        /*        DESKTOP MODE HEADER          */
+
+/* added "body" to almost every rule to increase specificity, but instead I should just create a different @media for mobile */
+
+@media screen and (min-width: 1025px) {
+
+      body{
+        margin-top: 250px;
+      }
+      .container {
+        margin: 0 auto 0 auto;
+        box-shadow: 0 3px 6px rgba(0,0,0,0.10), 0 3px 6px rgba(0,0,0,0.17);
+      }
+
+      .container, #header_image, h1, body #footer {
+              width: 1001px;
+        }
+
+      #informazioni #orari li {
+        display: block;
+        text-align: center;
+        margin-left: 30%;
+      }
+
+      #informazioni li p {
+          float: left;
+      }
+
+      #informazioni .giornoSett {
+        min-width: 20%;
+        float: left;
+      }
+
+      #header_image {
+        top: -300px;
+        height: 40em;
+      }
+      h1 {
+        font-size: 11em;
+        top: 20px;
+
+      }
+}
+
+
+                            /*     CONSIGLI DI MARIKA       */
+
+.tips_and_tricks {
+  background-color: var(--orange-light);
+  color: var(--orange-dark);
+  position: relative;
+  overflow: hidden;
+  max-height: 60em;
+  cursor: pointer;
+  transition: 0.8s ease;
+}
+.tips_and_tricks.collapsed {
+    max-height: 4.5em;
+}
+.tips_and_tricks h3 {
+  margin: 1em;
+  color: var(--orange-dark);
+}
+.tips_and_tricks h4 {
+  color: var(--orange-dark);
+  margin-top: 2em;
+}
+.tips_and_tricks ul {
+  padding-left: 1.5em;
+}
+.tips_and_tricks ul span {
+  font-weight: 600;
+}
+.tips_and_tricks .expand_icon {
+  transition: 0.8s ease;
+  position: absolute;
+  bottom: 0;
+  margin:0;
+  text-align: center;
+  width: 100%;
+}
+.tips_and_tricks li {
+  margin-bottom: 1em;
+}
+
+                          /*       LISTA DI INFUSI      */
+
+.card {
+  border-radius: 7px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.10), 0 3px 6px rgba(0,0,0,0.17);
+  position: relative;
+  font-size: 1em;
+  margin-bottom: 1.5em;
+  background-color: var(--yellow-light);
+  max-height: 80em;
+  overflow: hidden;
+  transition: max-height 0.8s ease;
+  opacity: 1;
+  padding-bottom: 1em;
+  cursor: pointer;
+}
+.card.eventi {
+  max-height: none;
+}
+.card.collapsed {
+  max-height: 10.5em;
+}
+.card.collapsed img {
+  max-height: 7em;
+}
+.card img {
+  border-radius: 7px 7px 7px 7px;
+  width: 100%;
+  object-fit: cover;
+  transition: max-height 0.4s ease;
+  position: absolute;
+  top: 0;
+}
+.card.eventi img {
+  height: 15em;
+  width: 15em;
+  margin: 0% 0% 2em 5%;
+  float: left;
+  position:static;
+}
+.card.collapsed h3 {
+  margin-top: 7em;
+}
+.eventi.card.collapsed h3 {
+  margin-top: 0em;
+}
+.eventi.card.collapsed {
+  max-height: none;
+}
+.eventi.card.collapsed img {
+  max-height: none;
+}
+ #prenotazione, #org { /*sovrascrivo .rotated per eventi*/
+  transform: none;
+  transition: none;
+}
+.card h4 {
+  margin: 1.2em 5% 0.7em 5%; /*WARNING(FOUAD) messo 5% al posto 7% dx e sx ovunque!*/
+  line-height: 1.1em;
+  /*display: flex; Fouad: scusa l'ignoranza Do, ma mi pare senza senso!*/
+  /*align-items: center;
+  justify-content: center;*/
+  height: 2em;
+  transition: 0.4s ease;
+  text-align: left;
+  /*margin-top: 11.5em; WARNING: (Fouad): maybe it messes with the js if commented!!!*/
+}
+.card .expand_btn {
+  position: absolute;
+  bottom: 0;
+  line-height: 1.2em;
+  text-align: center;
+  width: 100%;
+  transition: transform 1s ease;
+  color: var(--yellow-dark);
+}
+#content .card p, #eventi #linkMappa {
+  margin: 0.7em 5% 0.7em 7%;
+  font-size: 0.9em;
+}
+
+
+                          /*        EVENTI      */
+
+.card.eventi #linkMappa {
+  margin-left: 7%;
+}
+
+.card ul {
+  list-style: disc; /*FOUAD: brutto, ma si deve capire che è una lista per facilità di lettura! Stronzi, cosi imparate a bocciarmi le ampolle!*/
+  margin: 0.5em 5% 2em 20.5em;
+}
+.card ul li {
+  margin-bottom: 1.2em;
+}
+/* .card span {} */
+#eventi #prenotazione span {
+  font-weight: bold;
+  text-transform: uppercase;
+  color: var(--red-dark);
+}
+
+#eventi #dataEvento {
+  font-weight: bold;
+  color: var(--grey-dark);
+}
+
+.eventi h3.titoletto {
+  clear : none;
+}
+
+#eventi ul {
+  list-style: none;
+  margin-left: 5%;
+  margin-right: 5%;
+}
 
 #eventi #org {
   font-style: italic;
@@ -382,25 +702,26 @@ margin:0.7em auto 0.7em auto;
   font-size: 2.5em;
 }
 
-.databox {
-  float: left;
-}
-
-.data {
+#content .data {
   text-transform: uppercase;
   text-align: center;
   font-weight: bold;
   letter-spacing: 0.1em;
-  width: 7em;
-  height: 7em;
-  display: table-cell; /*DEVO CAPIRE COSA FACCIA  (FOUAD)*/
-  vertical-align: middle;
+  width: 16em; /*FOUAD: altezza e larghezza rimangono a 7em grazie al padding di 0.1em: trucchetto per ottenere la scritta del giorno allineata perfettamente col titolo a destra (h3)*/
+  padding: 0.2em;
+  margin-bottom: 0.8em;
+  display: block;
   color: white;
-  background-color: #8F250C;
-  border-top-left-radius: 10px;
+  background-color: #d32f2f;
+  border-radius: 10px;
+}
+strong {
+  border-bottom: 2px dotted #404354;
+  margin-bottom: 1.2em;
+  display: block;
 }
 #eventi .eventi img {
-  max-width: 100%;
+  margin-left: 7em;
   object-fit: cover;
   border-top-right-radius: 10px;
   border-top-left-radius: 0px;
@@ -419,6 +740,10 @@ margin:0.7em auto 0.7em auto;
                           /*       INFORMAZIONI */
 
 
+#container_informazioni #content p {
+  text-align: center;
+}
+
 #container_informazioni #linkMappa {
   display: block;
   text-align: center;
@@ -434,7 +759,6 @@ margin:0.7em auto 0.7em auto;
   height: 4em;
 }
 
-#container_informazioni #giorniSett > li,
 #container_informazioni span {
   display: block;
   text-align: center;
@@ -449,8 +773,7 @@ margin:0.7em auto 0.7em auto;
 }
 
 /* PER RIMUOVERE PRECEDENTI STILI */
-#orario p {
-
+#orario span {
   margin: auto;
 }
 #orario {
@@ -460,7 +783,7 @@ margin:0.7em auto 0.7em auto;
 
 #orario li {
   display: flex;
-  margin: 1em auto 1em auto
+  margin: 1em auto 1em auto;
 }
 
 #orario li > div {
@@ -468,20 +791,14 @@ margin:0.7em auto 0.7em auto;
   display: flex;
   flex-direction: column;
 }
-/* NON NECESSARIO */
-strong {
-  color: var(--grey-dark);
-  margin: auto;
-}
-/* NON NECESSARIO */
-#informazioni h3 {
-  margin-top:2em;
-  margin-bottom: 0.7em;
+
+#orario li span.closed, #orario li div span {
+  color: initial;
+  font-weight: normal;
 }
 
 
-
-                              /*       LOGIN       */
+                              /*       LOGIN & REGISTRAZIONE      */
 #log_in_box_container {
   display: flex;
   height: 100%;
@@ -522,12 +839,16 @@ strong {
 #log_in_box fieldset {
   border:none;
 }
-#username, #password {
+#username, #password, #nome, #cognome, #password_conferma, #data_nascita{
   width: 100%;
 }
-.form_field {
+.form_field{
   position: relative;
   margin-top: 2.5em;
+}
+.form_field_static {
+  position: relative;
+  margin-top: 4.5em;
 }
 .form_field label {
   color: #666;
@@ -537,7 +858,15 @@ strong {
   transition: ease 0.2s;
   transform-origin: left;
   cursor: text;
-  font: 400 1.5em 'Poppins', sans-serif;
+  font: 400 1.2em 'Poppins', sans-serif;
+}
+.form_field_static label {
+  color: #666;
+  position: absolute;
+  left:0;
+  bottom: 2em;
+  cursor: text;
+  font: 400 1.2em 'Poppins', sans-serif;
 }
 .form_field:focus-within label,
 .form_field .filled {
@@ -546,7 +875,12 @@ strong {
   transition: ease 0.2s;
   color: var(--yellow-dark);
 }
-.form_field input {
+.form_field_static:focus-within label,
+.form_field_static .filled{
+  color: var(--yellow-dark);
+}
+.form_field input,
+.form_field_static input {
   line-height: 2.5em;
   border-bottom: 1px solid #aaa;
   border-top: none;
@@ -555,6 +889,33 @@ strong {
   padding: 0.2em 0 0.2em 0;
   outline: none;
   font: 300 1.3em 'Poppins', sans-serif;
+}
+#input-requirements ul {
+	list-style: none;
+}
+.input-requirements {
+  font-size: 0.7rem;
+  font-style: italic;
+  text-align: left;
+  list-style: disc;
+  list-style-position: inside;
+  max-width: 400px;
+  margin: 10px auto;
+  color: rgb(150,150,150);
+}
+
+
+.input-requirements li.invalid {
+	color: #e74c3c;
+}
+.input-requirements li.valid {
+	color: #2ecc71;
+}
+
+.input-requirements li.valid:after {
+	display: inline-block;
+	padding-left: 10px;
+	content: "\2713";
 }
 
 #log_in{
@@ -1475,4 +1836,17 @@ z-index: -1; */
         height: 40em;
       }
 
+}
+/*------- ERRORI FORM --------------*/
+
+.errore {
+  background: var(--accent3Shade1);
+  color: var(--accent3Shade4);
+  margin: 0.5em 0.5em;
+  display: block;
+  padding: 1em 1em;
+  border-radius: var(--borderRadius);
+  font-weight: 500;
+  position: relative;
+  cursor: pointer;
 }

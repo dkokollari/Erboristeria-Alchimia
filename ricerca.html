@@ -1,42 +1,92 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
   <head>
-    <!-- DA RIVEDERE TITOLO E ICONA  -->
     <title>Ricerca articoli - Erboristeria Alchimia</title>
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png"/>
-    <link rel="stylesheet" href="stylesheet.css"/>
-    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,600&display=swap" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet"/>
+    <meta name="title" content="Ricerca gli articoli di Erboristeria Alchimia"/>
+    <meta name="description" content="Visualizza i nostri articoli"/>
+    <meta name="keywords" content="ricerca, cerca, trova, articolo, articoli, erboristeria, alchimia"/>
+    <meta name="language" content="italian it"/>
+    <meta name="author" content="Andrea Dorigo, Fouad Mouad, Dardan Kokollari, Marcel Wandji"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
+    <meta http-equiv="content-Type" content="text/html; charset=utf-8"/>
+    <link rel="icon" href="img/favicon.ico"/>
+    <link rel="stylesheet" type="text/css" media="handheld, screen" href="stylesheet.css"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,600&amp;display=swap"/>
+    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons"/> -->
+    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons+Outlined"/> -->
+    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons+Two+Tone"/> -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons+Round"/>
+    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons+Sharp"/> -->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   </head>
   <body>
-    <!--          HEADER             -->
-    <button>
-      <i id="menu_icon" class="material-icons-round">menu</i>
-    </button>
-    <div id="topbar">
-      <h1 id="topbar_title">T&egrave; & infusi</h1>
-    </div>
-    <div id="header_image"></div>
-    <h1>Ricerca articoli</h1>
-
-    <!--         CONTENT            -->
-    <div id="content">
-      <h2>Trova ci&ograve; che ti serve</h2>
-      <!--      https://www.w3schools.com/howto/howto_js_filter_lists.asp      -->
-      <form action="ricerca.php" method = "post"> 
-        <input type="text" id="myInput" onkeyup="myFunction()"
-              placeholder="Inserisci il nome.." name = "search" title="Inserisci un nome"></input>
-        <input type = "submit" value = "invia"/>
-      </form>
-      <ul id="myUL">
+    <div class="container" id="container_ricerca">
+      <!--          HEADER             -->
+      <button>
+        <i id="menu_icon" class="material-icons-round">menu</i>
+      </button>
+      <div id="topbar">
+        <h1 id="topbar_title">Ricerca articoli</h1>
+      </div>
+      <div id="header_image"></div>
+      <h1>Ricerca articoli</h1>
+      <!--         CONTENT            -->
+      <div id="content">
+        <h2>Trova ci&ograve; che ti serve</h2>
+        <!--      https://www.w3schools.com/howto/howto_js_filter_lists.asp      -->
+        <form action="ricerca.php" method="post">
+          <fieldset>
+            <input type="text" id="myInput" onkeyup="myFunction()"
+                  placeholder="Inserisci il nome.." name="search" title="Inserisci un nome"></input>
+            <input type="submit" value="invia"/>
+            <!-- <div class="form_field"> -->
+            <label for="sesso">Sesso</label>
+            <select name="sesso" id="sesso">
+          	  <option selected value="none">Seleziona filtro</option>
+              <option value="per lui">Per lui</option>
+              <option value="per lei">Per lei</option>
+              <option value="unisex">Unisex</option>
+            </select>
+            <!-- </div> -->
+            <!-- <div class="form_field"> -->
+            <label for="categoria">Categoria</label>
+            <select name="categoria" id="categoria">
+           	  <option selected value="none">Seleziona filtro</option>
+                <option value="Alimentare">Alimentare</option>
+                <option value="Cosmetico">Cosmetico</option>
+            </select>
+            <!-- </div> -->
+            <!-- <div class="form_field"> -->
+            <label for="casa_prod">Casa produttrice</label>
+            <select name="casa_prod" id="casa_prod">
+            	  <option selected value="none">Seleziona filtro</option>
+                <option value="Baule Volante &amp; Fior di Loto">Baule Volante &amp; Fior di Loto</option>
+                <option value="Helan">Helan</option>
+                <option value="L'Erbolario">L'Erbolario</option>
+            </select>
+           <!-- </div> -->
+         </fieldset>
+        </form>
         %SEARCH_RESULTS%
-      </ul>
+      </div>
+      <!--          FOOTER            -->
+      <div id="footer">
+        <a id="torna_su_btn">Torna all'inizio della pagina</a>
+        <p id="footer_menu">Menu</p>
+        <ul>
+          <li><a href="homepage.html" xml:lang="en">Homepage</a></li>
+          <li><a href="eventi.html">Eventi</a></li>
+          <li><a href="teinfusi.html">T&egrave; &amp; Infusi</a></li>
+          <li><a href="prodotti.html">Prodotti</a></li>
+          <li><a href="infomazioni.html">Informazioni</a></li>
+          <li><a href="la_mia_storia.html">La mia Storia</a></li>
+        </ul>
+        <p id="copyright">Copyright &#64; 2020 erbalchimia@gmail.com. Tutti i diritti riservati</p>
+      </div>
     </div>
-    <!--          FOOTER            -->
-    <div id="footer"> I piedi in doccia si lavano da soli con l'acqua che cade </div>
+    <script type="text/javascript" src="js/design.js"></script>
+    <!-- <script type="text/javascript" src="js/ricercaW3CDardi.js"></script> -->
   </body>
-    <!-- <script src="js/ricercaW3CDardi.js"></script>--> 
+
 </html>

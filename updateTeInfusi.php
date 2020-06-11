@@ -8,17 +8,26 @@
   if($con->openConnection()){
     $pagina = file_get_contents('inserimento_teinfusi.html');
 
-    $errori=0;
-    $imgpresent= false;
-    $tipo = $_POST['Tipo'];
-    $nome = trim($_POST['Nome']);
-    $ingre = trim($_POST['Ingredienti']);
-    $descr = trim($_POST['Descrizione']);
-    $prepa = trim($_POST['Preparazione']);
-    $image = new Image();
+    $id = $_GET['id'];
+    $getElement = $con->getSingoloTeInfuso($id);
+    $valtipo = htmlentities($getElement['Tipo']);
+    $valnome = htmlentities($getElement['Nome']);
+    $valingre = htmlentities($getElement['Ingredienti']);
+    $valdescr = htmlentities($getElement['Descrizione']);
+    $valprepa = htmlentities($getElement['Preparazione']);
+    $valdescImg = htmlentities($getElement['desc_img']);
 
     //se è stato premuto il buttone submit
     if(isset($_POST['submit'])){
+      $errori=0;
+      $imgpresent= false;
+      $tipo = $_POST['Tipo'];
+      $nome = trim($_POST['Nome']);
+      $ingre = trim($_POST['Ingredienti']);
+      $descr = trim($_POST['Descrizione']);
+      $prepa = trim($_POST['Preparazione']);
+      $image = new Image();
+
       //controllo se l'immagine è stata caricata
       if(is_uploaded_file($_FILES['immagine']['tmp_name'])){
         $imgpresent = true;
@@ -34,8 +43,8 @@
       }
 
       //CONTROLLO input
-      $errNome = validInput($nome,"Nome");
-      $errDescr = validInput($descr,"Descrizione");
+      $errNome = validInput($nome, "Nome");
+      $errDescr = validInput($descr, "Descrizione");
       if($errNome!=""){
         $errori++;
       }
@@ -45,18 +54,15 @@
 
       //se non ci sono errori
       if($errori==0){
-        if($imgpresent && $con->insertTeInfusi($descImg, $tipo, $nome, $ingre, $descr, $prepa)){
-          $id = $con->getId_TeInfusi($nome);
-          if($image->uploadImageTeInfusi($_FILES['immagine']['name'], $_FILES['immagine']['tmp_name'], $id)){
-            $messaggio = "";
+        if($con->updateTeInfusi($id, $nome, $tipo, $ingre, $descr, $prepa, $descImg)){
+          if($imgpresent){
+            if($image->uploadImageTeInfusi($_FILES['immagine']['name'], $_FILES['immagine']['tmp_name'], $id)){
+              $messaggio = "";
+            }
+            else{
+              $messaggio = '<p class="error-msg">Errore: immagine non salvata</p>';
+            }
           }
-          else{
-            $messaggio = '<p class="error-msg">Errore: immagine non salvata</p>';
-            $con->deleteTeInfusi_by_name($nome);
-          }
-        }
-        else if(!$imgpresent && $con->insertTeInfusi($descImg, $tipo, $nome, $ingre, $descr, $prepa)){
-          $messaggio = "";
         }
         else{
           $messaggio = '<p class="error-msg">Query non eseguita riprovare pi&ugrave; tardi</p>';
@@ -72,9 +78,9 @@
       }
     } //endif se è stato premuto il buttone submit
 
-    $pagina = str_replace("%action%","inserimento_teinfusi.php", $pagina);
+    $pagina = str_replace("%action%", "updateTeInfusi.php?id=".$id, $pagina);
     $pagina = str_replace("%nome%", $valnome, $pagina);
-    $pagina = str_replace("%ingre%", htmlentities($valingre), $pagina);
+    $pagina = str_replace("%ingre%", $valingre, $pagina);
     $pagina = str_replace("%descr%", $valdescr, $pagina);
     $pagina = str_replace("%prepa%", $valprepa, $pagina);
     $pagina = str_replace("%imgdes%", $valdescImg, $pagina);
@@ -84,6 +90,7 @@
     $pagina = str_replace("%ERR_IMG%", $errImg, $pagina);
     $pagina = str_replace("%ERR_IMGDESC%", $errDescImg, $pagina);
 
+    $con->closeConnection();
     echo $pagina;
   }
   else{
@@ -92,6 +99,6 @@
   }
 
   function validInput($name, $description){
-    return ($name!="" ? "" : '<small class="error-msg">Inserisci '.$description.'</small>');
+    return ($name!="" ? "" : '<small class="error-msg">Il campo '.$description.' &egrave; richiesto</small>');
   }
 ?>

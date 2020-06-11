@@ -2,16 +2,17 @@
    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
   <head>
-    <title>Eventi - Erboristeria Alchimia</title>
-    <meta name="title" content="Gli eventi aggiornati di Erboristeria Alchimia"/>
-    <meta name="description" content="Qui troverai i prossimi eventi in programma e quelli passati organizzati dal negozio Erboristeria Alchimia"/>
-    <meta name="keywords" content="eventi, erboristeria, alchimia"/>
+    <title>Carrello - Erboristeria Alchimia</title>
+    <meta name="title" content="Carrello di Erboristeria Alchimia"/>
+    <meta name="description" content="Il tuo carrello verde made by Erboristeria Alchimia"/>
+    <meta name="keywords" content="carrello, acquista, acquisti, erboristeria, alchimia"/>
     <meta name="language" content="italian it"/>
     <meta name="author" content="Andrea Dorigo, Fouad Mouad, Dardan Kokollari, Marcel Wandji"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link rel="icon" href="img/favicon.ico"/>
-    <link rel="stylesheet" type="text/css" media="handheld, screen" href="stylesheet.css"/>
+    <link rel="stylesheet" type="text/css" media="handheld, screen" href="shopping-cart.css"/> <!-- d spostare in stylesheet.css -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/> <!-- bootstrap (chiedere se si può tenere)-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,600&amp;display=swap"/>
     <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons"/> -->
     <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons+Outlined"/> -->
@@ -21,36 +22,38 @@
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   </head>
   <body>
-    <div class="container" id="container_te_e_infusi">
+    <div class="container" id="container_carrello">
       <!--          HEADER             -->
-      <div id="header_image" class="fit"></div>
-      <h1>Eventi</h1>
+      <button>
+        <i id="menu_icon" class="material-icons-round">menu</i>
+      </button>
       <div id="topbar">
-        <h1 id="topbar_title">Eventi</h1>
+        <h1 id="topbar_title">Carrello</h1>
       </div>
-      <button class="menu_btn"><span id="menu_icon" class="material-icons-round">menu</span></button>
-      <div id="menu">
-        <ul title="Menu">
-          <li><a href="homepage.html" xml:lang="en">Homepage</a></li>
-          <li class="selected_page"><p>Eventi</p></li>
-          <li><a href="teinfusi.html">T&egrave; &amp; Infusi</a></li>
-          <li><a href="prodotti.html">Prodotti</a></li>
-          <li><a href="informazioni.html">Informazioni</a></li>
-          <li><a href="la_mia_storia.html">La mia Storia</a></li>
-          <li class="menu_btn">
-            <img src="icons/cancel.svg" alt="Chiudi il menu"/>
-          </li>
-        </ul>
-      </div>
-      <button id="right-of-menu" class="menu_btn" title="chiudi il menu"></button>
+      <div id="header_image"></div>
+      <h1>Ricerca articoli</h1>
       <!--         CONTENT            -->
-      <div id="content">
-        <h2>Non siamo solo un negozio</h2>
-        <p>
-          Qui troverai i prossimi eventi in programma e quelli passati organizzati dal negozio per farti un'idea delle tematiche che trattiamo.
-        </p>
-        <!--            EVENTI           -->
-        %LISTA_EVENTI%
+      <div id="content" class="container">
+        <h2>Trova ci&ograve; che ti serve</h2>
+        <div style="clear:both"></div>
+        <br/>
+        <div class="table-responsive">
+          <table class="table">
+            <tr>
+              <th colspan="5">
+                <h3>Dettagli Ordine</h3>
+              </th>
+            </tr>
+            <tr>
+              <th width="40%">Nome Prodotto</th>
+              <th width="10%">Quantit&agrave;</th>
+              <th width="20%">Prezzo</th>
+              <th width="15%">Totale</th>
+              <th width="5%">Azione</th>
+            </tr>
+            %ORDERS%
+          </table>
+        </div>
       </div>
       <!--          FOOTER            -->
       <div id="footer">
@@ -58,7 +61,7 @@
         <p id="footer_menu">Menu</p>
         <ul>
           <li><a href="homepage.html" xml:lang="en">Homepage</a></li>
-          <li><span>Eventi</span></li>
+          <li><a href="eventi.html">Eventi</a></li>
           <li><a href="teinfusi.html">T&egrave; &amp; Infusi</a></li>
           <li><a href="prodotti.html">Prodotti</a></li>
           <li><a href="infomazioni.html">Informazioni</a></li>
