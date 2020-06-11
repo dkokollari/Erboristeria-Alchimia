@@ -3,8 +3,8 @@
   //require_once("sessione.php");
   session_start();
 
-  if($_SESSION['email_utente']
-  || (isset($_COOKIE['email']) && isset($_COOKIE['password']))){
+  if((isset($_SESSION['email_utente']) && $_SESSION['email_utente']="") ||
+      (isset($_COOKIE['email']) && $_COOKIE['email']!="" && isset($_COOKIE['password']) && $_COOKIE['password']!="")) {
       header('location:index.php');
       exit;
   }
