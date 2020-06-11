@@ -37,10 +37,6 @@
       }
       //Stabilita connessione al db
       $query = "SELECT * FROM `utenti` WHERE `email_utente`=?";
-      if(!$conn->connection->set_charset("utf8")) {
-        echo '<span class="errore">Error: Unable to set the character set!</span>';
-        exit;
-    	}
 
       if(!$stmt = mysqli_prepare($conn->connection, $query)) {
         die('prepare() failed: '.htmlspecialchars(mysqli_error($conn->$connection)));
