@@ -3,12 +3,35 @@
   //require_once("sessione.php");
   session_start();
 
-  if((isset($_SESSION['email_utente']) && $_SESSION['email_utente']="") ||
-      (isset($_COOKIE['email']) && $_COOKIE['email']!="" && isset($_COOKIE['password']) && $_COOKIE['password']!="")) {
-      header('location:index.php');
-      exit;
+  if((isset($_SESSION['email_utente']) && $_SESSION['email_utente']="") { // utente con sessione
+    header('location:index.php');
+    exit;
   }
+  else if(isset($_COOKIE['email']) && $_COOKIE['email']!="") { // utente con cookie senza sessione
+    $aux = new DBAccess();
+    if(!$aux->openConnection()) {
+      echo '<span class="errore">Impossibile connettersi al database riprovare pi&ugrave; tardi</span>';
+      exit;
+    }
+    else {
+      $temp = $aux->getUser($_COOKIE['email']);
+      if(empty(temp)) { // utente non trovato TODO: allora eliminare cookie
 
+      }
+      else {
+        $_SESSION['nome_utente'] = $temp[0]['nome_utente'];
+        $_SESSION['cognome_utente'] = $temp[0]['cognome_utente'];
+        $_SESSION['email_utente'] = $temp[0]['email_utente'];
+        $_SESSION['password_utente'] = $temp[0]['password_utente'];
+        $_SESSION['tipo_utente'] = $temp[0]['tipo_utente'];
+        $_SESSION['data_nascita_utente'] = $temp[0]['data_nascita_utente'];
+        header('location:index.php');
+        exit;
+      }
+    }
+  } // end else if utente con cookie senza sessione
+
+  // utente senza cookie senza sessione
   $pagina = file_get_contents("login.html");
   if($_POST['Login']) {
     $email = mysql_real_escape_string(trim($_POST['email']));
