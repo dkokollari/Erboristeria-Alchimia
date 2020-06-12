@@ -47,7 +47,7 @@
     echo $pagina;
   }
   else{
-    header("Refresh:3; url=redirect.php");
+    header('Location: redirect.php');
     exit;
   }
 ?>
