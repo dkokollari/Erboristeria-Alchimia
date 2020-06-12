@@ -3,10 +3,17 @@
 
   require_once("DBAccess.php");
   require_once("Image.php");
+  require_once('menu_pagina.php');
 
   $con = new DBAccess();
   if($con->openConnection()){
-    $pagina = file_get_contents('teinfusi.html');
+    $pagina = file_get_contents('base.html');
+    $pagina = str_replace("%TITOLO_PAGINA%", "T&egrave; &amp; Infusi", $pagina);
+    $pagina = str_replace("%DESCRIZIONE_PAGINA%", "Visualizza i nostri te e infusi", $pagina);
+    $pagina = str_replace("%KEYWORDS_PAGINA%", "te, infusi, te e infusi, erboristeria, alchimia", $pagina);
+    $pagina = str_replace("%CONTAINER_PAGINA%", "container_te_e_infusi", $pagina);
+    $pagina = str_replace("%LISTA_MENU%", menu_pagina::menu("teinfusi.php"), $pagina);
+
     $lista_te_e_infusi = $con->getTeInfusi();
 
     foreach ($lista_te_e_infusi as $row){
@@ -34,7 +41,9 @@
         ';
     }
 
-    $pagina = str_replace("%LISTA_TE_E_INFUSI%", $lista, $pagina);
+    $container = file_get_contents('teinfusi.html');
+    $container = str_replace("%LISTA_TE_E_INFUSI%", $lista, $container);
+    $pagina = str_replace("%CONTENUTO_PAGINA%", $container, $pagina);
     echo $pagina;
   }
   else{
