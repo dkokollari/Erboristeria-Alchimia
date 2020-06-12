@@ -6,11 +6,6 @@
 
   $con = new DBAccess();
   if($con->openConnection()){
-    if (!$con->connection->set_charset("utf8")){
-      //printf("Error loading character set utf8: %s\n", $con->error);
-      exit;
-    }
-
     $pagina = file_get_contents('teinfusi.html');
     $lista_te_e_infusi = $con->getTeInfusi();
 
@@ -18,9 +13,9 @@
       $immagine = Image::getImage("./img/te_e_infusi/", $row["id_te_e_infusi"]);
       $descrizione_immagine = htmlentities($row["descrizione_immagine_te_e_infusi"]);
       $nome = htmlentities($row["nome_te_e_infusi"]);
-      $ingredienti = nl2p(htmlentities($row["ingredienti_te_e_infusi"]));
-      $descrizione = nl2p(htmlentities($row["descrizione_te_e_infusi"]));
-      $preparazione = nl2p(htmlentities($row["preparazione_te_e_infusi"]));
+      $ingredienti = DBAccess::nl2p(htmlentities($row["ingredienti_te_e_infusi"]));
+      $descrizione = DBAccess::nl2p(htmlentities($row["descrizione_te_e_infusi"]));
+      $preparazione = DBAccess::nl2p(htmlentities($row["preparazione_te_e_infusi"]));
 
       $lista .=
         '<div class="card collapsed" title="'.$nome.'. Premi per espandere la descrizione">
@@ -45,10 +40,5 @@
   else{
     echo "<h1>Impossibile connettersi al database riprovare pi&ugrave; tardi<h1>";
     exit;
-  }
-
-  /* mette i tag di paragrafo ad ogni nuova riga */
-  function nl2p($text){
-    return str_replace(array("\r\n", "\r", "\n"), "</p><p>", $text);
   }
 ?>
