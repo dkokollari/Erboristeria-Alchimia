@@ -47,7 +47,7 @@
     echo $pagina;
   }
   else{
-    echo "<h1>Impossibile connettersi al database riprovare pi&ugrave; tardi<h1>";
+    header("Refresh:3; url=redirect.php");
     exit;
   }
 ?>
