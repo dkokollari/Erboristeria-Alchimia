@@ -7,8 +7,7 @@
   $pagina = str_replace("%KEYWORDS_PAGINA%", '<meta name="keywords" content="redirect, reindirizzamento, erboristeria, alchimia"/>', $pagina);
   $pagina = str_replace("%CONTAINER_PAGINA%", "container", $pagina);
   $pagina = str_replace("%LISTA_MENU%", menu_pagina::menu("redirect.php"), $pagina);
-  $pagina = str_replace("%CONTENUTO_PAGINA%",file_get_contents('redirect.html'), $pagina);
-
+  $pagina = str_replace("%CONTENUTO_PAGINA%", file_get_contents('redirect.html'), $pagina);
   echo $pagina;
   header("Refresh:2; url=home.php");
   exit;
