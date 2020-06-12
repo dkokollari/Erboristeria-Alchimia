@@ -1,68 +1,79 @@
 <?php
-  header('Content-Type: text/html; charset=UTF-8');
-
   require_once("DBAccess.php");
   require_once("Image.php");
+  require_once("control_input.php");
 
   $con = new DBAccess();
-  if($con->openConnection()){
+  if($con->openConnection()) {
     $pagina = file_get_contents('inserimento_teinfusi.html');
 
-    $errori=0;
-    $imgpresent= false;
-    $tipo = $_POST['Tipo'];
-    $nome = trim($_POST['Nome']);
-    $ingre = trim($_POST['Ingredienti']);
-    $descr = trim($_POST['Descrizione']);
-    $prepa = trim($_POST['Preparazione']);
-    $image = new Image();
+    $messaggio = "";
+    $valnome = "";
+    $valingre = "";
+    $valdescr = "";
+    $valprepa = "";
+    $valdescImg = "";
+    $errDescImg= "";
+    $messaggio = "";
+    $errNome = "";
+    $errDescr = "";
+    $errImg= "";
+    $errori = 0;
 
-    //se è stato premuto il buttone submit
-    if(isset($_POST['submit'])){
-      //controllo se l'immagine è stata caricata
-      if(is_uploaded_file($_FILES['immagine']['tmp_name'])){
+    // se è stato premuto il buttone submit
+    if(isset($_POST['submit'])) {
+      $tipo = $_POST['Tipo'];
+      // CONTROLLO input
+      $nome = control_input::name_control($_POST['Nome']);
+      $ingre = control_input::control($_POST['Ingredienti']);
+      $descr = control_input::description_control($_POST['Descrizione']);
+      $prepa = control_input::control($_POST['Preparazione']);
+      if(empty($nome)) {
+        $errori++;
+        $errNome = 'non deve contenere caratteri speciali, con lunghezza minima 5 e massima 50';
+      }
+      if(empty($descr)) {
+        $errori++;
+        $errDescr = 'deve contenere almeno 20 caratteri e non pi&ugrave; di 50 caratteri';
+      }
+
+      $image = new Image();
+      $imgpresent = false;
+      // controllo se un'immagine è stata caricata
+      if(is_uploaded_file($_FILES['immagine']['tmp_name'])) {
         $imgpresent = true;
-        $descImg = trim($_POST['desc_img']);
-        $errDescImg = validInput($descImg,"Descrizione immagine");
-        if($errDescImg!=""){
+        $descImg = control_input::description_control($_POST['desc_img']);
+        if(!$descImg) {
           $errori++;
+          $errDescImg = 'deve contenere almeno 20 caratteri e non pi&ugrave; di 50 caratteri';
         }
         $errImg = $image->isValid($_FILES['immagine']['name']);
-        if($errImg!=""){
+        if($errImg!="") {
           $errori++;
+          $pagina = str_replace("%ERR_IMG%", $errImg, $pagina);
         }
       }
 
-      //CONTROLLO input
-      $errNome = validInput($nome,"Nome");
-      $errDescr = validInput($descr,"Descrizione");
-      if($errNome!=""){
-        $errori++;
-      }
-      if($errDescr!=""){
-        $errori++;
-      }
-
-      //se non ci sono errori
-      if($errori==0){
-        if($imgpresent && $con->insertTeInfusi($descImg, $tipo, $nome, $ingre, $descr, $prepa)){
+      // se non ci sono errori
+      if($errori==0) {
+        if($imgpresent && $con->insertTeInfusi($descImg, $tipo, $nome, $ingre, $descr, $prepa)) {
           $id = $con->getId_TeInfusi($nome);
-          if($image->uploadImageTeInfusi($_FILES['immagine']['name'], $_FILES['immagine']['tmp_name'], $id)){
+          if($image->uploadImageTeInfusi($_FILES['immagine']['name'], $_FILES['immagine']['tmp_name'], $id)) {
             $messaggio = "";
           }
-          else{
+          else {
             $messaggio = '<p class="error-msg">Errore: immagine non salvata</p>';
             $con->deleteTeInfusi_by_name($nome);
           }
         }
-        else if(!$imgpresent && $con->insertTeInfusi($descImg, $tipo, $nome, $ingre, $descr, $prepa)){
+        else if(!$imgpresent && $con->insertTeInfusi($descImg, $tipo, $nome, $ingre, $descr, $prepa)) {
           $messaggio = "";
         }
-        else{
+        else {
           $messaggio = '<p class="error-msg">Query non eseguita riprovare pi&ugrave; tardi</p>';
         }
       } //endif se non ci sono errori
-      else{
+      else {
         $messaggio = '<p class="error-msg">Errore: ci sono '.$errori.' errori</p>';
         $valnome = $_POST['Nome'];
         $valingre = $_POST['Ingredienti'];
@@ -86,12 +97,8 @@
 
     echo $pagina;
   }
-  else{
+  else {
     echo "<h1>Impossibile connettersi al database riprovare pi&ugrave; tardi<h1>";
     exit;
-  }
-
-  function validInput($name, $description){
-    return ($name!="" ? "" : '<small class="error-msg">Inserisci '.$description.'</small>');
   }
 ?>

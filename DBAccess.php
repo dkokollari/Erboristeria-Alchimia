@@ -1,5 +1,5 @@
 <?php
-  class DBAccess{
+  class DBAccess {
     const HOST_DB = 'localhost';
     const USER_NAME = 'erboristeriatest';
     const PASSWORD = '';
@@ -128,7 +128,6 @@
     public function getSingoloTeInfuso($id) {
       $query="SELECT * FROM te_e_infusi WHERE id_te_e_infusi= '".$id."'";
       $queryResult = mysqli_query($this->connection,$query);
-
       if(mysqli_num_rows($queryResult) == 0) {
        return null;
       }
