@@ -1,4 +1,4 @@
-<?php
+'<?php
   require_once("DBAccess.php");
   //require_once("sessione.php");
   session_start();
@@ -9,16 +9,12 @@
       exit;
   }
 
-  $pagina = file_get_contents('login.html');
-  $email = '';
-  $password = '';
+  $pagina = file_get_contents("login.html");
   if($_POST['Login']) {
     $email = mysql_real_escape_string(trim($_POST['email']));
     $password = mysql_real_escape_string(trim($_POST['password']));
     $minLengthPwd = 8;
-    $maxLengthPwd = 12;
-    $errore = "";
-    $logged = "";
+    $maxLengthPwd = 100;
     $errore_empty = '<span class="errore">Inserire sia una email che una password</span>';
     $errore_wrong = '<span class="errore">La email o la password inserite non sono corrette</span>';
     if(empty($email) || empty($password)) $errore = $errore_empty;
@@ -26,52 +22,38 @@
                (strlen($password) < $minLengthPwd || strlen($password) > $maxLengthPwd)) {
       $errore = $errore_wrong;
     }
-    else {
-      /*password e email inserite dall'utente: ora controllo che ci siano nel db*/
-      // WARNING: possibile codice duplicato e non aggiornato
-      // TODO: usare DBAccess
+    else { // email e password valide
       $con = new DBAccess();
       if(!$con->openConnection()) {
-       echo '<span class="errore">Impossibile connettersi al database riprovare pi&ugrave; tardi</span>';
-       exit;
+        echo '<span class="errore">Impossibile connettersi al database riprovare pi&ugrave; tardi</span>';
+        exit;
       }
-      //Stabilita connessione al db
-      $query = "SELECT * FROM `utenti` WHERE `email_utente`=?";
-
-      if(!$stmt = mysqli_prepare($con->connection, $query)) {
-        die('prepare() failed: '.htmlspecialchars(mysqli_error($con->$conection)));
-      }
-
-      $stmt->bind_param("s", $email);
-      $stmt->execute();
-      $result = $stmt->get_result();
-
-      if($result->num_rows === 0) $errore = $errore_wrong;
       else {
-        $row = $result->fetch_assoc();
-        $passwordCheck = password_verify($password, $row['password_utente']);
-        if($passwordCheck == false) $errore = $errore_wrong;
+        $utente = $con->getUser($email);
+        if(empty($utente)) $errore = $errore_wrong;
         else {
-          if(isset($_POST['remember_me'])) {
-            setcookie("email",$email,time()+60*60*24*30);
-            setcookie("password",$password,time()+60*60*24*30);
+          $passwordCheck = password_verify($password, $utente[0]['password_utente']);
+          if(!$passwordCheck) $errore = $errore_wrong;
+          else {
+            $_SESSION['nome_utente'] = $utente[0]['nome_utente'];
+            $_SESSION['cognome_utente'] = $utente[0]['cognome_utente'];
+            $_SESSION['email_utente'] = $utente[0]['email_utente'];
+            $_SESSION['password_utente'] = $utente[0]['password_utente'];
+            $_SESSION['tipo_utente'] = $utente[0]['tipo_utente'];
+            $_SESSION['data_nascita_utente'] = $utente[0]['data_nascita_utente'];
+            if(isset($_POST['remember_me'])) {
+              setcookie('email', $email, time()+60*60*24*30);
+              setcookie('password', $password, time()+60*60*24*30);
+            }
+            header('location:index.php');
           }
-          $_SESSION['email_utente'] = $row['email_utente'];
-          $_SESSION['tipo_utente'] = $row['tipo_utente'];
-          header("location:index.php");
         }
-        $stmt->close();
+        $con->closeConnection();
       }
-      $con->closeConnection();
-    }
+    } // end else if email e password valide
+  } // end if $_POST["Login"]
 
-    $pagina = str_replace("%ERR_LOGIN%", $errore, $pagina);
-    $pagina = str_replace("%LOGIN_STATUS%", $logged, $pagina);
-    echo $pagina;
-  } // end if $_POST['Login']
-  else {
-    $pagina = str_replace("%ERR_LOGIN%", "", $pagina);
-    $pagina = str_replace("%LOGIN_STATUS%", "", $pagina);
-    echo $pagina;
-  }
+  $pagina = str_replace("%ERR_LOGIN%", $errore, $pagina);
+  $pagina = str_replace("%LOGIN_STATUS%", $logged, $pagina);
+  echo $pagina;
 ?>
