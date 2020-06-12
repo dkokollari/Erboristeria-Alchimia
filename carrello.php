@@ -1,4 +1,6 @@
 <?php
+  require_once('menu_pagina.php');
+  
   /*-------------------INIZIO SESSIONE-----------------*/
   session_start();
 
