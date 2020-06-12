@@ -47,7 +47,7 @@
     echo $pagina;
   }
   else{
-    header('Location: redirect.php');
+    header('Location: redirect.php?error=1');
     exit;
   }
 ?>

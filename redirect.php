@@ -7,7 +7,13 @@
   $pagina = str_replace("%KEYWORDS_PAGINA%", 'redirect, reindirizzamento, erboristeria, alchimia', $pagina);
   $pagina = str_replace("%CONTAINER_PAGINA%", "container", $pagina);
   $pagina = str_replace("%LISTA_MENU%", menu_pagina::menu("redirect.php"), $pagina);
-  $pagina = str_replace("%CONTENUTO_PAGINA%", file_get_contents('redirect.html'), $pagina);
+  $contenuto = file_get_contents('redirect.html');
+
+  require_once('Errore.php');
+
+  $contenuto = str_replace("%ERRORE%",Errore::getErrore($_GET['error']), $contenuto);
+  
+  $pagina = str_replace("%CONTENUTO_PAGINA%", , $pagina);
   echo $pagina;
   header("Refresh:2; url=home.php");
   exit;
