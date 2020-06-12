@@ -1,10 +1,16 @@
 <?php
   /*-------------------INIZIO SESSIONE-----------------*/
   session_start();
-  $pagina = file_get_contents('carrello.html');
+
   $orderedProducts = '';
-  if(isset($_SESSION['email_utente']) ||
-      (isset($_COOKIE['email']) && isset($_COOKIE['password']))) {
+  if(isset($_SESSION['email_utente']) && $_SESSION['email_utente']!="") {
+    $pagina = file_get_contents('base.html');
+    $pagina = str_replace("%TITOLO_PAGINA%", "Carrello", $pagina);
+    $pagina = str_replace("%DESCRIZIONE_PAGINA%", "Il tuo carrello verde made by Erboristeria Alchimia", $pagina);
+    $pagina = str_replace("%KEYWORDS_PAGINA%", "carrello, acquista, acquisti, erboristeria, alchimia", $pagina);
+    $pagina = str_replace("%CONTAINER_PAGINA%", "container_te_e_infusi", $pagina);
+    $pagina = str_replace("%LISTA_MENU%", menu_pagina::menu("teinfusi.php"), $pagina);
+
     $product_ids = array();
 
     if(filter_input(INPUT_POST, 'add_to_cart')) {
@@ -70,7 +76,9 @@
       }
       $orderedProducts .= '</td>'."\n".'</tr>'."\n";
     } //endif !empty($_SESSION["shopping_cart"])
-    $pagina = str_replace("%ORDERS%", $orderedProducts, $pagina);
+    $contenuto = file_get_contents('carrello.html');
+    $contenuto = str_replace("%ORDERS%", $orderedProducts, $contenuto);
+    $pagina = str_replace("%CONTENUTO_PAGINA%", $contenuto, $pagina);
     echo $pagina;
   }
   else {
