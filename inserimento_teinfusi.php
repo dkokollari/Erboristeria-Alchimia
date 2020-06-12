@@ -30,7 +30,7 @@
       $prepa = control_input::control($_POST['Preparazione']);
       if(empty($nome)) {
         $errori++;
-        $errNome = 'deve contenere solo caratteri: a-z A-Z 0-9 - _, con lunghezza minima 5 e massima 50';
+        $errNome = 'non deve contenere caratteri speciali, con lunghezza minima 5 e massima 50';
       }
       if(empty($descr)) {
         $errori++;
