@@ -1,6 +1,6 @@
 <?php
   require_once('menu_pagina.php');
-  
+
   /*-------------------INIZIO SESSIONE-----------------*/
   session_start();
 
@@ -87,6 +87,8 @@
     /*$orderedProducts = '<p class = "errore">Solo gli utenti registrati possono accedere al carrello. Se
     sei registrato oppure vuoi creare un profilo sul nostro sito, <a href="login.php">clicca qui</a> </p>';*/
     /*TODO da fare in js il prepend alla pagina index.php di questo avviso!*/
-    header('location: index.php');
+    // header('location: index.php');
+    header('Location: redirect.php?error=3');
+    exit;
   }
 ?>
