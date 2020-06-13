@@ -2,7 +2,7 @@
   require_once("DBAccess.php");
   require_once("session.php");
 
-  if($_SESSION['auth'] == true) { // utente con sessione
+  if($_SESSION['auth']) { // utente con sessione
     header('location:index.php');
     exit;
   }
@@ -54,7 +54,6 @@
           $passwordCheck = password_verify($password, $utente[0]['password_utente']);
           if(!$passwordCheck) $errore = $errore_wrong;
           else {
-            $_SESSION['auth'] == true;
             setSessione($utente);
             if(isset($_POST['remember_me'])) {
               setcookie('email', $email, time()+60*60*24*30);
@@ -73,6 +72,7 @@
   echo $pagina;
 
   function setSessione($array="") { // guardare DBAccess::getUser() per vedere la struttura di $array
+    $_SESSION['auth'] == true;
     $_SESSION['nome_utente'] = $array[0]['nome_utente'];
     $_SESSION['cognome_utente'] = $array[0]['cognome_utente'];
     $_SESSION['email_utente'] = $array[0]['email_utente'];
