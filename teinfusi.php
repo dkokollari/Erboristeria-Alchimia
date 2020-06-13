@@ -36,7 +36,7 @@
           <p>'.$descrizione.'</p>
           <h4>Preparazione</h4>
           <p>'.$preparazione.'</p>
-           '.($_SESSION('auth') ?
+           '.($_SESSION['auth'] ?
          '<a href="updateTeInfusi.php?id='.$id.'">Modifica</a>
           <a href="deleteTeInfusi.php?id='.$id.'">Rimuovi</a>'
           : "").'
