@@ -3,7 +3,7 @@
   //require_once("sessione.php");
   session_start();
 
-  if((isset($_SESSION['email_utente']) && $_SESSION['email_utente']!="") { // utente con sessione
+  if(isset($_SESSION['email_utente']) && $_SESSION['email_utente']!="") { // utente con sessione
     header('location:index.php');
     exit;
   }
