@@ -9,7 +9,7 @@ $pagina = str_replace("%DESCRIZIONE_PAGINA%","Dove e come siamo nati, tutti i de
 $pagina = str_replace("%KEYWORDS_PAGINA%","storia, Marika, erboristeria, alchimia",$pagina);
 $pagina = str_replace("%CONTAINER_PAGINA%","container_la_mia_storia",$pagina);
 $pagina = str_replace("%LISTA_MENU%",menu_pagina::menu("la_mia_storia.php"),$pagina);
-$pagina = $_SESSION['auth'] ? str_replace("%ICONA_CARRELLO%",
+$pagina = $_SESSION['tipo_utente']=='User' ? str_replace("%ICONA_CARRELLO%",
                   '<span id="cart_icon" class="material-icons-outlined top_icon">shopping_cart</span>', $pagina)
                   : str_replace("%ICONA_CARRELLO%", '', $pagina);
 $pagina = str_replace("%CONTENUTO_PAGINA%",file_get_contents('la_mia_storia.html'),$pagina);
