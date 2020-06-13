@@ -1,6 +1,7 @@
-'<?php
-  require_once("DBAccess.php");
+<?php
+
   require_once("session.php");
+  require_once("DBAccess.php");
 
   if($_SESSION['auth']) { // utente con sessione
     header('location:index.php');
