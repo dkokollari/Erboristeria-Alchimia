@@ -81,7 +81,6 @@
                        `descrizione_te_e_infusi`,
                        `preparazione_te_e_infusi`
                 FROM   `te_e_infusi`";
-
       return $this->getQuery($query);
     }
 
