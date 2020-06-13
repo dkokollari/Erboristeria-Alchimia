@@ -41,7 +41,7 @@
           <h4>Preparazione</h4>
           <p>'.$preparazione.'</p>
            '.($_SESSION['auth'] && $_SESSION['tipo_utente']=="Admin"
-       ? '<a href="updateTeInfusi.php?id='.$id.'">Modifica</a>
+       ? '<a href="inserimento_teinfusi.php?id='.$id.'">Modifica</a>
           <a href="deleteTeInfusi.php?id='.$id.'">Rimuovi</a>'
        : '').'
           <span class="expand_btn material-icons-round">expand_more</span>
