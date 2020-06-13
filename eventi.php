@@ -1,11 +1,11 @@
 <?php
   header('Content-Type: text/html; charset=UTF-8');
 
+  require_once('session.php');
   require_once("DBAccess.php");
   require_once("Image.php");
   require_once('menu_pagina.php');
-  require_once('session.php');
-
+  
   $pagina = file_get_contents('base.html');
   $pagina = str_replace("%TITOLO_PAGINA%", 'Eventi', $pagina);
   $pagina = str_replace("%DESCRIZIONE_PAGINA%", 'Qui troverai i prossimi eventi in programma e quelli passati organizzati dal negozio Erboristeria Alchimia', $pagina);
