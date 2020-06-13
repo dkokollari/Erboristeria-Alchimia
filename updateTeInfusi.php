@@ -8,12 +8,12 @@
 
     $id = $_GET['id'];
     $getElement = $con->getSingoloTeInfuso($id);
-    $valtipo = htmlentities($getElement['Tipo']);
-    $valnome = htmlentities($getElement['Nome']);
-    $valingre = htmlentities($getElement['Ingredienti']);
-    $valdescr = htmlentities($getElement['Descrizione']);
-    $valprepa = htmlentities($getElement['Preparazione']);
-    $valdescImg = htmlentities($getElement['desc_img']);
+    $valdescr = htmlentities($getElement[0]['descrizione_immagine_te_e_infusi']);
+    $valtipo = htmlentities($getElement[0]['tipo_te_e_infusi']);
+    $valnome = htmlentities($getElement[0]['nome_te_e_infusi']);
+    $valingre = htmlentities($getElement[0]['ingredienti_te_e_infusi']);
+    $valdescImg = htmlentities($getElement[0]['descrizione_te_e_infusi']);
+    $valprepa = htmlentities($getElement[0]['preparazione_te_e_infusi']);
 
     // se è stato premuto il buttone submit
     if(isset($_POST['submit'])) {
