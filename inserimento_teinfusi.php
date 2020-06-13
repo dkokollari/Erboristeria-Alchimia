@@ -12,12 +12,11 @@
     $valingre = "";
     $valdescr = "";
     $valprepa = "";
-    $valdescImg = "";
-    $errDescImg= "";
     $messaggio = "";
     $errNome = "";
-    $errDescr = "";
     $errImg= "";
+    $errDescr="";
+    $descImg="";
     $errori = 0;
 
     if(isset($_GET['id'])){  // se è una modifica
@@ -28,7 +27,6 @@
       $valingre = htmlentities($getElement['Ingredienti']);
       $valdescr = htmlentities($getElement['Descrizione']);
       $valprepa = htmlentities($getElement['Preparazione']);
-      $valdescImg = htmlentities($getElement['desc_img']);
     }
 
     // se è stato premuto il buttone submit
@@ -53,16 +51,12 @@
       // controllo se un'immagine è stata caricata
       if(is_uploaded_file($_FILES['immagine']['tmp_name'])) {
         $imgpresent = true;
-        $descImg = control_input::description_control($_POST['desc_img']);
-        if(!$descImg) {
-          $errori++;
-          $errDescImg = 'deve contenere almeno 20 caratteri e non pi&ugrave; di 50 caratteri';
-        }
         $errImg = $image->isValid($_FILES['immagine']['name']);
         if($errImg!="") {
           $errori++;
           $pagina = str_replace("%ERR_IMG%", $errImg, $pagina);
         }
+        $descImg = "immagine del " . $tipo ." " .$nome;
       }
 
       // se non ci sono errori
@@ -103,12 +97,10 @@
     $pagina = str_replace("%ingre%", htmlentities($valingre), $pagina);
     $pagina = str_replace("%descr%", $valdescr, $pagina);
     $pagina = str_replace("%prepa%", $valprepa, $pagina);
-    $pagina = str_replace("%imgdes%", $valdescImg, $pagina);
     $pagina = str_replace("%MESSAGGIO%", $messaggio, $pagina);
     $pagina = str_replace("%ERR_NOME%", $errNome, $pagina);
     $pagina = str_replace("%ERR_DESC%", $errDescr, $pagina);
     $pagina = str_replace("%ERR_IMG%", $errImg, $pagina);
-    $pagina = str_replace("%ERR_IMGDESC%", $errDescImg, $pagina);
 
     echo $pagina;
   }
