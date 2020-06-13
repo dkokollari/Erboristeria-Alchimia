@@ -71,7 +71,7 @@
   $pagina = str_replace("%LOGIN_STATUS%", $logged, $pagina);
   echo $pagina;
 
-  function setSessione($array="") {
+  function setSessione($array="") { // guardare DBAccess::getUser() per vedere la struttura di $array
     $_SESSION['nome_utente'] = $array[0]['nome_utente'];
     $_SESSION['cognome_utente'] = $array[0]['cognome_utente'];
     $_SESSION['email_utente'] = $array[0]['email_utente'];
