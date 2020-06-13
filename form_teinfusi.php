@@ -91,7 +91,7 @@
          }
 
          if($imgpresent){ // se è presente l'immagine la carichiamo
-             $image->uploadImageTeInfusi($_FILES['immagine']['name'], $_FILES['immagine']['tmp_name'], $id));
+             $image->uploadImageTeInfusi($_FILES['immagine']['name'], $_FILES['immagine']['tmp_name'], $id);
              header('Location: teinfusi.php');
              exit;
          }

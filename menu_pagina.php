@@ -10,11 +10,11 @@
                 <li><a href="la_mia_storia.php">la mia storia</a></li>
                 <li><a href="informazioni.php">informazioni</a></li>';
 
-      if(isset($_SESSION['auth']) && !$_SESSION['auth']) {
+      if(!$_SESSION['auth']) {
         $menu .= '<li><a href="login.php">accedi</a></li>';
       }
       else {
-        if($_SESSION['utente']=='User') {
+        if($_SESSION['tipo_utente']=='User') {
               $menu .= '<li><a href="carrello.php">carrello</a></li>';
         }
 
