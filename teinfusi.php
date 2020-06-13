@@ -6,7 +6,7 @@
   require_once('menu_pagina.php');
 
   $con = new DBAccess();
-  if($con->openConnection()){
+  if($con->openConnection()) {
     $pagina = file_get_contents('base.html');
     $pagina = str_replace("%TITOLO_PAGINA%", "T&egrave; &amp; Infusi", $pagina);
     $pagina = str_replace("%DESCRIZIONE_PAGINA%", "Visualizza i nostri te e infusi", $pagina);
@@ -16,8 +16,9 @@
 
     $lista_te_e_infusi = $con->getTeInfusi();
 
-    foreach ($lista_te_e_infusi as $row){
-      $immagine = Image::getImage("./img/te_e_infusi/", $row["id_te_e_infusi"]);
+    foreach ($lista_te_e_infusi as $row) {
+      $id = $row["id_te_e_infusi"];
+      $immagine = Image::getImage("./img/te_e_infusi/", $id);
       $descrizione_immagine = htmlentities($row["descrizione_immagine_te_e_infusi"]);
       $nome = htmlentities($row["nome_te_e_infusi"]);
       $ingredienti = DBAccess::nl2p(htmlentities($row["ingredienti_te_e_infusi"]));
@@ -35,6 +36,10 @@
           <p>'.$descrizione.'</p>
           <h4>Preparazione</h4>
           <p>'.$preparazione.'</p>
+          '.($_SESSION('auth') ?
+          '<a href="updateTeInfusi.php?id='.$id.'">Modifica</a>'
+          '<a href="deleteTeInfusi.php?id='.$id.'">Rimuovi</a>'
+          : "").'
           <span class="expand_btn material-icons-round">expand_more</span>
         </div>
 
@@ -46,7 +51,7 @@
     $pagina = str_replace("%CONTENUTO_PAGINA%", $container, $pagina);
     echo $pagina;
   }
-  else{
+  else {
     header('Location: redirect.php?error=1');
     exit;
   }
