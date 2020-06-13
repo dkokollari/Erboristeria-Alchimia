@@ -85,30 +85,6 @@
       return $this->getQuery($query);
     }
 
-    public function getTeInfusiv1() {
-      $query = "SELECT * FROM te_e_infusi";
-      $queryResult = mysqli_query($this->connection,$query);
-      if(mysqli_num_rows($queryResult) == 0) {
-        return null;
-      }
-      else {
-        $result = array();
-        while($row = mysqli_fetch_assoc($queryResult)) {
-          $arrayTeInfuso = array(
-            'Id' => $row['id_te_e_infusi'],
-            'Descrizione_img' => $row['descrizione_immagine_te_e_infusi'],
-            'Tipo' => $row['tipo_te_e_infusi'],
-            'Nome' => $row['nome_te_e_infusi'],
-            'Ingredienti' => $row['ingredienti_te_e_infusi'],
-            'Descrizione' => $row['descrizione_te_e_infusi'],
-            'Preparazione' => $row['preparazione_te_e_infusi'],
-          );
-          array_push($result,$arrayTeInfuso);
-        }
-        return $result;
-      }
-    }
-
     # getters te & infusi #
 
     public function getId_TeInfusi($name) {
