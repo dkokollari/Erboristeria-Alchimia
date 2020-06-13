@@ -107,7 +107,7 @@
     } //endif se è stato premuto il buttone submit
 
     $contenuto = str_replace("%nome%", $valnome, $contenuto);
-    $contenuto = str_replace("%ingre%", htmlentities($valingre), $contenuto);
+    $contenuto = str_replace("%ingre%", $valingre, $contenuto);
     $contenuto = str_replace("%descr%", $valdescr, $contenuto);
     $contenuto = str_replace("%prepa%", $valprepa, $contenuto);
     $contenuto = str_replace("%ERR_NOME%", $errNome, $contenuto);

@@ -1,6 +1,6 @@
 function validateFormTeInfusi() {
-   var name = document.forms["form_teinfusi"]["Nome"].value;
-   var description = document.forms["form_teinfusi"]["Descrizione"].value;
+   var name = document.getElementById("Nome").value;
+   var description = document.getElementById("Descrizione").value;
    var nameMsgErr = "", descrMsgErr = "";
 
    if(!name.match(/[^a-zA-Z0-9]/g)) nameMsgErr = "il nome non pu&ograve; contenere caratteri speciali";
