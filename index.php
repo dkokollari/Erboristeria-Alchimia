@@ -1,4 +1,5 @@
 <?php
+  require_once("session.php");
 
   if($_SESSION['auth']) {
     echo $_SESSION['auth']."\n";
@@ -10,4 +11,5 @@
     echo $_SESSION['data_nascita_utente']."\n";
   }
   else echo 'non sei loggato';
+  
 ?>
