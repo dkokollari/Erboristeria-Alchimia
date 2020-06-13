@@ -8,14 +8,7 @@
   }
 
   //Stabilita connessione al db
-  /* visualizza il set di caratteri utilizzato dal client */
-  //printf("Initial character set: %s\n", $con->character_set_name());
-  /* cambia il set di caratteri in utf8 */
 
-  if (!$conn->connection->set_charset("utf8")) {
-    //printf("Error loading character set utf8: %s\n", $con->error);
-    exit(1);
-  }
 
   /*-------------menu a tendina sesso---------------*/
   $opt_sesso = '<label for="sesso">Sesso</label>' . "\n" .

@@ -1,50 +1,54 @@
 <?php
-
   /*-------------------INIZIO SESSIONE-----------------*/
-
   session_start();
-  $product_ids = array();
+  $pagina = file_get_contents('carrello.html');
+  $orderedProducts = '';
+  if(isset($_SESSION['email_utente']) ||
+      (isset($_COOKIE['email']) && isset($_COOKIE['password']))) {
+    $product_ids = array();
 
-  if(filter_input(INPUT_POST, 'add_to_cart')) {
-    if(isset($_SESSION['shopping_cart'])) {
-      $count = count($_SESSION['shopping_cart']);
-      $product_ids = array_column($_SESSION['shopping_cart'], 'id_articolo');
+    if(filter_input(INPUT_POST, 'add_to_cart')) {
+      if(isset($_SESSION['shopping_cart'])) {
+        $count = count($_SESSION['shopping_cart']);
+        $product_ids = array_column($_SESSION['shopping_cart'], 'id_articolo');
 
-      if(!in_array(filter_input(INPUT_GET, 'id_articolo'), $product_ids)) {
-        $_SESSION['shopping_cart'][$count] = array
-        (
-          'id_articolo' => filter_input(INPUT_GET, 'id_articolo'),
-      		'nome_articolo' => filter_input(INPUT_POST, 'nome_articolo'),
-      		'prezzo_articolo' => filter_input(INPUT_POST, 'prezzo_articolo'),
-      		'quantita' => filter_input(INPUT_POST, 'quantita')
-        );
-      } else {
-        for($i=0; $i < count($product_ids); $i++) {
-          if($product_ids[$i] == filter_input(INPUT_GET, 'id_articolo')) {
-            $_SESSION['shopping_cart'][$i]['quantita'] += filter_input(INPUT_POST, 'quantita');
+        if(!in_array(filter_input(INPUT_GET, 'id_articolo'), $product_ids)) {
+          $_SESSION['shopping_cart'][$count] = array
+            ( 'id_articolo' => filter_input(INPUT_GET, 'id_articolo')
+            , 'nome_articolo' => filter_input(INPUT_POST, 'nome_articolo')
+            , 'prezzo_articolo' => filter_input(INPUT_POST, 'prezzo_articolo')
+            , 'quantita' => filter_input(INPUT_POST, 'quantita')
+            );
+        }
+        else {
+          for($i=0; $i < count($product_ids); $i++) {
+            if($product_ids[$i] == filter_input(INPUT_GET, 'id_articolo')) {
+              $_SESSION['shopping_cart'][$i]['quantita'] += filter_input(INPUT_POST, 'quantita');
+            }
           }
         }
+      } //endif isset($_SESSION['shopping_cart'])
+      else {
+        $_SESSION['shopping_cart'][0] = array
+          ( 'id_articolo' => filter_input(INPUT_GET, 'id_articolo')
+          , 'nome_articolo' => filter_input(INPUT_POST, 'nome_articolo')
+          , 'prezzo_articolo' => filter_input(INPUT_POST, 'prezzo_articolo')
+          , 'quantita' => filter_input(INPUT_POST, 'quantita')
+          );
       }
-    } else {
-      $_SESSION['shopping_cart'][0] = array(
-      'id_articolo' => filter_input(INPUT_GET, 'id_articolo'),
-      'nome_articolo' => filter_input(INPUT_POST, 'nome_articolo'),
-      'prezzo_articolo' => filter_input(INPUT_POST, 'prezzo_articolo'),
-      'quantita' => filter_input(INPUT_POST, 'quantita')
-      );
     }
     header('location:' . $_POST['redirect']);
   }
 
-  if(filter_input(INPUT_GET, 'action') == 'delete') {
-    foreach($_SESSION['shopping_cart'] as $key => $product) {
-      if($product['id_articolo'] == filter_input(INPUT_GET, 'id_articolo')) {
-        unset($_SESSION['shopping_cart'][$key]);
+    if(filter_input(INPUT_GET, 'action') == 'delete') {
+      foreach($_SESSION['shopping_cart'] as $key => $product) {
+        if($product['id_articolo'] == filter_input(INPUT_GET, 'id_articolo')) {
+          unset($_SESSION['shopping_cart'][$key]);
+        }
       }
+     $_SESSION['shopping_cart'] = array_values($_SESSION['shopping_cart']);
     }
-   $_SESSION['shopping_cart'] = array_values($_SESSION['shopping_cart']);
-  }
-/*-------------------------FINE SESSIONE(Meglio metterla in un file a parte!)----------------------------*/
+  /*-------------------------FINE SESSIONE(Meglio metterla in un file a parte!)----------------------------*/
 
 require_once("DBAccess.php");
 $pagina = file_get_contents('carrello.html');
@@ -115,4 +119,10 @@ if(!empty($_SESSION["shopping_cart"])) {
 }
 $pagina = str_replace("%ORDERS%", $orderedProducts, $pagina);
 echo $pagina;
+  /*else {
+    /*$orderedProducts = '<p class = "errore">Solo gli utenti registrati possono accedere al carrello. Se
+    sei registrato oppure vuoi creare un profilo sul nostro sito, <a href="login.php">clicca qui</a> </p>';*/
+    /*TODO da fare in js il prepend alla pagina index.php di questo avviso!
+    header('location: index.php');
+  }*/
 ?>

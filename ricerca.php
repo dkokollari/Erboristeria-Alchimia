@@ -10,14 +10,6 @@ if(isset($_POST['search'])) {
    exit(1);
   }
   //Stabilita connessione al db
-  /* visualizza il set di caratteri utilizzato dal client */
-  //printf("Initial character set: %s\n", $con->character_set_name());
-  /* cambia il set di caratteri in utf8 */
-  if (!$conn->connection->set_charset("utf8")) {
-      //printf("Error loading character set utf8: %s\n", $con->error);
-      exit(1);
-  }
-
   $noOption = "none"; //costante: valore opzione "Seleziona filtro"
   $search_value = trim($_POST['search']);
   $sex_filter = mysql_real_escape_string(trim($_POST['sesso'])); //forse superfluo il trim qua!
@@ -75,7 +67,7 @@ if(isset($_POST['search'])) {
     $resultsToPrint = '<ul id="myUL">';
   	while($row = $result->fetch_assoc()) {
     	$resultsToPrint .= '<li>' .'nome: ' .$row['nome_articolo']. ' quantit&agrave;: ' .$row['quantita_magazzino_articolo']. '</li>';
-  	} 
+  	}
     $resultsToPrint .= '</ul>';
   }
 

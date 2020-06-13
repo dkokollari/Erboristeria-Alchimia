@@ -16,13 +16,18 @@ ss@font-face {font-family: 'Velvetberries'; src: url(fonts/velvetberries.woff);}
   --orange-main: #ff9557;
   --orange-light: #ffe2d1;
 
-  --yellow-dark: #ba954b;
+  /* --yellow-dark: #ba954b; */
+  --yellow-dark: #009688;
   --yellow-main: #ffcc67;
   --yellow-light: #fff1d5;
 
   --grey-dark: #404354;
   --grey-main: #4e5166;
   --grey-light: #bfbfca;
+
+  --accent3Shade1: #ffdde0;
+  --accent3Shade4: #d32f2f;
+  --borderRadius: 6px;
 
 }
 /* activate border outline for keyboard navigation */
@@ -50,7 +55,8 @@ a {
 }
 body {
   font: 300 1em 'Poppins', sans-serif;
-  background-color: rgb(245,245,245);
+  /* background-color: rgb(245,245,245); */
+  background-color: #fff;
 }
                                   /* overwrite default button rules */
 button {
@@ -71,18 +77,18 @@ body:not(.show-focus-outlines) [tabindex]:focus {
 
                                   /*       HEADER       */
 
-h1 {
+#title {
   text-align: center;
-  width: 100%;
+  /* width: 100%; */
   color: white;
   font-family: 'Velvetberries', serif;
   font-weight: lighter;
   font-size: 7em;
   position: fixed;
   z-index: -1;
-  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.9);
+  text-shadow: 0px 0px 6px rgba(0, 0, 0, 0.9);
 }
-h1 span {
+#title span {
   margin-left: 40vw;
 }
 
@@ -105,7 +111,7 @@ h1 span {
   width: 100vw;
   height: 30em;
   z-index: -1;
-  filter: brightness(0.7);
+  filter: brightness(0.65);
   /* pointer-events: none; */
 }
 
@@ -133,15 +139,16 @@ h1 span {
   margin-left: 0;
   margin-right: 0;
 }
-#content h2 {
+
+#content h2, #body_scheda_prodotto #content h1 {
   text-transform: capitalize;
-  font-size: 2em;
+  font-size: 1.8em;
   letter-spacing: 0.1em;
-  margin-left: 1.2rem;
-  margin-right: 1.2rem;
+  margin-left: 1.8rem;
+  margin-right: 1.8rem;
   font-weight: 300;
   text-align: center;
-  color: var(--yellow-dark);
+  color: var(--green-main);
 }
 /* TODO queste proprieta' generiche non vanno cosi'bene */
 h3 {
@@ -151,7 +158,12 @@ h3 {
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--yellow-dark);
+  margin: 0em 7% 0em 7.2em; /*Fouad: ora l'h3 e' accanto data evento al posto immagine*/
 }
+.card.eventi h3 {
+  margin: 0.5em 5% 0.5em 5%;
+}
+
 h4, #menu li {                                     /*       DA RIVERE         */
   text-transform: uppercase;
   letter-spacing: 0.02em;
@@ -240,168 +252,152 @@ margin:0.7em auto 0.7em auto;
   font-size: 0.7em;
 }
 
-                                  /*   ----------------  MOBILE   ------------------   */
 
-@media screen and (max-width:750px) {
-              #container_te_e_infusi #header_image {
-                background-image: url(img/home_background_mobile.jpg);
-              }
-              #container_prodotti #header_image {
-                background-image: url(img/prodotti_background_mobile.jpg);
-              }
-              #close_menu {
-                margin:auto;
-              }
-              #menu .menu_btn {
-               height: 3em;
-               width: 3em;
-               background-size: contain;
-               background-image: url(icons/cancel.svg);
-               background-repeat: no-repeat;
-             }
-             #menu {
-              top:0;
-              z-index: 5;
-              position: fixed;
-              opacity: 1;
-              width: 65vw;
-              height: 100vh;
-              background-color: white;
-              transform: translateX(-66vw);
-              transition: all 0.5s ease;
-            }
-            #menu.showmenu {
-              transform: translateX(0vw);
-              transition: all 0.5s ease;
-            }
-            #right-of-menu {
-              top: 0;
-              position: fixed;
-              opacity: 0;
-              width: 100vw;
-              height: 100vh;
-              z-index: 4;
-              background-color: black;
-              transform: translateX(-100vw);
-              transition: opacity 0.2s ease;
-            }
-            #right-of-menu.hidemenu {
-              transform: translateX(0);
-              opacity: 0.5;
-            }
+                            /*     CONSIGLI DI MARIKA       */
 
-            #menu .menu_btn {
-              margin-left: auto;
-              margin-right: auto;
-            }
+.tips_and_tricks {
+  background-color: var(--orange-light);
+  color: var(--orange-dark);
+  position: relative;
+  overflow: hidden;
+  max-height: 60em;
+  cursor: pointer;
+  transition: 0.8s ease;
+}
+.tips_and_tricks.collapsed {
+    max-height: 4.5em;
+}
+.tips_and_tricks h3 {
+  margin: 1em;
+  color: var(--orange-dark);
+}
+.tips_and_tricks h4 {
+  color: var(--orange-dark);
+  margin-top: 2em;
+}
+.tips_and_tricks ul {
+  padding-left: 1.5em;
+}
+.tips_and_tricks ul span {
+  font-weight: 600;
+}
+.tips_and_tricks .expand_icon {
+  transition: 0.8s ease;
+  position: absolute;
+  bottom: 0;
+  margin:0;
+  text-align: center;
+  width: 100%;
+}
+.tips_and_tricks li {
+  margin-bottom: 1em;
+}
 
-            #menu  .menu_btn  img{
-              width: 100%;
-              height: 100%;
-              cursor: pointer;
-            }
-
-            #menu ul li a{
-              font-size: 1.1em;
-              line-height: 2.5em;
-              margin: auto;
-              display: block;
-              width: 85%;
-              /* border: 2px solid var(--yellow-dark); */
-              border-radius: 7px;
-              background-color: var(--yellow-light);
-              box-shadow: 0 3px 6px rgba(0,0,0,0.10), 0 3px 6px rgba(0,0,0,0.17);
-            }
-            #menu ul .selected_page {
-              color: var(--grey-light);
-            }
-            #menu_icon {
-              position: fixed;
-              top: 0;
-              z-index: 3;
-              color: white;
-              font-size: 2.5em;
-              line-height: 1.6em;
-              margin-left: 0.2em;
-              text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
-            }
-            #container_informazioni #topbar:before {
-              background-image: url(img/informazioni_background.jpg);
-            }
-
-            #container_te_e_infusi #topbar:before {
-              background-image: url(img/home_background_mobile.jpg);
-            }
-            /*  TODO: remember to reduce image size for loading time and performance*/
-            #container_la_mia_storia #topbar:before {
-              background-image: url(img/la_mia_storia_background.jpg);
-            }
-            #container_prodotti #topbar:before {
-              background-image: url(img/prodotti_background_mobile.jpg);
-            }
-
-            #topbar:before {              /* necessary element to correctly apply filter:brightness() only to the image, not the text */
-              content: "";
-              background-size: cover;
-              background-position: 0 -10em;
-              background-repeat: no-repeat;
-              filter: brightness(0.7);
-              position: absolute;
-              top: 0;
-              left: 0;
-              width: 100%;
-              height: 100%;
-            }
-
-            #topbar {
-              width: 100vw;
-              height: 4em;
-              top: 0;
-              position: fixed;
-              z-index: -2;
-            }
-            #topbar_title {
-              padding-top: 0;
-              background-color: rgba(0,0,0,0.3);
-              text-transform: capitalize;
-              font-size: 2.5em;
-              padding-left: 1.5em;
-              line-height: 1.6em;
-              letter-spacing: 0.06em;
-              font-family: 'Poppins', sans-serif;
-              font-weight: 300;
-              opacity: 0;
-              transition: opacity 0.6s ease;
-              text-align: left;       /* overwrite h1 property */
-              position: static;       /* overwrite h1 property */
-              text-shadow: none;      /* overwrite h1 property */
-              position: relative;
-              z-index: 2;
-            }
-            #topbar_title.nopacity{
-              opacity: 1;
-            }
-            h1 {
-              font-size: 6em;
-              /* line-height: 75vw; */
-              top:0;
-              padding-top:1em;
-            }
-            #content {
-              margin-top: 24em;
-            }
-            #footer {
-                width: 100%;
-            }
-
-            /* #footer li > * {
-            padding: 0.1em 0.3em 0.1em 0.3em;
-            } */
-
+                          /*       LISTA DI INFUSI      */
+.card {
+  border-radius: 7px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.10), 0 3px 6px rgba(0,0,0,0.17);
+  position: relative;
+  font-size: 1em;
+  margin-bottom: 1.5em;
+  background-color: var(--yellow-light);
+  max-height: 80em;
+  overflow: hidden;
+  transition: max-height 0.8s ease;
+  opacity: 1;
+  padding-bottom: 1em;
+  cursor: pointer;
+}
+.card.collapsed {
+  max-height: 10.5em;
+}
+.card.collapsed img {
+  max-height: 7em;
+}
+.card img {
+  width: 100%;
+  border-radius: 7px 7px 0 0;
+  max-height: 10.5em;
+  object-fit: cover;
+  transition: max-height 0.4s ease;
+  position: absolute;
+  top: 0;
+}
+.card.collapsed h3 {
+  margin-top: 7em;
+}
+.card h3 {
+  margin: 0.3em 0.6em 1.2em 0.6em;
+  line-height: 1.1em;
+  display: flex;
+  height: 2em;
+  align-items: center;
+  justify-content: center;
+  transition: 0.4s ease;
+  margin-top: 11.5em;
+}
+.card .expand_btn {
+  position: absolute;
+  bottom: 0;
+  line-height: 1.2em;
+  text-align: center;
+  width: 100%;
+  transition: transform 1s ease;
+  color: var(--yellow-dark);
+}
+#content .card p, #eventi #linkMappa {
+  margin: 0.7em 7% 0.7em 7%;
+  font-size: 0.9em;
 }
 
 
 
+                          /*        EVENTI 
+            #content .card.eventi img { //id messo per essere piu potente dell'altra proprieta per schermi grandi
+              margin-right: 10%;
+              margin-left: 10%;
+              width: 80%;
+              float: none;
+            }
+
+            .card.eventi ul {
+              clear: both;
+              margin: 0.5em 5% 2em 7%;
+            }
+            /* #footer li > * {
+            padding: 0.1em 0.3em 0.1em 0.3em;
+            } */
+
+/* .card span {} */
+#eventi #prenotazione span {
+  font-weight: bold;
+  text-transform: uppercase;
+  color: var(--red-dark);
+}
+
+#eventi #dataEvento {
+  font-weight: bold;
+  color: var(--grey-dark);
+}
+@media screen and (max-width:410px) {
+  #content .card.eventi img {
+    height: 12em;
+  }
+}
+
+#eventi ul {
+  list-style: none;
+  margin-left: 5%;
+  margin-right: 7%;
+}
+
+#eventi ul li {
+  background-image: url('img/ampolla.jpeg');
+  background-position: top left;
+  background-size: 1.5em;
+  background-repeat: no-repeat;
+  padding-left: 1.6em;
+}
                         /*        TABLET MODE HEADER          */
 
 @media screen and (min-width:750px)   {
@@ -599,6 +595,9 @@ margin:0.7em auto 0.7em auto;
   padding-bottom: 1em;
   cursor: pointer;
 }
+.card.eventi {
+  max-height: none;
+}
 .card.collapsed {
   max-height: 10.5em;
 }
@@ -606,26 +605,46 @@ margin:0.7em auto 0.7em auto;
   max-height: 7em;
 }
 .card img {
+  border-radius: 7px 7px 7px 7px;
   width: 100%;
-  border-radius: 7px 7px 0 0;
-  max-height: 10.5em;
   object-fit: cover;
   transition: max-height 0.4s ease;
   position: absolute;
   top: 0;
 }
+.card.eventi img {
+  height: 15em;
+  width: 15em;
+  margin: 0% 0% 2em 5%;
+  float: left;
+  position:static;
+}
 .card.collapsed h3 {
   margin-top: 7em;
 }
-.card h3 {
-  margin: 0.3em 0.6em 1.2em 0.6em;
+.eventi.card.collapsed h3 {
+  margin-top: 0em;
+}
+.eventi.card.collapsed {
+  max-height: none;
+}
+.eventi.card.collapsed img {
+  max-height: none;
+}
+ #prenotazione, #org { /*sovrascrivo .rotated per eventi*/
+  transform: none;
+  transition: none;
+}
+.card h4 {
+  margin: 1.2em 5% 0.7em 5%; /*WARNING(FOUAD) messo 5% al posto 7% dx e sx ovunque!*/
   line-height: 1.1em;
-  display: flex;
+  /*display: flex; Fouad: scusa l'ignoranza Do, ma mi pare senza senso!*/
+  /*align-items: center;
+  justify-content: center;*/
   height: 2em;
-  align-items: center;
-  justify-content: center;
   transition: 0.4s ease;
-  margin-top: 11.5em;
+  text-align: left;
+  /*margin-top: 11.5em; WARNING: (Fouad): maybe it messes with the js if commented!!!*/
 }
 .card .expand_btn {
   position: absolute;
@@ -637,13 +656,24 @@ margin:0.7em auto 0.7em auto;
   color: var(--yellow-dark);
 }
 #content .card p, #eventi #linkMappa {
-  margin: 0.7em 7% 0.7em 7%;
+  margin: 0.7em 5% 0.7em 7%;
   font-size: 0.9em;
 }
 
 
                           /*        EVENTI      */
 
+.card.eventi #linkMappa {
+  margin-left: 7%;
+}
+
+.card ul {
+  list-style: disc; /*FOUAD: brutto, ma si deve capire che è una lista per facilità di lettura! Stronzi, cosi imparate a bocciarmi le ampolle!*/
+  margin: 0.5em 5% 2em 20.5em;
+}
+.card ul li {
+  margin-bottom: 1.2em;
+}
 /* .card span {} */
 #eventi #prenotazione span {
   font-weight: bold;
@@ -656,18 +686,14 @@ margin:0.7em auto 0.7em auto;
   color: var(--grey-dark);
 }
 
+.eventi h3.titoletto {
+  clear : none;
+}
+
 #eventi ul {
   list-style: none;
   margin-left: 5%;
-  margin-right: 7%;
-}
-
-#eventi ul li {
-  background-image: url('img/ampolla.jpeg');
-  background-position: top left;
-  background-size: 1.5em;
-  background-repeat: no-repeat;
-  padding-left: 1.6em;
+  margin-right: 5%;
 }
 
 #eventi #org {
@@ -682,25 +708,26 @@ margin:0.7em auto 0.7em auto;
   font-size: 2.5em;
 }
 
-.databox {
-  float: left;
-}
-
-.data {
+#content .data {
   text-transform: uppercase;
   text-align: center;
   font-weight: bold;
   letter-spacing: 0.1em;
-  width: 7em;
-  height: 7em;
-  display: table-cell; /*DEVO CAPIRE COSA FACCIA  (FOUAD)*/
-  vertical-align: middle;
+  width: 16em; /*FOUAD: altezza e larghezza rimangono a 7em grazie al padding di 0.1em: trucchetto per ottenere la scritta del giorno allineata perfettamente col titolo a destra (h3)*/
+  padding: 0.2em;
+  margin-bottom: 0.8em;
+  display: block;
   color: white;
-  background-color: #8F250C;
-  border-top-left-radius: 10px;
+  background-color: #d32f2f;
+  border-radius: 10px;
+}
+strong {
+  border-bottom: 2px dotted #404354;
+  margin-bottom: 1.2em;
+  display: block;
 }
 #eventi .eventi img {
-  max-width: 100%;
+  margin-left: 7em;
   object-fit: cover;
   border-top-right-radius: 10px;
   border-top-left-radius: 0px;
@@ -719,6 +746,10 @@ margin:0.7em auto 0.7em auto;
                           /*       INFORMAZIONI */
 
 
+#container_informazioni #content p {
+  text-align: center;
+}
+
 #container_informazioni #linkMappa {
   display: block;
   text-align: center;
@@ -734,7 +765,6 @@ margin:0.7em auto 0.7em auto;
   height: 4em;
 }
 
-#container_informazioni #giorniSett > li,
 #container_informazioni span {
   display: block;
   text-align: center;
@@ -749,8 +779,7 @@ margin:0.7em auto 0.7em auto;
 }
 
 /* PER RIMUOVERE PRECEDENTI STILI */
-#orario p {
-
+#orario span {
   margin: auto;
 }
 #orario {
@@ -760,7 +789,7 @@ margin:0.7em auto 0.7em auto;
 
 #orario li {
   display: flex;
-  margin: 1em auto 1em auto
+  margin: 1em auto 1em auto;
 }
 
 #orario li > div {
@@ -768,20 +797,14 @@ margin:0.7em auto 0.7em auto;
   display: flex;
   flex-direction: column;
 }
-/* NON NECESSARIO */
-strong {
-  color: var(--grey-dark);
-  margin: auto;
-}
-/* NON NECESSARIO */
-#informazioni h3 {
-  margin-top:2em;
-  margin-bottom: 0.7em;
+
+#orario li span.closed, #orario li div span {
+  color: initial;
+  font-weight: normal;
 }
 
 
-
-                              /*       LOGIN       */
+                              /*       LOGIN & REGISTRAZIONE      */
 #log_in_box_container {
   display: flex;
   height: 100%;
@@ -822,12 +845,16 @@ strong {
 #log_in_box fieldset {
   border:none;
 }
-#username, #password {
+#username, #password, #nome, #cognome, #password_conferma, #data_nascita{
   width: 100%;
 }
-.form_field {
+.form_field{
   position: relative;
   margin-top: 2.5em;
+}
+.form_field_static {
+  position: relative;
+  margin-top: 4.5em;
 }
 .form_field label {
   color: #666;
@@ -837,7 +864,15 @@ strong {
   transition: ease 0.2s;
   transform-origin: left;
   cursor: text;
-  font: 400 1.5em 'Poppins', sans-serif;
+  font: 400 1.2em 'Poppins', sans-serif;
+}
+.form_field_static label {
+  color: #666;
+  position: absolute;
+  left:0;
+  bottom: 2em;
+  cursor: text;
+  font: 400 1.2em 'Poppins', sans-serif;
 }
 .form_field:focus-within label,
 .form_field .filled {
@@ -846,7 +881,12 @@ strong {
   transition: ease 0.2s;
   color: var(--yellow-dark);
 }
-.form_field input {
+.form_field_static:focus-within label,
+.form_field_static .filled{
+  color: var(--yellow-dark);
+}
+.form_field input,
+.form_field_static input {
   line-height: 2.5em;
   border-bottom: 1px solid #aaa;
   border-top: none;
@@ -855,6 +895,33 @@ strong {
   padding: 0.2em 0 0.2em 0;
   outline: none;
   font: 300 1.3em 'Poppins', sans-serif;
+}
+#input-requirements ul {
+	list-style: none;
+}
+.input-requirements {
+  font-size: 0.7rem;
+  font-style: italic;
+  text-align: left;
+  list-style: disc;
+  list-style-position: inside;
+  max-width: 400px;
+  margin: 10px auto;
+  color: rgb(150,150,150);
+}
+
+
+.input-requirements li.invalid {
+	color: #e74c3c;
+}
+.input-requirements li.valid {
+	color: #2ecc71;
+}
+
+.input-requirements li.valid:after {
+	display: inline-block;
+	padding-left: 10px;
+	content: "\2713";
 }
 
 #log_in{
@@ -929,16 +996,20 @@ strong {
 
                             /* PAGINA PRODUCTS */
 #container_prodotti .card_product {
-  margin: 0em 1.2em 0em 1.2em;
+  /* display: inline-block; */
+  max-width: 400px;
+  /* min-width: 15em; */
   height: 6em;
   border-radius: 7px;
   box-shadow: 0 3px 6px rgba(0,0,0,0.10), 0 3px 6px rgba(0,0,0,0.17);
+  margin-bottom: 1em;
   padding:0.7em;
-/*  margin-left: 1.2em;
-  margin-right: 1.2em;*/
+  margin-left: 1.2em;
+  margin-right: 1.2em;
   overflow: hidden;
   position: relative;
     background-color: #fff;
+    text-align: left;
   /* display: grid;
   grid-template-areas: "image title title"
                        "image manufacturer manufacturer"
@@ -952,11 +1023,20 @@ strong {
   /* flex-grow: 1; */
   /* position: relative; */
 }
-#container_prodotti .card_product .product_title,
-#container_prodotti .card_product .product_line,
-#container_prodotti .card_product .product_manufacturer,
-#container_prodotti .card_product .product_bottom{
-  margin-left: 6rem;
+
+@media screen and (min-width:480px) {
+  #container_prodotti .card_product {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+
+#container_prodotti #content .card_product .product_title,
+#container_prodotti #content .card_product .product_line,
+#container_prodotti #content .card_product .product_manufacturer,
+#container_prodotti #content .card_product .product_bottom{
+  margin: 0;
   line-height: 1em;
 }
 #container_prodotti .card_product .product_image {
@@ -972,7 +1052,6 @@ strong {
 }
 #container_prodotti .card_product .product_title {
   /* margin-top:1em; */
-  margin-left: 6.5rem;
   color: var(--yellow-dark);
   grid-area: title;
   font-size: 0.9em;
@@ -981,97 +1060,86 @@ strong {
   text-align: left;
   /* margin-top: 0.5em; */
 }
-#container_prodotti .card_product .product_manufacturer {
+
+#container_prodotti #content .card_product .product_manufacturer {
   /* margin-top:0.5em; */
-  margin-left: 6.5rem;
   grid-area: manufacturer;
   font-size: 0.9em;
-  margin-bottom: 0.4em;
-  display: block;
-
+  margin-bottom: 0.2em;
 }
 #container_prodotti .card_product .product_line {
   /* margin-top:0.3em; */
-  margin-left: 6.5rem;
-  display: block;
   grid-area: line;
   font-weight: lighter;
   font-style: italic;
   font-size: 0.8em;
+  /* font-size: 0.9em; */
 }
 #container_prodotti .card_product .product_description {
   margin:0 0 0 6.5em;
   height: 6em;
   position: relative;
 }
-#container_prodotti .card_product .product_tags {
+.product_tags {
   font-size: 0.6em;
   letter-spacing: 0.1em;
   align-self: end;
   justify-self: start;
-  margin-bottom: 0.5em;
+  /* margin-bottom: 1.6em; */
   text-transform: uppercase;
   font-weight: bold;
   color: #fff;
   display: inline;
   position: absolute;
-  bottom: 0.5em; /*/* WARNING: SIA QUESTO CHE IL MARGIN ALTRIMENTI FA SKIFO, NON SO PERCHÈ! */*/
+  bottom: 0;
   line-height: 1.8em;
 
 }
-#container_prodotti .card_product .product_tags {
-  margin-left: 0.5rem;
+.product_tags span {
   border-radius: 10px;
   /* margin-right: 0.2em; */
   padding: 0.2em 0.5em 0.2em 0.5em;
 }
-#container_prodotti .card_product .product_tags.Cosmetico {
+.product_tags span.cosmetici {
   background-color: #ff9557;
-  margin-left: 6.5em;
 }
-#container_prodotti .card_product .product_tags.Uomo, #container_prodotti .card_product .product_tags.Unisex {
+.product_tags span.uomo {
   background-color: #005377;
 }
-#container_prodotti .card_product .product_tags span.Donna {
+.product_tags span.donna {
   background-color: #90323D;
 }
-#container_prodotti .card_product .product_tags span.casa {
+.product_tags span.casa {
   background-color: #E39695;
 }
-#container_prodotti .card_product .product_tags.Bimbo{
+.product_tags span.bimbi{
   background-color: #06a77d;
 }
-#container_prodotti span.product_price,
-#container_prodotti ul li.product_price { //prezzo totale
-  /* margin-right: 1em; */
-  font-size: 1.1em;  //* WARNING: Lho modificato io (Fouad) perche è troppo grande il font sui cellulari! */
-  margin : 0;
-  /* margin-bottom: 1.1em; */
-  /* margin-right: 2em; */
-  line-height: 1em;
-  /* bottom:0; */
-  display: block;
-  text-align: center;
-  font-weight: bold;
-}
-#container_prodotti ul li.product_price { //prezzo singola card
+#container_prodotti .card_product .product_price {
   grid-area: price;
   text-align: right;
   justify-self:end;
   align-self: end;
-  position: absolute;
-  display: inline;
-  bottom: 0.5em;
-  right: 0.5em;
+  /* margin-right: 1em; */
+  font-size: 1.1em;
+  font-weight: bold;
+  margin:0;
+  /* margin-bottom: 1.1em; */
+  /* margin-right: 2em; */
   float: right;
-}
-#container_prodotti span.product_price {
-  margin: 2em 0 0 2em;
+  line-height: 1em;
+  /* bottom:0; */
+  display: inline;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  color: var(--grey-dark);
 }
 
 /* SCHEDA PRODOTTO */
-#body_scheda_prodotto .add_to_cart_btn {
-  display: block;
+
+.classic_btn {
+  display: inline-block;
   margin: 0.5em auto 1em auto;
   padding: 0.5em 1em 0.4em 1em;
   border: 3px solid var(--green-main);
@@ -1082,8 +1150,9 @@ strong {
   letter-spacing: 0.07em;
   transition: 0.5s ease;
   background-image: none;
+  text-align: center;
 }
-#body_scheda_prodotto #container_scheda_prodotto .add_to_cart_btn:hover{
+.classic_btn:hover{
   transition: 0.5s ease;
   background-color: var(--green-main);
   color: rgba(245, 245, 245);
@@ -1091,7 +1160,8 @@ strong {
 
 #body_scheda_prodotto {
   background-color: #fff;
-
+  /* z-index: -2;
+  position: relative; */
 }
 #container_scheda_prodotto #immagine_prodotto{
   object-fit: contain;
@@ -1101,12 +1171,15 @@ strong {
   width: 100%;
   z-index: -1;
   background-color: white;
-  margin-top: 4em;
-    padding-bottom: 2em;
+  padding-top: 4em;
+  padding-bottom: 2em;
+  filter: brightness(1);
 }
 #body_scheda_prodotto  .container  #content{
   background: rgb(245,245,245);
   background: linear-gradient(180deg, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 0, rgba(245,245,245,1) 2em);
+  margin-top: 24em;
+  text-align: center;
   /* padding: 2em; */
   /* margin-top: 0; */
   /* background-color: red; */
@@ -1122,7 +1195,7 @@ strong {
   height: 20em;
   width: 100%;
   transform: translateY(-8.45em);
-  /* filter: brightness(0.7); */
+  filter: brightness(1);
 }
 #body_scheda_prodotto #topbar {
   overflow: hidden;
@@ -1143,7 +1216,7 @@ top: 0;
 background: rgb(0,0,0);
 background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 100%);
 }
-#shadow {
+#topbar_container_shadow {
   position: fixed;
   top: 0;
   height: 6em;
@@ -1151,6 +1224,7 @@ background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 100%);
   /* z-index: 1; */
   background: rgb(0,0,0);
   background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 100%);
+  z-index: 2;
 }
 
 #body_scheda_prodotto #topbar_title {
@@ -1166,10 +1240,15 @@ background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 100%);
   visibility: visible;
 }
 #body_scheda_prodotto #content h2 {
-  margin-left: 0;
-  margin-right: 0;
+  /* margin-left: 0;
+  margin-right: 0; */
+  margin-top: 0.8em;
   margin-bottom: 0.7em;
-  font-size: 1.8em;
+  font-size: 1.3em;
+  color: black;
+  font-weight: bold;
+  text-align: left;
+  text-transform: uppercase;
 }
 #body_scheda_prodotto #content h3 {
   /* margin-left: 2rem;
@@ -1206,6 +1285,7 @@ background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 100%);
   margin-right: 0; */
 }
 #body_scheda_prodotto #content .desc_breve {
+  text-align: center;
   font-size: 1em;
   padding:1.8em;
   color: white;
@@ -1213,89 +1293,567 @@ background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 100%);
   background-color: var(--green-main);
   width: auto;
 }
-
-#emptyCart {
-  text-align: center;
+#body_scheda_prodotto .menu_btn img {
+  display: none;
+  cursor: pointer;
 }
-
-
-.button {
-  background: #6394F8;
-  color: white;
-  text-align: center;
-  padding: 0.1em;
-  text-decoration: none;
-  border-radius: 3px;
-  margin: 0 25% 0 25%;
-}
-
-.button:visited, .button:active  {
-  text-decoration: none;
-  color: white;
-}
-
-.button:hover {
-  background: #7fa9ff;
-  text-decoration: none;
-  color: white;
-}
-
-#totale { /*WARNING:  non mi prende il margin-top: !!!*/
+#body_scheda_prodotto .product_tags {
+  position: static;
   display: block;
-  text-align: center;
-  margin-top: 3em;
+  text-align: left;
+  margin-top:1em;
+}
+#body_scheda_prodotto #content .prezzo {
+  font-size: 2em;
+  margin-top: 0.25em;
+  margin-bottom: 0.25em;
+}
+#body_scheda_prodotto #content p {
+  text-align: left;
+}
+/* TODO /* WARNIN2G: /* FIXME:
+repeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeat */
+
+
+#content {
+    text-align: center;
+}
+#immagine_prodotto{
+  object-fit: cover;
+  height: 20em;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: -1;
+  background-color: white;
+  /* padding-top: 4em; */
+  padding-bottom: 2em;
+  filter: brightness(0.65);
+}
+#topbar.visible_topbar {
+  /* z-index: 2; */
+  visibility: visible;
+}
+#topbar {
+  overflow: hidden;
+  /* z-index: -2; */
+  visibility: hidden;
+  background: rgb(0,0,0);
+  background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 100%);
+}
+/* erase :before */
+#topbar_image{
+  /* filter: brightness(0.7); */
+  position: absolute;
+  background-color: white;
+  object-fit: cover;
+  height: 20em;
+  width: 100%;
+  transform: translateY(-9.8em);
+  filter: brightness(0.7);
+}
+#topbar_title {
+  color: white;
+  transition: 0.5s;
+  /* background-color: rgb(0,0,0,0.15); */
+  background: rgb(0,0,0);
+  background: linear-gradient(180deg, rgba(0,0,0,0.0) 0%, rgba(0,0,0,0.4) 100%);
+  text-shadow: 0px 0px 6px rgb(0,0,0,0.6);
+
 }
 
-#checkout {
-  margin-left: 25%;
-  margin-right: 25%;
-  margin-top: 3em;
-  display: block;
-  width: 50%;
+#topbar:after {
+content: "";
+height: 100%;
+width: 100%;
+position: absolute;
+top: 0;
+background: rgb(0,0,0);
+background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 100%);
 }
 
-
-
-#container_prodotti ul {
-  list-style: none;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 2em;
-}
-#container_prodotti ul.adjust_margins {
-  margin: 0em 1.2em 0em 1.2em;
-}
-#container_prodotti ul ul {
-  display: block;
+.container  #content {
+  background: rgb(245,245,245);
+  /* background: linear-gradient(180deg, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 0, rgba(245,245,245,1) 2em); */
+  /* padding: 2em; */
+  /* margin-top: 0; */
+  /* background-color: red; */
 }
 
-#container_prodotti ul ul.recap_product  {
-  display: flex;
-  align-items: center;
-  grid-template-columns: none;
-  grid-gap: 0;
-  margin: 0.7em 0 2.1em 0;
+#container_prodotti.home #immagine_prodotto {
+  height: 46em;
+  filter: brightness(0.45);
 }
-
-#container_prodotti ul ul.recap_product li {
-  text-align: center;
-  width: 33.3%;
+#container_prodotti.home #content {
+  margin-top: 36em;
 }
-
-#container_prodotti ul ul.recap_product  {
-  display: flex;
-  align-items: center;
-  grid-template-columns: none;
-  grid-gap: 0;
+#container_prodotti.home #topbar_image {
+  transform: translateY(-21em);
+  height:46em;
+  filter: brightness(0.45);
 }
-
-abbr {
+#container_prodotti.home.container #content {
+  background: rgb(245,245,245);
+  background: linear-gradient(180deg, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 3em, rgba(245,245,245,1) 8em);
+}
+#container_prodotti.home #content .home_subtitle:first-child {
+  margin-top: 6rem;
+  padding-top: 3em;
   border: none;
-  text-decoration: none;
+}
+/*
+z-index: -1; */
+#container_prodotti.home #topbar.visible_topbar {
+  /* z-index: 2; */
+  visibility: visible;
+}
+#container_prodotti.home #topbar {
+  overflow: hidden;
+  /* z-index: -2; */
+  visibility: hidden;
+  background: rgb(0,0,0);
+  background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 100%);
+}
+#container_prodotti.home #topbar_title {
+  transition: 0.5s;
+  background: transparent;
+  /* background: rgb(0,0,0);
+  background: linear-gradient(180deg, rgba(0,0,0,0.0) 0%, rgba(0,0,0,0.4) 100%); */
+  text-shadow: 0px 0px 6px rgb(0,0,0,0.6);
+
+}
+#benvenuti {
+  /* margin-top: 4rem; */
+  top: 5rem;
+  font-size: 2.1em;
+  letter-spacing: 0.1em;
+  margin-left: 2rem;
+  margin-right: 1.8rem;
+  font-weight: 300;
+  color: white;
+  font-weight: light;
+  position: fixed;
+  z-index: -1;
+  text-shadow: 0px 0px 6px rgba(0, 0, 0, 0.9);
+}
+#container_prodotti.home #title {
+  top: 0;
+  margin-top: 9.5rem;
+  line-height: 0.9em;
+  font-size: 6.6em;
+  text-align: left;
+  margin-left: 1.5rem;
+  pointer-events: none;
+  width: 90%;
+}
+#scopri_il_sito {
+  margin-left: -7rem;
+  width: 14rem;
+  top: 33em;
+  position: fixed;
+  z-index: -1;
+  left: 50%;
+  text-align: center;
+
+
+  display: block;
+  padding: 0.5em 0 0.4em 0;
+  border: 3px solid white;
+  border-radius: 8px;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: white;
+  letter-spacing: 0.07em;
+  transition: background-color 0.5s ease;
+  background-image: none;
+  text-shadow: 0px 0px 6px rgba(0, 0, 0, 0.9);
+  -webkit-tap-highlight-color: transparent;
+
 }
 
-@media screen and (max-width:750px) {
-  #container_prodotti ul {
-    display: block;
-  }
+/* da migliorare */
+#scopri_il_sito:hover {
+  transition: 0.5s ease;
+  background-color:rgba(255,255,255,0.2);
+}
+
+#scopri_il_sito.hide_header_elements, #title.hide_header_elements {
+  opacity: 0;
+  pointer-events: none;
+}
+
+
+#container_prodotti.home h3 {
+  /* text-align: left; */
+  margin-bottom: 0.5em;
+  color: var(--grey-dark);
+
+}
+#container_prodotti.home #content > p {
+  line-height: 1.8em;
+  margin-bottom:0.7em;
+  margin-top: 0.7em;
+  /* text-align: left; */
+}
+#container_prodotti.home #content .home_subtitle {
+  margin-top: 1em;
+  padding-top: 1em;
+  border-top: 1px solid var(--grey-light);
+}
+#la_mia_storia_home {
+  /* height: 7em; */
+  /* object-fit: cover; */
+}
+
+
+
+                                  /*   ----------------  MOBILE   ------------------   */
+
+@media screen and (max-width:699px) {
+              #container_te_e_infusi #header_image {
+                background-image: url(img/home_background_mobile.jpg);
+              }
+              #container_prodotti #header_image {
+                background-image: url(img/prodotti_background_mobile.jpg);
+              }
+              #close_menu {
+                margin:auto;
+              }
+              #menu .menu_btn {
+               height: 3em;
+               width: 3em;
+               background-size: contain;
+               background-image: url(icons/cancel.svg);
+               background-repeat: no-repeat;
+               cursor: pointer;
+             }
+             #menu {
+              top:0;
+              left: -66vw;
+              z-index: 5;
+              position: fixed;
+              opacity: 1;
+              width: 65vw;
+              height: 100vh;
+              background-color: white;
+              /* transform: translateX(-66vw); */
+              transition: all 0.5s ease;
+            }
+            #menu.showmenu {
+              transform: translateX(66vw);
+              transition: all 0.5s ease;
+            }
+            #right-of-menu {
+              top: 0;
+              position: fixed;
+              opacity: 0;
+              width: 100vw;
+              height: 100vh;
+              z-index: 4;
+              background-color: black;
+              transform: translateX(-100vw);
+              transition: opacity 0.2s ease;
+            }
+            #right-of-menu.hidemenu {
+              transform: translateX(0);
+              opacity: 0.5;
+            }
+
+            #menu .menu_btn {
+              margin-left: auto;
+              margin-right: auto;
+            }
+
+            #menu  .menu_btn  img{
+              width: 100%;
+              height: 100%;
+              cursor: pointer;
+            }
+
+            #menu ul li a{
+              font-size: 1.1em;
+              line-height: 2.5em;
+              margin: auto;
+              display: block;
+              width: 85%;
+              /* border: 2px solid var(--yellow-dark); */
+              border-radius: 7px;
+              background-color: var(--yellow-light);
+              box-shadow: 0 3px 6px rgba(0,0,0,0.10), 0 3px 6px rgba(0,0,0,0.17);
+            }
+            #menu ul .selected_page {
+              color: var(--grey-light);
+            }
+            #menu_icon {
+              /* position: fixed; */
+              top: 0;
+              /* z-index: 3;
+              color: white;
+              font-size: 2.5em;
+              line-height: 1.6em; */
+              margin-left: 0.2em;
+              /* text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
+              cursor: pointer; */
+            }
+            #menu_icon.top_icon, #cart_icon.top_icon {
+              position: fixed;
+              /* top: 0; */
+              z-index: 3;
+              color: white;
+              font-size: 2.5em;
+              line-height: 1.6em;
+              /* margin-left: 0.2em; */
+              text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
+              cursor: pointer;
+            }
+            #cart_icon {
+              top: 0;
+              right: 0;
+              margin-right: 0.2em;
+            }
+            #container_informazioni #topbar:before {
+              background-image: url(img/informazioni_background.jpg);
+            }
+
+            #container_te_e_infusi #topbar:before {
+              background-image: url(img/home_background_mobile.jpg);
+            }
+            /*  TODO: remember to reduce image size for loading time and performance*/
+            #container_la_mia_storia #topbar:before {
+              background-image: url(img/la_mia_storia_background.jpg);
+            }
+            #container_prodotti #topbar:before {
+              background-image: url(img/prodotti_background_mobile.jpg);
+            }
+
+            /* #topbar:before {
+              content: "";
+              background-size: cover;
+              background-position: 0 -10em;
+              background-repeat: no-repeat;
+              filter: brightness(0.65);
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+            } */
+
+            #topbar {
+              width: 100vw;
+              height: 4em;
+              top: 0;
+              position: fixed;
+              z-index: -2;
+            }
+            #topbar_title {
+              padding-top: 0;
+              background-color: rgba(0,0,0,0.1);
+              text-transform: capitalize;
+              font-size: 2.5em;
+              padding-left: 1.5em;
+              line-height: 1.6em;
+              letter-spacing: 0.06em;
+              font-family: 'Poppins', sans-serif;
+              font-weight: 300;
+              opacity: 0;
+              transition: opacity 2s ease;
+              text-align: left;       /* overwrite h1 property */
+              position: static;       /* overwrite h1 property */
+              text-shadow: none;      /* overwrite h1 property */
+              position: relative;
+              z-index: 2;
+            }
+            #topbar_title.nopacity {
+              opacity: 1;
+            }
+            #title {
+              font-size: 7em;
+              /* line-height: 75vw; */
+              top:0;
+              margin-top:8rem;
+              width: 100%;
+            }
+            #content {
+              margin-top: 20em;
+            }
+            #footer {
+                width: 100%;
+            }
+
+            /* #footer li > * {
+            padding: 0.1em 0.3em 0.1em 0.3em;
+            } */
+
+}
+
+
+
+                        /*        TABLET MODE HEADER          */
+
+@media screen and (min-width:700px)   {
+      body {
+        margin-top: 40em;
+      }
+      /* #container_prodotti.home #content > p,
+      #container_prodotti.home #content > h3   {
+        text-align: center;
+      } */
+       #container_prodotti.home.container #content {
+        margin-top: 0;
+        background-color: rgba(245,245,245);
+      }
+      #container_prodotti.home.container #content .home_subtitle:first-child {
+        padding-top:2em;
+        margin-top: 0em;
+      }
+      #title {
+        font-size: 10em;
+        top: 5rem;
+        width: 100%;
+      }
+      #container_te_e_infusi #header_image {
+        background-image: url(img/home_background.jpg);
+      }
+      #container_prodotti #header_image {
+        background-image: url(img/prodotti_background.jpg);
+      }
+      #body_scheda_prodotto {
+        margin-top: 24em;
+      }
+      #body_scheda_prodotto .container #content {
+        margin-top: 0;
+        background: rgb(245,245,245);
+      }
+
+      #right-of-menu, #menu_icon, .menu_btn,#menu li.menu_btn, #topbar_container_shadow, #menu button:first-child , #cart_icon{
+         display: none;
+       }
+       .container {
+         width:100vw;
+       }
+
+       #content {
+         margin-top: 0;
+       }
+       #menu {
+         z-index: 5;
+         height: 2.8em;
+         margin-top:0;
+         position: sticky;
+         top:0;
+         background-color: var(--yellow-light);
+         transform: translateX(0);
+         text-align: center;
+       }
+       #menu ul {
+         text-align: center;
+         display: flex;
+         height: 100%;
+       }
+       #menu li {
+         display: flex;
+         justify-content: center;
+         color: var(--grey-dark);
+         flex-grow: 1;
+         margin: auto;
+         height: 100%;
+       }
+       #menu li > * {
+         margin: auto;
+         color: var(--grey-dark);
+       }
+       #menu li > a {
+         border-bottom: var(--grey-dark) dashed;
+       }
+       #menu .selected_page {
+         background-color: var(--yellow-main);
+       }
+       /*  for those that use the tablet with a mouse :) */
+       #menu li a:hover {
+         /* color: var(--yellow-dark); */
+         /* border-bottom: var(--yellow-dark) dashed; */
+         border-bottom: var(--grey-dark) solid;
+       }
+       #footer {
+           width: 100%;
+       }
+       body #content {
+         margin-top: 0;
+         padding-top: 1em;
+         min-height: 90%;
+       }
+       /* #footer li > * {
+       padding: 0.5em;
+       } */
+       #footer li{
+         width: 7em;
+         /* height: 1.8em; */
+         margin-left: 1em;
+         margin-right: 1em;
+         margin-top: 0.2em;
+         margin-bottom: 0.2em;
+       }
+}
+
+@media screen and (min-width:700px) and (max-width:1024px) {
+
+        #header_image {
+          top: -10em;
+        }
+        /* #title {
+          top: 0em;
+        } */
+
+}
+                        /*        DESKTOP MODE HEADER          */
+
+/* added "body" to almost every rule to increase specificity, but instead I should just create a different @media for mobile */
+
+@media screen and (min-width: 1025px) {
+
+      .container {
+        margin: 0 auto 0 auto;
+        box-shadow: 0 3px 6px rgba(0,0,0,0.10), 0 3px 6px rgba(0,0,0,0.17);
+      }
+
+      .container, #header_image, body #container_scheda_prodotto #immagine_prodotto, #immagine_prodotto, #title, body #footer {
+              width: 1025px;
+        }
+
+
+
+      #informazioni #orari li {
+        display: block;
+        text-align: center;
+        margin-left: 30%;
+      }
+
+      #informazioni li p {
+          float: left;
+      }
+
+      #informazioni .giornoSett {
+        min-width: 20%;
+        float: left;
+      }
+
+      #header_image {
+        top: -300px;
+        height: 40em;
+      }
+
+}
+/*------- ERRORI FORM --------------*/
+
+.errore {
+  background: var(--accent3Shade1);
+  color: var(--accent3Shade4);
+  margin: 0.5em 0.5em;
+  display: block;
+  padding: 1em 1em;
+  border-radius: var(--borderRadius);
+  font-weight: 500;
+  position: relative;
+  cursor: pointer;
 }
