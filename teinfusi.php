@@ -1,6 +1,6 @@
 <?php
   header('Content-Type: text/html; charset=UTF-8');
-  
+
   require_once("session.php");
   require_once("DBAccess.php");
   require_once("Image.php");
@@ -14,6 +14,9 @@
     $pagina = str_replace("%KEYWORDS_PAGINA%", "te, infusi, te e infusi, erboristeria, alchimia", $pagina);
     $pagina = str_replace("%CONTAINER_PAGINA%", "container_te_e_infusi", $pagina);
     $pagina = str_replace("%LISTA_MENU%", menu_pagina::menu("teinfusi.php"), $pagina);
+    $pagina = ($_SESSION['auth']
+              ? str_replace("%ICONA_CARRELLO%", '<span id="cart_icon" class="material-icons-outlined top_icon">shopping_cart</span>', $pagina)
+              : str_replace("%ICONA_CARRELLO%", '', $pagina));
 
     $lista_te_e_infusi = $con->getTeInfusi();
 
