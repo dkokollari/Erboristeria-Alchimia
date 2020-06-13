@@ -20,6 +20,10 @@
     $desc_completa = '';
     $ingredienti = '';
     $row = '';
+    $iscriviti = '<p>Per poter acquistare online il seguente prodotto, se sei già registrato sul sito, fai il <a href="login.php">login</a>;
+    altrimenti, che aspetti? <a href="register.php">Registrati</a> sul nostro sito: i clienti pi&ugrave; fedeli hanno una carta fedeltà che viene
+    aggiornata ad ogni acquisto: quando la tua carta è piena, corri in negozio: avrai diritto ad uno sconto del 25&#37; su un prodotto
+    a scelta!</p>';
 
     $query = "SELECT nome_articolo, prezzo_articolo, sesso_target, nome_ditta, nome_linea, nome_categoria
     FROM articoli, ditte, produzioni, linee, categorie
@@ -40,10 +44,17 @@
     $desc_completa = '<p>' . $row['descrizione_articolo'] . '</p>';
     $ingredienti =  '<p>' . $row['descrizione_articolo'] . '</p>'; /// WARNING: cè bisogno di un attributo 'preparazione' a db!
 
-    if($_SESSION['utente'] == "utente_registrato") {
-        //gestione carrello (bestemmie)
-    } else {
-        //sostituire tasto "aggiungi" con "<p>Crea un profilo per poter acquistare i nostri prodotti!</p>"
+    if($_SESSION['utente'] == "Visitatore") {
+      $pagina = str_replace('<a class="classic_btn">aggiungi al carrello</a>' , $iscriviti , $pagina);
     }
+    $pagina = str_replace('%META_DESCRIPTION%' , $meta_description , $pagina);
+    $pagina = str_replace('%META_KEYWORDS%' , $meta_keywords , $pagina);
+    $pagina = str_replace('%PRODUCT_IMG_1%' , $img_1 , $pagina);
+    $pagina = str_replace('%PRODUCT_IMG_2%' , $img_2 , $pagina);
+    $pagina = str_replace('%SHORT_DESCRIPTION%' , $desc_breve , $pagina);
+    $pagina = str_replace('%LONG_DESCRIPTION%' , $desc_completa , $pagina);
+    $pagina = str_replace('%HOW_TO%' , $ingredienti , $pagina);
+    $pagina = str_replace('%INGREDIENTS%' , $img_2 , $pagina);
+    echo $pagina;
 }
 ?>
