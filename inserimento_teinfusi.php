@@ -20,6 +20,17 @@
     $errImg= "";
     $errori = 0;
 
+    if(isset($_GET['id'])){  // se è una modifica
+      $id = $_GET['id'];
+      $getElement = $con->getSingoloTeInfuso($id);
+      $valtipo = htmlentities($getElement['Tipo']);
+      $valnome = htmlentities($getElement['Nome']);
+      $valingre = htmlentities($getElement['Ingredienti']);
+      $valdescr = htmlentities($getElement['Descrizione']);
+      $valprepa = htmlentities($getElement['Preparazione']);
+      $valdescImg = htmlentities($getElement['desc_img']);
+    }
+
     // se è stato premuto il buttone submit
     if(isset($_POST['submit'])) {
       $tipo = $_POST['Tipo'];
@@ -56,23 +67,26 @@
 
       // se non ci sono errori
       if($errori==0) {
-        if($imgpresent && $con->insertTeInfusi($descImg, $tipo, $nome, $ingre, $descr, $prepa)) {
-          $id = $con->getId_TeInfusi($nome);
-          if($image->uploadImageTeInfusi($_FILES['immagine']['name'], $_FILES['immagine']['tmp_name'], $id)) {
-            $messaggio = "";
-          }
-          else {
-            $messaggio = '<p class="error-msg">Errore: immagine non salvata</p>';
-            $con->deleteTeInfusi_by_name($nome);
-          }
-        }
-        else if(!$imgpresent && $con->insertTeInfusi($descImg, $tipo, $nome, $ingre, $descr, $prepa)) {
-          $messaggio = "";
-        }
-        else {
-          header('Location: redirect.php?error=4');
-          exit;
-        }
+
+         if(isset($_GET['id'])){  // e una modifica
+           if(!$con->updateTeInfusi($id, $nome, $tipo, $ingre, $descr, $prepa, $descImg)) {
+             header('Location: redirect.php?error=4');  //query non eseguita
+             exit;
+           }
+         }
+         else if(!$con->insertTeInfusi($descImg, $tipo, $nome, $ingre, $descr, $prepa)){
+           header('Location: redirect.php?error=4');   //query non eseguita
+           exit;
+         }else {
+           $id = $con->getId_TeInfusi($nome);  // non è una modifica e è stato eseguita la query quindi aggiorno id con nuovo valore
+         }
+
+         if($imgpresent){ // se è presente l'immagine la carichiamo
+             $image->uploadImageTeInfusi($_FILES['immagine']['name'], $_FILES['immagine']['tmp_name'], $id));
+             header('Location: teinfusi.php');
+             exit;
+           }
+
       } //endif se non ci sono errori
       else {
         $messaggio = '<p class="error-msg">Errore: ci sono '.$errori.' errori</p>';
