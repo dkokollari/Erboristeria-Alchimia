@@ -1,6 +1,6 @@
 <?php
   require_once("DBAccess.php");
-  $pagina = file_get_contents('articoli.html');
+  $pagina = file_get_contents('prodotti.html');
   $conn = new DBAccess();
   if(!$conn->openConnection()) {
    echo '<p class= "errori">' . "Impossibile connettersi al database: riprovare pi&ugrave; tardi" . '</p>';
