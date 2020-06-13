@@ -1,6 +1,7 @@
 <?php
   header('Content-Type: text/html; charset=UTF-8');
-
+  
+  require_once("session.php");
   require_once("DBAccess.php");
   require_once("Image.php");
   require_once('menu_pagina.php');
