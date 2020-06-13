@@ -1,5 +1,6 @@
 <?php
   require_once("DBAccess.php");
+  require_once("Image.php");
   $pagina = file_get_contents('prodotti.html');
   $conn = new DBAccess();
   if(!$conn->openConnection()) {
@@ -126,20 +127,23 @@
     }
     else{
       $total_pages = ceil($total_records/$results_per_page); //se c'è una sola pagina non voglio mostrare un link circolare alla pagina stessa!
+      $productToPrint .= '<ul>' . "\n";
       while($row = $result->fetch_assoc()) {
-        $productToPrint .= '<div class = "col-sn-4 col-md-3">' . "\n" .
-        '<form method="post" action="carrello.php?action=add&id_articolo='. $row["id_articolo"] .  '">'. "\n" .
-        '<div class="products">' . "\n" .
-        '<img src="img/articoli/'.(file_exists("
-        img/articoli/".$row["id_articolo"].".jpg") ? $row["id_articolo"].'.jpg' : '0.jpg').'" class="img-responsive"/>'."\n" .
-        '<h4 class="text-info">' . $row["nome_articolo"] . '</h4>' . "\n" .
-        '<h4>' . $row["prezzo_articolo"] . ' €' . '</h4>' ."\n" .
-        '<input type="text" name="quantita" class="form-control" value="1" />' ."\n" .
-        '<input type="hidden" name="nome_articolo" value="' . $row["nome_articolo"] . '"/>' . "\n" .
-        '<input type="hidden" name="prezzo_articolo" value="' . $row["prezzo_articolo"] . '"/>' . "\n" .
-         '<input type="submit" name="add_to_cart" class="btn btn-info CUSTOM_MARGIN" value="Add to Cart" />' . "\n" .
-        '</div>' . "\n" . '</form>' . "\n" . '</div>' ."\n";
+        $productToPrint .=
+        '<li class="card_product product_description">' . "\n" .
+          '<img class="product_image" src="' .
+              Image::getImage('img/products/small_img/', $row['id_articolo']) . '" alt=immagine "'. $row['nome_articolo'] . '"/>' . "\n" .
+          '<h3 class="product_title">' .  $row['nome_articolo'] . '</h3>' . "\n" .
+          '<ul>' . "\n" .
+              '<li class="product_manufacturer">' . $row["nome_ditta"] . '</li>' . "\n" .
+              '<li class="product_line">' . 'Linea ' . $row["nome_linea"] .'</li>' . "\n" .
+              '<li class="product_tags ' . $row["nome_categoria"] . '">' . $row["nome_categoria"] . '</li>' . "\n" .
+              '<li class="product_tags ' . $row["sesso_target"] . '">' . $row["sesso_target"] . '</li>' . "\n" .
+              '<li class="product_price">' . $row["prezzo_articolo"] . ' &euro;</li>' . "\n" .
+          '</ul>' . "\n" .
+        '</li>' . "\n";
       }
+      $productToPrint .= '</ul>' . "\n";
     }
     $stmt->close();
 

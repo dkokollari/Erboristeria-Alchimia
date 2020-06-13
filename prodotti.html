@@ -56,61 +56,19 @@
         <p>
           L’erboristeria oggi &egrave; il giusto equilibrio tra antichi saperi e nuove tecnologie, dove per trovare quello che fa per noi &egrave; necessario essere disposti a conoscersi profondamente.
         </p>
+        <h2>Trova ci&ograve; che ti serve</h2>
+        <form action="articoli.php" method="get"> <!--ora che il method e' get va fatto controllo anche sul valore dei filtri! -->
+          <fieldset>
+            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Inserisci il nome.." name="search" title="Inserisci un nome"></input>
+            <input type="submit" value="invia"/>
+            %SEX_FILTER%
+            %CATEGORY_FILTER%
+            %COMPANY_FILTER%
+          </fieldset>
+        </form>
         %PRODUCTS%
-        <div class="card_product">
-          <img class="product_image" src="img/products/small_img/helan_linea_bimbi_amido_di_riso_min.jpg" alt="immagine linea bimbi amido di riso di Helan"/>
-          <div class="product_description">
-            <h3 class="product_title">Amido di riso</h3>
-            <p class="product_manufacturer">Helan</p>
-            <p class="product_line">Linea bimbi</p>
-            <div class="product_tags">
-              <span class="cosmetici">cosmetici</span>
-              <span class="bimbi">bimbi</span>
-            </div>
-            <p class="product_price">10,50&euro;</p>
-          </div>
-        </div>
-        <div class="card_product">
-          <img class="product_image" src="img/products/small_img/erbolario_danza_di_fiori_profumo_50ml_min.jpg" alt="immagine Erbolario danza di fiori profumo 50ml"/>
-          <div class="product_description">
-            <h3 class="product_title">Danza di Fiori - Prufumo 50ml</h3>
-            <ul>
-              <li class="product_manufacturer">L&#39;Erbolario</li>
-              <li class="product_line">Danza di Fiori</li>
-              <li>
-                <div class="product_tags">
-                  <span class="cosmetici">cosmetici</span>
-                  <span class="donna">donna</span>
-                </div>
-              </li>
-              <li class="product_price">22,90&euro;</li>
-            </ul>
-          </div>
-        </div>
-        <div class="card_product">
-          <img class="product_image" src="img/products/small_img/helan_profumi_della_casa_fragolino_selvatico_100ml_min.jpg" alt="immagine Helan profumi della casa fragolino selvatico 100ml"/>
-          <div class="product_description">
-            <h3 class="product_title">Bast. Prof 100ml - Fragolino Selvatico</h3>
-            <p class="product_manufacturer">Helan</p>
-            <p class="product_line">Profumi della casa</p>
-            <div class="product_tags">
-              <span class="casa">casa</span>
-            </div>
-            <p class="product_price">16,00&euro;</p>
-          </div>
-        </div>
-        <div class="card_product">
-          <img class="product_image" src="img/products/small_img/erbolario_ginepro_nero_maxi_beauty_set_min.jpg" alt="immagine di l'erbolario ginepro nero maxi beauty set"/>
-          <div class="product_description">
-            <h3 class="product_title">Ginepro Nero maxi beauty set</h3>
-            <p class="product_manufacturer">L&#39;Erbolario</p>
-            <p class="product_line">Ginepro Nero</p>
-            <div class="product_tags">
-              <span class="cosmetici">cosmetici</span>
-              <span class="uomo">uomo</span>
-            </div>
-            <p class="product_price">33,90&euro;</p>
-          </div>
+        <div class="FaiBelliILink:)">
+          %PAGES_MENU%
         </div>
       </div>
       <!--          FOOTER             -->
