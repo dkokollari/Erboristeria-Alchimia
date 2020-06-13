@@ -15,7 +15,7 @@
     else {
       $temp = $aux->getUser($_COOKIE['email']);
       if(empty($temp) ||
-          !password_verify($_COOKIE['password'], $temp[0]['password_utente'])) { // utente non trovato o password diversa
+          $_COOKIE['password'] != $temp[0]['password_utente']) { // utente non trovato o password diversa
         setcookie("email", "", time()-3600);
         setcookie("password", "", time()-3600);
       }
@@ -57,7 +57,7 @@
             setSessione($utente);
             if(isset($_POST['remember_me'])) {
               setcookie('email', $email, time()+60*60*24*30);
-              setcookie('password', $password, time()+60*60*24*30);
+              setcookie('password', $utente[0]['password_utente'], time()+60*60*24*30);
             }
             header('location:index.php');
           }
