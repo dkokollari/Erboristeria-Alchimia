@@ -6,8 +6,8 @@ $pagina = file_get_contents('ricerca.html');
 if(isset($_POST['search'])) {
   $conn = new DBAccess();
   if(!$conn->openConnection()) {
-   echo '<p class= "errori">' . "Impossibile connettersi al database: riprovare pi&ugrave; tardi" . '</p>';
-   exit(1);
+    header('Location: redirect.php?error=1');
+    exit;
   }
   //Stabilita connessione al db
   $noOption = "none"; //costante: valore opzione "Seleziona filtro"

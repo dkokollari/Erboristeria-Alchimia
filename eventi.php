@@ -85,7 +85,7 @@
     echo $pagina;
   }
   else {
-    echo "<h1>Impossibile connettersi al database riprovare pi&ugrave; tardi<h1>";
+    header('Location: redirect.php?error=1');
     exit;
   }
 ?>

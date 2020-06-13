@@ -9,11 +9,16 @@
   if($con->openConnection()) {
     if($con->deleteTeInfusi_by_id($id)) {
   	   $img->deleteImage("img/te_e_infusi/".$id."jpg");
-       echo "query esequita con successo";
      }
-     else echo "query non eseguita";
+     else {
+       header('Location: redirect.php?error=4');
+       exit;
+     }
    } // end if $con->openConnection()
-   else echo "Operazione non eseguita riprova dopo";
+   else {
+     header('Location: redirect.php?error=1');
+     exit;
+   }
 
   header("Refresh:1; url=modifica_teInfusi.php");
   exit;

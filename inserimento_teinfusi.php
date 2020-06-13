@@ -70,7 +70,8 @@
           $messaggio = "";
         }
         else {
-          $messaggio = '<p class="error-msg">Query non eseguita riprovare pi&ugrave; tardi</p>';
+          header('Location: redirect.php?error=4');
+          exit;
         }
       } //endif se non ci sono errori
       else {
@@ -98,7 +99,7 @@
     echo $pagina;
   }
   else {
-    echo "<h1>Impossibile connettersi al database riprovare pi&ugrave; tardi<h1>";
+    header('Location: redirect.php?error=1');
     exit;
   }
 ?>

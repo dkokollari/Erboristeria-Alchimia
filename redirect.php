@@ -12,9 +12,9 @@
   require_once('Errore.php');
 
   $contenuto = str_replace("%ERRORE%",Errore::getErrore($_GET['error']), $contenuto);
-  
+
   $pagina = str_replace("%CONTENUTO_PAGINA%", , $pagina);
   echo $pagina;
-  header("Refresh:2; url=home.php");
+  header("Refresh:3; url=home.php");
   exit;
 ?>

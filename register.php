@@ -41,8 +41,8 @@
       else{
         $con = new DBAccess();
         if(!$con->openConnection()){
-         echo '<span class="errore">Impossibile connettersi al database riprovare pi&ugrave; tardi</span>';
-         exit;
+          header('Location: redirect.php?error=1');
+          exit;
         }
 
         if($con->getUser($email)){
