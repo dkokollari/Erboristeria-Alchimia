@@ -3,7 +3,7 @@
   //require_once("sessione.php");
   session_start();
 
-  if((isset($_SESSION['email_utente']) && $_SESSION['email_utente']="") { // utente con sessione
+  if((isset($_SESSION['email_utente']) && $_SESSION['email_utente']!="") { // utente con sessione
     header('location:index.php');
     exit;
   }
@@ -15,8 +15,9 @@
     }
     else {
       $temp = $aux->getUser($_COOKIE['email']);
-      if(empty(temp)) { // utente non trovato TODO: allora eliminare cookie
-
+      if(empty($temp) ||
+          password_verify($_COOKIE['password'], $temp[0]['password_utente'])) { // utente non trovato o password diversa
+        // TODO: allora eliminare cookie
       }
       else {
         setSessione($temp);
