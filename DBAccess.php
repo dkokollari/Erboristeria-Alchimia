@@ -100,24 +100,17 @@
     }
 
     public function getSingoloTeInfuso($id) {
-      $query="SELECT * FROM te_e_infusi WHERE id_te_e_infusi= '".$id."'";
-      $queryResult = mysqli_query($this->connection,$query);
-      if(mysqli_num_rows($queryResult) == 0) {
-       return null;
-      }
-      else {
-        $row = mysqli_fetch_assoc($queryResult);
-        $result = array(
-          'Id' => $row['id_te_e_infusi'],
-          'desc_img' => $row['descrizione_immagine_te_e_infusi'],
-          'Tipo' => $row['tipo_te_e_infusi'],
-          'Nome' => $row['nome_te_e_infusi'],
-          'Ingredienti' => $row['ingredienti_te_e_infusi'],
-          'Descrizione' => $row['descrizione_te_e_infusi'],
-          'Preparazione' => $row['preparazione_te_e_infusi'],
-        );
-        return $result;
-      }
+      $query = "SELECT `id_te_e_infusi`,
+                       `descrizione_immagine_te_e_infusi`,
+                       `nome_te_e_infusi`,
+                       `ingredienti_te_e_infusi`,
+                       `descrizione_te_e_infusi`,
+                       `preparazione_te_e_infusi`
+                FROM   `te_e_infusi`
+                WHERE  `id_te_e_infusi`=?";
+      $types = "i";
+      $params = [$id];
+      return $this->getQuery($query, $types, $params);
     }
 
     #####################################
