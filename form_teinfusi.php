@@ -1,11 +1,26 @@
 <?php
+  require_once("session.php");
   require_once("DBAccess.php");
   require_once("Image.php");
   require_once("control_input.php");
 
+  if($_SESSION['tipo_utente'] != 'Admin'){
+    header('Location: redirect.php?error=3');
+    exit;
+  }
+
   $con = new DBAccess();
   if($con->openConnection()) {
-    $pagina = file_get_contents('inserimento_teinfusi.html');
+
+    require_once('menu_pagina.php');
+
+    $pagina = file_get_contents('base.html');
+    $pagina = str_replace("%TITOLO_PAGINA%", "Form T&egrave; e Infusi", $pagina);
+    $pagina = str_replace("%DESCRIZIONE_PAGINA%", 'pagina inserimento e modifica di un t&egrave; o Infuso', $pagina);
+    $pagina = str_replace("%KEYWORDS_PAGINA%", 'inserimento, modifica, form, tè, infuso, erboristeria, alchimia', $pagina);
+    $pagina = str_replace("%CONTAINER_PAGINA%", "container", $pagina);
+    $pagina = str_replace("%LISTA_MENU%", menu_pagina::menu("form_teinfusi.php"), $pagina);
+    $contenuto = file_get_contents('form_teinfusi.html');
 
     $messaggio = "";
     $valnome = "";
@@ -22,11 +37,11 @@
     if(isset($_GET['id'])){  // se è una modifica
       $id = $_GET['id'];
       $getElement = $con->getSingoloTeInfuso($id);
-      $valtipo = htmlentities($getElement['Tipo']);
-      $valnome = htmlentities($getElement['Nome']);
-      $valingre = htmlentities($getElement['Ingredienti']);
-      $valdescr = htmlentities($getElement['Descrizione']);
-      $valprepa = htmlentities($getElement['Preparazione']);
+      $valtipo = htmlentities($getElement[0]['tipo_te_e_infusi']);
+      $valnome = htmlentities($getElement[0]['nome_te_e_infusi']);
+      $valingre = htmlentities($getElement[0]['ingredienti_te_e_infusi']);
+      $valdescr = htmlentities($getElement[0]['descrizione_te_e_infusi']);
+      $valprepa = htmlentities($getElement[0]['preparazione_te_e_infusi']);
     }
 
     // se è stato premuto il buttone submit
@@ -91,15 +106,17 @@
       }
     } //endif se è stato premuto il buttone submit
 
-    $pagina = str_replace("%action%","inserimento_teinfusi.php", $pagina);
-    $pagina = str_replace("%nome%", $valnome, $pagina);
-    $pagina = str_replace("%ingre%", htmlentities($valingre), $pagina);
-    $pagina = str_replace("%descr%", $valdescr, $pagina);
-    $pagina = str_replace("%prepa%", $valprepa, $pagina);
-    $pagina = str_replace("%MESSAGGIO%", $messaggio, $pagina);
-    $pagina = str_replace("%ERR_NOME%", $errNome, $pagina);
-    $pagina = str_replace("%ERR_DESC%", $errDescr, $pagina);
-    $pagina = str_replace("%ERR_IMG%", $errImg, $pagina);
+    $contenuto = str_replace("%nome%", $valnome, $contenuto);
+    $contenuto = str_replace("%ingre%", htmlentities($valingre), $contenuto);
+    $contenuto = str_replace("%descr%", $valdescr, $contenuto);
+    $contenuto = str_replace("%prepa%", $valprepa, $contenuto);
+    $contenuto = str_replace("%ERR_NOME%", $errNome, $contenuto);
+    $contenuto = str_replace("%MESSAGGIO%", $messaggio, $contenuto);
+    $contenuto = str_replace("%ERR_DESC%", $errDescr, $contenuto);
+    $contenuto = str_replace("%ERR_IMG%", $errImg, $contenuto);
+
+    $pagina = str_replace("%ICONA_CARRELLO%", '', $pagina);
+    $pagina = str_replace("%CONTENUTO_PAGINA%", $contenuto, $pagina);
 
     echo $pagina;
   }

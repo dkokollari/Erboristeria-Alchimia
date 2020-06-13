@@ -1,6 +1,12 @@
 <?php
+  require_once("session.php");
   require_once("DBAccess.php");
   require_once("Image.php");
+
+  if($_SESSION['tipo_utente'] != 'Admin'){
+    header('Location: redirect.php?error=3');
+    exit;
+  }
 
   $con = new DBAccess();
   $img = new Image();
@@ -20,6 +26,6 @@
      exit;
    }
 
-  header("Refresh:1; url=modifica_teInfusi.php");
+  header('Location: modifica_teInfusi.php');
   exit;
 ?>

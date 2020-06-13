@@ -41,7 +41,7 @@
           <h4>Preparazione</h4>
           <p>'.$preparazione.'</p>
            '.($_SESSION['auth'] && $_SESSION['tipo_utente']=="Admin"
-       ? '<a href="inserimento_teinfusi.php?id='.$id.'">Modifica</a>
+       ? '<a href="form_teinfusi.php?id='.$id.'">Modifica</a>
           <a href="deleteTeInfusi.php?id='.$id.'">Rimuovi</a>'
        : '').'
           <span class="expand_btn material-icons-round">expand_more</span>
@@ -52,7 +52,7 @@
 
     $container = file_get_contents('teinfusi.html');
     $container = ($_SESSION['auth'] && $_SESSION['tipo_utente']=="Admin"
-                  ? str_replace("%NEW_TE_O_INFUSI%", '<a href="inserimento_teinfusi.php">Aggiungi un nuovo T&egrave; o Infuso</a>', $container)
+                  ? str_replace("%NEW_TE_O_INFUSI%", '<a href="form_teinfusi.php">Aggiungi un nuovo T&egrave; o Infuso</a>', $container)
                   : str_replace("%NEW_TE_O_INFUSI%", '', $container));
     $container = str_replace("%LISTA_TE_E_INFUSI%", $lista, $container);
     $pagina = str_replace("%CONTENUTO_PAGINA%", $container, $pagina);
