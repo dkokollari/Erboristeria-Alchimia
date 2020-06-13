@@ -21,7 +21,7 @@
         $menu .= '<li><a href="profilo.php">profilo</a></li>
                   <li><a href="logout.php" xml:lang="en">logout</a></li>';
       }
-      return $this->paginaCorrente($pagina, $menu);
+      return menu_pagina::paginaCorrente($pagina, $menu);
     }
 
     private static function paginaCorrente($pagina, $menu) {
