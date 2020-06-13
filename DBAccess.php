@@ -55,14 +55,22 @@
     }
 
     public function updateTeInfusi($id, $nome, $tipo, $ingre, $desc, $prepa, $descImg) {
-      $query = "UPDATE `te_e_infusi`
+      $query = ($descImg != ""
+               ? "UPDATE `te_e_infusi`
                    SET `descrizione_immagine_te_e_infusi`= '".$descImg."',
                        `tipo_te_e_infusi`='".$tipo."',
                        `nome_te_e_infusi`='".$nome."',
                        `ingredienti_te_e_infusi`='".$ingre."',
                        `descrizione_te_e_infusi`='".$desc."',
                        `preparazione_te_e_infusi`='".$prepa."'
-                 WHERE `id_te_e_infusi` = '".$id."'";
+                 WHERE `id_te_e_infusi` = '".$id."'"
+                 : "UPDATE `te_e_infusi`
+                     SET `tipo_te_e_infusi`='".$tipo."',
+                         `nome_te_e_infusi`='".$nome."',
+                         `ingredienti_te_e_infusi`='".$ingre."',
+                         `descrizione_te_e_infusi`='".$desc."',
+                         `preparazione_te_e_infusi`='".$prepa."'
+                   WHERE `id_te_e_infusi` = '".$id."'");
       return (mysqli_query($this->connection, $query) ? true : false);
     }
 

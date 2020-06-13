@@ -79,7 +79,7 @@
              $image->uploadImageTeInfusi($_FILES['immagine']['name'], $_FILES['immagine']['tmp_name'], $id));
              header('Location: teinfusi.php');
              exit;
-           }
+         }
 
       } //endif se non ci sono errori
       else {
@@ -88,7 +88,6 @@
         $valingre = $_POST['Ingredienti'];
         $valdescr = $_POST['Descrizione'];
         $valprepa = $_POST['Preparazione'];
-        $valdescImg = $_POST['desc_img'];
       }
     } //endif se è stato premuto il buttone submit
 
