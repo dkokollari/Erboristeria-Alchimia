@@ -47,9 +47,9 @@
     }
 
     $container = file_get_contents('teinfusi.html');
-    if($_SESSION['auth']){
-      $container = str_replace("%NEW_TE_O_INFUSI%", '<a href="inserimento_teinfusi.php">Agguingi un nuovo T&egrave; o Infuso</a>', $container);
-    }
+    $containter = ($_SESSION['auth']
+                  ? str_replace("%NEW_TE_O_INFUSI%", '<a href="inserimento_teinfusi.php">Aggiungi un nuovo T&egrave; o Infuso</a>', $container)
+                  : str_replace("%NEW_TE_O_INFUSI%", '', $container));
     $container = str_replace("%LISTA_TE_E_INFUSI%", $lista, $container);
     $pagina = str_replace("%CONTENUTO_PAGINA%", $container, $pagina);
     echo $pagina;
