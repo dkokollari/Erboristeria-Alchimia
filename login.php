@@ -28,7 +28,7 @@
     }
   } // end else if utente con cookie senza sessione
 
-  // utente senza cookie senza sessione
+  // utente senza cookie e senza sessione
   $pagina = file_get_contents("login.html");
   if($_POST['Login']) {
     $email = mysql_real_escape_string(trim($_POST['email']));
