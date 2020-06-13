@@ -17,7 +17,8 @@
       $temp = $aux->getUser($_COOKIE['email']);
       if(empty($temp) ||
           password_verify($_COOKIE['password'], $temp[0]['password_utente'])) { // utente non trovato o password diversa
-        // TODO: allora eliminare cookie
+        setcookie("email", "", time()-3600);
+        setcookie("password", "", time()-3600);
       }
       else {
         setSessione($temp);
