@@ -1,22 +1,21 @@
 '<?php
   require_once("DBAccess.php");
-  //require_once("sessione.php");
-  session_start();
+  require_once("sessione.php");
 
-  if(isset($_SESSION['email_utente']) && $_SESSION['email_utente']!="") { // utente con sessione
+  if($_SESSION['auth'] == true) { // utente con sessione
     header('location:index.php');
     exit;
   }
   else if(isset($_COOKIE['email']) && $_COOKIE['email']!="") { // utente con cookie senza sessione
     $aux = new DBAccess();
     if(!$aux->openConnection()) {
-      echo '<span class="errore">Impossibile connettersi al database riprovare pi&ugrave; tardi</span>';
+      header('Location: redirect.php?error=1');
       exit;
     }
     else {
       $temp = $aux->getUser($_COOKIE['email']);
       if(empty($temp) ||
-          password_verify($_COOKIE['password'], $temp[0]['password_utente'])) { // utente non trovato o password diversa
+          !password_verify($_COOKIE['password'], $temp[0]['password_utente'])) { // utente non trovato o password diversa
         setcookie("email", "", time()-3600);
         setcookie("password", "", time()-3600);
       }
@@ -45,7 +44,7 @@
     else { // email e password valide
       $con = new DBAccess();
       if(!$con->openConnection()) {
-        echo '<span class="errore">Impossibile connettersi al database riprovare pi&ugrave; tardi</span>';
+        header('Location: redirect.php?error=1');
         exit;
       }
       else {
@@ -55,6 +54,7 @@
           $passwordCheck = password_verify($password, $utente[0]['password_utente']);
           if(!$passwordCheck) $errore = $errore_wrong;
           else {
+            $_SESSION['auth'] == true;
             setSessione($utente);
             if(isset($_POST['remember_me'])) {
               setcookie('email', $email, time()+60*60*24*30);
