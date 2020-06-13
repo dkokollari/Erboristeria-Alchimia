@@ -5,7 +5,6 @@
   require_once("DBAccess.php");
   require_once("Image.php");
   require_once('menu_pagina.php');
-  require_once('session.php');
 
   $con = new DBAccess();
   if($con->openConnection()) {
