@@ -48,7 +48,7 @@
     else { // email e password valide
       $con = new DBAccess();
       if(!$con->openConnection()) {
-        echo '<span class="errore">Impossibile connettersi al database riprovare pi&ugrave; tardi</span>';
+        header('Location: redirect.php?error=1');
         exit;
       }
       else {
