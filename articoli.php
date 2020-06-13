@@ -14,9 +14,10 @@
   $opt_sesso = '<label for="sesso">Sesso</label>' . "\n" .
                 '<select name="sesso" id="sesso">' . "\n" .
                 '<option selected value="none">Seleziona filtro</option>' . "\n" .
+                '<option value="Per bimbi">Bimbo</option>' . "\n" .
                 '<option value="Unisex">Unisex</option>' . "\n" .
-                '<option value="Per lei">Per lei</option>' . "\n" .
-                '<option value="Per lui">Per lui</option>' . "\n" .'</select>' . "\n";
+                '<option value="Per lei">Donna</option>' . "\n" .
+                '<option value="Per lui">Uomo</option>' . "\n" .'</select>' . "\n";
 
   /*-------------menu a tendina categoria---------------*/
   $opt_categoria = '<label for="categoria">Categoria</label>' . "\n" .
@@ -128,7 +129,7 @@
       $total_pages = ceil($total_records/$results_per_page); //se c'è una sola pagina non voglio mostrare un link circolare alla pagina stessa!
       while($row = $result->fetch_assoc()) {
         $productToPrint .= '<div class = "col-sn-4 col-md-3">' . "\n" .
-        '<form method="post" action="carrello.php?action=add&id_articolo='. $row["id_articolo"] .  '">'. "\n" .
+        '<form method="post" action="carrello.php?&amp;id_articolo='. $row["id_articolo"] .  '">'. "\n" .
         '<div class="products">' . "\n" .
         '<img src="img/articoli/'.(file_exists("
         img/articoli/".$row["id_articolo"].".jpg") ? $row["id_articolo"].'.jpg' : '0.jpg').'" class="img-responsive"/>'."\n" .
@@ -137,7 +138,8 @@
         '<input type="text" name="quantita" class="form-control" value="1" />' ."\n" .
         '<input type="hidden" name="nome_articolo" value="' . $row["nome_articolo"] . '"/>' . "\n" .
         '<input type="hidden" name="prezzo_articolo" value="' . $row["prezzo_articolo"] . '"/>' . "\n" .
-         '<input type="submit" name="add_to_cart" class="btn btn-info CUSTOM_MARGIN" value="Add to Cart" />' . "\n" .
+        '<input type="hidden" name="redirect" value="' . "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]" . '"/>' . "\n" .
+        '<input type="submit" name="add_to_cart" class="btn btn-info CUSTOM_MARGIN" value="Add to Cart" />' . "\n" .
         '</div>' . "\n" . '</form>' . "\n" . '</div>' ."\n";
       }
     }
