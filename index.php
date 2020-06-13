@@ -1,9 +1,13 @@
 <?php
-  session_start();
 
-  if(isset($_SESSION['email_utente']) ||
-      (isset($_COOKIE['email']) && isset($_COOKIE['password']))) {
-    echo 'sei loggato';
+  if($_SESSION['auth']) {
+    echo $_SESSION['auth']."\n";
+    echo $_SESSION['nome_utente']."\n";
+    echo $_SESSION['cognome_utente']."\n";
+    echo $_SESSION['email_utente']."\n";
+    echo $_SESSION['password_utente']."\n";
+    echo $_SESSION['tipo_utente']."\n";
+    echo $_SESSION['data_nascita_utente']."\n";
   }
-  else echo'non sei loggato';
+  else echo 'non sei loggato';
 ?>
