@@ -5,4 +5,6 @@
    echo '<p class= "errori">' . "Impossibile connettersi al database: riprovare pi&ugrave; tardi" . '</p>';
    exit(1);
   }
+
+  $pagina .=
 ?>

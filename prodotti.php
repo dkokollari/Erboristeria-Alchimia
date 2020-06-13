@@ -130,6 +130,7 @@
       $productToPrint .= '<ul>' . "\n";
       while($row = $result->fetch_assoc()) {
         $productToPrint .=
+        '<a href="prodotto_singolo.php?id_articolo="' .  $row['id_articolo'] . '>' . "\n" .
         '<li class="card_product product_description">' . "\n" .
           '<img class="product_image" src="' .
               Image::getImage('img/products/small_img/', $row['id_articolo']) . '" alt=immagine "'. $row['nome_articolo'] . '"/>' . "\n" .
@@ -141,7 +142,8 @@
               '<li class="product_tags ' . $row["sesso_target"] . '">' . $row["sesso_target"] . '</li>' . "\n" .
               '<li class="product_price">' . $row["prezzo_articolo"] . ' &euro;</li>' . "\n" .
           '</ul>' . "\n" .
-        '</li>' . "\n";
+        '</li>' . "\n" .
+        '</a>';
       }
       $productToPrint .= '</ul>' . "\n";
     }
@@ -150,7 +152,7 @@
     $links_to_result_pages = '';
     for($n_page=1; $n_page<=$total_pages; ++$n_page) {
       if($n_page != $page) {
-        $links_to_result_pages .= '<a href="articoli.php?page=' . $n_page . "&amp;search=$search_value&amp;sesso=$sex_filter" .
+        $links_to_result_pages .= '<a href="prodotti.php?page=' . $n_page . "&amp;search=$search_value&amp;sesso=$sex_filter" .
         "&amp;categoria=$categ_filter&amp;casa_prod=$casa_prod_filter" . '">' . $n_page . '</a>' . "\n";
       } else {
         $links_to_result_pages .= "<span>$page</span>"; //tolgo link circolari
