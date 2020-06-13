@@ -1,6 +1,6 @@
 '<?php
   require_once("DBAccess.php");
-  require_once("sessione.php");
+  require_once("session.php");
 
   if($_SESSION['auth'] == true) { // utente con sessione
     header('location:index.php');
