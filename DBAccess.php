@@ -73,12 +73,6 @@
       return (mysqli_query($this->connection, $query) ? true : false);
     }
 
-    public function deleteTeInfusi_by_name($name) {
-      $query = "DELETE FROM `te_e_infusi`
-                      WHERE `nome_te_e_infusi` = '".$name."'";
-      return (mysqli_query($this->connection, $query) ? true : false);
-    }
-
     public function getTeInfusi(){
       $query = "SELECT `id_te_e_infusi`,
                        `descrizione_immagine_te_e_infusi`,
