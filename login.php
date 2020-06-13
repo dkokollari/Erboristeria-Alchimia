@@ -19,12 +19,7 @@
 
       }
       else {
-        $_SESSION['nome_utente'] = $temp[0]['nome_utente'];
-        $_SESSION['cognome_utente'] = $temp[0]['cognome_utente'];
-        $_SESSION['email_utente'] = $temp[0]['email_utente'];
-        $_SESSION['password_utente'] = $temp[0]['password_utente'];
-        $_SESSION['tipo_utente'] = $temp[0]['tipo_utente'];
-        $_SESSION['data_nascita_utente'] = $temp[0]['data_nascita_utente'];
+        setSessione($temp);
         header('location:index.php');
         exit;
       }
@@ -58,12 +53,7 @@
           $passwordCheck = password_verify($password, $utente[0]['password_utente']);
           if(!$passwordCheck) $errore = $errore_wrong;
           else {
-            $_SESSION['nome_utente'] = $utente[0]['nome_utente'];
-            $_SESSION['cognome_utente'] = $utente[0]['cognome_utente'];
-            $_SESSION['email_utente'] = $utente[0]['email_utente'];
-            $_SESSION['password_utente'] = $utente[0]['password_utente'];
-            $_SESSION['tipo_utente'] = $utente[0]['tipo_utente'];
-            $_SESSION['data_nascita_utente'] = $utente[0]['data_nascita_utente'];
+            setSessione($utente);
             if(isset($_POST['remember_me'])) {
               setcookie('email', $email, time()+60*60*24*30);
               setcookie('password', $password, time()+60*60*24*30);
@@ -79,4 +69,13 @@
   $pagina = str_replace("%ERR_LOGIN%", $errore, $pagina);
   $pagina = str_replace("%LOGIN_STATUS%", $logged, $pagina);
   echo $pagina;
+
+  function setSessione($array="") {
+    $_SESSION['nome_utente'] = $array[0]['nome_utente'];
+    $_SESSION['cognome_utente'] = $array[0]['cognome_utente'];
+    $_SESSION['email_utente'] = $array[0]['email_utente'];
+    $_SESSION['password_utente'] = $array[0]['password_utente'];
+    $_SESSION['tipo_utente'] = $array[0]['tipo_utente'];
+    $_SESSION['data_nascita_utente'] = $array[0]['data_nascita_utente'];
+  }
 ?>
