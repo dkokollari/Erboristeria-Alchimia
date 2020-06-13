@@ -6,5 +6,5 @@
    exit(1);
   }
 
-  $pagina .=
+  $pagina = file_get_contents('prodotto_singolo.html');
 ?>
