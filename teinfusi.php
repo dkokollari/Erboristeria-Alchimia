@@ -14,7 +14,7 @@
     $pagina = str_replace("%KEYWORDS_PAGINA%", "te, infusi, te e infusi, erboristeria, alchimia", $pagina);
     $pagina = str_replace("%CONTAINER_PAGINA%", "container_te_e_infusi", $pagina);
     $pagina = str_replace("%LISTA_MENU%", menu_pagina::menu("teinfusi.php"), $pagina);
-    $pagina = ($_SESSION['auth']
+    $pagina = ($_SESSION['auth'] && $_SESSION['tipo_utente']=="User"
               ? str_replace("%ICONA_CARRELLO%", '<span id="cart_icon" class="material-icons-outlined top_icon">shopping_cart</span>', $pagina)
               : str_replace("%ICONA_CARRELLO%", '', $pagina));
 
@@ -40,10 +40,10 @@
           <p>'.$descrizione.'</p>
           <h4>Preparazione</h4>
           <p>'.$preparazione.'</p>
-           '.($_SESSION['auth'] ?
-         '<a href="updateTeInfusi.php?id='.$id.'">Modifica</a>
+           '.($_SESSION['auth'] && $_SESSION['tipo_utente']=="Admin"
+       ? '<a href="updateTeInfusi.php?id='.$id.'">Modifica</a>
           <a href="deleteTeInfusi.php?id='.$id.'">Rimuovi</a>'
-          : "").'
+       : '').'
           <span class="expand_btn material-icons-round">expand_more</span>
         </div>
 
@@ -51,7 +51,7 @@
     }
 
     $container = file_get_contents('teinfusi.html');
-    $container = ($_SESSION['auth']
+    $container = ($_SESSION['auth'] && $_SESSION['tipo_utente']=="Admin"
                   ? str_replace("%NEW_TE_O_INFUSI%", '<a href="inserimento_teinfusi.php">Aggiungi un nuovo T&egrave; o Infuso</a>', $container)
                   : str_replace("%NEW_TE_O_INFUSI%", '', $container));
     $container = str_replace("%LISTA_TE_E_INFUSI%", $lista, $container);
