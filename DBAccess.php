@@ -102,6 +102,7 @@
     public function getSingoloTeInfuso($id) {
       $query = "SELECT `id_te_e_infusi`,
                        `descrizione_immagine_te_e_infusi`,
+                       `tipo_te_e_infusi`,
                        `nome_te_e_infusi`,
                        `ingredienti_te_e_infusi`,
                        `descrizione_te_e_infusi`,
