@@ -3,9 +3,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
   <head>
     <title>Scheda Prodotto - Erboristeria Alchimia</title>
-    <meta name="description" content="Helan profumi della casa fragolino selvatico 100ml"/>
+  <!--  <meta name="description" content= "%META_DESCRIPTION%"/> -->
+    %META_DESCRIPTION%
     <meta name="language" content="italian it"/>
-    <meta name="keywords" content="helan, profumo, fragolino, selvatico, erboristeria, alchimia"/>
+  <!--  <meta name="keywords" content="helan, profumo, fragolino, selvatico, erboristeria, alchimia"/> -->
+    %META_KEYWORDS%
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link rel="icon" href="../img/favicon.ico"/>
@@ -23,14 +25,14 @@
     <div class="container" id="container_scheda_prodotto">
       <!--          HEADER             -->
       <!-- <div id="header_image" class="fit"></div> -->
-      <img id="immagine_prodotto" src="../img/products/helan_profumi_della_casa_fragolino_selvatico_100ml.jpg" alt="helan profumi della casa fragolino selvatico 100ml"/>
+      <!-- <img id="immagine_prodotto" src="../img/products/helan_profumi_della_casa_fragolino_selvatico_100ml.jpg" alt="helan profumi della casa fragolino selvatico 100ml"/> -->
+      %PRODUCT_IMG_1%
       <!-- <h1>Prodotti</h1> -->
       <!-- <h1 id="title">Scheda prodotto</h1> -->
       <div id="topbar_container_shadow">
         <div id="topbar">
-          <img id="topbar_image" src="../img/products/helan_profumi_della_casa_fragolino_selvatico_100ml.jpg" alt="helan profumi della casa fragolino selvatico 100ml"/>
-          <h1 id="topbar_title">Scheda</h1>
-        </div>
+        <!--  <img id="topbar_image" src="../img/products/helan_profumi_della_casa_fragolino_selvatico_100ml.jpg" alt="helan profumi della casa fragolino selvatico 100ml"/> -->
+          %PRODUCT_IMG_2%
       </div>
       <!-- <button class="menu_btn"> -->
       <span id="menu_icon" class="material-icons-round menu_btn top_icon">menu</span>
@@ -55,28 +57,37 @@
       <div id="content">
         <a class="classic_btn">aggiungi al carrello</a>
         <h1>Scheda Prodotto</h1>
-        <h2>Bast. Prof. 100ml - Fragolino Selvatico</h2>
-        <h3 class="prezzo">16,00&euro;</h3>
-        <h4>Helan</h4>
-        <h5>Profumi per la casa</h5>
-        <div class="product_tags">
+        <h2>%NAME%</h2>
+        <h3 class="prezzo">%PRICE%</h3>
+        <h4>%LINE%</h4>
+        <!-- <h5>Profumi per la casa</h5> <!-- WARNING:  no info a db! lasciamo perdere -->
+        <h5>%CATEGORY%</h5>
+    <!--<div class="product_tags"> WARNING: tolto sta parte perchè non cè l'informazione a db: lasciamo perdere
           <span class="casa">casa</span>
-        </div>
-        <p class="desc_breve expanded">Sentori fruttati, agrumati per infondere una sensazione di frizzante atmosfera.</p>
+        </div> -->
+        <p class="desc_breve expanded">
+          <!-- Sentori fruttati, agrumati per infondere una sensazione di frizzante atmosfera. -->
+          %SHORT_DESCRIPTION%
+        </p>
         <h4>Descrizione</h4>
         <p>
+          <!--
           Questi bastoncini profumati aiutano a caratterizzare l’abitazione con un’impronta olfattiva di spiccata personalità diffondendo, per capillarit&agrave;, piacevoli note delicate che ci fanno vivere pi&ugrave; serenamente le ore trascorse fra le pareti domestiche recuperando energie fisiche e psichiche.
           Una fragranza che si ispira ai vitigni nobili, rivisitata con sentori fruttati, agrumati per infondere una sensazione di frizzante atmosfera.
-          Il bouquet si espande negli accordi dell’Arancio e Limone in armonia con i sentori verdi delle foglie di Vite e Cassis che, col trascorrere del tempo, lasciano spazio alle note fruttate e nettarine dell’Uva e della Pesca per chiudere in un’armonica nota floreale di bacche di Rosa, Violetta e fiori d’Arancio.
+          Il bouquet si espande negli accordi dell’Arancio e Limone in armonia con i sentori verdi delle foglie di Vite e Cassis che, col trascorrere del tempo, lasciano spazio alle note fruttate e nettarine dell’Uva e della Pesca per chiudere in un’armonica nota floreale di bacche di Rosa, Violetta e fiori d’Arancio. -->
+          %LONG_DESCRIPTION%
         </p>
         <h4>Uso e avvertenze</h4>
         <p>
+          <!--
           Immergere i bastoncini di rattan nella soluzione profumata e capovolgerli di tanto in tanto per aumentare l’intensit&agrave; della diffusione.
-          Le bacchette di rattan diffondono naturalmente la profumazione e sono in sintonia con la purezza del prodotto.
+          Le bacchette di rattan diffondono naturalmente la profumazione e sono in sintonia con la purezza del prodotto. -->
+          %HOW_TO%
         </p>
         <h4>INCI</h4>
         <p>
-          INGREDIENTS: ALCOHOL, PARFUM/FRAGRANCE, AQUA/WATER, LIMONENE, LINALOOL, GERANIOL, CITRONELLOL, CITRAL, ALPHA-ISOMETHYL IONONE, BENZYL ALCOHOL.
+          <!-- INGREDIENTS: ALCOHOL, PARFUM/FRAGRANCE, AQUA/WATER, LIMONENE, LINALOOL, GERANIOL, CITRONELLOL, CITRAL, ALPHA-ISOMETHYL IONONE, BENZYL ALCOHOL. -->
+          %INGREDIENTS%
         </p>
       </div>
       <!--          FOOTER             -->

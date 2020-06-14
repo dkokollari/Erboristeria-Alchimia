@@ -1,6 +1,7 @@
 <?php
   require_once("DBAccess.php");
-  $pagina = file_get_contents('articoli.html');
+  require_once("Image.php");
+  $pagina = file_get_contents('prodotti.html');
   $conn = new DBAccess();
   if(!$conn->openConnection()) {
    echo '<p class= "errori">' . "Impossibile connettersi al database: riprovare pi&ugrave; tardi" . '</p>';
@@ -14,10 +15,9 @@
   $opt_sesso = '<label for="sesso">Sesso</label>' . "\n" .
                 '<select name="sesso" id="sesso">' . "\n" .
                 '<option selected value="none">Seleziona filtro</option>' . "\n" .
-                '<option value="Per bimbi">Bimbo</option>' . "\n" .
                 '<option value="Unisex">Unisex</option>' . "\n" .
-                '<option value="Per lei">Donna</option>' . "\n" .
-                '<option value="Per lui">Uomo</option>' . "\n" .'</select>' . "\n";
+                '<option value="Per lei">Per lei</option>' . "\n" .
+                '<option value="Per lui">Per lui</option>' . "\n" .'</select>' . "\n";
 
   /*-------------menu a tendina categoria---------------*/
   $opt_categoria = '<label for="categoria">Categoria</label>' . "\n" .
@@ -127,28 +127,32 @@
     }
     else{
       $total_pages = ceil($total_records/$results_per_page); //se c'è una sola pagina non voglio mostrare un link circolare alla pagina stessa!
+      $productToPrint .= '<ul>' . "\n";
       while($row = $result->fetch_assoc()) {
-        $productToPrint .= '<div class = "col-sn-4 col-md-3">' . "\n" .
-        '<form method="post" action="carrello.php?&amp;id_articolo='. $row["id_articolo"] .  '">'. "\n" .
-        '<div class="products">' . "\n" .
-        '<img src="img/articoli/'.(file_exists("
-        img/articoli/".$row["id_articolo"].".jpg") ? $row["id_articolo"].'.jpg' : '0.jpg').'" class="img-responsive"/>'."\n" .
-        '<h4 class="text-info">' . $row["nome_articolo"] . '</h4>' . "\n" .
-        '<h4>' . $row["prezzo_articolo"] . ' €' . '</h4>' ."\n" .
-        '<input type="text" name="quantita" class="form-control" value="1" />' ."\n" .
-        '<input type="hidden" name="nome_articolo" value="' . $row["nome_articolo"] . '"/>' . "\n" .
-        '<input type="hidden" name="prezzo_articolo" value="' . $row["prezzo_articolo"] . '"/>' . "\n" .
-        '<input type="hidden" name="redirect" value="' . "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]" . '"/>' . "\n" .
-        '<input type="submit" name="add_to_cart" class="btn btn-info CUSTOM_MARGIN" value="Add to Cart" />' . "\n" .
-        '</div>' . "\n" . '</form>' . "\n" . '</div>' ."\n";
+        $productToPrint .=
+        '<li class="card_product product_description">' . "\n" .
+          '<a href="prodotto_singolo.php?id_articolo=' .  $row['id_articolo'] . '">' . "\n" .
+          '<img class="product_image" src="' .
+              Image::getImage('img/products/small_img/', $row['id_articolo']) . '" alt=immagine "'. $row['nome_articolo'] . '"/>' . "\n" .
+          '<h3 class="product_title">' .  $row['nome_articolo'] . '</h3>' . "\n" .
+          '<ul>' . "\n" .
+              '<li class="product_manufacturer">' . $row["nome_ditta"] . '</li>' . "\n" .
+              '<li class="product_line">' . 'Linea ' . $row["nome_linea"] .'</li>' . "\n" .
+              '<li class="product_tags ' . $row["nome_categoria"] . '">' . $row["nome_categoria"] . '</li>' . "\n" .
+              '<li class="product_tags ' . $row["sesso_target"] . '">' . $row["sesso_target"] . '</li>' . "\n" .
+              '<li class="product_price">' . $row["prezzo_articolo"] . ' &euro;</li>' . "\n" .
+          '</ul>' . "\n" .
+          '</a>' . "\n" .
+        '</li>' . "\n";
       }
+      $productToPrint .= '</ul>' . "\n";
     }
     $stmt->close();
 
     $links_to_result_pages = '';
     for($n_page=1; $n_page<=$total_pages; ++$n_page) {
       if($n_page != $page) {
-        $links_to_result_pages .= '<a href="articoli.php?page=' . $n_page . "&amp;search=$search_value&amp;sesso=$sex_filter" .
+        $links_to_result_pages .= '<a href="prodotti.php?page=' . $n_page . "&amp;search=$search_value&amp;sesso=$sex_filter" .
         "&amp;categoria=$categ_filter&amp;casa_prod=$casa_prod_filter" . '">' . $n_page . '</a>' . "\n";
       } else {
         $links_to_result_pages .= "<span>$page</span>"; //tolgo link circolari
