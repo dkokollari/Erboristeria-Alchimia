@@ -51,25 +51,34 @@
       }
       return $this->getQuery($query, $types, $params, false);
     }
-
-    public function updateTeInfusi($id, $nome, $tipo, $ingre, $desc, $prepa, $descImg) {
-      $query = ($descImg != ""
-               ? "UPDATE `te_e_infusi`
-                   SET `descrizione_immagine_te_e_infusi`= '".$descImg."',
-                       `tipo_te_e_infusi`='".$tipo."',
-                       `nome_te_e_infusi`='".$nome."',
-                       `ingredienti_te_e_infusi`='".$ingre."',
-                       `descrizione_te_e_infusi`='".$desc."',
-                       `preparazione_te_e_infusi`='".$prepa."'
-                 WHERE `id_te_e_infusi` = '".$id."'"
-                 : "UPDATE `te_e_infusi`
-                     SET `tipo_te_e_infusi`='".$tipo."',
-                         `nome_te_e_infusi`='".$nome."',
-                         `ingredienti_te_e_infusi`='".$ingre."',
-                         `descrizione_te_e_infusi`='".$desc."',
-                         `preparazione_te_e_infusi`='".$prepa."'
-                   WHERE `id_te_e_infusi` = '".$id."'");
-      return (mysqli_query($this->connection, $query) ? true : false);
+    // TODO: aggiornare parametri dei riferimenti a updateTeInfusi()
+    public function updateTeInfusi($id, $descrizione_immagine, $tipo, $nome, $ingredienti, $descrizione, $preparazione) {
+      $safe_id = $this->getSingoloTeInfuso($id);
+      $safe_id = $safe_id[0]['id_te_e_infusi'];
+      if(!empty($descrizione_immagine)) {
+        $query = "UPDATE `te_e_infusi`
+                     SET `descrizione_immagine_te_e_infusi`= ?,
+                         `tipo_te_e_infusi`= ?,
+                         `nome_te_e_infusi`= ?,
+                         `ingredienti_te_e_infusi`= ?,
+                         `descrizione_te_e_infusi`= ?,
+                         `preparazione_te_e_infusi`= ?
+                   WHERE `id_te_e_infusi` = '".$safe_id."'";
+        $types = "ssssss";
+        $params = [$descrizione_immagine, $tipo, $nome, $ingredienti, $descrizione, $preparazione];
+      }
+      else {
+        $query = "UPDATE `te_e_infusi`
+                     SET `tipo_te_e_infusi`= ?,
+                         `nome_te_e_infusi`= ?,
+                         `ingredienti_te_e_infusi`= ?,
+                         `descrizione_te_e_infusi`= ?,
+                         `preparazione_te_e_infusi`= ?
+                   WHERE `id_te_e_infusi` = '".$safe_id."'";
+        $types = "sssss";
+        $params = [$tipo, $nome, $ingredienti, $descrizione, $preparazione];
+      }
+      return $this->getQuery($query, $types, $params, false);
     }
 
     public function deleteTeInfusi_by_id($id) {
