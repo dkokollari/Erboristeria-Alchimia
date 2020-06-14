@@ -1,5 +1,11 @@
 <?php
   // require_once("session.php");
+  session_start();
+  $_SESSION['auth'] = true;
+  $_SESSION['nome_utente'] = "Mario";
+  $_SESSION['cognome_utente'] = "Rossi";
+  $_SESSION['email_utente'] = "mario.rossi@gmail.com";
+  $_SESSION['data_nascita_utente'] = "";
 
   if($_SESSION['auth']) {
     // sostituzione elementi di registrazione
