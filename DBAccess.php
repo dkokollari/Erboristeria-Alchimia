@@ -120,7 +120,7 @@
                        `descrizione_te_e_infusi`,
                        `preparazione_te_e_infusi`
                 FROM   `te_e_infusi`
-                WHERE  `id_te_e_infusi`=?";
+                WHERE  `id_te_e_infusi`= ?";
       $types = "i";
       $params = [$id];
       return $this->getQuery($query, $types, $params);
@@ -137,7 +137,7 @@
                                      `relatore_evento`,
                                      `mappa_evento`,
                                      `organizzazione_evento`)
-                             VALUES (?, ?,?, ?, ?, ?)";
+                              VALUES (?, ?, ?, ?, ?, ?)";
       $types = "ssssss";
       $params = [$data, $descImg, $titolo, $relatori, $mappa, $org];
       return $this->getQuery($query, $types, $params, false);
@@ -155,7 +155,7 @@
     public function insertDescrizioneEventi($id, $sottotitolo) {
       $query = "INSERT INTO `descrizione_eventi` (`evento`,
                                                   `sottotitolo`)
-                                          VALUES (?,?)";
+                                          VALUES (?, ?)";
       $types = "ss";
       $params = [$id, $sottotitolo];
       return $this->getQuery($query, $types, $params, false);
@@ -164,7 +164,7 @@
     public function insertMappaEventi($mappa, $descrizione) {
       $query = "INSERT INTO `mappe_eventi` (`indirizzo_mappe_evento`,
                                             `descrizione_mappe_evento`)
-                                    VALUES (?,?)";
+                                    VALUES (?, ?)";
       $types = "ss";
       $params = [$mappa, $descrizione];
       return $this->getQuery($query, $types, $params, false);
@@ -217,11 +217,11 @@
       $safe_target = $this->getUser($target);
       $safe_target = $safe_target[0]['email_utente'];
       $query = "UPDATE `utenti`
-                   SET `nome_utente`=?,
-                       `cognome_utente`=?,
-                       `email_utente`=?,
-                       `password_utente`=?,
-                       `data_nascita_utente`=?
+                   SET `nome_utente`= ?,
+                       `cognome_utente`= ?,
+                       `email_utente`= ?,
+                       `password_utente`= ?,
+                       `data_nascita_utente`= ?
                  WHERE `email_utente`='".$safe_target."'";
       $hidden = password_hash($password, PASSWORD_BCRYPT);
       $types = "sssss";
@@ -240,7 +240,7 @@
                        `data_nascita_utente`,
                        `data_registrazione_utente`
                 FROM   `utenti`
-                WHERE  `email_utente`=?";
+                WHERE  `email_utente`= ?";
       $types = "s";
       $params = [$email];
       return $this->getQuery($query, $types, $params);
