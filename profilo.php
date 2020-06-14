@@ -41,6 +41,7 @@
       $data_nascita = mysql_real_escape_string(trim($_POST['data_nascita']));
       /* messaggi di errore */
       $errore_empty = '<span class="errore">Completa tutti i campi</span>';
+      $errore_full = '<span class="errore">Questa e-mail sembra non essere disponibile</span>';
       $errore_nome = '<span class="errore">Inserisci un nome di lunghezza tra 3 e 100 caratteri</span>'; // riferirsi alle regole di validate_form
       $errore_cognome = '<span class="errore">Inserisci un cognome di lunghezza tra 3 e 100 caratteri</span>'; // riferirsi alle regole di validate_form
       $errore_email = '<span class="errore">Inserisci una email valida</span>';
@@ -73,9 +74,14 @@
          echo '<span class="errore">Impossibile connettersi al database riprovare pi&ugrave; tardi</span>';
          exit;
         }
-        $result = $con->updateUser($_SESSION['email_utente'], $nome, $cognome, $email, $password, $data_nascita_utente);
-        if(!$result) {
-          $errore = $errore_sconosciuto;
+        if($email != $_SESSION['email_utente'] && $con->getUser($email)) {
+          $errore = $errore_full;
+        }
+        else {
+          $result = $con->updateUser($_SESSION['email_utente'], $nome, $cognome, $email, $password, $data_nascita_utente);
+          if(!$result) {
+            $errore = $errore_sconosciuto;
+          }
         }
         $con->closeConnection();
       }
