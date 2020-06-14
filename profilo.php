@@ -46,6 +46,7 @@
       $errore_email = '<span class="errore">Inserisci una email valida</span>';
       $errore_password = '<span class="errore">Inserisci una password di lunghezza tra 8 e 100 caratteri, almeno 1 lettera ed 1 numero</span>'; // riferirsi alle regole di validate_form
       $errore_conferma = '<span class="errore">Le password inserite non corrispondono</span>';
+      $errore_unknown = '<span class="errore">Per favore disconnettiti e accedi di nuovo</span>';
 
       $fields = [$nome, $cognome, $email, $password, $data_nascita];
       if(Validate_form::is_empty($fields)) {
@@ -72,12 +73,19 @@
          echo '<span class="errore">Impossibile connettersi al database riprovare pi&ugrave; tardi</span>';
          exit;
         }
-        // chiamata a funzione di modifica utente
+        $result = $con->updateUser($_SESSION['email_utente'], $nome, $cognome, $email, $password, $data_nascita_utente);
+        if(!$result) {
+          $errore = $errore_unknown;
+        }
         $con->closeConnection();
       }
+
+      $status = (empty($errore)
+                ? "<span>Profilo aggiornato con successo</span>"
+                : "<span>Aggiornamento fallito</span>");
     } // end if $_POST['Modifica_profilo']
-    $pagina = str_replace('%STATUS_PROFILE%', '', $pagina);
-    $pagina = str_replace('%ERROR_PROFILE%', '', $pagina);
+    $pagina = str_replace('%STATUS_PROFILE%', $status, $pagina);
+    $pagina = str_replace('%ERROR_PROFILE%', $errore, $pagina);
     echo $pagina;
   } // end if $_SESSION['auth']
   else {
