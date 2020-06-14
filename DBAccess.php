@@ -159,14 +159,12 @@
     }
 
     public function insertMappaEventi($mappa, $desc_map) {
-      $query = "INSERT INTO `mappe_eventi`(
-                            `indirizzo_mappe_evento`,
-                            `descrizione_mappe_evento`)
-                       VALUES (?,?)";
-
+      $query = "INSERT INTO `mappe_eventi` (`indirizzo_mappe_evento`,
+                                            `descrizione_mappe_evento`)
+                                    VALUES (?,?)";
       $types = "ss";
       $params = [$mappa, $desc_map];
-      return $this->getQuery($query, $types, $params);
+      return $this->getQuery($query, $types, $params, false);
     }
 
     public function getEventi() {
