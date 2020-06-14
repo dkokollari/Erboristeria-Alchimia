@@ -1,29 +1,30 @@
 <?php
   /*-------------------INIZIO SESSIONE-----------------*/
   session_start();
+  require_once("Utilities");
   $pagina = file_get_contents('carrello.html');
   $orderedProducts = '';
   if(isset($_SESSION['email_utente']) ||
       (isset($_COOKIE['email']) && isset($_COOKIE['password']))) {
     $product_ids = array();
 
-    if(filter_input(INPUT_GET, 'add_to_cart')) {
+    if($_GET['add_to_cart']) {
       if(isset($_SESSION['shopping_cart'])) {
         $count = count($_SESSION['shopping_cart']);
         $product_ids = array_column($_SESSION['shopping_cart'], 'id_articolo');
 
-        if(!in_array(filter_input(INPUT_GET, 'id_articolo'), $product_ids)) {
+        if(!in_array(Utilities::getNumericValue('id_articolo'), $product_ids)) {
           $_SESSION['shopping_cart'][$count] = array
-            ( 'id_articolo' => filter_input(INPUT_GET, 'id_articolo')
-            , 'nome_articolo' => filter_input(INPUT_GET, 'nome_articolo')
-            , 'prezzo_articolo' => filter_input(INPUT_GET, 'prezzo_articolo')
+            ( 'id_articolo' => Utilities::getNumericValue('id_articolo')
+            , 'nome_articolo' => $_GET['nome_articolo']
+            , 'prezzo_articolo' => $_GET['prezzo_articolo']
             , 'quantita' => 1
             );
         }
         else {
           $flag = false;
           for($i=0; !$flag && $i < count($product_ids); $i++) {
-            if($product_ids[$i] == filter_input(INPUT_GET, 'id_articolo')) {
+            if($product_ids[$i] == Utilities::getNumericValue('id_articolo')) {
               $_SESSION['shopping_cart'][$i]['quantita'] += 1;
               $flag = true;
             }
@@ -32,9 +33,9 @@
       } //endif isset($_SESSION['shopping_cart'])
       else {
         $_SESSION['shopping_cart'][0] = array
-          ( 'id_articolo' => filter_input(INPUT_GET, 'id_articolo')
-          , 'nome_articolo' => filter_input(INPUT_GET, 'nome_articolo')
-          , 'prezzo_articolo' => filter_input(INPUT_GET, 'prezzo_articolo')
+          ( 'id_articolo' => Utilities::getNumericValue('id_articolo')
+          , 'nome_articolo' => $_GET['nome_articolo']
+          , 'prezzo_articolo' => $_GET['prezzo_articolo']
           , 'quantita' => 1
           );
       }
@@ -55,7 +56,6 @@
     }
   /*-------------------------FINE SESSIONE(Meglio metterla in un file a parte!)----------------------------*/
 
-require_once("DBAccess.php");
 $pagina = file_get_contents('carrello.html');
 $total = 0;
 $orderedProducts = '';
