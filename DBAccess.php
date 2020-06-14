@@ -132,11 +132,11 @@
     // TODO: aggiornare parametri dei riferimenti a insertEvento()
     public function insertEvento($data, $descrizione_immagine, $titolo, $relatori, $mappa, $organizzazione) {
       $query = "INSERT INTO `eventi` (`data_ora_evento`,
-                                     `descrizione_immagine_evento`,
-                                     `titolo_evento`,
-                                     `relatore_evento`,
-                                     `mappa_evento`,
-                                     `organizzazione_evento`)
+                                      `descrizione_immagine_evento`,
+                                      `titolo_evento`,
+                                      `relatore_evento`,
+                                      `mappa_evento`,
+                                      `organizzazione_evento`)
                               VALUES (?, ?, ?, ?, ?, ?)";
       $types = "ssssss";
       $params = [$data, $descrizione_immagine, $titolo, $relatori, $mappa, $organizzazione];
