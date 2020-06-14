@@ -51,8 +51,6 @@
         $params = [$tipo, $nome, $ingredienti, $descrizione, $preparazione];
         return $this->getQuery($query, $types, $params, false);
       }
-
-      return (mysqli_query($this->connection, $query) ? true : false);
     }
 
     public function updateTeInfusi($id, $nome, $tipo, $ingre, $desc, $prepa, $descImg) {
