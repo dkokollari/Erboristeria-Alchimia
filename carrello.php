@@ -7,7 +7,7 @@
       (isset($_COOKIE['email']) && isset($_COOKIE['password']))) {
     $product_ids = array();
 
-    if(filter_input(INPUT_POST, 'add_to_cart')) {
+    if(filter_input(INPUT_GET, 'add_to_cart')) {
       if(isset($_SESSION['shopping_cart'])) {
         $count = count($_SESSION['shopping_cart']);
         $product_ids = array_column($_SESSION['shopping_cart'], 'id_articolo');
@@ -15,8 +15,8 @@
         if(!in_array(filter_input(INPUT_GET, 'id_articolo'), $product_ids)) {
           $_SESSION['shopping_cart'][$count] = array
             ( 'id_articolo' => filter_input(INPUT_GET, 'id_articolo')
-            , 'nome_articolo' => filter_input(INPUT_POST, 'nome_articolo')
-            , 'prezzo_articolo' => filter_input(INPUT_POST, 'prezzo_articolo')
+            , 'nome_articolo' => filter_input(INPUT_GET, 'nome_articolo')
+            , 'prezzo_articolo' => filter_input(INPUT_GET, 'prezzo_articolo')
             , 'quantita' => 1
             );
         }
@@ -33,13 +33,16 @@
       else {
         $_SESSION['shopping_cart'][0] = array
           ( 'id_articolo' => filter_input(INPUT_GET, 'id_articolo')
-          , 'nome_articolo' => filter_input(INPUT_POST, 'nome_articolo')
-          , 'prezzo_articolo' => filter_input(INPUT_POST, 'prezzo_articolo')
+          , 'nome_articolo' => filter_input(INPUT_GET, 'nome_articolo')
+          , 'prezzo_articolo' => filter_input(INPUT_GET, 'prezzo_articolo')
           , 'quantita' => 1
           );
       }
+      $redirect = 'prodotto_singolo.php?id_articolo=' .
+        isset($_GET['id_articolo']) ? && is_numeric($_GET['id_articolo']) && (int)($_GET['page']) > 0 ? (int)$_GET['page'] : 1;
+
+      header('location:' . $_POST['redirect']);
     }
-    header('location:' . $_POST['redirect']);
   }
 
     if(filter_input(INPUT_GET, 'action') == 'delete') {
