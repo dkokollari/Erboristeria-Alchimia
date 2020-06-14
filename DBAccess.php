@@ -124,18 +124,17 @@
     # gestione eventi (visualizzazione) #
     #####################################
 
-    public function insertEvento($descImg, $titolo,$data,$relatori, $mappa,$org) {
+    public function insertEvento($descImg, $titolo, $data, $relatori, $mappa, $org) {
       $query = "INSERT INTO `eventi`(`data_ora_evento`,
-                            `descrizione_immagine_evento`,
-                            `titolo_evento`,
-                            `relatore_evento`,
-                            `mappa_evento`,
-                            `organizzazione_evento`)
-                    VALUES (?,?,?,?,?)";
-
+                                     `descrizione_immagine_evento`,
+                                     `titolo_evento`,
+                                     `relatore_evento`,
+                                     `mappa_evento`,
+                                     `organizzazione_evento`)
+                             VALUES (?, ?, ?, ?, ?)";
       $types = "sssss";
       $params = [$data, $descImg, $titolo, $relatori, $mappa, $org];
-      return $this->getQuery($query, $types, $params);
+      return $this->getQuery($query, $types, $params, false);
     }
 
     public function getId_Evento($titolo) {
