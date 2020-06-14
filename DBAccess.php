@@ -232,20 +232,28 @@
     ##################################################
 
     // esegue una query con statement e torna un $output
-    private function getQuery($query, $types=null, $params=null) {
+    private function getQuery($query, $types=null, $params=null, $view=true) {
       $stmt = mysqli_prepare($this->connection, $query);
       if($types && $params) {
         $stmt->bind_param($types, ...$params);
       }
       $stmt->execute();
 
-      if($result = $stmt->get_result()) {
-        while($row = $result->fetch_assoc()) {
-          $output[] = $row;
+      if($view) { // query con risultati visualizzabili
+        if($result = $stmt->get_result()) {
+          while($row = $result->fetch_assoc()) {
+            $output[] = $row;
+          }
         }
+        $stmt->close();
+        return $output;
       }
-      $stmt->close();
-      return $output;
+      else {
+        if($mysqli_stmt->affected_rows > 0) $output = true;
+        else $output = false;
+        $stmt->close();
+        return $output;
+      }
     }
 
     // mette i tag di paragrafo ad ogni nuova riga
