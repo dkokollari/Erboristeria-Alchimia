@@ -28,8 +28,8 @@
     if($_SESSION['cognome_utente']!="") {
       $pagina = str_replace('<label for="cognome">',
                             '<label class="filled" for="cognome">', $pagina);
-      $pagina = str_replace('<input id="nome" name="cognome" type="text"/>',
-                            '<input id="nome" name="cognome" type="text" value="'.$_SESSION['cognome_utente'].'"/>', $pagina);
+      $pagina = str_replace('<input id="cognome" name="cognome" type="text"/>',
+                            '<input id="cognome" name="cognome" type="text" value="'.$_SESSION['cognome_utente'].'"/>', $pagina);
     }
 
     if($_POST['Modifica_profilo']) {
