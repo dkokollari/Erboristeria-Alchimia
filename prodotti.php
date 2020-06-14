@@ -131,7 +131,7 @@
       while($row = $result->fetch_assoc()) {
         $productToPrint .=
         '<li class="card_product product_description">' . "\n" .
-          '<a href="carrello.php?id_articolo="' .  $row['id_articolo'] . '">' . "\n" .
+          '<a href="prodotto_singolo.php?id_articolo=' .  $row['id_articolo'] . '">' . "\n" .
           '<img class="product_image" src="' .
               Image::getImage('img/products/small_img/', $row['id_articolo']) . '" alt=immagine "'. $row['nome_articolo'] . '"/>' . "\n" .
           '<h3 class="product_title">' .  $row['nome_articolo'] . '</h3>' . "\n" .
