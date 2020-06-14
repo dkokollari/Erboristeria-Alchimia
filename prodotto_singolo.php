@@ -42,14 +42,14 @@
     $preparazione =  '<p>' . $row['descrizione_articolo'] . '</p>'; /// WARNING: cè bisogno di un attributo 'preparazione' a db!
     $ingredienti =  '<p>' . $row['descrizione_articolo'] . '</p>'; /// WARNING: cè bisogno di un attributo 'preparazione' a db!
 
-    if($_SESSION['utente'] == "Visitatore") {
+    if(!isset($_SESSION['tipo_utente'])) {
       $pagina = str_replace('%ADD_TO_CART%' , $iscriviti , $pagina);
-    } else if($_SESSION['utente'] == "utente_registrato") {
+    } else if($_SESSION['tipo_utente'] == "user") {
       $pagina = str_replace(
         '%ADD_TO_CART%' ,
         '<a class="classic_btn" href="carrello.php?add_to_cart&amp;id_articolo='.$id_articolo.'&amp;nome_articolo='.$nome.'&amp;prezzo_articolo='.$prezzo.'>aggiungi al carrello</a>',
         $pagina);
-    } else if($_SESSION['utente'] == "utente_admin") {
+    } else if($_SESSION['tipo_utente'] == "admin") {
       $pagina = str_replace('%ADD_TO_CART%' , '' , $pagina);
     }
 
