@@ -30,24 +30,6 @@
                               '<input id="'.$html.'" name="'.$html.'" type="text" value="'.$_SESSION[$session].'"/>', $pagina);
       }
     }
-    // if($_SESSION['nome_utente']!="") {
-    //   $pagina = str_replace('<label for="nome">',
-    //                         '<label class="filled" for="nome">', $pagina);
-    //   $pagina = str_replace('<input id="nome" name="nome" type="text"/>',
-    //                         '<input id="nome" name="nome" type="text" value="'.$_SESSION['nome_utente'].'"/>', $pagina);
-    // }
-    // if($_SESSION['cognome_utente']!="") {
-    //   $pagina = str_replace('<label for="cognome">',
-    //                         '<label class="filled" for="cognome">', $pagina);
-    //   $pagina = str_replace('<input id="cognome" name="cognome" type="text"/>',
-    //                         '<input id="cognome" name="cognome" type="text" value="'.$_SESSION['cognome_utente'].'"/>', $pagina);
-    // }
-    // if($_SESSION['email_utente']!="") {
-    //   $pagina = str_replace('<label for="username">',
-    //                         '<label class="filled" for="username">', $pagina);
-    //   $pagina = str_replace('<input id="username" name="username" type="text"/>',
-    //                         '<input id="username" name="username" type="text" value="'.$_SESSION['email_utente'].'"/>', $pagina);
-    // }
 
     if($_POST['Modifica_profilo']) {
     }
