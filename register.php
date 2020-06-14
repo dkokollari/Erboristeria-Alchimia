@@ -12,7 +12,7 @@
       $data_nascita = mysql_real_escape_string(trim($_POST['data_nascita']));
       /* messaggi di errore */
       $errore_empty = '<span class="errore">Completa tutti i campi</span>';
-      $errore_full = '<span class="errore">Questo utente sembra essere gi&agrave; registrato. Hai dimenticato la password?</span>';
+      $errore_full = '<span class="errore">Questa e-mail sembra non essere disponibile</span>';
       $errore_nome = '<span class="errore">Inserisci un nome di lunghezza tra 3 e 100 caratteri</span>'; // riferirsi alle regole di validate_form
       $errore_cognome = '<span class="errore">Inserisci un cognome di lunghezza tra 3 e 100 caratteri</span>'; // riferirsi alle regole di validate_form
       $errore_email = '<span class="errore">Inserisci una email valida</span>';
