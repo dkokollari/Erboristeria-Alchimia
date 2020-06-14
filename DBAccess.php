@@ -234,7 +234,7 @@
     // esegue una query con statement e torna un $output
     private function getQuery($query, $types=null, $params=null) {
       $stmt = mysqli_prepare($this->connection, $query);
-      if($types && $params){
+      if($types && $params) {
         $stmt->bind_param($types, ...$params);
       }
       $stmt->execute();
