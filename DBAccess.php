@@ -249,7 +249,7 @@
         return $output;
       }
       else {
-        if($mysqli_stmt->affected_rows > 0) $output = true;
+        if($stmt->affected_rows > 0) $output = true;
         else $output = false;
         $stmt->close();
         return $output;
