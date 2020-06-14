@@ -18,25 +18,38 @@
     $pagina = str_replace('%REGISTER_ERROR%', '%ERROR_PROFILE%', $pagina);
     $pagina = str_replace('<input id="log_in" type="submit" name="Registrati"/>',
                           '<input id="log_in" type="submit" name="Modifica_profilo"/>', $pagina);
+
+    $array_place_html = ['nome', 'cognome', 'username'];
+    $array_place_session = ['nome_utente', 'cognome_utente', 'email_utente'];
     // pre-fill campi input
-    if($_SESSION['nome_utente']!="") {
-      $pagina = str_replace('<label for="nome">',
-                            '<label class="filled" for="nome">', $pagina);
-      $pagina = str_replace('<input id="nome" name="nome" type="text"/>',
-                            '<input id="nome" name="nome" type="text" value="'.$_SESSION['nome_utente'].'"/>', $pagina);
+    $i=0;
+    while($i<3) {
+      if($_SESSION[$array_place_session[$i]]!="") {
+        $pagina = str_replace('<label for="'.$array_place_html[$i].'">',
+                              '<label class="filled" for="'.$array_place_html[$i].'">', $pagina);
+        $pagina = str_replace('<input id="'.$array_place_html[$i].'" name="'.$array_place_html[$i].'" type="text"/>',
+                              '<input id="'.$array_place_html[$i].'" name="'.$array_place_html[$i].'" type="text" value="'.$_SESSION[$array_place_session[$i]].'"/>', $pagina);
+      }
+      $i++;
     }
-    if($_SESSION['cognome_utente']!="") {
-      $pagina = str_replace('<label for="cognome">',
-                            '<label class="filled" for="cognome">', $pagina);
-      $pagina = str_replace('<input id="cognome" name="cognome" type="text"/>',
-                            '<input id="cognome" name="cognome" type="text" value="'.$_SESSION['cognome_utente'].'"/>', $pagina);
-    }
-    if($_SESSION['email_utente']!="") {
-      $pagina = str_replace('<label for="username">',
-                            '<label class="filled" for="username">', $pagina);
-      $pagina = str_replace('<input id="username" name="username" type="text"/>',
-                            '<input id="username" name="username" type="text" value="'.$_SESSION['email_utente'].'"/>', $pagina);
-    }
+    // if($_SESSION['nome_utente']!="") {
+    //   $pagina = str_replace('<label for="nome">',
+    //                         '<label class="filled" for="nome">', $pagina);
+    //   $pagina = str_replace('<input id="nome" name="nome" type="text"/>',
+    //                         '<input id="nome" name="nome" type="text" value="'.$_SESSION['nome_utente'].'"/>', $pagina);
+    // }
+    // if($_SESSION['cognome_utente']!="") {
+    //   $pagina = str_replace('<label for="cognome">',
+    //                         '<label class="filled" for="cognome">', $pagina);
+    //   $pagina = str_replace('<input id="cognome" name="cognome" type="text"/>',
+    //                         '<input id="cognome" name="cognome" type="text" value="'.$_SESSION['cognome_utente'].'"/>', $pagina);
+    // }
+    // if($_SESSION['email_utente']!="") {
+    //   $pagina = str_replace('<label for="username">',
+    //                         '<label class="filled" for="username">', $pagina);
+    //   $pagina = str_replace('<input id="username" name="username" type="text"/>',
+    //                         '<input id="username" name="username" type="text" value="'.$_SESSION['email_utente'].'"/>', $pagina);
+    // }
 
     if($_POST['Modifica_profilo']) {
     }
