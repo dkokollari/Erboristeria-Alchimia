@@ -74,8 +74,8 @@
         }
         // chiamata a funzione di modifica utente
         $con->closeConnection();
+      }
     }
-
     $pagina = str_replace('%STATUS_PROFILE%', '', $pagina);
     $pagina = str_replace('%ERROR_PROFILE%', '', $pagina);
     echo $pagina;
