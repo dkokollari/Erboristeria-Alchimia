@@ -102,16 +102,13 @@
 
     # getters te & infusi #
 
-    public function getId_TeInfusi($name) {
-      $result = "errore";
+    public function getId_TeInfusi($nome) {
       $query = "SELECT `id_te_e_infusi`
                   FROM `te_e_infusi`
-                 WHERE `nome_te_e_infusi`= '".$name."'";
-      if($res = mysqli_query($this->connection, $query)){
-        $row = mysqli_fetch_array($res);
-        $result = $row['id_te_e_infusi'];
-      }
-      return $result;
+                 WHERE `nome_te_e_infusi`= ?";
+      $types = "s";
+      $params = [$nome];
+      return $this->getQuery($query, $types, $params, false);
     }
 
     public function getSingoloTeInfuso($id) {
