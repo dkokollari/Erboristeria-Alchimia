@@ -235,5 +235,9 @@
     public function nl2p($text) {
       return str_replace(array("\r\n", "\r", "\n"), "</p><p>", $text);
     }
+
+    public function getNumericValue($index) {
+      return isset($_GET[$index]) ? && is_numeric($_GET[$index]) && (int)($_GET[$index]) > 0 ? (int)$_GET[$index] : 1;
+    }
   }
 ?>
