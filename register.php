@@ -65,6 +65,10 @@
                 ? "<span>Registrazione riuscita</span>"
                 : "<span>Registrazione fallita</span>");
     }
+    $pagina = str_replace("%VALUE_nome%", "", $pagina);
+    $pagina = str_replace("%VALUE_cognome%", "", $pagina);
+    $pagina = str_replace("%VALUE_username%", "", $pagina);
+    $pagina = str_replace("%VALUE_data_nascita%", "", $pagina);
     $pagina = str_replace("%REGISTER_STATUS%", $status, $pagina);
     $pagina = str_replace("%REGISTER_ERROR%", $errore, $pagina);
     echo $pagina;
