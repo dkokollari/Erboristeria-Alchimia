@@ -202,7 +202,7 @@
                        `cognome_utente`=?,
                        `email_utente`=?,
                        `password_utente`=?,
-                       `data_nascita_utente`=?,
+                       `data_nascita_utente`=?
                  WHERE `email_utente`='".$safe_target."'";
       $hidden = password_hash($password, PASSWORD_BCRYPT);
       $types = "sssss";
