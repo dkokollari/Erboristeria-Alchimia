@@ -72,7 +72,7 @@
          echo '<span class="errore">Impossibile connettersi al database riprovare pi&ugrave; tardi</span>';
          exit;
         }
-        // chiamata a funzione di inserimento utente
+        // chiamata a funzione di modifica utente
         $con->closeConnection();
     }
 
