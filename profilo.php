@@ -75,11 +75,11 @@
         // chiamata a funzione di modifica utente
         $con->closeConnection();
       }
-    }
+    } // end if $_POST['Modifica_profilo']
     $pagina = str_replace('%STATUS_PROFILE%', '', $pagina);
     $pagina = str_replace('%ERROR_PROFILE%', '', $pagina);
     echo $pagina;
-  }
+  } // end if $_SESSION['auth']
   else {
     echo "non devi stare qui";
   }
