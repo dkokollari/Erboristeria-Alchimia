@@ -83,8 +83,10 @@
 
     public function deleteTeInfusi_by_id($id) {
       $query = "DELETE FROM `te_e_infusi`
-                      WHERE `id_te_e_infusi` = '".$id."'";
-      return (mysqli_query($this->connection, $query) ? true : false);
+                      WHERE `id_te_e_infusi` = ?";
+      $types = "i";
+      $params = [$id];
+      return $this->getQuery($query, $types, $params, false);
     }
 
     public function getTeInfusi(){
