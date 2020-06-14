@@ -133,7 +133,7 @@
                             `organizzazione_evento`)
                     VALUES (?,?,?,?,?)";
 
-      $types = "ssssss";
+      $types = "sssss";
       $params = [$data, $descImg, $titolo, $relatori, $mappa, $org];
       return $this->getQuery($query, $types, $params);
     }
