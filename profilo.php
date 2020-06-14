@@ -5,7 +5,7 @@
   $_SESSION['nome_utente'] = "Mario";
   $_SESSION['cognome_utente'] = "Rossi";
   $_SESSION['email_utente'] = "mario.rossi@gmail.com";
-  $_SESSION['data_nascita_utente'] = "";
+  $_SESSION['data_nascita_utente'] = "2020-06-10";
 
   if($_SESSION['auth']) {
     $pagina = file_get_contents('register.html');
@@ -20,12 +20,12 @@
     $pagina = str_replace('%REGISTER_ERROR%', '%ERROR_PROFILE%', $pagina);
     $pagina = str_replace('<input id="log_in" type="submit" name="Registrati"/>', '<input id="log_in" type="submit" name="Modifica_profilo"/>', $pagina);
     // pre-fill campi input
-    $array_place_html = ['nome', 'cognome', 'username'];
-    $array_place_session = ['nome_utente', 'cognome_utente', 'email_utente'];
+    $array_place_html = ['nome', 'cognome', 'username', 'data_nascita'];
+    $array_place_session = ['nome_utente', 'cognome_utente', 'email_utente', 'data_nascita_utente'];
     foreach (array_combine($array_place_html, $array_place_session) as $html => $session) {
       if($_SESSION[$session]!="") {
-        $pagina = str_replace('<label for="'.$html.'">', '<label class="filled" for="'.$html.'">', $pagina);
-        $pagina = str_replace('<input id="'.$html.'" name="'.$html.'" type="text"/>', '<input id="'.$html.'" name="'.$html.'" type="text" value="'.$_SESSION[$session].'"/>', $pagina);
+        $pagina = str_replace('<label for="'.$html.'">', '<label class="filled" for="'.$html.'"', $pagina);
+        $pagina = str_replace('%VALUE_'.$html.'%', 'value="'.$_SESSION[$session].'"', $pagina);
       }
     }
 
