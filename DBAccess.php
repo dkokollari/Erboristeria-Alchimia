@@ -194,14 +194,16 @@
       return $this->getQuery($query, $types, $params);
     }
 
-    public function updateUser($nome, $cognome, $email, $password, $data_nascita_utente) {
+    public function updateUser($target, $nome, $cognome, $email, $password, $data_nascita_utente) {
+      $safe_target = $this->getUser($target);
+      $safe_target = $safe_target[0]['email_utente'];
       $query = "UPDATE `utenti`
                    SET `nome_utente`=?,
                        `cognome_utente`=?,
                        `email_utente`=?,
                        `password_utente`=?,
                        `data_nascita_utente`=?,
-                 WHERE `email_utente`=";
+                 WHERE `email_utente`='".$safe_target."'";
       $hidden = password_hash($password, PASSWORD_BCRYPT);
       $types = "sssss";
       $params = [$nome, $cognome, $email, $hidden, $data_nascita_utente];
