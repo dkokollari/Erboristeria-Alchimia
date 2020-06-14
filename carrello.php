@@ -17,13 +17,15 @@
             ( 'id_articolo' => filter_input(INPUT_GET, 'id_articolo')
             , 'nome_articolo' => filter_input(INPUT_POST, 'nome_articolo')
             , 'prezzo_articolo' => filter_input(INPUT_POST, 'prezzo_articolo')
-            , 'quantita' => filter_input(INPUT_POST, 'quantita')
+            , 'quantita' => 1
             );
         }
         else {
-          for($i=0; $i < count($product_ids); $i++) {
+          $flag = false;
+          for($i=0; !$flag && $i < count($product_ids); $i++) {
             if($product_ids[$i] == filter_input(INPUT_GET, 'id_articolo')) {
-              $_SESSION['shopping_cart'][$i]['quantita'] += filter_input(INPUT_POST, 'quantita');
+              $_SESSION['shopping_cart'][$i]['quantita'] += 1;
+              $flag = true;
             }
           }
         }
@@ -33,7 +35,7 @@
           ( 'id_articolo' => filter_input(INPUT_GET, 'id_articolo')
           , 'nome_articolo' => filter_input(INPUT_POST, 'nome_articolo')
           , 'prezzo_articolo' => filter_input(INPUT_POST, 'prezzo_articolo')
-          , 'quantita' => filter_input(INPUT_POST, 'quantita')
+          , 'quantita' => 1
           );
       }
     }
@@ -111,7 +113,7 @@ if(!empty($_SESSION["shopping_cart"])) {
 
   if(isset($_SESSION['shopping_cart'])
       && count($_SESSION['shopping_cart']) > 0) {
-        $orderedProducts .= '<a href="#" class="button" id="checkout">Checkout</a>'  . "\n";
+        $orderedProducts .= '<a href="prodotto_singolo.php?id_articolo=' .  . ' class="button" id="checkout">Checkout</a>'  . "\n";
   }
 } else {
   $orderedProducts = '<p id="emptyCart">Il tuo carrello e\' vuoto: consulta la pagina dei nostri <a href= "articoli.php">prodotti</a>,
