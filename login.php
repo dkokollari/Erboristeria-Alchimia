@@ -1,6 +1,6 @@
 <?php
   require_once("DBAccess.php");
-  //require_once("sessione.php");
+  require_once("session.php");
   session_start();
 
   if($_SESSION['email_utente']

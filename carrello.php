@@ -2,13 +2,12 @@
   /*-------------------INIZIO SESSIONE-----------------*/
   session_start();
   require_once("Utilities");
-  $pagina = file_get_contents('carrello.html');
   $orderedProducts = '';
   if(isset($_SESSION['email_utente']) ||
       (isset($_COOKIE['email']) && isset($_COOKIE['password']))) {
     $product_ids = array();
 
-    if($_GET['add_to_cart']) {
+    if(isset($_GET['add_to_cart'])) {
       if(isset($_SESSION['shopping_cart'])) {
         $count = count($_SESSION['shopping_cart']);
         $product_ids = array_column($_SESSION['shopping_cart'], 'id_articolo');
@@ -35,20 +34,21 @@
         $_SESSION['shopping_cart'][0] = array
           ( 'id_articolo' => Utilities::getNumericValue('id_articolo')
           , 'nome_articolo' => $_GET['nome_articolo']
-          , 'prezzo_articolo' => $_GET['prezzo_articolo']
+          , 'prezzo_articolo' => Utilities::getNumericValue('prezzo_articolo')
           , 'quantita' => 1
           );
       }
+      $pagina = file_get_contents('prodotto_singolo.php');
       $redirect = 'prodotto_singolo.php?id_articolo=' .
-        isset($_GET['id_articolo']) ? && is_numeric($_GET['id_articolo']) && (int)($_GET['page']) > 0 ? (int)$_GET['page'] : 1;
+         Utilities::getNumericValue('id_articolo');
 
       header('location:' . $_POST['redirect']);
     }
   }
 
-    if(filter_input(INPUT_GET, 'action') == 'delete') {
+    if($_GET['action'] == 'delete') {
       foreach($_SESSION['shopping_cart'] as $key => $product) {
-        if($product['id_articolo'] == filter_input(INPUT_GET, 'id_articolo')) {
+        if($product['id_articolo'] ==  Utilities::getNumericValue('id_articolo')) {
           unset($_SESSION['shopping_cart'][$key]);
         }
       }
@@ -56,6 +56,8 @@
     }
   /*-------------------------FINE SESSIONE(Meglio metterla in un file a parte!)----------------------------*/
 
+
+require_once("DBAccess");
 $pagina = file_get_contents('carrello.html');
 $total = 0;
 $orderedProducts = '';
@@ -80,13 +82,8 @@ if(!empty($_SESSION["shopping_cart"])) {
     AND id_linea = linea_articolo AND categoria_articolo = id_categoria";
     $result = mysqli_query($conn->connection, $query);
     $row = '';
-    if($result) { /*brutto if .... non ce l'else!!!!!!!!!!!!!!*/
-      $row = $result->fetch_assoc();
-    }/* else {
-      printf("Error: %s\n", mysqli_error($conn->connection));
-      break;
-    }*/
-
+    if($result) { // WARNING: se l'utente cambia querystring e mette id non esistente a db => salto quel valore e non creo schda prodotto!
+    $row = $result->fetch_assoc();
     $orderedProducts .=
     '<li>' . "\n" .
       '<div class="card_product product_description">' . "\n" .
@@ -110,6 +107,7 @@ if(!empty($_SESSION["shopping_cart"])) {
     '</li>' .  "\n";
     $total += $product["quantita"] * $product["prezzo_articolo"];
   }
+}
   $conn->closeConnection();
 
   $orderedProducts .= '</ul>' . '<span class="product_price">Totale carrello : ' .  number_format($total, 2) . ' &euro;</span>'. "\n";
