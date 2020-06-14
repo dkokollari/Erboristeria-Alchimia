@@ -58,13 +58,12 @@
 
         $con->closeConnection();
       }
-    }
 
-    if($_POST['Registrati']){
       $status = (empty($errore)
                 ? "<span>Registrazione riuscita</span>"
                 : "<span>Registrazione fallita</span>");
-    }
+    } // end if $_POST['Registrati']
+
     $pagina = str_replace("%VALUE_nome%", "", $pagina);
     $pagina = str_replace("%VALUE_cognome%", "", $pagina);
     $pagina = str_replace("%VALUE_username%", "", $pagina);
