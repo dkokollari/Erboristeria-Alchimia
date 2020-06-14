@@ -1,5 +1,5 @@
 <?php
-  require_once('session.php');
+  // require_once("session.php");
 
   if($_SESSION['auth']) {
     // sostituzione elementi di registrazione
