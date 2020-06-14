@@ -194,6 +194,20 @@
       return $this->getQuery($query, $types, $params);
     }
 
+    public function updateUser($nome, $cognome, $email, $password, $data_nascita_utente) {
+      $query = "UPDATE `utenti`
+                   SET `nome_utente`=?,
+                       `cognome_utente`=?,
+                       `email_utente`=?,
+                       `password_utente`=?,
+                       `data_nascita_utente`=?,
+                 WHERE `email_utente`=";
+      $hidden = password_hash($password, PASSWORD_BCRYPT);
+      $types = "sssss";
+      $params = [$nome, $cognome, $email, $hidden, $data_nascita_utente];
+      return $this->getQuery($query, $types, $params);
+    }
+
     # getters utenti #
 
     public function getUser($email) {
