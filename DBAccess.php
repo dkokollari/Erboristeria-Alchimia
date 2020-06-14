@@ -120,9 +120,9 @@
       return $this->getQuery($query, $types, $params);
     }
 
-    #####################################
-    # gestione eventi (visualizzazione) #
-    #####################################
+    ##################################################
+    # gestione eventi (inserimento, visualizzazione) #
+    ##################################################
 
     public function insertEvento($descImg, $titolo, $data, $relatori, $mappa, $org) {
       $query = "INSERT INTO `eventi` (`data_ora_evento`,
