@@ -7,7 +7,7 @@
   $_SESSION['auth'] = true;
   $_SESSION['nome_utente'] = "Mario";
   $_SESSION['cognome_utente'] = "Rossi";
-  $_SESSION['email_utente'] = "mario.rossi@gmail.com";
+  $_SESSION['email_utente'] = "test@test.it";
   $_SESSION['data_nascita_utente'] = "2020-06-10";
 
   if($_SESSION['auth']) {
@@ -46,7 +46,7 @@
       $errore_email = '<span class="errore">Inserisci una email valida</span>';
       $errore_password = '<span class="errore">Inserisci una password di lunghezza tra 8 e 100 caratteri, almeno 1 lettera ed 1 numero</span>'; // riferirsi alle regole di validate_form
       $errore_conferma = '<span class="errore">Le password inserite non corrispondono</span>';
-      $errore_unknown = '<span class="errore">Per favore disconnettiti e accedi di nuovo</span>';
+      $errore_sconosciuto = '<span class="errore">Per favore disconnettiti e accedi di nuovo</span>';
 
       $fields = [$nome, $cognome, $email, $password, $data_nascita];
       if(Validate_form::is_empty($fields)) {
@@ -75,7 +75,7 @@
         }
         $result = $con->updateUser($_SESSION['email_utente'], $nome, $cognome, $email, $password, $data_nascita_utente);
         if(!$result) {
-          $errore = $errore_unknown;
+          $errore = $errore_sconosciuto;
         }
         $con->closeConnection();
       }
