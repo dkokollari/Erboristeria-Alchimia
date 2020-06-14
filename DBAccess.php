@@ -142,14 +142,14 @@
       $query = "SELECT `id_evento`
                   FROM `eventi`
                  WHERE `titolo_evento`= '".$titolo."'";
-      if($res = mysqli_query($this->connection, $query)){
+      if($res = mysqli_query($this->connection, $query)) {
         $row = mysqli_fetch_array($res);
         $result = $row['id_evento'];
       }
       return $result;
     }
 
-    public function insertDescrizioneEventi($id, $stt){
+    public function insertDescrizioneEventi($id, $stt) {
       $query = "INSERT INTO `descrizione_eventi` (`evento`,
                                                   `sottotitolo`)
                                           VALUES (?,?)";
@@ -158,7 +158,7 @@
       return $this->getQuery($query, $types, $params, false);
     }
 
-    public function insertMappaEventi($mappa, $desc_map){
+    public function insertMappaEventi($mappa, $desc_map) {
       $query = "INSERT INTO `mappe_eventi`(
                             `indirizzo_mappe_evento`,
                             `descrizione_mappe_evento`)
