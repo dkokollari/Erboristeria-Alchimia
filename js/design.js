@@ -32,6 +32,16 @@ var j;
 var menu_btn = document.getElementsByClassName("menu_btn");
 
 
+$(document).ready(function() {
+  const body = document.getElementsByTagName("body");
+  if(body[0]){
+    body[0].classList.remove("no_js");
+  }
+});
+
+
+
+
 document.addEventListener('keydown', function(e) {
   if (e.keyCode === 9) {
     $('body').addClass('show-focus-outlines');
