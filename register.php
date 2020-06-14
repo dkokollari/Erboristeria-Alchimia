@@ -6,7 +6,7 @@
     if($_POST['Registrati']){
       $nome = ucfirst(strtolower(mysql_real_escape_string(trim($_POST['nome']))));
       $cognome = ucfirst(strtolower(mysql_real_escape_string(trim($_POST['cognome']))));
-      $email = mysql_real_escape_string(trim($_POST['email']));
+      $email = mysql_real_escape_string(trim($_POST['username']));
       $password = mysql_real_escape_string(trim($_POST['password']));
       $password_conferma = mysql_real_escape_string(trim($_POST['password_conferma']));
       $data_nascita = mysql_real_escape_string(trim($_POST['data_nascita']));
