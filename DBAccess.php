@@ -150,13 +150,12 @@
     }
 
     public function insertDescrizioneEventi($id, $stt){
-      $query = "INSERT INTO `descrizione_eventi`(
-                            `evento`, `sottotitolo`)
-                       VALUES (?,?)";
-
+      $query = "INSERT INTO `descrizione_eventi` (`evento`,
+                                                  `sottotitolo`)
+                                          VALUES (?,?)";
       $types = "ss";
       $params = [$id, $stt];
-      return $this->getQuery($query, $types, $params);
+      return $this->getQuery($query, $types, $params, false);
     }
 
     public function insertMappaEventi($mappa, $desc_map){
