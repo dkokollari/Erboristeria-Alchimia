@@ -152,12 +152,12 @@
       return $this->getQuery($query, $types, $params);
     }
 
-    public function insertDescrizioneEventi($id, $stt) {
+    public function insertDescrizioneEventi($id, $sottotitolo) {
       $query = "INSERT INTO `descrizione_eventi` (`evento`,
                                                   `sottotitolo`)
                                           VALUES (?,?)";
       $types = "ss";
-      $params = [$id, $stt];
+      $params = [$id, $sottotitolo];
       return $this->getQuery($query, $types, $params, false);
     }
 
