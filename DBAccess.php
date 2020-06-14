@@ -38,7 +38,6 @@
                                      VALUES (?, ?, ?, ?, ?, ?)";
         $types = "ssssss";
         $params = [$descrizione_immagine, $tipo, $nome, $ingredienti, $descrizione, $preparazione];
-        return $this->getQuery($query, $types, $params, false);
       }
       else {
         $query = "INSERT INTO `te_e_infusi` (`tipo_te_e_infusi`,
@@ -49,8 +48,8 @@
                                      VALUES (?, ?, ?, ?, ?)";
         $types = "sssss";
         $params = [$tipo, $nome, $ingredienti, $descrizione, $preparazione];
-        return $this->getQuery($query, $types, $params, false);
       }
+      return $this->getQuery($query, $types, $params, false);
     }
 
     public function updateTeInfusi($id, $nome, $tipo, $ingre, $desc, $prepa, $descImg) {
