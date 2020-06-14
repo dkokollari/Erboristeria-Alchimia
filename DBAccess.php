@@ -207,7 +207,7 @@
       $hidden = password_hash($password, PASSWORD_BCRYPT);
       $types = "sssss";
       $params = [$nome, $cognome, $email, $hidden, $data_nascita_utente];
-      return $this->getQuery($query, $types, $params);
+      return $this->getQuery($query, $types, $params, NULL);
     }
 
     # getters utenti #
