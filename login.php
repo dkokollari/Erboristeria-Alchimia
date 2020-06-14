@@ -1,7 +1,6 @@
 <?php
   require_once("DBAccess.php");
   require_once("session.php");
-  session_start();
 
   if($_SESSION['email_utente']
   || (isset($_COOKIE['email']) && isset($_COOKIE['password']))){
