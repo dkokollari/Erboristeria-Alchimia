@@ -260,19 +260,15 @@
 
       if($view) { // query con risultati visualizzabili
         if($result = $stmt->get_result()) {
-          while($row = $result->fetch_assoc()) {
-            $output[] = $row;
-          }
+          while($row = $result->fetch_assoc()) $output[] = $row;
         }
-        $stmt->close();
-        return $output;
       }
       else {
         if($stmt->affected_rows > 0) $output = true;
         else $output = false;
-        $stmt->close();
-        return $output;
       }
+      $stmt->close();
+      return $output;
     }
 
     // mette i tag di paragrafo ad ogni nuova riga
