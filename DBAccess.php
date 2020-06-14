@@ -161,12 +161,12 @@
       return $this->getQuery($query, $types, $params, false);
     }
 
-    public function insertMappaEventi($mappa, $desc_map) {
+    public function insertMappaEventi($mappa, $descrizione) {
       $query = "INSERT INTO `mappe_eventi` (`indirizzo_mappe_evento`,
                                             `descrizione_mappe_evento`)
                                     VALUES (?,?)";
       $types = "ss";
-      $params = [$mappa, $desc_map];
+      $params = [$mappa, $descrizione];
       return $this->getQuery($query, $types, $params, false);
     }
 
