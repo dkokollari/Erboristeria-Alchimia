@@ -27,30 +27,31 @@
     # gestione te & infusi (inserimento, aggiornamento, rimozione, visualizzazione) #
     #################################################################################
 
-    public function insertTeInfusi($descImg, $tipo, $nome, $ingre, $descr, $prepa) {
-      $query = ($descImg != ""
-               ? "INSERT INTO `te_e_infusi` (`descrizione_immagine_te_e_infusi`,
+    public function insertTeInfusi($descrizione_immagine, $tipo, $nome, $ingredienti, $descrizione, $preparazione) {
+      if(!empty($descrizione_immagine)) {
+        $query = "INSERT INTO `te_e_infusi` (`descrizione_immagine_te_e_infusi`,
                                              `tipo_te_e_infusi`,
                                              `nome_te_e_infusi`,
                                              `ingredienti_te_e_infusi`,
                                              `descrizione_te_e_infusi`,
                                              `preparazione_te_e_infusi`)
-                                     VALUES ('".$descImg."',
-                                             '".$tipo."',
-                                             '".$nome."',
-                                             '".$ingre."',
-                                             '".$descr."',
-                                             '".$prepa."')"
-               : "INSERT INTO `te_e_infusi` (`tipo_te_e_infusi`,
+                                     VALUES (?, ?, ?, ?, ?, ?)";
+        $types = "ssssss";
+        $params = [$descrizione_immagine, $tipo, $nome, $ingredienti, $descrizione, $preparazione];
+        return $this->getQuery($query, $types, $params, false);
+      }
+      else {
+        $query = "INSERT INTO `te_e_infusi` (`tipo_te_e_infusi`,
                                              `nome_te_e_infusi`,
                                              `ingredienti_te_e_infusi`,
                                              `descrizione_te_e_infusi`,
                                              `preparazione_te_e_infusi`)
-                                     VALUES ('".$tipo."',
-                                             '".$nome."',
-                                             '".$ingre."',
-                                             '".$descr."',
-                                             '".$prepa."')");
+                                     VALUES (?, ?, ?, ?, ?)";
+        $types = "sssss";
+        $params = [$tipo, $nome, $ingredienti, $descrizione, $preparazione];
+        return $this->getQuery($query, $types, $params, false);
+      }
+
       return (mysqli_query($this->connection, $query) ? true : false);
     }
 
