@@ -51,7 +51,7 @@
       }
       return $this->getQuery($query, $types, $params, false);
     }
-    // TODO: aggiornare parametri dei riferimenti a updateTeInfusi()
+    // TODO: aggiornare parametri dei riferimenti a updateTeInfusi() ///////////////////////////////////////////////////////////////
     public function updateTeInfusi($id, $descrizione_immagine, $tipo, $nome, $ingredienti, $descrizione, $preparazione) {
       $safe_id = $this->getSingoloTeInfuso($id);
       $safe_id = $safe_id[0]['id_te_e_infusi'];
@@ -80,7 +80,7 @@
       }
       return $this->getQuery($query, $types, $params, false);
     }
-    // TODO: aggiornare riferimenti a deleteTeInfusi()
+    // TODO: aggiornare riferimenti a deleteTeInfusi() ////////////////////////////////////////////////////////////////////////////
     public function deleteTeInfusi($id) {
       $query = "DELETE FROM `te_e_infusi`
                       WHERE `id_te_e_infusi` = ?";
@@ -129,7 +129,7 @@
     ##################################################
     # gestione eventi (inserimento, visualizzazione) #
     ##################################################
-    // TODO: aggiornare parametri dei riferimenti a insertEvento()
+    // TODO: aggiornare parametri dei riferimenti a insertEvento() ////////////////////////////////////////////////////////////////
     public function insertEvento($data, $descrizione_immagine, $titolo, $relatori, $mappa, $organizzazione) {
       $query = "INSERT INTO `eventi` (`data_ora_evento`,
                                       `descrizione_immagine_evento`,
