@@ -130,7 +130,7 @@
                                      `relatore_evento`,
                                      `mappa_evento`,
                                      `organizzazione_evento`)
-                             VALUES (?, ?,?, ?, ?, ?)";
+                             VALUES (?, ?, ?, ?, ?, ?)";
       $types = "sssss";
       $params = [$data, $descImg, $titolo, $relatori, $mappa, $org];
       return $this->getQuery($query, $types, $params, false);
