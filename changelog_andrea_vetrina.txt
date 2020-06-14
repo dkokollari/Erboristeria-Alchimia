@@ -1,0 +1,45 @@
+CHANGELOG 23 MAY AFTERNOON
+- created page products.html to test the products card
+
+CHANGELOG 24 MAY MORNING part 1
+- reworked card_vet. It now uses CSS grid
+
+CHANGELOG 24 MAY MORNING part 2
+- product_image is now a little bigger
+- styled the card a little
+
+CHANGELOG 25 MAY MORNING
+- adjusted image / margins a bit (still wip)
+- added tags
+CHANGELOG 29 MAY MORNING
+- cards now use float and margins
+- background is now gray(US)/grey(UK) and cards white
+- fixed problem with card_product and small screens
+CHANGELOG 30 MAY
+- added a product page prototype
+- REWORKED HEADER (again...............)
+CHANGELOG 2 JUNE MORNING
+- added add_to_cart button
+- content now has a trasparent-grey gradient
+- added add_to_cart hover
+CHANGELOG 2 JUNE AFTERNOON
+- fixed some header problems
+- modified some divs to clean the code in the near future
+- added cart top button (still need to make it <a> )
+- fixed: the user unable to open the side menu after scrolling
+- added tags (in the worst possible way)
+CHANGELOG 3 JUNE MORNING
+- fixed header in prodotti.html
+CHANGELOG 5 JUNE MORNING
+- moved @media styles at the bottom to make them override previous rules
+- fixed header for desktop and tablet
+- changed side menu translate behaviour (menu is created -66vw left and THEN moved)
+- changed <h> behaviour in the product page
+- re-added brightness filter in non product pages
+- re-added title in non product pages
+- solved brightness problem in the topbar
+CHANGELOG 6 JUNE MORNING
+- added homepage
+
+TODO:
+- rework topbar

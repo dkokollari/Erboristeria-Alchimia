@@ -1,0 +1,42 @@
+
+<form method="post" action="form_teinfusi.php"  onsubmit="return validateFormTeInfusi()" enctype="multipart/form-data">
+    <fieldset>
+      <legend>Form T&egrave; e infuso</legend>
+      <div>
+        %MESSAGGIO%
+        <p>campi obbligatori(*)</p>
+      </div>
+      <label for="Nome">Nome*</label>
+      <div>
+        <input type="text" name="Nome" id="Nome" maxlength="15" value="%nome%"/>
+        <span class="error-msg" id="err_nome">%ERR_NOME%</span>
+		   </div>
+      <label for="Tipo">Tipo</label>
+      <div>
+        <select name="Tipo" id="Tipo">
+          <option value="T&egrave;">T&egrave;</option>
+          <option value="Infuso">Infuso</option>
+        </select>
+      </div>
+      <label for="Ingredienti">Ingredienti</label>
+      <div>
+        <input name="Ingredienti" id="Ingredienti" value="%ingre%"/>
+      </div>
+      <label for="Descrizione">Descrizione*</label>
+      <div>
+        <input id="Descrizione" name="Descrizione" value="%descr%"/>
+        <span class="error-msg" id="err_desc">%ERR_DESC%</span>
+      </div>
+      <label for="Preparazione">Preparazione</label>
+      <div>
+        <input id="Preparazione" name="Preparazione" value="%prepa%"/>
+      </div>
+      <label for="immagine">Immagine</label>
+      <div>
+        <input type="file" id="immagine" name="immagine"/>
+         %ERR_IMG%
+      </div>
+     <input type="submit" value="Aggiungi" name="submit"/>
+   </fieldset>
+</form>
+<script src="validationFormTeInfusi.js" type="text/javascript"></script>

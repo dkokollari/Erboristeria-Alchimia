@@ -3,7 +3,7 @@
     require_once("validate_form.php");
 
     $pagina = file_get_contents('register.html');
-    if($_POST['Registrati']){
+    if($_POST['Registrati']) {
       $nome = ucfirst(strtolower(mysql_real_escape_string(trim($_POST['nome']))));
       $cognome = ucfirst(strtolower(mysql_real_escape_string(trim($_POST['cognome']))));
       $email = mysql_real_escape_string(trim($_POST['username']));
@@ -20,35 +20,35 @@
       $errore_conferma = '<span class="errore">Le password inserite non corrispondono</span>';
 
       $fields = [$nome, $cognome, $email, $password, $data_nascita];
-      if(Validate_form::is_empty($fields)){
+      if(Validate_form::is_empty($fields)) {
         $errore = $errore_empty;
       }
-      else if(!Validate_form::check_str($nome)){
+      else if(!Validate_form::check_str($nome)) {
         $errore = $errore_nome;
       }
-      else if(!Validate_form::check_str($cognome)){
+      else if(!Validate_form::check_str($cognome)) {
         $errore = $errore_cognome;
       }
-      else if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+      else if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $errore = $errore_email;
       }
-      else if(!Validate_form::check_pwd($password)){
+      else if(!Validate_form::check_pwd($password)) {
         $errore = $errore_password;
       }
-      else if($password != $password_conferma){
+      else if($password != $password_conferma) {
         $errore = $errore_conferma;
       }
-      else{
+      else {
         $con = new DBAccess();
         if(!$con->openConnection()){
-         echo '<span class="errore">Impossibile connettersi al database riprovare pi&ugrave; tardi</span>';
-         exit;
+          header('Location: redirect.php?error=1');
+          exit;
         }
 
-        if($con->getUser($email)){
+        if($con->getUser($email)) {
           $errore = $errore_full;
         }
-        else{
+        else {
           $con->insertUser($nome,
                            $cognome,
                            $email,

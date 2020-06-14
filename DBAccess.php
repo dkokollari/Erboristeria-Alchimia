@@ -1,5 +1,5 @@
 <?php
-  class DBAccess{
+  class DBAccess {
     const HOST_DB = 'localhost';
     const USER_NAME = 'erboristeriatest';
     const PASSWORD = '';
@@ -13,7 +13,10 @@
 
     public function openConnection() {
       $this->connection = mysqli_connect(static::HOST_DB, static::USER_NAME, static::PASSWORD, static::DB_NAME);
-      return ($this->connection->set_charset("utf8") ? true : false);
+      if($this->connection) {
+        if($this->connection->set_charset("utf8")) return true;
+      }
+      return false;
     }
 
     public function closeConnection() {
@@ -52,26 +55,28 @@
     }
 
     public function updateTeInfusi($id, $nome, $tipo, $ingre, $desc, $prepa, $descImg) {
-      $query = "UPDATE `te_e_infusi`
+      $query = ($descImg != ""
+               ? "UPDATE `te_e_infusi`
                    SET `descrizione_immagine_te_e_infusi`= '".$descImg."',
                        `tipo_te_e_infusi`='".$tipo."',
                        `nome_te_e_infusi`='".$nome."',
                        `ingredienti_te_e_infusi`='".$ingre."',
                        `descrizione_te_e_infusi`='".$desc."',
                        `preparazione_te_e_infusi`='".$prepa."'
-                 WHERE `id_te_e_infusi` = '".$id."'";
+                 WHERE `id_te_e_infusi` = '".$id."'"
+                 : "UPDATE `te_e_infusi`
+                     SET `tipo_te_e_infusi`='".$tipo."',
+                         `nome_te_e_infusi`='".$nome."',
+                         `ingredienti_te_e_infusi`='".$ingre."',
+                         `descrizione_te_e_infusi`='".$desc."',
+                         `preparazione_te_e_infusi`='".$prepa."'
+                   WHERE `id_te_e_infusi` = '".$id."'");
       return (mysqli_query($this->connection, $query) ? true : false);
     }
 
     public function deleteTeInfusi_by_id($id) {
       $query = "DELETE FROM `te_e_infusi`
                       WHERE `id_te_e_infusi` = '".$id."'";
-      return (mysqli_query($this->connection, $query) ? true : false);
-    }
-
-    public function deleteTeInfusi_by_name($name) {
-      $query = "DELETE FROM `te_e_infusi`
-                      WHERE `nome_te_e_infusi` = '".$name."'";
       return (mysqli_query($this->connection, $query) ? true : false);
     }
 
@@ -83,32 +88,7 @@
                        `descrizione_te_e_infusi`,
                        `preparazione_te_e_infusi`
                 FROM   `te_e_infusi`";
-
       return $this->getQuery($query);
-    }
-
-    public function getTeInfusiv1() {
-      $query = "SELECT * FROM te_e_infusi";
-      $queryResult = mysqli_query($this->connection,$query);
-      if(mysqli_num_rows($queryResult) == 0) {
-        return null;
-      }
-      else {
-        $result = array();
-        while($row = mysqli_fetch_assoc($queryResult)) {
-          $arrayTeInfuso = array(
-            'Id' => $row['id_te_e_infusi'],
-            'Descrizione_img' => $row['descrizione_immagine_te_e_infusi'],
-            'Tipo' => $row['tipo_te_e_infusi'],
-            'Nome' => $row['nome_te_e_infusi'],
-            'Ingredienti' => $row['ingredienti_te_e_infusi'],
-            'Descrizione' => $row['descrizione_te_e_infusi'],
-            'Preparazione' => $row['preparazione_te_e_infusi'],
-          );
-          array_push($result,$arrayTeInfuso);
-        }
-        return $result;
-      }
     }
 
     # getters te & infusi #
@@ -126,25 +106,18 @@
     }
 
     public function getSingoloTeInfuso($id) {
-      $query="SELECT * FROM te_e_infusi WHERE id_te_e_infusi= '".$id."'";
-      $queryResult = mysqli_query($this->connection,$query);
-
-      if(mysqli_num_rows($queryResult) == 0) {
-       return null;
-      }
-      else {
-        $row = mysqli_fetch_assoc($queryResult);
-        $result = array(
-          'Id' => $row['id_te_e_infusi'],
-          'desc_img' => $row['descrizione_immagine_te_e_infusi'],
-          'Tipo' => $row['tipo_te_e_infusi'],
-          'Nome' => $row['nome_te_e_infusi'],
-          'Ingredienti' => $row['ingredienti_te_e_infusi'],
-          'Descrizione' => $row['descrizione_te_e_infusi'],
-          'Preparazione' => $row['preparazione_te_e_infusi'],
-        );
-        return $result;
-      }
+      $query = "SELECT `id_te_e_infusi`,
+                       `descrizione_immagine_te_e_infusi`,
+                       `tipo_te_e_infusi`,
+                       `nome_te_e_infusi`,
+                       `ingredienti_te_e_infusi`,
+                       `descrizione_te_e_infusi`,
+                       `preparazione_te_e_infusi`
+                FROM   `te_e_infusi`
+                WHERE  `id_te_e_infusi`=?";
+      $types = "i";
+      $params = [$id];
+      return $this->getQuery($query, $types, $params);
     }
 
     #####################################

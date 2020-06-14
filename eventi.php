@@ -1,12 +1,24 @@
 <?php
   header('Content-Type: text/html; charset=UTF-8');
 
+  require_once('session.php');
   require_once("DBAccess.php");
   require_once("Image.php");
+  require_once('menu_pagina.php');
+
+  $pagina = file_get_contents('base.html');
+  $pagina = str_replace("%TITOLO_PAGINA%", 'Eventi', $pagina);
+  $pagina = str_replace("%DESCRIZIONE_PAGINA%", 'Qui troverai i prossimi eventi in programma e quelli passati organizzati dal negozio Erboristeria Alchimia', $pagina);
+  $pagina = str_replace("%KEYWORDS_PAGINA%", 'eventi, erboristeria, alchimia', $pagina);
+  $pagina = str_replace("%CONTAINER_PAGINA%", 'container_te_e_infusi', $pagina);
+  $pagina = str_replace("%LISTA_MENU%", menu_pagina::menu("eventi.php"), $pagina);
+  $pagina = ($_SESSION['auth'] && $_SESSION['tipo_utente']=="User"
+            ? str_replace("%ICONA_CARRELLO%", '<span id="cart_icon" class="material-icons-outlined top_icon">shopping_cart</span>', $pagina)
+            : str_replace("%ICONA_CARRELLO%", '', $pagina));
 
   $con = new DBAccess();
   if($con->openConnection()) {
-    $pagina = file_get_contents('eventi.html');
+    $contenuto = file_get_contents('eventi.html');
     $style = file_get_contents('stylesheet.css');
     $lista_eventi = $con->getEventi();
     $lista_descrizione = $con->getDescrizione_eventi();
@@ -52,9 +64,9 @@
           <ul>
             '.$descrizione_formattata.'
           </ul>
-          <h4 class="titoletto">Relatori</h3>
+          <h4 class="titoletto">Relatori</h4>
           <p>'.$relatori.'</p>
-          <h4 class="titoletto">Mappa e data</h3>
+          <h4 class="titoletto">Mappa e data</h4>
           <a id="linkMappa" href="'.$url_mappa.'">'.$indirizzo_mappa.'</a>
           <p>'.$descrizione_mappa.'</p>
           <p id="dataEvento">
@@ -72,10 +84,12 @@
     }
 
     /*file_put_contents('stylesheet.css', $style);*/
-    $pagina = str_replace("%LISTA_EVENTI%", $lista, $pagina);
+    $contenuto = str_replace("%LISTA_EVENTI%", $lista, $contenuto);
+    $pagina = str_replace("%CONTENUTO_PAGINA%", $contenuto, $pagina);
     echo $pagina;
-  } else {
-    echo "<h1>Impossibile connettersi al database riprovare pi&ugrave; tardi<h1>";
+  }
+  else {
+    header('Location: redirect.php?error=1');
     exit;
   }
 ?>

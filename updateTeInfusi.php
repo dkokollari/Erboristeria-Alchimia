@@ -1,24 +1,22 @@
 <?php
-  header('Content-Type: text/html; charset=UTF-8');
-
   require_once("DBAccess.php");
   require_once("Image.php");
 
   $con = new DBAccess();
-  if($con->openConnection()){
+  if($con->openConnection()) {
     $pagina = file_get_contents('inserimento_teinfusi.html');
 
     $id = $_GET['id'];
     $getElement = $con->getSingoloTeInfuso($id);
-    $valtipo = htmlentities($getElement['Tipo']);
-    $valnome = htmlentities($getElement['Nome']);
-    $valingre = htmlentities($getElement['Ingredienti']);
-    $valdescr = htmlentities($getElement['Descrizione']);
-    $valprepa = htmlentities($getElement['Preparazione']);
-    $valdescImg = htmlentities($getElement['desc_img']);
+    $valdescr = htmlentities($getElement[0]['descrizione_immagine_te_e_infusi']);
+    $valtipo = htmlentities($getElement[0]['tipo_te_e_infusi']);
+    $valnome = htmlentities($getElement[0]['nome_te_e_infusi']);
+    $valingre = htmlentities($getElement[0]['ingredienti_te_e_infusi']);
+    $valdescImg = htmlentities($getElement[0]['descrizione_te_e_infusi']);
+    $valprepa = htmlentities($getElement[0]['preparazione_te_e_infusi']);
 
-    //se è stato premuto il buttone submit
-    if(isset($_POST['submit'])){
+    // se è stato premuto il buttone submit
+    if(isset($_POST['submit'])) {
       $errori=0;
       $imgpresent= false;
       $tipo = $_POST['Tipo'];
@@ -28,47 +26,36 @@
       $prepa = trim($_POST['Preparazione']);
       $image = new Image();
 
-      //controllo se l'immagine è stata caricata
-      if(is_uploaded_file($_FILES['immagine']['tmp_name'])){
+      // controllo se l'immagine è stata caricata
+      if(is_uploaded_file($_FILES['immagine']['tmp_name'])) {
         $imgpresent = true;
         $descImg = trim($_POST['desc_img']);
         $errDescImg = validInput($descImg,"Descrizione immagine");
-        if($errDescImg!=""){
-          $errori++;
-        }
+        if($errDescImg!="") $errori++;
+
         $errImg = $image->isValid($_FILES['immagine']['name']);
-        if($errImg!=""){
-          $errori++;
-        }
+        if($errImg!="") $errori++;
       }
 
-      //CONTROLLO input
+      // CONTROLLO input
       $errNome = validInput($nome, "Nome");
       $errDescr = validInput($descr, "Descrizione");
-      if($errNome!=""){
-        $errori++;
-      }
-      if($errDescr!=""){
-        $errori++;
-      }
+      if($errNome!="") $errori++;
+      if($errDescr!="") $errori++;
 
-      //se non ci sono errori
-      if($errori==0){
-        if($con->updateTeInfusi($id, $nome, $tipo, $ingre, $descr, $prepa, $descImg)){
-          if($imgpresent){
-            if($image->uploadImageTeInfusi($_FILES['immagine']['name'], $_FILES['immagine']['tmp_name'], $id)){
+      // se non ci sono errori
+      if($errori==0) {
+        if($con->updateTeInfusi($id, $nome, $tipo, $ingre, $descr, $prepa, $descImg)) {
+          if($imgpresent) {
+            if($image->uploadImageTeInfusi($_FILES['immagine']['name'], $_FILES['immagine']['tmp_name'], $id)) {
               $messaggio = "";
             }
-            else{
-              $messaggio = '<p class="error-msg">Errore: immagine non salvata</p>';
-            }
+            else $messaggio = '<p class="error-msg">Errore: immagine non salvata</p>';
           }
         }
-        else{
-          $messaggio = '<p class="error-msg">Query non eseguita riprovare pi&ugrave; tardi</p>';
-        }
-      } //endif se non ci sono errori
-      else{
+        else $messaggio = '<p class="error-msg">Query non eseguita riprovare pi&ugrave; tardi</p>';
+      } // end if se non ci sono errori
+      else {
         $messaggio = '<p class="error-msg">Errore: ci sono '.$errori.' errori</p>';
         $valnome = $_POST['Nome'];
         $valingre = $_POST['Ingredienti'];
@@ -76,7 +63,7 @@
         $valprepa = $_POST['Preparazione'];
         $valdescImg = $_POST['desc_img'];
       }
-    } //endif se è stato premuto il buttone submit
+    } // endif se è stato premuto il buttone submit
 
     $pagina = str_replace("%action%", "updateTeInfusi.php?id=".$id, $pagina);
     $pagina = str_replace("%nome%", $valnome, $pagina);
@@ -98,7 +85,7 @@
     exit;
   }
 
-  function validInput($name, $description){
+  function validInput($name, $description) {
     return ($name!="" ? "" : '<small class="error-msg">Il campo '.$description.' &egrave; richiesto</small>');
   }
 ?>
