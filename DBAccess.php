@@ -130,13 +130,8 @@
                                      `relatore_evento`,
                                      `mappa_evento`,
                                      `organizzazione_evento`)
-<<<<<<< HEAD
                              VALUES (?, ?,?, ?, ?, ?)";
       $types = "ssssss";
-=======
-                             VALUES (?, ?, ?, ?, ?, ?)";
-      $types = "sssss";
->>>>>>> 48d8060e91f6f492f9477d98c299a6b3cf569116
       $params = [$data, $descImg, $titolo, $relatori, $mappa, $org];
       return $this->getQuery($query, $types, $params, false);
     }
