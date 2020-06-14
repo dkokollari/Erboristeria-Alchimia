@@ -24,10 +24,8 @@
     $array_place_session = ['nome_utente', 'cognome_utente', 'email_utente'];
     foreach (array_combine($array_place_html, $array_place_session) as $html => $session) {
       if($_SESSION[$session]!="") {
-        $pagina = str_replace('<label for="'.$html.'">',
-                              '<label class="filled" for="'.$html.'">', $pagina);
-        $pagina = str_replace('<input id="'.$html.'" name="'.$html.'" type="text"/>',
-                              '<input id="'.$html.'" name="'.$html.'" type="text" value="'.$_SESSION[$session].'"/>', $pagina);
+        $pagina = str_replace('<label for="'.$html.'">', '<label class="filled" for="'.$html.'">', $pagina);
+        $pagina = str_replace('<input id="'.$html.'" name="'.$html.'" type="text"/>', '<input id="'.$html.'" name="'.$html.'" type="text" value="'.$_SESSION[$session].'"/>', $pagina);
       }
     }
 
