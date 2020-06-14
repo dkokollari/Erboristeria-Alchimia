@@ -129,8 +129,8 @@
     ##################################################
     # gestione eventi (inserimento, visualizzazione) #
     ##################################################
-
-    public function insertEvento($descImg, $titolo, $data, $relatori, $mappa, $org) {
+    // TODO: aggiornare parametri dei riferimenti a insertEvento()
+    public function insertEvento($data, $descrizione_immagine, $titolo, $relatori, $mappa, $organizzazione) {
       $query = "INSERT INTO `eventi` (`data_ora_evento`,
                                      `descrizione_immagine_evento`,
                                      `titolo_evento`,
@@ -139,7 +139,7 @@
                                      `organizzazione_evento`)
                               VALUES (?, ?, ?, ?, ?, ?)";
       $types = "ssssss";
-      $params = [$data, $descImg, $titolo, $relatori, $mappa, $org];
+      $params = [$data, $descrizione_immagine, $titolo, $relatori, $mappa, $organizzazione];
       return $this->getQuery($query, $types, $params, false);
     }
 
