@@ -69,7 +69,6 @@
         $errImg = $image->isValid($_FILES['immagine']['name']);
         if($errImg!="") {
           $errori++;
-          $pagina = str_replace("%ERR_IMG%", $errImg, $pagina);
         }
         $descImg = "immagine del " . $tipo ." " .$nome;
       }

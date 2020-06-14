@@ -124,6 +124,53 @@
     # gestione eventi (visualizzazione) #
     #####################################
 
+    public function insertEvento($descImg, $titolo,$data,$relatori, $mappa,$org) {
+      $query = "INSERT INTO `eventi`(`data_ora_evento`,
+                            `descrizione_immagine_evento`,
+                            `titolo_evento`,
+                            `relatore_evento`,
+                            `mappa_evento`,
+                            `organizzazione_evento`)
+                    VALUES (?,?,?,?,?)";
+
+      $types = "ssssss";
+      $params = [$data, $descImg, $titolo, $relatori, $mappa, $org];
+      return $this->getQuery($query, $types, $params);
+    }
+
+    public function getId_Evento($titolo) {
+      $result = "errore";
+      $query = "SELECT `id_evento`
+                  FROM `eventi`
+                 WHERE `titolo_evento`= '".$titolo."'";
+      if($res = mysqli_query($this->connection, $query)){
+        $row = mysqli_fetch_array($res);
+        $result = $row['id_evento'];
+      }
+      return $result;
+    }
+
+    public function insertDescrizioneEventi($id, $stt){
+      $query = "INSERT INTO `descrizione_eventi`(
+                            `evento`, `sottotitolo`)
+                       VALUES (?,?)";
+
+      $types = "ss";
+      $params = [$id, $stt];
+      return $this->getQuery($query, $types, $params);
+    }
+
+    public function insertMappaEventi($mappa, $desc_map){
+      $query = "INSERT INTO `mappe_eventi`(
+                            `indirizzo_mappe_evento`,
+                            `descrizione_mappe_evento`)
+                       VALUES (?,?)";
+
+      $types = "ss";
+      $params = [$mappa, $desc_map];
+      return $this->getQuery($query, $types, $params);
+    }
+
     public function getEventi() {
       $query = "SELECT `id_evento`,
                        `data_ora_evento`,

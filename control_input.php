@@ -16,7 +16,7 @@ class control_input{
           return false;
       }
       $input = control_input::control($input);
-      if (preg_match('/[a-z_\-0-9]/i', $input)) { //contiene i caratteri a-z A-Z 0-9 - _
+      if (preg_match('/[a-z_]/i', $input)) { //contiene i caratteri a-z A-Z 0-9 - _
           return $input;
       }
       return false;
@@ -30,6 +30,28 @@ class control_input{
       }
       $input = control_input::control($input);
       return $input;
+  }
+
+  public static function desctitoli_control($input)
+  {
+      if (strlen($input) < 5  ||  strlen($input) > 100) {
+        return false;
+      }
+      $input = control_input::control($input);
+      return $input;
+  }
+
+  //metodo che controlla l'indirizzo
+  public static function ind_control($input)
+  {
+      if (strlen($input) < 5 || strlen($input) > 50) {
+          return false;
+      }
+      $input = control_input::control($input);
+      if (preg_match('/[a-z_\-0-9]/i', $input)) { //contiene i caratteri a-z A-Z 0-9 - _
+          return $input;
+      }
+      return false;
   }
 
 }
