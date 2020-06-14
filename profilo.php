@@ -1,5 +1,8 @@
 <?php
   // require_once("session.php");
+  require_once("DBAccess.php");
+  require_once("validate_form.php");
+  
   session_start();
   $_SESSION['auth'] = true;
   $_SESSION['nome_utente'] = "Mario";
@@ -30,6 +33,7 @@
     }
 
     if($_POST['Modifica_profilo']) {
+
     }
 
     $pagina = str_replace('%STATUS_PROFILE%', '', $pagina);
