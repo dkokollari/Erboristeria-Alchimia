@@ -78,9 +78,12 @@
           $errore = $errore_full;
         }
         else {
-          $result = $con->updateUser($_SESSION['email_utente'], $nome, $cognome, $email, $password, $data_nascita_utente);
+          $result = $con->updateUser($_SESSION['email_utente'], $nome, $cognome, $email, $password, $data_nascita);
           if(!$result) {
             $errore = $errore_sconosciuto;
+          }
+          else {
+            // TODO: aggiorna la sessione
           }
         }
         $con->closeConnection();
