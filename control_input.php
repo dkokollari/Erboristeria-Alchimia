@@ -22,6 +22,19 @@ class control_input{
       return false;
   }
 
+  //metodo che controlla i relatori di eventi
+  public static function rel_control($input)
+  {
+      if (strlen($input) < 5 || strlen($input) > 600) {
+          return false;
+      }
+      $input = control_input::control($input);
+      if (preg_match('/[a-z_]/i', $input)) { //contiene i caratteri a-z A-Z 0-9 - _
+          return $input;
+      }
+      return false;
+  }
+
   //metodo che controlla il campo descrzione
   public static function description_control($input)
   {

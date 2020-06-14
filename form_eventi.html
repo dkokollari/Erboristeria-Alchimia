@@ -9,7 +9,7 @@
     <div>
       <label for="titolo_evento">Titolo</label>
       <input type="text" id="titolo_evento" name="titolo_evento"  minlength="5" value="%val_titolo%"/>
-      <span class="error-msg" id="err_desc">%ERR_TIT%</span>
+      <span class="error-msg" id="err_tit">%ERR_TIT%</span>
     </div>
       <div>
           <label for="dataora_evento">Data e ora dell'evento</label>
@@ -31,17 +31,9 @@
       </div>
 
      <div>
-       <fieldset>
-         <legend>Relatori (inserire almeno un relatore)</legend>
-         <p class="error-msg" id="err_desc">%ERR_REL%</p>
-       <div>
-         <input class="relatore" type="text" id="relatore1" name="relatore1" value="%val_rel1%"/>
-         <input class="relatore" type="text" id="relatore2" name="relatore2" value="%val_rel2%"/>
-         <input class="relatore" type="text" id="relatore3" name="relatore3" value="%val_rel3%"/>
-         <input class="relatore" type="text" id="relatore4" name="relatore4" value="%val_rel4%"/>
-         <input class="relatore" type="text" id="relatore5" name="relatore5" value="%val_rel5%"/>
-       </div>
-      </fieldset>
+       <label for="relatori">Relatori</label>
+       <textarea id="relatori" name="relatori" rows="5" cols="80">%val_rel%</textarea>
+         <span class="error-msg" id="err_rel">%ERR_REL%</span>
      </div>
 
      <div>

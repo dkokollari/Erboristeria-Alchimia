@@ -31,11 +31,7 @@ if($con->openConnection()) {
   $val_stt3 = "";
   $val_stt4 = "";
   $val_stt5 = "";
-  $val_rel1 = "";
-  $val_rel2 = "";
-  $val_rel3 = "";
-  $val_rel4 = "";
-  $val_rel5 = "";
+  $val_rel = "";
   $val_map = "";
   $descr_ind = "";
   $val_org = "";
@@ -77,22 +73,14 @@ if($con->openConnection()) {
        }
 
        //controllo relatori
-       if(empty($_POST['relatore1']) && empty($_POST['relatore2']) && empty($_POST['relatore3'])
-         && empty($_POST['relatore4']) && empty($_POST['relatore5'])){
-           $err_rel = 'inserire almeno un relatore';
-           $errori++;
-       }
-       $rel1 =  control_input::name_control($_POST['relatore1']);
-       $rel2 =  control_input::name_control($_POST['relatore2']);
-       $rel3 =  control_input::name_control($_POST['relatore3']);
-       $rel4 =  control_input::name_control($_POST['relatore4']);
-       $rel5 =  control_input::name_control($_POST['relatore5']);
+       $relatori =  control_input::rel_control($_POST['relatori']);
 
-       if((!empty($_POST['relatore1']) && !$rel1) || (!empty($_POST['relatore2']) && !$rel2) ||
-         (!empty($_POST['relatore3']) && !$rel3) || (!empty($_POST['relatore4']) && !$rel4) ||
-         (!empty($_POST['relatore5']) && !$rel5) ){
-         $err_rel = 'nomi di relatori non possono contenere numeri e caratteri speciali';
+       if(!empty($_POST['relatori']) && !$relatori){
+         $err_rel = 'relatori deve contenere almeno 5 caratteri(non numeri e caratteri speciali)';
          $errori++;
+       }
+       if(empty($_POST['relatori'])){
+         $relatori = 'Non ci sono relatori per questo evento';
        }
 
        //controllo indirizzo
@@ -113,7 +101,7 @@ if($con->openConnection()) {
            }
        }
 
-       $org='';
+       $org='Nessuna Organizzazione per questo evento';
        if(!empty($_POST['organizzazione_evento'])){
          $org = control_input::ind_control($_POST['organizzazione_evento']);
          if(!$org){
@@ -137,12 +125,6 @@ if($con->openConnection()) {
 
 
        if($errori==0){// no erori
-          $relatori = '';
-          if($rel1!= false) $relatori .= $rel1 .'<br/>';
-          if($rel2!= false) $relatori .= $rel2 .'<br/>';
-          if($rel3!= false) $relatori .= $rel3 .'<br/>';
-          if($rel4!= false) $relatori .= $rel4 .'<br/>';
-          if($rel5!= false) $relatori .= $rel5 .'<br/>';
 
           $data = (new DateTime($_POST['dataora_evento']))->format('Y-m-d H:i:s');
 
@@ -174,11 +156,7 @@ if($con->openConnection()) {
          $val_stt3 = $_POST['sottotitolo3'];
          $val_stt4 = $_POST['sottotitolo4'];
          $val_stt5 = $_POST['sottotitolo5'];
-         $val_rel1 = $_POST['relatore1'];
-         $val_rel2 = $_POST['relatore2'];
-         $val_rel3 = $_POST['relatore3'];
-         $val_rel4 = $_POST['relatore4'];
-         $val_rel5 = $_POST['relatore5'];
+         $val_rel = $_POST['relatori'];
          $val_map = $_POST['mappa_evento'];
          $descr_ind = $_POST['desc_mappa_evento'];
          $val_org = $_POST['organizzazione_evento'];
@@ -195,11 +173,7 @@ if($con->openConnection()) {
   $contenuto = str_replace("%val_stt3%", $val_stt3, $contenuto);
   $contenuto = str_replace("%val_stt4%", $val_stt4, $contenuto);
   $contenuto = str_replace("%val_stt5%", $val_stt5, $contenuto);
-  $contenuto = str_replace("%val_rel1%", $val_rel1, $contenuto);
-  $contenuto = str_replace("%val_rel2%", $val_rel2, $contenuto);
-  $contenuto = str_replace("%val_rel3%", $val_rel3, $contenuto);
-  $contenuto = str_replace("%val_rel4%", $val_rel4, $contenuto);
-  $contenuto = str_replace("%val_rel5%", $val_rel5, $contenuto);
+  $contenuto = str_replace("%val_rel%", $val_rel, $contenuto);
   $contenuto = str_replace("%val_map%", $val_map, $contenuto);
   $contenuto = str_replace("%descr_ind%", $descr_ind, $contenuto);
   $contenuto = str_replace("%val_org%", $val_org, $contenuto);
