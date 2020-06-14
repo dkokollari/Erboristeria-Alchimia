@@ -18,10 +18,9 @@
     $pagina = str_replace('%REGISTER_ERROR%', '%ERROR_PROFILE%', $pagina);
     $pagina = str_replace('<input id="log_in" type="submit" name="Registrati"/>',
                           '<input id="log_in" type="submit" name="Modifica_profilo"/>', $pagina);
-
+    // pre-fill campi input
     $array_place_html = ['nome', 'cognome', 'username'];
     $array_place_session = ['nome_utente', 'cognome_utente', 'email_utente'];
-    // pre-fill campi input
     foreach (array_combine($array_place_html, $array_place_session) as $html => $session) {
       if($_SESSION[$session]!="") {
         $pagina = str_replace('<label for="'.$html.'">',
