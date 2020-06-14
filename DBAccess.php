@@ -144,15 +144,12 @@
     }
 
     public function getId_Evento($titolo) {
-      $result = "errore";
       $query = "SELECT `id_evento`
                   FROM `eventi`
-                 WHERE `titolo_evento`= '".$titolo."'";
-      if($res = mysqli_query($this->connection, $query)) {
-        $row = mysqli_fetch_array($res);
-        $result = $row['id_evento'];
-      }
-      return $result;
+                 WHERE `titolo_evento`= ?";
+      $types = "s";
+      $params = [$titolo];
+      return $this->getQuery($query, $types, $params);
     }
 
     public function insertDescrizioneEventi($id, $stt) {
