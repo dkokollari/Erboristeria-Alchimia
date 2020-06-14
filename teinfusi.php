@@ -46,7 +46,6 @@
        : '').'
           <span class="expand_btn material-icons-round">expand_more</span>
         </div>
-
         ';
     }
 

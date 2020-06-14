@@ -214,6 +214,22 @@
       return $this->getQuery($query, $types, $params);
     }
 
+    public function updateUser($target, $nome, $cognome, $email, $password, $data_nascita_utente) {
+      $safe_target = $this->getUser($target);
+      $safe_target = $safe_target[0]['email_utente'];
+      $query = "UPDATE `utenti`
+                   SET `nome_utente`=?,
+                       `cognome_utente`=?,
+                       `email_utente`=?,
+                       `password_utente`=?,
+                       `data_nascita_utente`=?
+                 WHERE `email_utente`='".$safe_target."'";
+      $hidden = password_hash($password, PASSWORD_BCRYPT);
+      $types = "sssss";
+      $params = [$nome, $cognome, $email, $hidden, $data_nascita_utente];
+      return $this->getQuery($query, $types, $params, false);
+    }
+
     # getters utenti #
 
     public function getUser($email) {
@@ -236,20 +252,28 @@
     ##################################################
 
     // esegue una query con statement e torna un $output
-    private function getQuery($query, $types=null, $params=null) {
+    private function getQuery($query, $types=null, $params=null, $view=true) {
       $stmt = mysqli_prepare($this->connection, $query);
-      if($types && $params){
+      if($types && $params) {
         $stmt->bind_param($types, ...$params);
       }
       $stmt->execute();
 
-      if($result = $stmt->get_result()) {
-        while($row = $result->fetch_assoc()) {
-          $output[] = $row;
+      if($view) { // query con risultati visualizzabili
+        if($result = $stmt->get_result()) {
+          while($row = $result->fetch_assoc()) {
+            $output[] = $row;
+          }
         }
+        $stmt->close();
+        return $output;
       }
-      $stmt->close();
-      return $output;
+      else {
+        if($stmt->affected_rows > 0) $output = true;
+        else $output = false;
+        $stmt->close();
+        return $output;
+      }
     }
 
     // mette i tag di paragrafo ad ogni nuova riga
