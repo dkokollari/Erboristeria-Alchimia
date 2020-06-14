@@ -200,7 +200,7 @@
     # gestione utenti (inserimento) #
     #################################
 
-    public function insertUser($nome, $cognome, $email, $password, $data_nascita_utente) {
+    public function insertUser($nome, $cognome, $email, $password, $data_nascita) {
       $query = "INSERT INTO `utenti` (`nome_utente`,
                                       `cognome_utente`,
                                       `email_utente`,
@@ -209,11 +209,11 @@
                               VALUES (?, ?, ?, ?, ?)";
       $hidden = password_hash($password, PASSWORD_BCRYPT);
       $types = "sssss";
-      $params = [$nome, $cognome, $email, $hidden, $data_nascita_utente];
+      $params = [$nome, $cognome, $email, $hidden, $data_nascita];
       return $this->getQuery($query, $types, $params, false);
     }
 
-    public function updateUser($target, $nome, $cognome, $email, $password, $data_nascita_utente) {
+    public function updateUser($target, $nome, $cognome, $email, $password, $data_nascita) {
       $safe_target = $this->getUser($target);
       $safe_target = $safe_target[0]['email_utente'];
       $query = "UPDATE `utenti`
@@ -225,7 +225,7 @@
                  WHERE `email_utente`='".$safe_target."'";
       $hidden = password_hash($password, PASSWORD_BCRYPT);
       $types = "sssss";
-      $params = [$nome, $cognome, $email, $hidden, $data_nascita_utente];
+      $params = [$nome, $cognome, $email, $hidden, $data_nascita];
       return $this->getQuery($query, $types, $params, false);
     }
 
