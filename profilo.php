@@ -12,7 +12,7 @@
     $pagina = str_replace('%REGISTER_ERROR%', '%ERROR_PROFILE%', $pagina);
     $pagina = str_replace('<input id="log_in" type="submit" name="Registrati"/>',
                           '<input id="log_in" type="submit" name="Modifica_profilo"/>', $pagina);
-    // pre fill campi input
+    // pre-fill campi input
     if($_SESSION['nome_utente']!="") {
       $pagina = str_replace('<label for="nome">',
                             '<label class="filled" for="nome">', $pagina);
