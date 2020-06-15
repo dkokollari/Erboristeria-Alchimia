@@ -17,11 +17,11 @@
           $titolo_pagina = "Carrello di Erboristeria Alchimia";
           $descrizione_pagina = "Il tuo carrello verde made by Erboristeria Alchimia";
           $keywords_pagina = "carrello, acquista, acquisti, erboristeria, alchimia";
-          $container_pagina = "container_prodotti"; // TODO: controllare  effetti su CSS usando container_carrello
-          $lista_menu = menu_pagina::menu($target);
-          $icona_carello = "";
           $aggiungi_link = '<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>';
-          $id_body = "carrello";
+          $container_pagina = "container_prodotti"; // TODO: controllare  effetti su CSS usando container_carrello
+          $attributi_body = 'id="carrello"';
+          $icona_carello = "";
+          $lista_menu = menu_pagina::menu($target);
         break;
 
         case "eventi" :
@@ -109,14 +109,14 @@
       $pagina = str_replace("%TITOLO_PAGINA%", $titolo_pagina, $pagina);
       $pagina = str_replace("%DESCRIZIONE_PAGINA%", $descrizione_pagina, $pagina);
       $pagina = str_replace("%KEYWORDS_PAGINA%", $keywords_pagina, $pagina);
-      $pagina = str_replace("%CONTAINER_PAGINA%", $container_pagina, $pagina);
-      $pagina = str_replace("%LISTA_MENU%", $lista_menu, $pagina);
-      $pagina = str_replace("%ICONA_CARRELLO%", $icona_carrello, $pagina);
-      $pagina = str_replace("%CONTENUTO_PAGINA%", $contenuto, $pagina);
       $pagina = str_replace("%AGGIUNGI_META", $aggiungi_meta, $pagina);
       $pagina = str_replace("%AGGIUNGI_LINK", $aggiungi_link, $pagina);
       $pagina = str_replace("%AGGIUNGI_SCRIPT", $aggiungi_script, $pagina);
-      $pagina = str_replace("%ID_BODY%", $id_body, $pagina);
+      $pagina = str_replace("%ATTRIBUTI_BODY%", $attributi_body, $pagina);
+      $pagina = str_replace("%CONTAINER_PAGINA%", $container_pagina, $pagina);
+      $pagina = str_replace("%ICONA_CARRELLO%", $icona_carrello, $pagina);
+      $pagina = str_replace("%LISTA_MENU%", $lista_menu, $pagina);
+      $pagina = str_replace("%CONTENUTO_PAGINA%", $contenuto, $pagina);
       return $pagina;
     }
 
