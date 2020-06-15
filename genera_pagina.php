@@ -36,7 +36,7 @@
       
       case "teinfusi" :
         $titolo = "T&egrave; &amp; Infusi";
-        $titolo_pagina = "T&egrave; e Infusi di Erboristeria Alchimia";
+        $titolo_pagina = "T&egrave; e infusi di Erboristeria Alchimia";
         $descrizione_pagina = "Visualizza i nostri te e infusi";
         $keywords_pagina = "te, infusi, te e infusi, erboristeria, alchimia";
         $container_pagina = "container_te_e_infusi";
