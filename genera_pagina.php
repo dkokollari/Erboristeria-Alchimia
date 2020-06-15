@@ -7,9 +7,33 @@
     public function genera($base, $target, $contenuto="") {
     $pagina = file_get_contents($base);
     switch($target) {
-      case "registrazione" :
+      case "carrello" :
       break;
 
+      case "eventi" :
+      break;
+
+      case "form_eventi" :
+      break;
+
+      case "index" :
+      break;
+
+      case "informazioni" :
+      break;
+
+      case "la_mia_storia" :
+      break;
+
+      case "prodotti" :
+      break;
+
+      case "profilo" :
+      break;
+
+      case "registrazione" :
+      break;
+      
       case "teinfusi" :
         $titolo = "T&egrave; &amp; Infusi";
         $titolo_pagina = "T&egrave; e Infusi di Erboristeria Alchimia";
