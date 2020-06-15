@@ -13,7 +13,7 @@
       exit;
     }
     else {
-      $temp = $aux->getUser($_COOKIE['email']);
+      $temp = $aux->getSingolo_Utenti($_COOKIE['email']);
       if(empty($temp) ||
           $_COOKIE['password'] != $temp[0]['password_utente']) { // utente non trovato o password diversa
         setcookie("email", "", time()-3600);
@@ -48,7 +48,7 @@
         exit;
       }
       else {
-        $utente = $con->getUser($email);
+        $utente = $con->getSingolo_Utenti($email);
         if(empty($utente)) $errore = $errore_wrong;
         else {
           $passwordCheck = password_verify($password, $utente[0]['password_utente']);
@@ -71,7 +71,7 @@
   $pagina = str_replace("%LOGIN_STATUS%", $logged, $pagina);
   echo $pagina;
 
-  function setSessione($array="") { // guardare DBAccess::getUser() per vedere la struttura di $array
+  function setSessione($array="") { // guardare DBAccess::getSingolo_Utenti() per vedere la struttura di $array
     $_SESSION['auth'] = true;
     $_SESSION['nome_utente'] = $array[0]['nome_utente'];
     $_SESSION['cognome_utente'] = $array[0]['cognome_utente'];
