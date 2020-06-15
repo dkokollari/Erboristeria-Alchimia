@@ -45,7 +45,7 @@
 
       // se non ci sono errori
       if($errori==0) {
-        if($con->updateTeInfusi($id, $nome, $tipo, $ingre, $descr, $prepa, $descImg)) {
+        if($con->updateTeInfusi($id, $descImg, $tipo, $nome, $ingre, $descr, $prepa)) {
           if($imgpresent) {
             if($image->uploadImageTeInfusi($_FILES['immagine']['name'], $_FILES['immagine']['tmp_name'], $id)) {
               $messaggio = "";

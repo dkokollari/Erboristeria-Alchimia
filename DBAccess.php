@@ -51,7 +51,7 @@
       }
       return $this->getQuery($query, $types, $params, false);
     }
-    // TODO: aggiornare parametri dei riferimenti a updateTeInfusi() ///////////////////////////////////////////////////////////////
+
     public function updateTeInfusi($id, $descrizione_immagine, $tipo, $nome, $ingredienti, $descrizione, $preparazione) {
       $safe_id = $this->getSingoloTeInfuso($id);
       $safe_id = $safe_id[0]['id_te_e_infusi'];
