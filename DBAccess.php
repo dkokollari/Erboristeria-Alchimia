@@ -201,8 +201,8 @@
     ################################################
     # gestione utenti (inserimento, aggiornamento) #
     ################################################
-
-    public function insertUser($nome, $cognome, $email, $password, $data_nascita) {
+    // TODO: aggiornare riferimenti ////////////////////////////////////////////////////////////////
+    public function insertUtenti($nome, $cognome, $email, $password, $data_nascita) {
       $query = "INSERT INTO `utenti` (`nome_utente`,
                                       `cognome_utente`,
                                       `email_utente`,
