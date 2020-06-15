@@ -17,6 +17,12 @@
         break;
 
         case "eventi" :
+          $titolo = "Eventi";
+          $titolo_pagina = "Eventi di Erboristeria Alchimia";
+          $descrizione_pagina = "Qui troverai i prossimi eventi in programma e quelli passati organizzati";
+          $keywords_pagina = "eventi, evento, relatori, relatore, organizzazione, organizza, erboristeria, alchimia";
+          $container_pagina = "container_te_e_infusi"; // TODO: controllare  effetti su CSS usando container_eventi
+          $lista_menu = menu_pagina::menu("eventi.php");
         break;
 
         case "form_eventi" :
