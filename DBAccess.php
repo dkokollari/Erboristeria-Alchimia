@@ -80,7 +80,7 @@
       }
       return $this->getQuery($query, $types, $params, false);
     }
-    // TODO: aggiornare riferimenti a deleteTeInfusi() ////////////////////////////////////////////////////////////////////////////
+
     public function deleteTeInfusi($id) {
       $query = "DELETE FROM `te_e_infusi`
                       WHERE `id_te_e_infusi` = ?";
