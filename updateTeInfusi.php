@@ -7,7 +7,7 @@
     $pagina = file_get_contents('inserimento_teinfusi.html');
 
     $id = $_GET['id'];
-    $getElement = $con->getSingoloTeInfuso($id);
+    $getElement = $con->getSingolo_TeInfusi($id);
     $valdescr = htmlentities($getElement[0]['descrizione_immagine_te_e_infusi']);
     $valtipo = htmlentities($getElement[0]['tipo_te_e_infusi']);
     $valnome = htmlentities($getElement[0]['nome_te_e_infusi']);
