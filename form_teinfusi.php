@@ -77,7 +77,7 @@
       if($errori==0) {
 
          if(isset($_GET['id'])){  // e una modifica
-           if(!$con->updateTeInfusi($id, $nome, $tipo, $ingre, $descr, $prepa, $descImg)) {
+           if(!$con->updateTeInfusi($id, $descImg, $tipo, $nome,  $ingre, $prepa, $descr)) {
              header('Location: redirect.php?error=4');  //query non eseguita
              exit;
            }
