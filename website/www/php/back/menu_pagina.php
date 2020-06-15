@@ -1,5 +1,5 @@
 <?php
-  require_once("website/www/php/back/session.php");
+  require_once("session.php");
 
   class menu_pagina {
     public static function menu($target="") {

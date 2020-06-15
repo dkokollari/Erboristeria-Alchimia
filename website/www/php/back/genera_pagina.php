@@ -1,6 +1,6 @@
 <?php
-  require_once("website/www/php/back/session.php");
-  require_once("website/www/php/back/menu_pagina.php");
+  require_once("session.php");
+  require_once("menu_pagina.php");
 
   class Genera_pagina {
 
@@ -109,9 +109,9 @@
       $pagina = str_replace("%TITOLO_PAGINA%", $titolo_pagina, $pagina);
       $pagina = str_replace("%DESCRIZIONE_PAGINA%", $descrizione_pagina, $pagina);
       $pagina = str_replace("%KEYWORDS_PAGINA%", $keywords_pagina, $pagina);
-      $pagina = str_replace("%AGGIUNGI_META", $aggiungi_meta, $pagina);
-      $pagina = str_replace("%AGGIUNGI_LINK", $aggiungi_link, $pagina);
-      $pagina = str_replace("%AGGIUNGI_SCRIPT", $aggiungi_script, $pagina);
+      $pagina = str_replace("%AGGIUNGI_META%", $aggiungi_meta, $pagina);
+      $pagina = str_replace("%AGGIUNGI_LINK%", $aggiungi_link, $pagina);
+      $pagina = str_replace("%AGGIUNGI_SCRIPT%", $aggiungi_script, $pagina);
       $pagina = str_replace("%ATTRIBUTI_BODY%", $attributi_body, $pagina);
       $pagina = str_replace("%CONTAINER_PAGINA%", $container_pagina, $pagina);
       $pagina = str_replace("%ICONA_CARRELLO%", $icona_carrello, $pagina);
