@@ -170,8 +170,8 @@
       $params = [$titolo];
       return $this->getQuery($query, $types, $params);
     }
-
-    public function getDescrizione_eventi() {
+    // TODO: aggiornare riferimenti ////////////////////////////////////////////////////////////////
+    public function getDescrizione_Eventi() {
       $query = "SELECT `evento`,
                        `sottotitolo`
                 FROM   `descrizione_eventi`";
