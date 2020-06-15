@@ -1,10 +1,10 @@
 <?php
-  require_once("website/www/php/back/session.php");
-  require_once("website/www/php/back/DBAccess.php");
-  require_once("website/www/php/back/validate_form.php");
+  require_once("../back/session.php");
+  require_once("../back/DBAccess.php");
+  require_once("../back/validate_form.php");
 
   if($_SESSION['auth']) {
-    $pagina = file_get_contents("website/www/html/register.html");
+    $pagina = file_get_contents("../../html/register.html");
     // sostituzione elementi di registrazione
     $pagina = str_replace('<title>Registrati - Erboristeria Alchimia</title>', '<title>Modifica profilo - Erboristeria Alchimia</title>', $pagina);
     $pagina = str_replace('<meta name="title" content="Registrati ad Erboristeria Alchimia"/>', '<meta name="title" content="Modifica il profilo di Erboristeria Alchimia"/>', $pagina);
@@ -64,7 +64,7 @@
       else {
         $con = new DBAccess();
         if(!$con->openConnection()) {
-          header('Location: website/www/php/front/redirect.php?error=1');
+          header('Location: redirect.php?error=1');
           exit;
         }
         if($email != $_SESSION['email_utente'] && $con->getSingolo_Utenti($email)) {
@@ -97,7 +97,7 @@
     echo $pagina;
   } // end if $_SESSION['auth']
   else {
-    header('Location: website/www/php/front/redirect.php?error=3');
+    header('Location: redirect.php?error=3');
     exit;
   }
 ?>

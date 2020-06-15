@@ -1,8 +1,8 @@
 <?php
-  require_once("website/www/php/back/session.php");
-  require_once("website/www/php/back/DBAccess.php");
-  require_once("website/www/php/back/Image.php");
-  require_once("website/www/php/back/control_input.php");
+  require_once("../back/session.php");
+  require_once("../back/DBAccess.php");
+  require_once("../back/Image.php");
+  require_once("../back/control_input.php");
 
   /*if($_SESSION['tipo_utente'] != 'Admin') {
     header('Location: website/www/php/front/redirect.php?error=3');
@@ -11,7 +11,7 @@
 
   $con = new DBAccess();
   if($con->openConnection()) {
-    require_once("website/www/php/back/genera_pagina.php");
+    require_once("../back/genera_pagina.php");
 
     $messaggio = "";
     $err_tit = "";
@@ -123,12 +123,12 @@
               if(isset($_POST['sottotitolo4'])) $con->insertDescrizioneEventi($id, $stt4);
               if(isset($_POST['sottotitolo5'])) $con->insertDescrizioneEventi($id, $stt5);
 
-              header('Location: website/www/php/front/eventi.php');
+              header('Location: eventi.php');
               exit;
 
             }
             else {  // query non eseguita
-              header('Location: website/www/php/front/redirect.php?error=4');
+              header('Location: redirect.php?error=4');
               exit;
             }
          } // end if $errori==0
@@ -146,7 +146,7 @@
            $val_org = $_POST['organizzazione_evento'];
          }
       } // end if isset($_POST['submit'])
-    $contenuto = file_get_contents('form_eventi.html');
+    $contenuto = file_get_contents('../../html/form_eventi.html');
     $contenuto = str_replace("%MESSAGGIO%", $messaggio, $contenuto);
     $contenuto = str_replace("%val_titolo%", $val_titolo, $contenuto);
     $contenuto = str_replace("%val_stt1%", $val_stt1, $contenuto);
@@ -167,11 +167,11 @@
     $contenuto = str_replace("%ERR_ORG%", $err_org, $contenuto);
     $contenuto = str_replace("%ERR_IMG%", $err_img, $contenuto);
 
-    $pagina = Genera_pagina::genera("website/www/html/base.html", "form_eventi", $contenuto);
+    $pagina = Genera_pagina::genera("../../html/base.html", "form_eventi", $contenuto);
     echo $pagina;
   } // end if $con->openConnection()
   else {
-    header('Location: website/www/php/front/redirect.php?error=1');
+    header('Location: redirect.php?error=1');
     exit;
   }
 ?>

@@ -1,14 +1,14 @@
 <?php
-  require_once("website/www/php/back/session.php");
-  require_once("website/www/php/back/DBAccess.php");
-  require_once("website/www/php/back/genera_pagina.php");
+  require_once("../back/session.php");
+  require_once("../back/DBAccess.php");
+  require_once("../back/genera_pagina.php");
 
   $total = 0;
   $orderedProducts = '';
   if(!empty($_SESSION["shopping_cart"])) {
     $con = new DBAccess();
     if(!$con->openConnection()) {
-      header('Location: website/www/php/front/redirect.php?error=3');
+      header('Location: redirect.php?error=3');
       exit;
     }
 
@@ -57,8 +57,8 @@
     else {
       $orderedProducts = '<p id="emptyCart">Il tuo carrello e\' vuoto: consulta la pagina dei nostri <a href= "website/www/php/front/prodotti.php">prodotti</a>, potremmo avere qualcosa che fa per te!<p>';
     }
-    $contenuto = file_get_contents("website/www/html/carrello.html");
+    $contenuto = file_get_contents("../../html/carrello.html");
     $contenuto = str_replace("%ORDERS%", $orderedProducts, $contenuto);
-    $pagina = Genera_pagina::genera("website/www/html/base.html", "carrello", $contenuto);
+    $pagina = Genera_pagina::genera("../../html/base.html", "carrello", $contenuto);
     echo $pagina;
 ?>

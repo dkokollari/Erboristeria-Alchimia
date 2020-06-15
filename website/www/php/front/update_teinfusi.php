@@ -1,10 +1,10 @@
 <?php
-  require_once("website/www/php/back/DBAccess.php");
-  require_once("website/www/php/back/Image.php");
+  require_once("../back/DBAccess.php");
+  require_once("../back/Image.php");
 
   $con = new DBAccess();
   if($con->openConnection()) {
-    $pagina = file_get_contents("website/www/html/inserimento_teinfusi.html");
+    $pagina = file_get_contents("../../html/inserimento_teinfusi.html");
 
     $id = $_GET['id'];
     $getElement = $con->getSingolo_TeInfusi($id);
@@ -81,7 +81,7 @@
     echo $pagina;
   }
   else {
-    header('Location: website/www/php/front/redirect.php?error=1');
+    header('Location: redirect.php?error=1');
     exit;
   }
 

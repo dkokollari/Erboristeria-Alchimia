@@ -1,12 +1,12 @@
 <?php
-  require_once("website/www/php/back/DBAccess.php");
+  require_once("../back/DBAccess.php");
 
-  $pagina = file_get_contents("website/www/html/ricerca.html");
+  $pagina = file_get_contents("../../html/ricerca.html");
 
   if(isset($_POST['search'])) {
     $conn = new DBAccess();
     if(!$conn->openConnection()) {
-      header('Location: website/www/php/front/redirect.php?error=1');
+      header('Location: redirect.php?error=1');
       exit;
     }
     $noOption = "none"; // costante: valore opzione "Seleziona filtro"

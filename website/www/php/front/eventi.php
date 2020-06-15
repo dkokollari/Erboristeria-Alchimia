@@ -1,12 +1,12 @@
 <?php
-  require_once("website/www/php/back/session.php");
-  require_once("DBAccess.php");
-  require_once("Image.php");
-  require_once("genera_pagina.php");
+  require_once("../back/session.php");
+  require_once("../back/DBAccess.php");
+  require_once("../back/Image.php");
+  require_once("../back/genera_pagina.php");
 
   $con = new DBAccess();
   if($con->openConnection()) {
-    $style = file_get_contents("website/www/css/stylesheet.css");
+    $style = file_get_contents("../../css/stylesheet.css");
     $lista_eventi = $con->getEventi();
     $lista_descrizione = $con->getDescrizione_Eventi();
 
@@ -71,13 +71,13 @@
     }
 
     /*file_put_contents("website/www/css/stylesheet.css", $style);*/
-    $contenuto = file_get_contents("website/www/html/eventi.html");
+    $contenuto = file_get_contents("../../html/eventi.html");
     $contenuto = str_replace("%LISTA_EVENTI%", $lista, $contenuto);
-    $pagina = Genera_pagina::genera("website/www/html/base.html", "eventi", $contenuto);
+    $pagina = Genera_pagina::genera("../../html/base.html", "eventi", $contenuto);
     echo $pagina;
   }
   else {
-    header('Location: website/www/php/front/redirect.php?error=1');
+    header('Location: redirect.php?error=1');
     exit;
   }
 ?>

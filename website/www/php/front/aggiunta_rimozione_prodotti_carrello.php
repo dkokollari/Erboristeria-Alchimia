@@ -1,7 +1,7 @@
 <?php
-  require_once("website/www/php/back/session.php")
-  require_once("website/www/php/back/Utilities.php");
-  
+  require_once("../back/session.php")
+  require_once("../back/Utilities.php");
+
   $orderedProducts = '';
   if(isset($_SESSION['email_utente']) ||
       (isset($_COOKIE['email']) && isset($_COOKIE['password']))) {
@@ -40,7 +40,7 @@
       }
 
       ob_start();
-      $redirect = 'website/www/php/front/prodotto_singolo.php?addedProduct&id_articolo='.Utilities::getNumericValue('id_articolo');
+      $redirect = 'prodotto_singolo.php?addedProduct&id_articolo='.Utilities::getNumericValue('id_articolo');
       /*include_once '$redirect';
       $pagina = ob_get_clean();
       $pagina = str_replace('<h1>Scheda Prodotto</h1>' ,

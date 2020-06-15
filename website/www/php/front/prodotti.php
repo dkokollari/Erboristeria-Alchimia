@@ -1,12 +1,12 @@
 <?php
-  require_once("website/www/php/back/DBAccess.php");
-  require_once("website/www/php/back/Image.php");
-  require_once("website/www/php/back/Utilities.php");
-  require_once("website/www/php/back/genera_pagine.php");
+  require_once("../back/DBAccess.php");
+  require_once("../back/Image.php");
+  require_once("../back/Utilities.php");
+  require_once("../back/genera_pagine.php");
 
   $con = new DBAccess();
   if(!$con->openConnection()) {
-    header('Location: website/www/php/front/redirect.php?error=1');
+    header('Location: redirect.php?error=1');
     exit;
   }
   /*-------------menu a tendina sesso---------------*/
@@ -131,9 +131,9 @@
       while($row = $result->fetch_assoc()) {
         $productToPrint .=
         '<li class="card_product product_description">' . "\n" .
-          '<a href="website/www/php/front/prodotto_singolo.php?id_articolo=' .  $row['id_articolo'] . '">' . "\n" .
+          '<a href="prodotto_singolo.php?id_articolo=' .  $row['id_articolo'] . '">' . "\n" .
           '<img class="product_image" src="' .
-              Image::getImage('website/www/img/products/small_img/', $row['id_articolo']) . '" alt=immagine "'. $row['nome_articolo'] . '"/>' . "\n" .
+              Image::getImage('../../img/products/small_img/', $row['id_articolo']) . '" alt=immagine "'. $row['nome_articolo'] . '"/>' . "\n" .
           '<h3 class="product_title">' .  $row['nome_articolo'] . '</h3>' . "\n" .
           '<ul>' . "\n" .
               '<li class="product_manufacturer">' . $row["nome_ditta"] . '</li>' . "\n" .
@@ -153,7 +153,7 @@
     $links_to_result_pages = '';
     for($n_page=1; $n_page<=$total_pages; ++$n_page) {
       if($n_page != $page) {
-        $links_to_result_pages .= '<a href="website/www/php/front/prodotti.php?page=' . $n_page . "&amp;search=$search_value&amp;sesso=$sex_filter" .
+        $links_to_result_pages .= '<a href="prodotti.php?page=' . $n_page . "&amp;search=$search_value&amp;sesso=$sex_filter" .
         "&amp;categoria=$categ_filter&amp;casa_prod=$casa_prod_filter" . '">' . $n_page . '</a>' . "\n";
       }
       else {
@@ -161,12 +161,12 @@
       }
     }
   } // end if isset($_GET['search'])
-  $contenuto = file_get_contents("website/www/html/prodotti.html");
+  $contenuto = file_get_contents("../../html/prodotti.html");
   $contenuto = str_replace("%PRODUCTS%", $productToPrint, $contenuto);
   $contenuto = str_replace("%PAGES_MENU%", $links_to_result_pages , $contenuto);
   $contenuto = str_replace("%SEX_FILTER%", $opt_sesso , $contenuto);
   $contenuto = str_replace("%CATEGORY_FILTER%", $opt_categoria , $contenuto);
   $contenuto = str_replace("%COMPANY_FILTER%", $opt_casa_prod , $contenuto);
-  $pagina = Genera_pagina::genera("website/www/html/base.html", "prodotti", $contenuto);
+  $pagina = Genera_pagina::genera("../../html/base.html", "prodotti", $contenuto);
   echo $pagina;
 ?>

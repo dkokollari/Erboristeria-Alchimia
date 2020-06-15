@@ -1,17 +1,17 @@
 <?php
-  require_once("website/www/php/back/session.php");
-  require_once("website/www/php/back/DBAccess.php");
-  require_once("website/www/php/back/Image.php");
-  require_once("website/www/php/back/control_input.php");
+  require_once("../back/session.php");
+  require_once(" ../back/DBAccess.php");
+  require_once(" ../back/Image.php");
+  require_once(" ../back/control_input.php");
 
   if($_SESSION['tipo_utente'] != 'Admin'){
-    header('Location: website/www/php/front/redirect.php?error=3');
+    header('Location: /front/redirect.php?error=3');
     exit;
   }
 
   $con = new DBAccess();
   if($con->openConnection()) {
-    require_once("website/www/php/back/genera_pagina.php");
+    require_once("../back/genera_pagina.php");
 
     $messaggio = "";
     $valnome = "";
@@ -66,12 +66,12 @@
       if($errori==0) { // se non ci sono errori
          if(isset($_GET['id'])) {  // modifica te e infusi
            if(!$con->updateTeInfusi($id, $descImg, $tipo, $nome,  $ingre, $prepa, $descr)) {
-             header('Location: website/www/php/front/redirect.php?error=4');  // query non eseguita
+             header('Location:  redirect.php?error=4');  // query non eseguita
              exit;
            }
          }
          else if(!$con->insertTeInfusi($descImg, $tipo, $nome, $ingre, $descr, $prepa)) {
-           header('Location: website/www/php/front/redirect.php?error=4');   //query non eseguita
+           header('Location: redirect.php?error=4');   //query non eseguita
            exit;
          }
          else {
@@ -80,7 +80,7 @@
 
          if($imgpresent) { // se è presente l'immagine la carichiamo
              $image->uploadImageTeInfusi($_FILES['immagine']['name'], $_FILES['immagine']['tmp_name'], $id);
-             header('Location: website/www/php/front/teinfusi.php');
+             header('Location: teinfusi.php');
              exit;
          }
       } // end if se non ci sono errori
@@ -92,7 +92,7 @@
         $valprepa = $_POST['Preparazione'];
       }
     } // end if se è stato premuto il buttone submit
-    $contenuto = file_get_contents("website/www/html/form_teinfusi.html");
+    $contenuto = file_get_contents("../../html/form_teinfusi.html");
     $contenuto = str_replace("%nome%", $valnome, $contenuto);
     $contenuto = str_replace("%ingre%", $valingre, $contenuto);
     $contenuto = str_replace("%descr%", $valdescr, $contenuto);
@@ -102,11 +102,11 @@
     $contenuto = str_replace("%ERR_DESC%", $errDescr, $contenuto);
     $contenuto = str_replace("%ERR_IMG%", $errImg, $contenuto);
 
-    $pagina = Genera_pagina::genera("website/www/html/base.html", "form_teinfusi", $contenuto);
+    $pagina = Genera_pagina::genera("../../html/base.html", "form_teinfusi", $contenuto);
     echo $pagina;
   }
   else {
-    header('Location: website/www/php/front/redirect.php?error=1');
+    header('Location:  redirect.php?error=1');
     exit;
   }
 ?>

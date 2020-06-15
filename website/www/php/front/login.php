@@ -1,15 +1,15 @@
 <?php
-  require_once("website/www/php/back/session.php");
-  require_once("website/www/php/back/DBAccess.php");
+  require_once("../back/session.php");
+  require_once("../back/DBAccess.php");
 
   if($_SESSION['auth']) { // utente con sessione
-    header('location: website/www/php/front/index.php');
+    header('location: index.php');
     exit;
   }
   else if(isset($_COOKIE['email']) && $_COOKIE['email']!="") { // utente con cookie senza sessione
     $aux = new DBAccess();
     if(!$aux->openConnection()) {
-      header('Location: website/www/php/front/redirect.php?error=1');
+      header('Location: redirect.php?error=1');
       exit;
     }
     else {
@@ -21,14 +21,14 @@
       }
       else {
         setSessione($temp);
-        header('location: website/www/php/front/index.php');
+        header('location: index.php');
         exit;
       }
     }
   } // end else if utente con cookie senza sessione
 
   // utente senza cookie e senza sessione
-  $pagina = file_get_contents("website/www/html/login.html");
+  $pagina = file_get_contents("../../html/login.html");
   if($_POST['Login']) {
     $email = mysql_real_escape_string(trim($_POST['email']));
     $password = mysql_real_escape_string(trim($_POST['password']));
@@ -44,7 +44,7 @@
     else { // email e password valide
       $con = new DBAccess();
       if(!$con->openConnection()) {
-        header('Location: website/www/php/front/redirect.php?error=1');
+        header('Location: redirect.php?error=1');
         exit;
       }
       else {
@@ -59,7 +59,7 @@
               setcookie('email', $email, time()+60*60*24*30);
               setcookie('password', $utente[0]['password_utente'], time()+60*60*24*30);
             }
-            header('location: website/www/php/front/index.php');
+            header('location: index.php');
           }
         }
         $con->closeConnection();
