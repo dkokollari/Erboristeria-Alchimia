@@ -1,66 +1,9 @@
 <?php
   /*-------------------INIZIO SESSIONE-----------------*/
-  session_start();
-  require_once("Utilities.php");
-  $orderedProducts = '';
-  if(isset($_SESSION['email_utente']) ||
-      (isset($_COOKIE['email']) && isset($_COOKIE['password']))) {
-    $product_ids = array();
 
-    if(isset($_GET['add_to_cart'])) {
-      if(isset($_SESSION['shopping_cart'])) {
-        $count = count($_SESSION['shopping_cart']);
-        $product_ids = array_column($_SESSION['shopping_cart'], 'id_articolo');
-
-        if(!in_array(Utilities::getNumericValue('id_articolo'), $product_ids)) {
-          $_SESSION['shopping_cart'][$count] = array
-            ( 'id_articolo' => Utilities::getNumericValue('id_articolo')
-            , 'nome_articolo' => $_GET['nome_articolo']
-            , 'prezzo_articolo' => $_GET['prezzo_articolo']
-            , 'quantita' => 1
-            );
-        }
-        else {
-          $flag = false;
-          for($i=0; !$flag && $i < count($product_ids); $i++) {
-            if($product_ids[$i] == Utilities::getNumericValue('id_articolo')) {
-              $_SESSION['shopping_cart'][$i]['quantita'] += 1;
-              $flag = true;
-            }
-          }
-        }
-      } //endif isset($_SESSION['shopping_cart'])
-      else {
-        $_SESSION['shopping_cart'][0] = array
-          ( 'id_articolo' => Utilities::getNumericValue('id_articolo')
-          , 'nome_articolo' => $_GET['nome_articolo']
-          , 'prezzo_articolo' => Utilities::getNumericValue('prezzo_articolo')
-          , 'quantita' => 1
-          );
-      }
-
-      ob_start();
-      $redirect = 'prodotto_singolo.php?id_articolo='.Utilities::getNumericValue('id_articolo');
-      include_once '$redirect';
-      $pagina = ob_get_clean();
-      $pagina = str_replace('<h1>Scheda Prodotto</h1>' ,
-      '<p class="addedProduct">Prodotto aggiunto al carrello</p>'. "\n" .'<h1>Scheda Prodotto</h1>' , $pagina);
-      /*header('location:' . $redirect);*/
-      echo $pagina;
-    }
-  }
-
-  if($_GET['action'] == 'delete') {
-    foreach($_SESSION['shopping_cart'] as $key => $product) {
-      if($product['id_articolo'] ==  Utilities::getNumericValue('id_articolo')) {
-        unset($_SESSION['shopping_cart'][$key]);
-      }
-    }
-   $_SESSION['shopping_cart'] = array_values($_SESSION['shopping_cart']);
-  }
   /*-------------------------FINE SESSIONE(Meglio metterla in un file a parte!)----------------------------*/
 
-
+session_start();
 require_once("DBAccess.php");
 $pagina = file_get_contents('carrello.html');
 $total = 0;
@@ -104,12 +47,12 @@ if(!empty($_SESSION["shopping_cart"])) {
       '</div>' . "\n" .
       '<ul class="recap_product">' . "\n" .
           '<li><abbr title="Quantit&agrave;">Q.ta : ' . $product["quantita"] . '</li>' . "\n" .
-          '<li><abbr title="Totale">Tot</abbr>. : ' . number_format($product["quantita"] * $product["prezzo_articolo"], 2) . ' &euro;</li>' . "\n" .
-          '<li>' . '<a href="carrello.php?action=delete&id_articolo=' . $product["id_articolo"] . '">' . "\n" .
+          '<li><abbr title="Totale">Tot</abbr>. : ' . number_format($product["quantita"] * $row["prezzo_articolo"], 2) . ' &euro;</li>' . "\n" .
+          '<li>' . '<a href="aggiunta_rimozione_prodotti_carrello.php?action=delete&id_articolo=' . $product["id_articolo"] . '">' . "\n" .
           '<button class="button">Rimuovi</button>' . "\n" . '</a></li>' . "\n" .
       '</ul>'. "\n" .
     '</li>' .  "\n";
-    $total += $product["quantita"] * $product["prezzo_articolo"];
+    $total += $row["prezzo_articolo"] * $product["quantita"];
   }
 }
   $conn->closeConnection();
@@ -121,7 +64,7 @@ if(!empty($_SESSION["shopping_cart"])) {
         $orderedProducts .= '<a href="prodotto_singolo.php?id_articolo=' . $product["id_articolo"] . ' class="button" id="checkout">Checkout</a>'  . "\n";
   }
 } else {
-  $orderedProducts = '<p id="emptyCart">Il tuo carrello e\' vuoto: consulta la pagina dei nostri <a href= "articoli.php">prodotti</a>,
+  $orderedProducts = '<p id="emptyCart">Il tuo carrello e\' vuoto: consulta la pagina dei nostri <a href= "prodotti.php">prodotti</a>,
   potremmo avere qualcosa che fa per te!<p>';
 }
 $pagina = str_replace("%ORDERS%", $orderedProducts, $pagina);

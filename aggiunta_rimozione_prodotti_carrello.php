@@ -39,12 +39,15 @@ if(isset($_SESSION['email_utente']) ||
     }
 
     ob_start();
-    $redirect = 'prodotto_singolo.php?id_articolo='.Utilities::getNumericValue('id_articolo');
-    include_once '$redirect';
+    $redirect = 'prodotto_singolo.php?addedProduct&id_articolo='.Utilities::getNumericValue('id_articolo');
+    /*include_once '$redirect';
     $pagina = ob_get_clean();
     $pagina = str_replace('<h1>Scheda Prodotto</h1>' ,
-    '<p class="addedProduct">Prodotto aggiunto al carrello</p>'. "\n" .'<h1>Scheda Prodotto</h1>' , $pagina);
-    /*header('location:' . $redirect);*/
+    '<p class="addedProduct">Prodotto aggiunto al carrello</p>'. "\n" .'<h1>Scheda Prodotto</h1>' , $pagina);*/
+    /*$pagina = file_get_contents('prodotto_singolo.html');
+    $pagina = str_replace('<h1>Scheda Prodotto</h1>' ,
+    '<p class="addedProduct">Prodotto aggiunto al carrello</p>'. "\n" .'<h1>Scheda Prodotto</h1>' , $pagina);*/
+    header('location : ' . $redirect);
     echo $pagina;
   }
 }

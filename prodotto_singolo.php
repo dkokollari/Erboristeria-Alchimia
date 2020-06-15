@@ -45,10 +45,15 @@
     if(!isset($_SESSION['tipo_utente'])) {
       $pagina = str_replace('%ADD_TO_CART%', $iscriviti , $pagina);
     } else if($_SESSION['tipo_utente'] == "User") {
-      $pagina = str_replace(
-        '%ADD_TO_CART%',
-        '<a class="classic_btn" href="carrello.php?add_to_cart&amp;id_articolo='.$id_articolo.'&amp;nome_articolo="'.urlencode($nome).'"&amp;prezzo_articolo='.$prezzo.'>aggiungi al carrello</a>',
-        $pagina);
+      if(!isset($_GET['addedProduct'])) {
+        $pagina = str_replace(
+          '%ADD_TO_CART%',
+          '<a class="classic_btn" href="aggiunta_rimozione_prodotti_carrello.php?add_to_cart&amp;id_articolo='.$id_articolo.'&amp;nome_articolo="'.urlencode($nome).'"&amp;prezzo_articolo='.$prezzo.'>aggiungi al carrello</a>',
+          $pagina);
+      } else {
+        $pagina = str_replace('%ADD_TO_CART%' ,
+        '<p class="addedProduct">Prodotto aggiunto al carrello</p>', $pagina);
+      }
     } else if($_SESSION['tipo_utente'] == "Admin") { //// WARNING: all'admin non faccio vedere tasto aggiungi
         $pagina = str_replace('%ADD_TO_CART%' , '' , $pagina);
     }
@@ -67,5 +72,8 @@
     $pagina = str_replace('%HOW_TO%' , $preparazione , $pagina);
     $pagina = str_replace('%INGREDIENTS%' , $ingredienti , $pagina);
     echo $pagina;
+}
+else {
+  echo 'DEBUG';
 }
 ?>
