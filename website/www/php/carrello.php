@@ -1,7 +1,7 @@
 <?php
-  require_once("../back/session.php");
-  require_once("../back/DBAccess.php");
-  require_once("../back/genera_pagina.php");
+  require_once("session.php");
+  require_once("DBAccess.php");
+  require_once("genera_pagina.php");
 
   $total = 0;
   $orderedProducts = '';
@@ -25,8 +25,8 @@
       $orderedProducts .=
       '<li>' . "\n" .
         '<div class="card_product product_description">' . "\n" .
-            '<img class="product_image" src="../../img/articoli/'.(file_exists("
-             ../../img/articoli/".$product["id_articolo"].".jpg") ? $product["id_articolo"].'.jpg' : '0.jpg').'" alt="immagine a scopo presentazionale"/>'."\n" .
+            '<img class="product_image" src="../img/articoli/'.(file_exists("
+             ../img/articoli/".$product["id_articolo"].".jpg") ? $product["id_articolo"].'.jpg' : '0.jpg').'" alt="immagine a scopo presentazionale"/>'."\n" .
             '<h3 class="product_title">' . $row["nome_articolo"] . '</h3>' . "\n" .
             '<ul>' . "\n" .
                 '<li class="product_manufacturer">' . $row["nome_ditta"] . '</li>' . "\n" .
@@ -57,8 +57,8 @@
     else {
       $orderedProducts = '<p id="emptyCart">Il tuo carrello e\' vuoto: consulta la pagina dei nostri <a href= "prodotti.php">prodotti</a>, potremmo avere qualcosa che fa per te!<p>';
     }
-    $contenuto = file_get_contents("../../html/carrello.html");
+    $contenuto = file_get_contents("../html/carrello.html");
     $contenuto = str_replace("%ORDERS%", $orderedProducts, $contenuto);
-    $pagina = Genera_pagina::genera("../../html/base.html", "carrello", $contenuto);
+    $pagina = Genera_pagina::genera("../html/base.html", "carrello", $contenuto);
     echo $pagina;
 ?>

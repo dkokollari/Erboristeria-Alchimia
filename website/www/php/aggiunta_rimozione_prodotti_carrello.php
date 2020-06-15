@@ -1,6 +1,6 @@
 <?php
-  require_once("../back/session.php")
-  require_once("../back/Utilities.php");
+  require_once("session.php")
+  require_once("Utilities.php");
 
   $orderedProducts = '';
   if(isset($_SESSION['email_utente']) ||

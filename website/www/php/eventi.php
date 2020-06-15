@@ -1,12 +1,12 @@
 <?php
-  require_once("../back/session.php");
-  require_once("../back/DBAccess.php");
-  require_once("../back/Image.php");
-  require_once("../back/genera_pagina.php");
+  require_once("session.php");
+  require_once("DBAccess.php");
+  require_once("Image.php");
+  require_once("genera_pagina.php");
 
   $con = new DBAccess();
   if($con->openConnection()) {
-    $style = file_get_contents("../../css/stylesheet.css");
+    $style = file_get_contents("../css/stylesheet.css");
     $lista_eventi = $con->getEventi();
     $lista_descrizione = $con->getDescrizione_Eventi();
 
@@ -20,7 +20,7 @@
       $giorno_numero = $data_ora->format("d");
       $mese = strftime("%B", $data_ora->getTimestamp());
       $ore_minuti = $data_ora->format("H:i");
-      $immagine = Image::getImage("./img/eventi/", $row["id_evento"]);
+      $immagine = Image::getImage("../img/eventi/", $row["id_evento"]);
       $descrizione_immagine = htmlentities($row["descrizione_immagine_evento"]);
       $titolo = htmlentities($row["titolo_evento"]);
       $descrizione_formattata="";
@@ -64,16 +64,16 @@
           </p>
           '.($posti_limitati ?
           '<p id="prenotazione">
-            <span>I posti sono limitati, &egrave; gradita la prenotazione</span> (i contatti si trovano <a href="../../html/pagina_informazioni.html#contatti">qui</a>)
+            <span>I posti sono limitati, &egrave; gradita la prenotazione</span> (i contatti si trovano <a href="../html/pagina_informazioni.html#contatti">qui</a>)
           </p>' : "").'
         </div>
       ';
     }
 
-    /*file_put_contents("../../css/stylesheet.css", $style);*/
-    $contenuto = file_get_contents("../../html/eventi.html");
+    /*file_put_contents("../css/stylesheet.css", $style);*/
+    $contenuto = file_get_contents("../html/eventi.html");
     $contenuto = str_replace("%LISTA_EVENTI%", $lista, $contenuto);
-    $pagina = Genera_pagina::genera("../../html/base.html", "eventi", $contenuto);
+    $pagina = Genera_pagina::genera("../html/base.html", "eventi", $contenuto);
     echo $pagina;
   }
   else {

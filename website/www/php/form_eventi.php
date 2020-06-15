@@ -1,8 +1,8 @@
 <?php
-  require_once("../back/session.php");
-  require_once("../back/DBAccess.php");
-  require_once("../back/Image.php");
-  require_once("../back/control_input.php");
+  require_once("session.php");
+  require_once("DBAccess.php");
+  require_once("Image.php");
+  require_once("control_input.php");
 
   /*if($_SESSION['tipo_utente'] != 'Admin') {
     header('Location: redirect.php?error=3');
@@ -11,7 +11,7 @@
 
   $con = new DBAccess();
   if($con->openConnection()) {
-    require_once("../back/genera_pagina.php");
+    require_once("genera_pagina.php");
 
     $messaggio = "";
     $err_tit = "";
@@ -146,7 +146,7 @@
            $val_org = $_POST['organizzazione_evento'];
          }
       } // end if isset($_POST['submit'])
-    $contenuto = file_get_contents('../../html/form_eventi.html');
+    $contenuto = file_get_contents('../html/form_eventi.html');
     $contenuto = str_replace("%MESSAGGIO%", $messaggio, $contenuto);
     $contenuto = str_replace("%val_titolo%", $val_titolo, $contenuto);
     $contenuto = str_replace("%val_stt1%", $val_stt1, $contenuto);
@@ -167,7 +167,7 @@
     $contenuto = str_replace("%ERR_ORG%", $err_org, $contenuto);
     $contenuto = str_replace("%ERR_IMG%", $err_img, $contenuto);
 
-    $pagina = Genera_pagina::genera("../../html/base.html", "form_eventi", $contenuto);
+    $pagina = Genera_pagina::genera("../html/base.html", "form_eventi", $contenuto);
     echo $pagina;
   } // end if $con->openConnection()
   else {

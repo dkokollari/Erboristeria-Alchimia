@@ -6,6 +6,6 @@
     setcookie("password", "", time()-3600);
   }
 
-  header("location: ../front/index.php");
+  header("location: index.php");
   exit;
 ?>

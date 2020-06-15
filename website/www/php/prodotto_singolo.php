@@ -1,7 +1,7 @@
 <?php
-  require_once("../back/session.php");
-  require_once("../back/DBAccess.php");
-  require_once("../back/Image.php");
+  require_once("session.php");
+  require_once("DBAccess.php");
+  require_once("Image.php");
 
   if(isset($_GET['id_articolo']) && is_numeric($_GET['id_articolo'])) {
     $id_articolo = (int)($_GET['id_articolo']) > 0 ? (int)$_GET['id_articolo'] : 1;
@@ -11,7 +11,7 @@
       exit;
     }
 
-    $pagina = file_get_contents("../../html/prodotto_singolo.html");
+    $pagina = file_get_contents("../html/prodotto_singolo.html");
     $row = '';
     $iscriviti = '<p>Per poter acquistare online il seguente prodotto, se sei già registrato sul sito, fai il <a href="login.php">login</a>;
     altrimenti, che aspetti? <a href="register.php">Registrati</a> sul nostro sito: i clienti pi&ugrave; fedeli hanno una carta fedeltà che viene
@@ -31,8 +31,8 @@
     }*/
     $meta_description = '<meta name="description" content="' . $row['nome_articolo'] .'"/>';
     $meta_keywords = '<meta name="keywords" content="' . str_replace('', ', ', $row['nome_articolo']) . '"/>';
-    $img_1 = '<img id="immagine_prodotto" src="' . Image::getImage("../../img/products/", $row['id_articolo']) . '" alt="' . $row['nome_articolo']  .  '"/>';
-    $img_2 = '<img id="topbar_image" src="' . Image::getImage("../../img/products/", $row['id_articolo']) .  '" alt="' . $row['nome_articolo']  . '"/>';
+    $img_1 = '<img id="immagine_prodotto" src="' . Image::getImage("../img/products/", $row['id_articolo']) . '" alt="' . $row['nome_articolo']  .  '"/>';
+    $img_2 = '<img id="topbar_image" src="' . Image::getImage("../img/products/", $row['id_articolo']) .  '" alt="' . $row['nome_articolo']  . '"/>';
     $nome = $row['nome_articolo'];
     $prezzo = $row['prezzo_articolo'] . '&euro;';
     $linea = $row['nome_linea'];

@@ -1,8 +1,8 @@
 <?php
-  require_once("../back/session.php");
-  require_once(" ../back/DBAccess.php");
-  require_once(" ../back/Image.php");
-  require_once(" ../back/control_input.php");
+  require_once("session.php");
+  require_once(" DBAccess.php");
+  require_once(" Image.php");
+  require_once(" control_input.php");
 
   if($_SESSION['tipo_utente'] != 'Admin'){
     header('Location: redirect.php?error=3');
@@ -11,7 +11,7 @@
 
   $con = new DBAccess();
   if($con->openConnection()) {
-    require_once("../back/genera_pagina.php");
+    require_once("genera_pagina.php");
 
     $messaggio = "";
     $valnome = "";
@@ -92,7 +92,7 @@
         $valprepa = $_POST['Preparazione'];
       }
     } // end if se è stato premuto il buttone submit
-    $contenuto = file_get_contents("../../html/form_teinfusi.html");
+    $contenuto = file_get_contents("../html/form_teinfusi.html");
     $contenuto = str_replace("%nome%", $valnome, $contenuto);
     $contenuto = str_replace("%ingre%", $valingre, $contenuto);
     $contenuto = str_replace("%descr%", $valdescr, $contenuto);
@@ -102,7 +102,7 @@
     $contenuto = str_replace("%ERR_DESC%", $errDescr, $contenuto);
     $contenuto = str_replace("%ERR_IMG%", $errImg, $contenuto);
 
-    $pagina = Genera_pagina::genera("../../html/base.html", "form_teinfusi", $contenuto);
+    $pagina = Genera_pagina::genera("../html/base.html", "form_teinfusi", $contenuto);
     echo $pagina;
   }
   else {

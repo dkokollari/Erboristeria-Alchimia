@@ -1,6 +1,6 @@
 <?php
-    require_once("../back/DBAccess.php");
-    require_once("../back/validate_form.php");
+    require_once("DBAccess.php");
+    require_once("validate_form.php");
 
     if($_POST['Registrati']) {
       $nome = ucfirst(strtolower(mysql_real_escape_string(trim($_POST['nome']))));
@@ -62,7 +62,7 @@
                 ? "<span>Registrazione riuscita</span>"
                 : "<span>Registrazione fallita</span>");
     } // end if $_POST['Registrati']
-    $pagina = file_get_contents("../../html/register.html");
+    $pagina = file_get_contents("../html/register.html");
     $pagina = str_replace("%VALUE_nome%", "", $pagina);
     $pagina = str_replace("%VALUE_cognome%", "", $pagina);
     $pagina = str_replace("%VALUE_username%", "", $pagina);

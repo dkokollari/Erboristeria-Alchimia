@@ -1,10 +1,10 @@
 <?php
-  require_once("../back/DBAccess.php");
-  require_once("../back/Image.php");
+  require_once("DBAccess.php");
+  require_once("Image.php");
 
   $con = new DBAccess();
   if($con->openConnection()) {
-    $pagina = file_get_contents("../../html/inserimento_teinfusi.html");
+    $pagina = file_get_contents("../html/inserimento_teinfusi.html");
 
     $id = $_GET['id'];
     $getElement = $con->getSingolo_TeInfusi($id);

@@ -1,8 +1,8 @@
 <?php
-  require_once("../back/DBAccess.php");
-  require_once("../back/Image.php");
-  require_once("../back/Utilities.php");
-  require_once("../back/genera_pagina.php");
+  require_once("DBAccess.php");
+  require_once("Image.php");
+  require_once("Utilities.php");
+  require_once("genera_pagina.php");
 
   $con = new DBAccess();
   if(!$con->openConnection()) {
@@ -133,7 +133,7 @@
         '<li class="card_product product_description">' . "\n" .
           '<a href="prodotto_singolo.php?id_articolo=' .  $row['id_articolo'] . '">' . "\n" .
           '<img class="product_image" src="' .
-              Image::getImage('../../img/products/small_img/', $row['id_articolo']) . '" alt=immagine "'. $row['nome_articolo'] . '"/>' . "\n" .
+              Image::getImage('../img/products/small_img/', $row['id_articolo']) . '" alt="immagine '. $row['nome_articolo'] . '"/>' . "\n" .
           '<h3 class="product_title">' .  $row['nome_articolo'] . '</h3>' . "\n" .
           '<ul>' . "\n" .
               '<li class="product_manufacturer">' . $row["nome_ditta"] . '</li>' . "\n" .
@@ -161,12 +161,12 @@
       }
     }
   } // end if isset($_GET['search'])
-  $contenuto = file_get_contents("../../html/prodotti.html");
+  $contenuto = file_get_contents("../html/prodotti.html");
   $contenuto = str_replace("%PRODUCTS%", $productToPrint, $contenuto);
   $contenuto = str_replace("%PAGES_MENU%", $links_to_result_pages , $contenuto);
   $contenuto = str_replace("%SEX_FILTER%", $opt_sesso , $contenuto);
   $contenuto = str_replace("%CATEGORY_FILTER%", $opt_categoria , $contenuto);
   $contenuto = str_replace("%COMPANY_FILTER%", $opt_casa_prod , $contenuto);
-  $pagina = Genera_pagina::genera("../../html/base.html", "prodotti", $contenuto);
+  $pagina = Genera_pagina::genera("../html/base.html", "prodotti", $contenuto);
   echo $pagina;
 ?>

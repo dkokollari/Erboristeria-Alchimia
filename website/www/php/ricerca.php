@@ -1,7 +1,7 @@
 <?php
-  require_once("../back/DBAccess.php");
+  require_once("DBAccess.php");
 
-  $pagina = file_get_contents("../../html/ricerca.html");
+  $pagina = file_get_contents("../html/ricerca.html");
 
   if(isset($_POST['search'])) {
     $conn = new DBAccess();

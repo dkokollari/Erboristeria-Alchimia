@@ -117,6 +117,7 @@
       $pagina = str_replace("%ICONA_CARRELLO%", $icona_carrello, $pagina);
       $pagina = str_replace("%LISTA_MENU%", $lista_menu, $pagina);
       $pagina = str_replace("%CONTENUTO_PAGINA%", $contenuto, $pagina);
+      $pagina = str_replace("%SCRIPT_BODY%", $body_script, $pagina);
       return $pagina;
     }
 

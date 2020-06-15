@@ -1,10 +1,10 @@
 <?php
-  require_once("../back/session.php");
-  require_once("../back/DBAccess.php");
-  require_once("../back/validate_form.php");
+  require_once("session.php");
+  require_once("DBAccess.php");
+  require_once("validate_form.php");
 
   if($_SESSION['auth']) {
-    $pagina = file_get_contents("../../html/register.html");
+    $pagina = file_get_contents("../html/register.html");
     // sostituzione elementi di registrazione
     $pagina = str_replace('<title>Registrati - Erboristeria Alchimia</title>', '<title>Modifica profilo - Erboristeria Alchimia</title>', $pagina);
     $pagina = str_replace('<meta name="title" content="Registrati ad Erboristeria Alchimia"/>', '<meta name="title" content="Modifica il profilo di Erboristeria Alchimia"/>', $pagina);

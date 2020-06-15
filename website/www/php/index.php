@@ -1,5 +1,5 @@
 <?php
-  require_once("../back/session.php");
+  require_once("session.php");
 
   if($_SESSION['auth']) {
     echo $_SESSION['auth']."\n";

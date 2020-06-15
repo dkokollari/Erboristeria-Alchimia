@@ -1,6 +1,6 @@
 <?php
-  require_once("../back/session.php");
-  require_once("../back/DBAccess.php");
+  require_once("session.php");
+  require_once("DBAccess.php");
 
   if($_SESSION['auth']) { // utente con sessione
     header('location: index.php');
@@ -28,7 +28,7 @@
   } // end else if utente con cookie senza sessione
 
   // utente senza cookie e senza sessione
-  $pagina = file_get_contents("../../html/login.html");
+  $pagina = file_get_contents("../html/login.html");
   if($_POST['Login']) {
     $email = mysql_real_escape_string(trim($_POST['email']));
     $password = mysql_real_escape_string(trim($_POST['password']));
