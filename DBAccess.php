@@ -129,7 +129,7 @@
     ##################################################
     # gestione eventi (inserimento, visualizzazione) #
     ##################################################
-    // TODO: aggiornare parametri dei riferimenti a insertEvento() ////////////////////////////////////////////////////////////////
+
     public function insertEventi($data, $descrizione_immagine, $titolo, $relatori, $mappa, $organizzazione) {
       $query = "INSERT INTO `eventi` (`data_ora_evento`,
                                       `descrizione_immagine_evento`,

@@ -128,7 +128,7 @@ if($con->openConnection()) {
 
           $data = (new DateTime($_POST['dataora_evento']))->format('Y-m-d H:i:s');
 
-          if($con->insertEvento($descImg, $titolo,$data,$relatori, $mappa,$org)){
+          if($con->insertEventi($descImg, $titolo,$data,$relatori, $mappa,$org)){
             $id = $con->getId_Evento($titolo);
 
             $con->insertMappaEventi($mappa, $desc_map);
