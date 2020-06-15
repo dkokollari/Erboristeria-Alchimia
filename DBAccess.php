@@ -110,8 +110,8 @@
       $params = [$nome];
       return $this->getQuery($query, $types, $params, false);
     }
-
-    public function getSingoloTeInfuso($id) {
+    // TODO: aggiornare riferimento ////////////////////////////////////////////////////////////////
+    public function getSingolo_TeInfusi($id) {
       $query = "SELECT `id_te_e_infusi`,
                        `descrizione_immagine_te_e_infusi`,
                        `tipo_te_e_infusi`,
