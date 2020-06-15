@@ -5,7 +5,7 @@
   require_once("../back/control_input.php");
 
   /*if($_SESSION['tipo_utente'] != 'Admin') {
-    header('Location: website/www/php/front/redirect.php?error=3');
+    header('Location: redirect.php?error=3');
     exit;
   }*/
 

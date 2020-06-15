@@ -25,8 +25,8 @@
       $orderedProducts .=
       '<li>' . "\n" .
         '<div class="card_product product_description">' . "\n" .
-            '<img class="product_image" src="website/www/img/articoli/'.(file_exists("
-             website/www/img/articoli/".$product["id_articolo"].".jpg") ? $product["id_articolo"].'.jpg' : '0.jpg').'" alt="immagine a scopo presentazionale"/>'."\n" .
+            '<img class="product_image" src="../../img/articoli/'.(file_exists("
+             ../../img/articoli/".$product["id_articolo"].".jpg") ? $product["id_articolo"].'.jpg' : '0.jpg').'" alt="immagine a scopo presentazionale"/>'."\n" .
             '<h3 class="product_title">' . $row["nome_articolo"] . '</h3>' . "\n" .
             '<ul>' . "\n" .
                 '<li class="product_manufacturer">' . $row["nome_ditta"] . '</li>' . "\n" .
@@ -39,7 +39,7 @@
         '<ul class="recap_product">' . "\n" .
             '<li><abbr title="Quantit&agrave;">Q.ta : ' . $product["quantita"] . '</li>' . "\n" .
             '<li><abbr title="Totale">Tot</abbr>. : ' . number_format($product["quantita"] * $row["prezzo_articolo"], 2) . ' &euro;</li>' . "\n" .
-            '<li>' . '<a href="website/www/php/front/aggiunta_rimozione_prodotti_carrello.php?action=delete&id_articolo=' . $product["id_articolo"] . '">' . "\n" .
+            '<li>' . '<a href="aggiunta_rimozione_prodotti_carrello.php?action=delete&id_articolo=' . $product["id_articolo"] . '">' . "\n" .
             '<button class="button">Rimuovi</button>' . "\n" . '</a></li>' . "\n" .
         '</ul>'. "\n" .
       '</li>' .  "\n";
@@ -55,7 +55,7 @@
     }
     } // end if !empty($_SESSION["shopping_cart"])
     else {
-      $orderedProducts = '<p id="emptyCart">Il tuo carrello e\' vuoto: consulta la pagina dei nostri <a href= "website/www/php/front/prodotti.php">prodotti</a>, potremmo avere qualcosa che fa per te!<p>';
+      $orderedProducts = '<p id="emptyCart">Il tuo carrello e\' vuoto: consulta la pagina dei nostri <a href= "prodotti.php">prodotti</a>, potremmo avere qualcosa che fa per te!<p>';
     }
     $contenuto = file_get_contents("../../html/carrello.html");
     $contenuto = str_replace("%ORDERS%", $orderedProducts, $contenuto);

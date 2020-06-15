@@ -64,13 +64,13 @@
           </p>
           '.($posti_limitati ?
           '<p id="prenotazione">
-            <span>I posti sono limitati, &egrave; gradita la prenotazione</span> (i contatti si trovano <a href="website/www/html/pagina_informazioni.html#contatti">qui</a>)
+            <span>I posti sono limitati, &egrave; gradita la prenotazione</span> (i contatti si trovano <a href="../../html/pagina_informazioni.html#contatti">qui</a>)
           </p>' : "").'
         </div>
       ';
     }
 
-    /*file_put_contents("website/www/css/stylesheet.css", $style);*/
+    /*file_put_contents("../../css/stylesheet.css", $style);*/
     $contenuto = file_get_contents("../../html/eventi.html");
     $contenuto = str_replace("%LISTA_EVENTI%", $lista, $contenuto);
     $pagina = Genera_pagina::genera("../../html/base.html", "eventi", $contenuto);
