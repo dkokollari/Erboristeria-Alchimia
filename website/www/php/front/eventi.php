@@ -1,5 +1,5 @@
 <?php
-  require_once('session.php');
+  require_once("website/www/php/back/session.php");
   require_once("DBAccess.php");
   require_once("Image.php");
   require_once("genera_pagina.php");

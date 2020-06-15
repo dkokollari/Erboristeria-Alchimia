@@ -1,4 +1,5 @@
 @font-face {font-family: 'Velvetberries'; src: url("website/www/fonts/velvetberries.woff");}
+
 * { margin: 0; padding: 0;}
 
                             /* doesn't validate with older css versions */
@@ -139,6 +140,7 @@ body:not(.show-focus-outlines) [tabindex]:focus {
   margin-left: 0;
   margin-right: 0;
 }
+
 #content h2, #body_scheda_prodotto #content h1 {
   text-transform: capitalize;
   font-size: 1.8em;
@@ -293,7 +295,6 @@ margin:0.7em auto 0.7em auto;
 }
 
                           /*       LISTA DI INFUSI      */
-
 .card {
   border-radius: 7px;
   box-shadow: 0 3px 6px rgba(0,0,0,0.10), 0 3px 6px rgba(0,0,0,0.17);
@@ -400,10 +401,13 @@ margin:0.7em auto 0.7em auto;
 }
                         /*        TABLET MODE HEADER          */
 
-@media screen and (min-width:700px)   {
+@media screen and (min-width:750px)   {
 
       #container_te_e_infusi #header_image {
         background-image: url("website/www/img/home_background.jpg");
+      }
+      #container_prodotti #header_image {
+        background-image: url(img/prodotti_background.jpg);
       }
       body {
         margin-top: 10em;
@@ -476,9 +480,12 @@ margin:0.7em auto 0.7em auto;
          margin-top: 0.2em;
          margin-bottom: 0.2em;
        }
+       #totale {
+       	 clear: both;
+       }
 }
 
-@media screen and (min-width:700px) and (max-width:1024px) {
+@media screen and (min-width:750px) and (max-width:1024px) {
 
         #header_image {
           top: -10em;
@@ -1017,6 +1024,7 @@ strong {
   /* flex-grow: 1; */
   /* position: relative; */
 }
+
 @media screen and (min-width:480px) {
   #container_prodotti .card_product {
     margin-left: auto;
@@ -1053,12 +1061,12 @@ strong {
   text-align: left;
   /* margin-top: 0.5em; */
 }
+
 #container_prodotti #content .card_product .product_manufacturer {
   /* margin-top:0.5em; */
   grid-area: manufacturer;
   font-size: 0.9em;
   margin-bottom: 0.2em;
-
 }
 #container_prodotti .card_product .product_line {
   /* margin-top:0.3em; */
