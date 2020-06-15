@@ -1,0 +1,18 @@
+<h2>La mia vetrina, Online</h2>
+<p>
+  L’erboristeria oggi &egrave; il giusto equilibrio tra antichi saperi e nuove tecnologie, dove per trovare quello che fa per noi &egrave; necessario essere disposti a conoscersi profondamente.
+</p>
+<h2>Trova ci&ograve; che ti serve</h2>
+<form action="website/www/php/front/prodotti.php" method="get"> <!--ora che il method e' get va fatto controllo anche sul valore dei filtri! -->
+  <fieldset>
+    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Inserisci il nome.." name="search" title="Inserisci un nome"></input>
+    <input type="submit" value="invia"/>
+    %SEX_FILTER%
+    %CATEGORY_FILTER%
+    %COMPANY_FILTER%
+  </fieldset>
+</form>
+%PRODUCTS%
+<div class="FaiBelliILink:)">
+  %PAGES_MENU%
+</div>

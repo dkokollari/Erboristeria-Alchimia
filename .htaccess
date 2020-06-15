@@ -1,6 +1,6 @@
-ErrorDocument 404 /redirect.php
+ErrorDocument 404 /website/www/php/front/redirect.php
 
-ErrorDocument 403 /redirect.php
+ErrorDocument 403 /website/www/php/front/redirect.php
 
 #<Files ~ "\.html$">
 #Order Allow,Deny
