@@ -36,7 +36,7 @@
 
     if(isset($_GET['id'])){  // se è una modifica
       $id = $_GET['id'];
-      $getElement = $con->getSingoloTeInfuso($id);
+      $getElement = $con->getSingolo_TeInfusi($id);
       $valtipo = htmlentities($getElement[0]['tipo_te_e_infusi']);
       $valnome = htmlentities($getElement[0]['nome_te_e_infusi']);
       $valingre = htmlentities($getElement[0]['ingredienti_te_e_infusi']);
