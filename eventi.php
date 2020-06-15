@@ -21,7 +21,7 @@
     $contenuto = file_get_contents('eventi.html');
     $style = file_get_contents('stylesheet.css');
     $lista_eventi = $con->getEventi();
-    $lista_descrizione = $con->getDescrizione_eventi();
+    $lista_descrizione = $con->getDescrizione_Eventi();
 
     //necessario se il locale non è ancora impostato
     setlocale(LC_TIME, "it_IT");
