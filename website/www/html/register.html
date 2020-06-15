@@ -14,14 +14,12 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,600&amp;display=swap"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons+Round"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="../javascript/design.js"></script>
-    <script src="../javascript/date-input-polyfill.dist.js"></script>
   </head>
   <body id="login">
     %REGISTER_STATUS%
     <div id="log_in_box_container">
       <div id="log_in_box">
-        <form action="../php/front/register.php" method="post">
+        <form action="../php/register.php" method="post">
           <fieldset id="log_in_form">
             <legend><h2>Registrati</h2></legend>
             %REGISTER_ERROR%
@@ -80,5 +78,7 @@
         </form>
       </div>
     </div>
+    <script src="../javascript/design.js"></script>
+    <script src="../javascript/date-input-polyfill.dist.js"></script>
   </body>
 </html>
