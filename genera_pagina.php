@@ -6,6 +6,7 @@
 
     public function genera($base, $target, $contenuto="") {
     $pagina = file_get_contents($base);
+    $icona_carrello_ready = '<span id="cart_icon" class="material-icons-outlined top_icon">shopping_cart</span>';
     switch($target) {
       case "carrello" :
       break;
@@ -27,11 +28,20 @@
         $container_pagina = "container_informazioni";
         $lista_menu = menu_pagina::menu("informazioni.php");
         if($_SESSION['auth'] && $_SESSION['tipo_utente']=="User") {
-          $icona_carrello = '<span id="cart_icon" class="material-icons-outlined top_icon">shopping_cart</span>';
+          $icona_carrello = $icona_carrello_ready;
         }
       break;
 
       case "la_mia_storia" :
+        $titolo = "La mia storia";
+        $titolo_pagina = "La mia storia di Erboristeria Alchimia";
+        $descrizione_pagina = "Dove e come siamo nati, tutti i dettagli e le curiosità di Erboristeria Alchimia";
+        $keywords_pagina = "storia, Marika, erboristeria, alchimia";
+        $container_pagina = "container_la_mia_storia";
+        $lista_menu = menu_pagina::menu("la_mia_storia.php");
+        if($_SESSION['auth'] && $_SESSION['tipo_utente']=="User") {
+          $icona_carrello = $icona_carrello_ready;
+        }
       break;
 
       case "prodotti" :
@@ -51,7 +61,7 @@
         $container_pagina = "container_te_e_infusi";
         $lista_menu = menu_pagina::menu("teinfusi.php");
         if($_SESSION['auth'] && $_SESSION['tipo_utente']=="User") {
-          $icona_carrello = '<span id="cart_icon" class="material-icons-outlined top_icon">shopping_cart</span>';
+          $icona_carrello = $icona_carrello_ready;
         }
       break;
     }
