@@ -143,33 +143,6 @@
       return $this->getQuery($query, $types, $params, false);
     }
 
-    public function getId_Evento($titolo) {
-      $query = "SELECT `id_evento`
-                  FROM `eventi`
-                 WHERE `titolo_evento`= ?";
-      $types = "s";
-      $params = [$titolo];
-      return $this->getQuery($query, $types, $params);
-    }
-
-    public function insertDescrizioneEventi($id, $sottotitolo) {
-      $query = "INSERT INTO `descrizione_eventi` (`evento`,
-                                                  `sottotitolo`)
-                                          VALUES (?, ?)";
-      $types = "ss";
-      $params = [$id, $sottotitolo];
-      return $this->getQuery($query, $types, $params, false);
-    }
-
-    public function insertMappaEventi($mappa, $descrizione) {
-      $query = "INSERT INTO `mappe_eventi` (`indirizzo_mappe_evento`,
-                                            `descrizione_mappe_evento`)
-                                    VALUES (?, ?)";
-      $types = "ss";
-      $params = [$mappa, $descrizione];
-      return $this->getQuery($query, $types, $params, false);
-    }
-
     public function getEventi() {
       $query = "SELECT `id_evento`,
                        `data_ora_evento`,
@@ -189,6 +162,15 @@
 
     # getters eventi #
 
+    public function getId_Evento($titolo) {
+      $query = "SELECT `id_evento`
+                  FROM `eventi`
+                 WHERE `titolo_evento`= ?";
+      $types = "s";
+      $params = [$titolo];
+      return $this->getQuery($query, $types, $params);
+    }
+
     public function getDescrizione_eventi() {
       $query = "SELECT `evento`,
                        `sottotitolo`
@@ -196,9 +178,29 @@
       return $this->getQuery($query);
     }
 
-    #################################
-    # gestione utenti (inserimento) #
-    #################################
+    # setters eventi #
+
+    public function insertDescrizioneEventi($id, $sottotitolo) {
+      $query = "INSERT INTO `descrizione_eventi` (`evento`,
+                                                  `sottotitolo`)
+                                          VALUES (?, ?)";
+      $types = "ss";
+      $params = [$id, $sottotitolo];
+      return $this->getQuery($query, $types, $params, false);
+    }
+
+    public function insertMappaEventi($mappa, $descrizione) {
+      $query = "INSERT INTO `mappe_eventi` (`indirizzo_mappe_evento`,
+                                            `descrizione_mappe_evento`)
+                                    VALUES (?, ?)";
+      $types = "ss";
+      $params = [$mappa, $descrizione];
+      return $this->getQuery($query, $types, $params, false);
+    }
+
+    ################################################
+    # gestione utenti (inserimento, aggiornamento) #
+    ################################################
 
     public function insertUser($nome, $cognome, $email, $password, $data_nascita) {
       $query = "INSERT INTO `utenti` (`nome_utente`,
