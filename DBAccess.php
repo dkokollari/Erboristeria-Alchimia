@@ -216,7 +216,7 @@
     }
 
     public function updateUtenti($email_target, $nome, $cognome, $email, $password, $data_nascita) {
-      $safe_email = $this->getUser($email_target);
+      $safe_email = $this->getSingolo_Utenti($email_target);
       $safe_email = $safe_email[0]['email_utente'];
       $query = "UPDATE `utenti`
                    SET `nome_utente`= ?,
@@ -232,7 +232,7 @@
     }
 
     # getters utenti #
-    // TODO: aggiornare riferimenti ////////////////////////////////////////////////////////////////
+
     public function getSingolo_Utenti($email) {
       $query = "SELECT `nome_utente`,
                        `cognome_utente`,

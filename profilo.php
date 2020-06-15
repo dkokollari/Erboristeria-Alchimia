@@ -74,7 +74,7 @@
          echo '<span class="errore">Impossibile connettersi al database riprovare pi&ugrave; tardi</span>';
          exit;
         }
-        if($email != $_SESSION['email_utente'] && $con->getUser($email)) {
+        if($email != $_SESSION['email_utente'] && $con->getSingolo_Utenti($email)) {
           $errore = $errore_full;
         }
         else {
@@ -83,7 +83,7 @@
             $errore = $errore_sconosciuto;
           }
           else {
-            $array = $con->getUser($email);
+            $array = $con->getSingolo_Utenti($email);
             $_SESSION['nome_utente'] = $array[0]['nome_utente'];
             $_SESSION['cognome_utente'] = $array[0]['cognome_utente'];
             $_SESSION['email_utente'] = $array[0]['email_utente'];

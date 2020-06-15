@@ -45,7 +45,7 @@
           exit;
         }
 
-        if($con->getUser($email)) {
+        if($con->getSingolo_Utenti($email)) {
           $errore = $errore_full;
         }
         else {
