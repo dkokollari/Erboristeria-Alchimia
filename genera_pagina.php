@@ -20,6 +20,15 @@
       break;
 
       case "informazioni" :
+        $titolo = "Informazioni";
+        $titolo_pagina = "Informazioni di Erboristeria Alchimia";
+        $descrizione_pagina = "Informazioni utili per contattarci: qui trovi i nostri contatti, gli orari di apertura e il nostro indirizzo";
+        $keywords_pagina = "informazioni, orari, apertura, chiusura, email, mail, telefono, cellulare, posizione, mappa, erboristeria, alchimia";
+        $container_pagina = "container_informazioni";
+        $lista_menu = menu_pagina::menu("informazioni.php");
+        if($_SESSION['auth'] && $_SESSION['tipo_utente']=="User") {
+          $icona_carrello = '<span id="cart_icon" class="material-icons-outlined top_icon">shopping_cart</span>';
+        }
       break;
 
       case "la_mia_storia" :
@@ -33,7 +42,7 @@
 
       case "registrazione" :
       break;
-      
+
       case "teinfusi" :
         $titolo = "T&egrave; &amp; Infusi";
         $titolo_pagina = "T&egrave; e infusi di Erboristeria Alchimia";
