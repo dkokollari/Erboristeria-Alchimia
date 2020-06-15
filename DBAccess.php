@@ -232,8 +232,8 @@
     }
 
     # getters utenti #
-
-    public function getUser($email) {
+    // TODO: aggiornare riferimenti ////////////////////////////////////////////////////////////////
+    public function getSingolo_Utenti($email) {
       $query = "SELECT `nome_utente`,
                        `cognome_utente`,
                        `email_utente`,
