@@ -1,4 +1,5 @@
 <?php
+  require_once('session.php');
   require_once('menu_pagina.php');
 
   class Genera_pagina {
