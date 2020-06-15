@@ -9,7 +9,7 @@
 
       case "teinfusi" :
         $titolo = "T&egrave; &amp; Infusi";
-        $titolo_pagina = "T&egrave; &amp; Infusi di Erboristeria Alchimia";
+        $titolo_pagina = "T&egrave; e Infusi di Erboristeria Alchimia";
         $descrizione_pagina = "Visualizza i nostri te e infusi";
         $keywords_pagina = "te, infusi, te e infusi, erboristeria, alchimia";
         $container_pagina = "container_te_e_infusi";
@@ -26,8 +26,8 @@
     $pagina = str_replace("%CONTAINER_PAGINA%", $container_pagina, $pagina);
     $pagina = str_replace("%LISTA_MENU%", $lista_menu, $pagina);
     $pagina = str_replace("%ICONA_CARRELLO%", $icona_carrello, $pagina);
-
     return $pagina;
     }
+
   }
 ?>
