@@ -44,6 +44,12 @@
         break;
 
         case "prodotti" :
+          $titolo = "Prodotti";
+          $titolo_pagina = "Prodotti di Erboristeria Alchimia";
+          $descrizione_pagina = "I prodotti online di Erboristeria Alchimia. Qualità, sicurezza e convenienza garantiti";
+          $keywords_pagina = "prodotto, prodotti, cosmetici, alimentari, erboristeria, alchimia";
+          $container_pagina = "container_prodotti";
+          $lista_menu = menu_pagina::menu("prodotti.php");
         break;
 
         case "profilo" :
