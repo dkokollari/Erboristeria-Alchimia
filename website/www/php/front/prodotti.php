@@ -2,7 +2,7 @@
   require_once("../back/DBAccess.php");
   require_once("../back/Image.php");
   require_once("../back/Utilities.php");
-  require_once("../back/genera_pagine.php");
+  require_once("../back/genera_pagina.php");
 
   $con = new DBAccess();
   if(!$con->openConnection()) {
