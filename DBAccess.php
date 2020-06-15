@@ -161,8 +161,8 @@
     }
 
     # getters eventi #
-
-    public function getId_Evento($titolo) {
+    // TODO: aggiornare riferimenti ////////////////////////////////////////////////////////////////
+    public function getId_Eventi($titolo) {
       $query = "SELECT `id_evento`
                   FROM `eventi`
                  WHERE `titolo_evento`= ?";
