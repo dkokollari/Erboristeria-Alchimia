@@ -1,10 +1,10 @@
 <?php
-  require_once("website/www/php/back/session.php");
-  require_once("website/www/php/back/DBAccess.php");
-  require_once("website/www/php/back/Image.php");
+  require_once("session.php");
+  require_once("DBAccess.php");
+  require_once("Image.php");
 
   if($_SESSION['tipo_utente'] != 'Admin'){
-    header('Location: website/www/php/front/redirect.php?error=3');
+    header('Location: ../front/redirect.php?error=3');
     exit;
   }
 
@@ -14,18 +14,18 @@
 
   if($con->openConnection()) {
     if($con->deleteTeInfusi($id)) {
-  	   $img->deleteImage("website/www/img/te_e_infusi/".$id."jpg");
+  	   $img->deleteImage("../../img/te_e_infusi/".$id."jpg");
      }
      else {
-       header('Location: website/www/php/front/redirect.php?error=4');
+       header('Location: ../front/redirect.php?error=4');
        exit;
      }
    } // end if $con->openConnection()
    else {
-     header('Location: website/www/php/front/redirect.php?error=1');
+     header('Location: ../front/redirect.php?error=1');
      exit;
    }
 
-  header('Location: website/www/php/front/modifica_teInfusi.php');
+  header('Location: ../front/modifica_teInfusi.php');
   exit;
 ?>
