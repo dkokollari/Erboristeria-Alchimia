@@ -214,8 +214,8 @@
       $params = [$nome, $cognome, $email, $hidden, $data_nascita];
       return $this->getQuery($query, $types, $params, false);
     }
-
-    public function updateUser($email_target, $nome, $cognome, $email, $password, $data_nascita) {
+    // TODO: aggiornare riferimenti ////////////////////////////////////////////////////////////////
+    public function updateUtenti($email_target, $nome, $cognome, $email, $password, $data_nascita) {
       $safe_email = $this->getUser($email_target);
       $safe_email = $safe_email[0]['email_utente'];
       $query = "UPDATE `utenti`
