@@ -18,6 +18,9 @@
       $ingredienti = DBAccess::nl2p(htmlentities($row["ingredienti_te_e_infusi"]));
       $descrizione = DBAccess::nl2p(htmlentities($row["descrizione_te_e_infusi"]));
       $preparazione = DBAccess::nl2p(htmlentities($row["preparazione_te_e_infusi"]));
+      $logged_admin = (($_SESSION['auth'] && $_SESSION['tipo_utente']=="Admin")
+                       ? true
+                       : false);
 
       $lista .=
         '<div class="card collapsed" title="'.$nome.'. Premi per espandere la descrizione">
@@ -30,7 +33,7 @@
           <p>'.$descrizione.'</p>
           <h4>Preparazione</h4>
           <p>'.$preparazione.'</p>
-           '.($_SESSION['auth'] && $_SESSION['tipo_utente']=="Admin"
+           '.($logged_admin
        ? '<a href="form_teinfusi.php?id='.$id.'">Modifica</a>
           <a href="deleteTeInfusi.php?id='.$id.'">Rimuovi</a>'
        : '').'
@@ -40,9 +43,9 @@
     }
 
     $contenuto = file_get_contents('teinfusi.html');
-    $contenuto = ($_SESSION['auth'] && $_SESSION['tipo_utente']=="Admin"
-                  ? str_replace("%NEW_TE_O_INFUSI%", '<a href="form_teinfusi.php">Aggiungi un nuovo T&egrave; o Infuso</a>', $contenuto)
-                  : str_replace("%NEW_TE_O_INFUSI%", '', $contenuto));
+    $contenuto = ($logged_admin
+                 ? str_replace("%NEW_TE_O_INFUSI%", '<a href="form_teinfusi.php">Aggiungi un nuovo T&egrave; o Infuso</a>', $contenuto)
+                 : str_replace("%NEW_TE_O_INFUSI%", '', $contenuto));
     $contenuto = str_replace("%LISTA_TE_E_INFUSI%", $lista, $contenuto);
     $pagina = Genera_pagina::genera("base.html", "teinfusi", $contenuto);
     echo $pagina;
