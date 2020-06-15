@@ -43,14 +43,14 @@
     $ingredienti =  '<p>' . $row['descrizione_articolo'] . '</p>'; /// WARNING: cè bisogno di un attributo 'preparazione' a db!
 
     if(!isset($_SESSION['tipo_utente'])) {
-      $pagina = str_replace('%ADD_TO_CART%' , $iscriviti , $pagina);
-    } else if($_SESSION['tipo_utente'] == "user") {
+      $pagina = str_replace('%ADD_TO_CART%', $iscriviti , $pagina);
+    } else if($_SESSION['tipo_utente'] == "User") {
       $pagina = str_replace(
-        '%ADD_TO_CART%' ,
-        '<a class="classic_btn" href="carrello.php?add_to_cart&amp;id_articolo='.$id_articolo.'&amp;nome_articolo='.$nome.'&amp;prezzo_articolo='.$prezzo.'>aggiungi al carrello</a>',
+        '%ADD_TO_CART%',
+        '<a class="classic_btn" href="carrello.php?add_to_cart&amp;id_articolo='.$id_articolo.'&amp;nome_articolo="'.urlencode($nome).'"&amp;prezzo_articolo='.$prezzo.'>aggiungi al carrello</a>',
         $pagina);
-    } else if($_SESSION['tipo_utente'] == "admin") {
-      $pagina = str_replace('%ADD_TO_CART%' , '' , $pagina);
+    } else if($_SESSION['tipo_utente'] == "Admin") { //// WARNING: all'admin non faccio vedere tasto aggiungi
+        $pagina = str_replace('%ADD_TO_CART%' , '' , $pagina);
     }
 
     $conn->closeConnection();

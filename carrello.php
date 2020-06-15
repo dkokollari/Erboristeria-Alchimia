@@ -1,7 +1,7 @@
 <?php
   /*-------------------INIZIO SESSIONE-----------------*/
   session_start();
-  require_once("Utilities");
+  require_once("Utilities.php");
   $orderedProducts = '';
   if(isset($_SESSION['email_utente']) ||
       (isset($_COOKIE['email']) && isset($_COOKIE['password']))) {
@@ -38,26 +38,30 @@
           , 'quantita' => 1
           );
       }
-      $pagina = file_get_contents('prodotto_singolo.php');
-      $redirect = 'prodotto_singolo.php?id_articolo=' .
-         Utilities::getNumericValue('id_articolo');
 
-      header('location:' . $_POST['redirect']);
+      ob_start();
+      $redirect = 'prodotto_singolo.php?id_articolo='.Utilities::getNumericValue('id_articolo');
+      include_once '$redirect';
+      $pagina = ob_get_clean();
+      $pagina = str_replace('<h1>Scheda Prodotto</h1>' ,
+      '<p class="addedProduct">Prodotto aggiunto al carrello</p>'. "\n" .'<h1>Scheda Prodotto</h1>' , $pagina);
+      /*header('location:' . $redirect);*/
+      echo $pagina;
     }
   }
 
-    if($_GET['action'] == 'delete') {
-      foreach($_SESSION['shopping_cart'] as $key => $product) {
-        if($product['id_articolo'] ==  Utilities::getNumericValue('id_articolo')) {
-          unset($_SESSION['shopping_cart'][$key]);
-        }
+  if($_GET['action'] == 'delete') {
+    foreach($_SESSION['shopping_cart'] as $key => $product) {
+      if($product['id_articolo'] ==  Utilities::getNumericValue('id_articolo')) {
+        unset($_SESSION['shopping_cart'][$key]);
       }
-     $_SESSION['shopping_cart'] = array_values($_SESSION['shopping_cart']);
     }
+   $_SESSION['shopping_cart'] = array_values($_SESSION['shopping_cart']);
+  }
   /*-------------------------FINE SESSIONE(Meglio metterla in un file a parte!)----------------------------*/
 
 
-require_once("DBAccess");
+require_once("DBAccess.php");
 $pagina = file_get_contents('carrello.html');
 $total = 0;
 $orderedProducts = '';
@@ -114,7 +118,7 @@ if(!empty($_SESSION["shopping_cart"])) {
 
   if(isset($_SESSION['shopping_cart'])
       && count($_SESSION['shopping_cart']) > 0) {
-        $orderedProducts .= '<a href="prodotto_singolo.php?id_articolo=' .  . ' class="button" id="checkout">Checkout</a>'  . "\n";
+        $orderedProducts .= '<a href="prodotto_singolo.php?id_articolo=' . $product["id_articolo"] . ' class="button" id="checkout">Checkout</a>'  . "\n";
   }
 } else {
   $orderedProducts = '<p id="emptyCart">Il tuo carrello e\' vuoto: consulta la pagina dei nostri <a href= "articoli.php">prodotti</a>,
