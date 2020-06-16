@@ -122,6 +122,10 @@ body:not(.show-focus-outlines) [tabindex]:focus {
 
                                         /*       CONTENT       */
 
+ul {
+  list-style: none;
+}
+
 #content {
   /* padding: 1.8em 8% 1em 8%; */
   background-color: rgb(245,245,245);
