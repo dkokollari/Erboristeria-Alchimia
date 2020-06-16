@@ -1,4 +1,4 @@
-ss@font-face {font-family: 'Velvetberries'; src: url(fonts/velvetberries.woff);}
+@font-face {font-family: 'Velvetberries'; src: url(fonts/velvetberries.woff);}
 * { margin: 0; padding: 0;}
 
                             /* doesn't validate with older css versions */
@@ -352,7 +352,7 @@ margin:0.7em auto 0.7em auto;
 
 
 
-                          /*        EVENTI 
+                          /*        EVENTI
             #content .card.eventi img { //id messo per essere piu potente dell'altra proprieta per schermi grandi
               margin-right: 10%;
               margin-left: 10%;
