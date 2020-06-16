@@ -152,10 +152,10 @@
     $links_to_result_pages = '';
     for($n_page=1; $n_page<=$total_pages; ++$n_page) {
       if($n_page != $page) {
-        $links_to_result_pages .= '<a href="prodotti.php?page=' . $n_page . "&amp;search=$search_value&amp;sesso=$sex_filter" .
+        $links_to_result_pages .= '<a class="classic_btn" href="prodotti.php?page=' . $n_page . "&amp;search=$search_value&amp;sesso=$sex_filter" .
         "&amp;categoria=$categ_filter&amp;casa_prod=$casa_prod_filter" . '">' . $n_page . '</a>' . "\n";
       } else {
-        $links_to_result_pages .= "<span>$page</span>"; //tolgo link circolari
+        $links_to_result_pages .= '<span class="classic_btn">'.$page.'</span>'; //tolgo link circolari
       }
     }
 
