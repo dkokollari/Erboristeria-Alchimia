@@ -61,15 +61,15 @@ body {
 }
                                   /* overwrite default button rules */
 button {
-  cursor: pointer;
-  border: none;
-  outline: none;
+  /* cursor: pointer;
+  border: none; */
+  /* outline: none;
   text-align: left;
   font: 300 1em 'Poppins', sans-serif;
   display: block;    /* resolves other elements margin problem (I am looking at YOU, menu button)*/
-  background: inherit;
+  /*background: inherit;
   -webkit-tap-highlight-color: rgba(0,0,0,0);
-  -webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: transparent; */
 }
 /* body:not(.show-focus-outlines) button:focus,
 body:not(.show-focus-outlines) [tabindex]:focus {
@@ -1549,6 +1549,8 @@ z-index: -1; */
               transition: all 0.5s ease;
             }
             #right-of-menu {
+              cursor: pointer;
+              border: none;
               top: 0;
               position: fixed;
               opacity: 0;
