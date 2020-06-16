@@ -153,11 +153,11 @@ function expandCard() {
   this.lastElementChild.classList.toggle("rotated");
 }
 
-
-document.getElementById("torna_su_btn").addEventListener('click', function () {
-      window.scrollTo(0,0);
-});
-
+// 
+// document.getElementById("torna_su_btn").addEventListener('click', function () {
+//       window.scrollTo(0,0);
+// });
+//
 
 
 

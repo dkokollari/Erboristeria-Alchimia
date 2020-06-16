@@ -30,7 +30,7 @@
   --borderRadius: 6px;
 
 }
-/* activate border outline for keyboard navigation */
+/* activate border outline for easier keyboard navigation */
 /* I added 'em all, you never know....*/
 body.show-focus-outlines a:focus,
 body.show-focus-outlines button:focus,
@@ -41,6 +41,7 @@ body.show-focus-outlines textarea:focus
 {
   outline: 4px solid red;
   }
+/* smooth scroll in anchors (torna all'inizio della pagina, scopri il sito, eccetera) */
 html {
   scroll-behavior: smooth;
 }
@@ -51,7 +52,7 @@ html {
 a {
   text-decoration: none;
   color: inherit;
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 body {
   font: 300 1em 'Poppins', sans-serif;
