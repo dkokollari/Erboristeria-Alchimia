@@ -405,7 +405,7 @@ margin:0.7em auto 0.7em auto;
 }
                         /*        TABLET MODE HEADER          */
 
-@media screen and (min-width:750px)   {
+/* @media screen and (min-width:750px)   {
 
       #container_te_e_infusi #header_image {
         background-image: url(img/home_background.jpg);
@@ -471,7 +471,7 @@ margin:0.7em auto 0.7em auto;
          min-height: 90%;
        }
 
-       } */
+       }
        #footer li{
          width: 7em;
 
@@ -494,12 +494,12 @@ margin:0.7em auto 0.7em auto;
           top: 0em;
         }
 
-}
+} */
                         /*        DESKTOP MODE HEADER          */
 
 /* added "body" to almost every rule to increase specificity, but instead I should just create a different @media for mobile */
 
-@media screen and (min-width: 1025px) {
+/* @media screen and (min-width: 1025px) {
 
       body{
         margin-top: 250px;
@@ -537,7 +537,7 @@ margin:0.7em auto 0.7em auto;
         top: 20px;
 
       }
-}
+} */
 
 
                             /*     CONSIGLI DI MARIKA       */
@@ -1787,6 +1787,9 @@ z-index: -1; */
          margin-right: 1em;
          margin-top: 0.2em;
          margin-bottom: 0.2em;
+       }
+       #totale {
+          clear: both;
        }
 }
 
