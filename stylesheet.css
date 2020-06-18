@@ -32,7 +32,7 @@
 }
 /* activate border outline for easier keyboard navigation */
 /* I added 'em all, you never know....*/
-body.show-focus-outlines a:focus,
+/* body.show-focus-outlines a:focus,
 body.show-focus-outlines button:focus,
 body.show-focus-outlines [tabindex]:focus,
 body.show-focus-outlines input:focus,
@@ -40,7 +40,7 @@ body.show-focus-outlines select:focus,
 body.show-focus-outlines textarea:focus
 {
   outline: 4px solid red;
-  }
+  } */
 /* smooth scroll in anchors (torna all'inizio della pagina, scopri il sito, eccetera) */
 html {
   scroll-behavior: smooth;
@@ -460,10 +460,7 @@ margin:0.7em auto 0.7em auto;
        #menu .selected_page {
          background-color: var(--yellow-main);
        }
-       /*  for those that use the tablet with a mouse :) */
        #menu li a:hover {
-         /* color: var(--yellow-dark); */
-         /* border-bottom: var(--yellow-dark) dashed; */
          border-bottom: var(--grey-dark) solid;
        }
        #footer {
@@ -473,12 +470,11 @@ margin:0.7em auto 0.7em auto;
          margin-top: 0;
          min-height: 90%;
        }
-       /* #footer li > * {
-       padding: 0.5em;
+
        } */
        #footer li{
          width: 7em;
-         /* height: 1.8em; */
+
          margin-left: 1em;
          margin-right: 1em;
          margin-top: 0.2em;
@@ -1192,17 +1188,17 @@ strong {
   transform: translateY(-8.45em);
   filter: brightness(1);
 }
-#body_scheda_prodotto #topbar {
-  overflow: hidden;
+/* #body_scheda_prodotto #topbar { */
+  /* overflow: hidden; */
   /* z-index: -2; */
-  visibility: hidden;
-  background: rgb(0,0,0);
-  background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 100%);
-}
+  /* visibility: hidden;
+  background: rgb(0,0,0); */
+  /* background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 100%);
+} */
 
 
 
-#body_scheda_prodotto #topbar:after {
+/* #body_scheda_prodotto #topbar:after {
 content: "";
 height: 100%;
 width: 100%;
@@ -1210,30 +1206,30 @@ position: absolute;
 top: 0;
 background: rgb(0,0,0);
 background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 100%);
-}
+} */
 #topbar_container_shadow {
   position: fixed;
   top: 0;
   height: 6em;
   width: 100%;
   /* z-index: 1; */
-  background: rgb(0,0,0);
+  /* background: rgb(0,0,0); */
   background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 100%);
   z-index: 2;
 }
 
-#body_scheda_prodotto #topbar_title {
-  transition: 0.5s;
+/* #body_scheda_prodotto #topbar_title { */
+  /* transition: 0.5s; */
   /* background-color: rgb(0,0,0,0.15); */
-  background: rgb(0,0,0);
-  background: linear-gradient(180deg, rgba(0,0,0,0.0) 0%, rgba(0,0,0,0.4) 100%);
-  text-shadow: 0px 0px 6px rgb(0,0,0,0.6);
+  /* background: rgb(0,0,0); */
+  /* background: linear-gradient(180deg, rgba(0,0,0,0.0) 0%, rgba(0,0,0,0.4) 100%); */
+  /* text-shadow: 0px 0px 6px rgb(0,0,0,0.6); */
 
-}
-#body_scheda_prodotto #topbar.visible_topbar {
+/* } */
+/* #body_scheda_prodotto #topbar.visible_topbar { */
   /* z-index: 2; */
-  visibility: visible;
-}
+  /* visibility: visible; */
+/* } */
 #body_scheda_prodotto #content h2 {
   /* margin-left: 0;
   margin-right: 0; */
@@ -1333,8 +1329,8 @@ repeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeat */
   overflow: hidden;
   /* z-index: -2; */
   visibility: hidden;
-  background: rgb(0,0,0);
-  background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 100%);
+  /* background: rgb(0,0,0); */
+  /* background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 100%); */
 }
 /* erase :before */
 #topbar_image{
@@ -1347,15 +1343,10 @@ repeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeat */
   transform: translateY(-9.8em);
   filter: brightness(0.7);
 }
-#topbar_title {
-  color: white;
-  transition: 0.5s;
-  /* background-color: rgb(0,0,0,0.15); */
-  background: rgb(0,0,0);
-  background: linear-gradient(180deg, rgba(0,0,0,0.0) 0%, rgba(0,0,0,0.4) 100%);
-  text-shadow: 0px 0px 6px rgb(0,0,0,0.6);
+/* #topbar_title {
 
-}
+
+} */
 
 #topbar:after {
 content: "";
@@ -1363,7 +1354,7 @@ height: 100%;
 width: 100%;
 position: absolute;
 top: 0;
-background: rgb(0,0,0);
+/* background: rgb(0,0,0); */
 background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 100%);
 }
 
@@ -1388,7 +1379,7 @@ background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 100%);
   filter: brightness(0.45);
 }
 .container.home.container #content {
-  background: rgb(245,245,245);
+  /* background: rgb(245,245,245); */
   background: linear-gradient(180deg, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 3em, rgba(245,245,245,1) 8em);
 }
 .container.home #content .home_subtitle:first-child {
@@ -1398,23 +1389,23 @@ background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 100%);
 }
 /*
 z-index: -1; */
-.container.home #topbar.visible_topbar {
+/* .container.home #topbar.visible_topbar { */
   /* z-index: 2; */
-  visibility: visible;
-}
-.container.home #topbar {
-  overflow: hidden;
+  /* visibility: visible; */
+/* } */
+/* .container.home #topbar { */
+  /* overflow: hidden; */
   /* z-index: -2; */
-  visibility: hidden;
-  background: rgb(0,0,0);
-  background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 100%);
-}
+  /* visibility: hidden; */
+  /* background: rgb(0,0,0); */
+  /* background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 100%); */
+/* } */
 .container.home #topbar_title {
-  transition: 0.5s;
+  /* transition: 0.5s; */
   background: transparent;
   /* background: rgb(0,0,0);
   background: linear-gradient(180deg, rgba(0,0,0,0.0) 0%, rgba(0,0,0,0.4) 100%); */
-  text-shadow: 0px 0px 6px rgb(0,0,0,0.6);
+  /* text-shadow: 0px 0px 6px rgb(0,0,0,0.6); */
 
 }
 #benvenuti {
@@ -1608,20 +1599,20 @@ z-index: -1; */
               right: 0;
               margin-right: 0.2em;
             }
-            #container_informazioni #topbar:before {
+            /* #container_informazioni #topbar:before {
               background-image: url(img/informazioni_background.jpg);
-            }
+            } */
 
-            #container_te_e_infusi #topbar:before {
+            /* #container_te_e_infusi #topbar:before {
               background-image: url(img/home_background_mobile.jpg);
-            }
+            } */
             /*  TODO: remember to reduce image size for loading time and performance*/
-            #container_la_mia_storia #topbar:before {
+            /* #container_la_mia_storia #topbar:before {
               background-image: url(img/la_mia_storia_background.jpg);
-            }
-            .container #topbar:before {
+            } */
+            /* .container #topbar:before {
               background-image: url(img/prodotti_background_mobile.jpg);
-            }
+            } */
 
             /* #topbar:before {
               content: "";
@@ -1645,7 +1636,7 @@ z-index: -1; */
             }
             #topbar_title {
               padding-top: 0;
-              background-color: rgba(0,0,0,0.1);
+              /* background-color: rgba(0,0,0,0.1); */
               text-transform: capitalize;
               font-size: 2.5em;
               padding-left: 1.5em;
@@ -1656,10 +1647,17 @@ z-index: -1; */
               opacity: 0;
               transition: opacity 2s ease;
               text-align: left;       /* overwrite h1 property */
-              position: static;       /* overwrite h1 property */
-              text-shadow: none;      /* overwrite h1 property */
+              /* position: static;       /* overwrite h1 property */
+              /* text-shadow: none;      /* overwrite h1 property */
               position: relative;
               z-index: 2;
+              transition: 0.5s;
+              color: white;
+              /* transition: 0.5s; */
+              /* background-color: rgb(0,0,0,0.15); */
+              background: rgb(0,0,0);
+              background: linear-gradient(180deg, rgba(0,0,0,0.0) 0%, rgba(0,0,0,0.4) 100%);
+              text-shadow: 0px 0px 6px rgb(0,0,0,0.6);
             }
             #topbar_title.nopacity {
               opacity: 1;
