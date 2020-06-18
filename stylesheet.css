@@ -57,10 +57,10 @@ a {
 body {
   font: 300 1em 'Poppins', sans-serif;
   /* background-color: rgb(245,245,245); */
-  background-color: #fff;
+  /* background-color: #fff; */
 }
                                   /* overwrite default button rules */
-button {
+/* button { */
   /* cursor: pointer;
   border: none; */
   /* outline: none;
@@ -70,7 +70,7 @@ button {
   /*background: inherit;
   -webkit-tap-highlight-color: rgba(0,0,0,0);
   -webkit-tap-highlight-color: transparent; */
-}
+/* } */
 /* body:not(.show-focus-outlines) button:focus,
 body:not(.show-focus-outlines) [tabindex]:focus {
   outline: none;
@@ -176,9 +176,9 @@ h4, #menu li {                                     /*       DA RIVERE         */
   color: var(--yellow-dark);
   margin:1em;
   font-weight: bold;
-  list-style-type: none;
+  /* list-style-type: none; */
 }
-#content p {
+#content > p {
   line-height: 1.8em;
   margin-bottom:1.5em;
   margin-top: 1.5em;
@@ -1149,11 +1149,11 @@ strong {
   color: rgba(245, 245, 245);
 }
 
-#body_scheda_prodotto {
-  background-color: #fff;
+/* #body_scheda_prodotto {
+  background-color: #fff; */
   /* z-index: -2;
   position: relative; */
-}
+/* } */
 #container_scheda_prodotto #immagine_prodotto{
   object-fit: contain;
   height: 20em;
