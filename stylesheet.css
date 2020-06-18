@@ -1,83 +1,17 @@
 @font-face {font-family: 'Velvetberries'; src: url(fonts/velvetberries.woff);}
 * { margin: 0; padding: 0;}
-
-                            /* doesn't validate with older css versions */
-/* :root {
-
-  --green-dark: #00796b;
-  --green-main: #009688;
-  --green-light: #e0f2f1;
-
-  --red-dark: #b9463e;
-  --red-main: #fe5f55;
-  --red-light: #fec4c1;
-
-  --orange-dark: #d17a48;
-  --orange-main: #ff9557;
-  --orange-light: #ffe2d1; */
-
-  /* --yellow-dark: #ba954b; */
-  /* --yellow-dark: #009688;
-  --yellow-main: #ffcc67;
-  --yellow-light: #fff1d5;
-
-  --grey-dark: #404354;
-  --grey-main: #4e5166;
-  --grey-light: #bfbfca;
-
-  --accent3Shade1: #ffdde0;
-  --accent3Shade4: #d32f2f;
-  --borderRadius: 6px;
-
-} */
-/* activate border outline for easier keyboard navigation */
-/* I added 'em all, you never know....*/
-/* body.show-focus-outlines a:focus,
-body.show-focus-outlines button:focus,
-body.show-focus-outlines [tabindex]:focus,
-body.show-focus-outlines input:focus,
-body.show-focus-outlines select:focus,
-body.show-focus-outlines textarea:focus
-{
-  outline: 4px solid red;
-  } */
-/* smooth scroll in anchors (torna all'inizio della pagina, scopri il sito, eccetera) */
 html {
   scroll-behavior: smooth;
 }
 
-/* html, body {
-  height: 100%;
-} */
 a {
   text-decoration: none;
   color: inherit;
-  /* cursor: pointer; */
 }
 body {
   font: 300 1em 'Poppins', sans-serif;
-  /* background-color: rgb(245,245,245); */
-  /* background-color: #fff; */
 }
-                                  /* overwrite default button rules */
-/* button { */
-  /* cursor: pointer;
-  border: none; */
-  /* outline: none;
-  text-align: left;
-  font: 300 1em 'Poppins', sans-serif;
-  display: block;    /* resolves other elements margin problem (I am looking at YOU, menu button)*/
-  /*background: inherit;
-  -webkit-tap-highlight-color: rgba(0,0,0,0);
-  -webkit-tap-highlight-color: transparent; */
-/* } */
-/* body:not(.show-focus-outlines) button:focus,
-body:not(.show-focus-outlines) [tabindex]:focus {
-  outline: none;
-} */
-
                                   /*       HEADER       */
-
 #title {
   text-align: center;
   /* width: 100%; */
@@ -89,21 +23,7 @@ body:not(.show-focus-outlines) [tabindex]:focus {
   z-index: -1;
   text-shadow: 0px 0px 6px rgba(0, 0, 0, 0.9);
 }
-/* #title span {
-  margin-left: 40vw;
-} */
 
-
-/* #container_informazioni #header_image {
-  background-image: url(img/informazioni_background.jpg);
-}
-
-#container_la_mia_storia #header_image {
-  background-image: url(img/la_mia_storia_background.jpg);
-}
-.container #header_image {
-  background-image: url(img/prodotti_background.jpg);
-} */
 #header_image {
   background-repeat: no-repeat;
   background-size: 100%;
@@ -113,24 +33,13 @@ body:not(.show-focus-outlines) [tabindex]:focus {
   height: 30em;
   z-index: -1;
   filter: brightness(0.65);
-  /* pointer-events: none; */
 }
-
-/* #top_of_page {
-  position: absolute;
-  top: 0;
-} */
-
                                         /*       CONTENT       */
-
 ul {
   list-style: none;
 }
-
 #content {
-  /* padding: 1.8em 8% 1em 8%; */
   background-color: rgb(245,245,245);
-  /* TODO should make background-color: 245 */
   margin-bottom: 14.5em;
   padding-top: 4em;
   padding-bottom: 2em;
@@ -144,45 +53,36 @@ ul {
   margin-left: 0;
   margin-right: 0;
 }
-
 #content h2, #body_scheda_prodotto #content h1 {
   text-transform: capitalize;
   font-size: 1.8em;
   letter-spacing: 0.1em;
-  /* margin-left: 1.8rem;
-  margin-right: 1.8rem; */
   font-weight: 300;
-  /* text-align: center; */
   color: #009688;
 }
-/* TODO queste proprieta' generiche non vanno cosi'bene */
 h3 {
-  /* text-align: center; */
   font-size: 1.1em;
-  /* font-weight: 600; */
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: #009688;
-  margin: 0em 7% 0em 7.2em; /*Fouad: ora l'h3 e' accanto data evento al posto immagine*/
+  margin: 0em 7% 0em 7.2em;
 }
 .card.eventi h3 {
   margin: 0.5em 5% 0.5em 5%;
 }
 
-h4, #menu li {                                     /*       DA RIVERE         */
+h4, #menu li {
   text-transform: uppercase;
   letter-spacing: 0.02em;
   text-align: center;
   color: #009688;
   margin:1em;
   font-weight: bold;
-  /* list-style-type: none; */
 }
 #content > p {
   line-height: 1.8em;
   margin-bottom:1.5em;
   margin-top: 1.5em;
-  /* letter-spacing: 0.02em; */
 }
 .rotated {
 transform: rotate(-180deg);
@@ -226,8 +126,6 @@ justify-content: center;
 }
 #footer_menu {
 font-weight: 600;
-/* border-top: #bfbfca solid 1px;
-padding-top: 1em; */
 }
 
 #footer li{
@@ -240,9 +138,6 @@ padding-top: 1em; */
 border-bottom: #bfbfca dotted 1px;
 }
 #footer li > * {
-  /* display: block; */
-  /* height: 100%; */
-  /* line-height: 1.8em; */
     padding-top:0.2em;
     padding-bottom: 0.1em;
 }
@@ -357,23 +252,6 @@ margin:0.7em auto 0.7em auto;
 
 
 
-                          /*        EVENTI
-            #content .card.eventi img { //id messo per essere piu potente dell'altra proprieta per schermi grandi
-              margin-right: 10%;
-              margin-left: 10%;
-              width: 80%;
-              float: none;
-            }
-
-            .card.eventi ul {
-              clear: both;
-              margin: 0.5em 5% 2em 7%;
-            }
-            /* #footer li > * {
-            padding: 0.1em 0.3em 0.1em 0.3em;
-            } */
-
-/* .card span {} */
 #eventi #prenotazione span {
   font-weight: bold;
   text-transform: uppercase;
@@ -403,142 +281,6 @@ margin:0.7em auto 0.7em auto;
   background-repeat: no-repeat;
   padding-left: 1.6em;
 }
-                        /*        TABLET MODE HEADER          */
-
-/* @media screen and (min-width:750px)   {
-
-      #container_te_e_infusi #header_image {
-        background-image: url(img/home_background.jpg);
-      }
-      .container #header_image {
-        background-image: url(img/prodotti_background.jpg);
-      }
-      body {
-        margin-top: 10em;
-      }
-
-      #right-of-menu, #menu_icon, .menu_btn,#menu li.menu_btn, #topbar, #menu button:first-child {
-         display: none;
-       }
-       .container {
-         width:100vw;
-       }
-
-       #content {
-         margin-top: 0;
-       }
-       #menu {
-         z-index: 5;
-         height: 2.8em;
-         margin-top:0;
-         position: sticky;
-         top:0;
-         background-color: #fff1d5;
-         transform: translateX(0);
-         text-align: center;
-       }
-       #menu ul {
-         text-align: center;
-         display: flex;
-         height: 100%;
-       }
-       #menu li {
-         display: flex;
-         justify-content: center;
-         color: #404354;
-         flex-grow: 1;
-         margin: auto;
-         height: 100%;
-       }
-       #menu li > * {
-         margin: auto;
-         color: #404354;
-       }
-       #menu li > a {
-         border-bottom: #404354 dashed;
-       }
-       #menu .selected_page {
-         background-color: #ffcc67;
-       }
-       #menu li a:hover {
-         border-bottom: #404354 solid;
-       }
-       #footer {
-           width: 100%;
-       }
-       body #content {
-         margin-top: 0;
-         min-height: 90%;
-       }
-
-       }
-       #footer li{
-         width: 7em;
-
-         margin-left: 1em;
-         margin-right: 1em;
-         margin-top: 0.2em;
-         margin-bottom: 0.2em;
-       }
-       #totale {
-       	 clear: both;
-       }
-}
-
-@media screen and (min-width:750px) and (max-width:1024px) {
-
-        #header_image {
-          top: -10em;
-        }
-        h1 {
-          top: 0em;
-        }
-
-} */
-                        /*        DESKTOP MODE HEADER          */
-
-/* added "body" to almost every rule to increase specificity, but instead I should just create a different @media for mobile */
-
-/* @media screen and (min-width: 1025px) {
-
-      body{
-        margin-top: 250px;
-      }
-      .container {
-        margin: 0 auto 0 auto;
-        box-shadow: 0 3px 6px rgba(0,0,0,0.10), 0 3px 6px rgba(0,0,0,0.17);
-      }
-
-      .container, #header_image, h1, body #footer {
-              width: 1001px;
-        }
-
-      #informazioni #orari li {
-        display: block;
-        text-align: center;
-        margin-left: 30%;
-      }
-
-      #informazioni li p {
-          float: left;
-      }
-
-      #informazioni .giornoSett {
-        min-width: 20%;
-        float: left;
-      }
-
-      #header_image {
-        top: -300px;
-        height: 40em;
-      }
-      h1 {
-        font-size: 11em;
-        top: 20px;
-
-      }
-} */
-
 
                             /*     CONSIGLI DI MARIKA       */
 
@@ -637,15 +379,11 @@ margin:0.7em auto 0.7em auto;
   transition: none;
 }
 .card h4 {
-  margin: 1.2em 5% 0.7em 5%; /*WARNING(FOUAD) messo 5% al posto 7% dx e sx ovunque!*/
+  margin: 1.2em 5% 0.7em 5%;
   line-height: 1.1em;
-  /*display: flex; Fouad: scusa l'ignoranza Do, ma mi pare senza senso!*/
-  /*align-items: center;
-  justify-content: center;*/
   height: 2em;
   transition: 0.4s ease;
   text-align: left;
-  /*margin-top: 11.5em; WARNING: (Fouad): maybe it messes with the js if commented!!!*/
 }
 .card .expand_btn {
   position: absolute;
@@ -669,7 +407,7 @@ margin:0.7em auto 0.7em auto;
 }
 
 .card ul {
-  list-style: disc; /*FOUAD: brutto, ma si deve capire che è una lista per facilità di lettura! Stronzi, cosi imparate a bocciarmi le ampolle!*/ /*WARNING: BRUH*/
+  list-style: disc;
   margin: 0.5em 5% 2em 20.5em;
 }
 .card ul li {
@@ -702,7 +440,7 @@ margin:0.7em auto 0.7em auto;
   margin-top: 2em;
 }
 
-#eventi .card {  /*in questo modo eredito il colore di sfondo dal body, quindi il bianco!(da verificare su tutti i browser)*/
+#eventi .card {
   background-color: initial;
 }
 .data span {
@@ -714,7 +452,7 @@ margin:0.7em auto 0.7em auto;
   text-align: center;
   font-weight: bold;
   letter-spacing: 0.1em;
-  width: 16em; /*FOUAD: altezza e larghezza rimangono a 7em grazie al padding di 0.1em: trucchetto per ottenere la scritta del giorno allineata perfettamente col titolo a destra (h3)*/
+  width: 16em;
   padding: 0.2em;
   margin-bottom: 0.8em;
   display: block;
@@ -779,7 +517,6 @@ strong {
   margin-bottom: 0.5em;
 }
 
-/* PER RIMUOVERE PRECEDENTI STILI */
 #orario span {
   margin: auto;
 }
@@ -929,13 +666,8 @@ strong {
   width: 100%;
   margin: 3em 0 3em 0;
 
-  /* display: block; */
-  /* width: 85%; */
-  /* border: 2px solid #009688; */
   border: none;
   border-radius: 7px;
-  /* background-color: #fff1d5; */
-  /* box-shadow: 0 3px 6px rgba(0,0,0,0.10), 0 3px 6px rgba(0,0,0,0.17); */
   background-color: white;
   border: 2px solid #009688;
 
@@ -953,12 +685,6 @@ strong {
 #login div.ok {
   color: green;
 }
-                              /*       MY STORY       */
-
-/** {
-  box-sizing: border-box;
-}*/
-
                                 /*PAGINA Ricerca*/
 
 #myInput {
@@ -997,9 +723,7 @@ strong {
 
                             /* PAGINA PRODUCTS */
 .container .card_product {
-  /* display: inline-block; */
   max-width: 400px;
-  /* min-width: 15em; */
   height: 6em;
   border-radius: 7px;
   box-shadow: 0 3px 6px rgba(0,0,0,0.10), 0 3px 6px rgba(0,0,0,0.17);
@@ -1011,18 +735,6 @@ strong {
   position: relative;
     background-color: #fff;
     text-align: left;
-  /* display: grid;
-  grid-template-areas: "image title title"
-                       "image manufacturer manufacturer"
-                       "image line line"
-                       "image tags price";
-  grid-template-columns: 7em auto; */
-  /* grid-template-rows:3fr 1fr 1fr 3fr; */
-  /* grid-row-gap: 0.7em; */
-  /* align-items: center;
-  justify-items: center; */
-  /* flex-grow: 1; */
-  /* position: relative; */
 }
 
 @media screen and (min-width:480px) {
@@ -1033,7 +745,6 @@ strong {
 }
 
 
-/*.container #content .card_product .product_title,*/
 .container #content .card_product .product_line,
 .container #content .card_product .product_manufacturer,
 .container #content .card_product .product_bottom{
@@ -1044,31 +755,24 @@ strong {
   background-size: contain;
   height: 6em;
   width: 6em;
-  /* margin:1.25em; */
-  /* align-self: center; */
   grid-area: image;
   border-radius: 10px;
   float: left;
 
 }
 .container .card_product .product_title {
-  /* margin-top:1em; */
   color: #009688;
   grid-area: title;
   font-size: 0.9em;
   margin-bottom: 0.4em;
-  /* margin-left: 7em; */
   text-align: left;
-  /* margin-top: 0.5em; */
 }
 
 .container .card_product .product_line {
-  /* margin-top:0.3em; */
   grid-area: line;
   font-weight: lighter;
   font-style: italic;
   font-size: 0.8em;
-  /* font-size: 0.9em; */
 }
 .container .card_product .product_description {
   margin:0 0 0 6.5em;
@@ -1080,7 +784,6 @@ strong {
   letter-spacing: 0.1em;
   align-self: end;
   justify-self: start;
-  /* margin-bottom: 1.6em; */
   text-transform: uppercase;
   font-weight: bold;
   color: #fff;
@@ -1092,7 +795,6 @@ strong {
 }
 .product_tags span {
   border-radius: 10px;
-  /* margin-right: 0.2em; */
   padding: 0.2em 0.5em 0.2em 0.5em;
 }
 .product_tags span.cosmetici {
@@ -1149,11 +851,6 @@ strong {
   color: rgba(245, 245, 245);
 }
 
-/* #body_scheda_prodotto {
-  background-color: #fff; */
-  /* z-index: -2;
-  position: relative; */
-/* } */
 #container_scheda_prodotto #immagine_prodotto{
   object-fit: contain;
   height: 20em;
@@ -1167,46 +864,17 @@ strong {
   filter: brightness(1);
 }
 #body_scheda_prodotto  .container  #content{
-  /* background: rgb(245,245,245); */
   background: linear-gradient(180deg, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 0, rgba(245,245,245,1) 2em);
   margin-top: 24em;
   text-align: center;
-  /* padding: 2em; */
-  /* margin-top: 0; */
-  /* background-color: red; */
 }
-/* #container_scheda_prodotto #topbar:before {
-  background-image: url('img/prodotti_background_mobile.jpg');
-} */
 #body_scheda_prodotto #topbar_image{
-  /* filter: brightness(0.7); */
-  /* position: absolute; */
-  /* background-color: white; */
   object-fit: contain;
   height: 20em;
-  /* width: 100%; */
   transform: translateY(-8.45em);
   filter: brightness(1);
 }
-/* #body_scheda_prodotto #topbar { */
-  /* overflow: hidden; */
-  /* z-index: -2; */
-  /* visibility: hidden;
-  background: rgb(0,0,0); */
-  /* background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 100%);
-} */
 
-
-
-/* #body_scheda_prodotto #topbar:after {
-content: "";
-height: 100%;
-width: 100%;
-position: absolute;
-top: 0;
-background: rgb(0,0,0);
-background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 100%);
-} */
 #topbar_container_shadow {
   position: fixed;
   top: 0;
@@ -1218,21 +886,7 @@ background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 100%);
   z-index: 2;
 }
 
-/* #body_scheda_prodotto #topbar_title { */
-  /* transition: 0.5s; */
-  /* background-color: rgb(0,0,0,0.15); */
-  /* background: rgb(0,0,0); */
-  /* background: linear-gradient(180deg, rgba(0,0,0,0.0) 0%, rgba(0,0,0,0.4) 100%); */
-  /* text-shadow: 0px 0px 6px rgb(0,0,0,0.6); */
-
-/* } */
-/* #body_scheda_prodotto #topbar.visible_topbar { */
-  /* z-index: 2; */
-  /* visibility: visible; */
-/* } */
 #body_scheda_prodotto #content h2 {
-  /* margin-left: 0;
-  margin-right: 0; */
   margin-top: 0.8em;
   margin-bottom: 0.7em;
   font-size: 1.3em;
@@ -1242,18 +896,13 @@ background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 100%);
   text-transform: uppercase;
 }
 #body_scheda_prodotto #content h3 {
-  /* margin-left: 2rem;
-  margin-right: 0; */
   font-size: 1.2em;
   color: black;
   text-align: left;
 }
 #body_scheda_prodotto #content h4 {
-  /* margin-left: 0;
-  margin-right: 0; */
   color: black;
   text-align: left;
-  /* font-weight: normal; */
   text-transform: capitalize;
   margin-top: 0.7em;
   margin-bottom: 0.7em;
@@ -1262,18 +911,13 @@ background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 100%);
   font-style: italic;
   font-weight: normal;
   font-size: 1em;
-  /* margin-left: 0;
-  margin-right: 0; */
   color: black;
   text-align: left;
-  /* font-weight: normal; */
   text-transform: capitalize;
 }
 #body_scheda_prodotto #content p {
   font-size: 0.9em;
   margin-top: 1em;
-  /* margin-left: 0;
-  margin-right: 0; */
 }
 #body_scheda_prodotto #content .desc_breve {
   text-align: center;
@@ -1302,10 +946,6 @@ background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 100%);
 #body_scheda_prodotto #content p {
   text-align: left;
 }
-/* TODO /* WARNING: /* FIXME:
-repeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeat */
-
-
 #content {
     text-align: center;
 }
@@ -1327,14 +967,9 @@ repeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeat */
 }
 #topbar {
   overflow: hidden;
-  /* z-index: -2; */
   visibility: hidden;
-  /* background: rgb(0,0,0); */
-  /* background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 100%); */
 }
-/* erase :before */
 #topbar_image{
-  /* filter: brightness(0.7); */
   position: absolute;
   background-color: white;
   object-fit: cover;
@@ -1343,10 +978,6 @@ repeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeat */
   transform: translateY(-9.8em);
   filter: brightness(0.7);
 }
-/* #topbar_title {
-
-
-} */
 
 #topbar:after {
 content: "";
@@ -1356,14 +987,6 @@ position: absolute;
 top: 0;
 /* background: rgb(0,0,0); */
 background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 100%);
-}
-
-.container  #content {
-  /* background: rgb(245,245,245); */
-  /* background: linear-gradient(180deg, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 0, rgba(245,245,245,1) 2em); */
-  /* padding: 2em; */
-  /* margin-top: 0; */
-  /* background-color: red; */
 }
 
 .container.home #immagine_prodotto {
@@ -1387,29 +1010,10 @@ background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 100%);
   padding-top: 3em;
   border: none;
 }
-/*
-z-index: -1; */
-/* .container.home #topbar.visible_topbar { */
-  /* z-index: 2; */
-  /* visibility: visible; */
-/* } */
-/* .container.home #topbar { */
-  /* overflow: hidden; */
-  /* z-index: -2; */
-  /* visibility: hidden; */
-  /* background: rgb(0,0,0); */
-  /* background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 100%); */
-/* } */
 .container.home #topbar_title {
-  /* transition: 0.5s; */
   background: transparent;
-  /* background: rgb(0,0,0);
-  background: linear-gradient(180deg, rgba(0,0,0,0.0) 0%, rgba(0,0,0,0.4) 100%); */
-  /* text-shadow: 0px 0px 6px rgb(0,0,0,0.6); */
-
 }
 #benvenuti {
-  /* margin-top: 4rem; */
   top: 5rem;
   font-size: 2.1em;
   letter-spacing: 0.1em;
@@ -1423,7 +1027,6 @@ z-index: -1; */
   text-shadow: 0px 0px 6px rgba(0, 0, 0, 0.9);
 }
 .container.home #title {
-  /* top: 0; */
   margin-top: 9.5rem;
   line-height: 0.9em;
   font-size: 6.6em;
@@ -1456,8 +1059,6 @@ z-index: -1; */
   -webkit-tap-highlight-color: transparent;
 
 }
-
-/* da migliorare */
 #scopri_il_sito:hover {
   transition: 0.5s ease;
   background-color:rgba(255,255,255,0.2);
@@ -1470,7 +1071,6 @@ z-index: -1; */
 
 
 .container.home h3 {
-  /* text-align: left; */
   margin-bottom: 0.5em;
   color: #404354;
 
@@ -1522,7 +1122,6 @@ z-index: -1; */
               width: 65vw;
               height: 100vh;
               background-color: white;
-              /* transform: translateX(-66vw); */
               transition: all 0.5s ease;
             }
             #menu.showmenu {
@@ -1573,15 +1172,8 @@ z-index: -1; */
               color: #bfbfca;
             }
             #menu_icon {
-              /* position: fixed; */
               top: 0;
-              /* z-index: 3;
-              color: white;
-              font-size: 2.5em;
-              line-height: 1.6em; */
               margin-left: 0.2em;
-              /* text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
-              cursor: pointer; */
             }
             #menu_icon.top_icon, #cart_icon.top_icon {
               position: fixed;
@@ -1599,33 +1191,6 @@ z-index: -1; */
               right: 0;
               margin-right: 0.2em;
             }
-            /* #container_informazioni #topbar:before {
-              background-image: url(img/informazioni_background.jpg);
-            } */
-
-            /* #container_te_e_infusi #topbar:before {
-              background-image: url(img/home_background_mobile.jpg);
-            } */
-            /*  TODO: remember to reduce image size for loading time and performance*/
-            /* #container_la_mia_storia #topbar:before {
-              background-image: url(img/la_mia_storia_background.jpg);
-            } */
-            /* .container #topbar:before {
-              background-image: url(img/prodotti_background_mobile.jpg);
-            } */
-
-            /* #topbar:before {
-              content: "";
-              background-size: cover;
-              background-position: 0 -10em;
-              background-repeat: no-repeat;
-              filter: brightness(0.65);
-              position: absolute;
-              top: 0;
-              left: 0;
-              width: 100%;
-              height: 100%;
-            } */
 
             #topbar {
               width: 100vw;
@@ -1647,14 +1212,10 @@ z-index: -1; */
               opacity: 0;
               transition: opacity 2s ease;
               text-align: left;       /* overwrite h1 property */
-              /* position: static;       /* overwrite h1 property */
-              /* text-shadow: none;      /* overwrite h1 property */
               position: relative;
               z-index: 2;
               transition: 0.5s;
               color: white;
-              /* transition: 0.5s; */
-              /* background-color: rgb(0,0,0,0.15); */
               background: rgb(0,0,0);
               background: linear-gradient(180deg, rgba(0,0,0,0.0) 0%, rgba(0,0,0,0.4) 100%);
               text-shadow: 0px 0px 6px rgb(0,0,0,0.6);
@@ -1674,11 +1235,6 @@ z-index: -1; */
             #footer {
                 width: 100%;
             }
-
-            /* #footer li > * {
-            padding: 0.1em 0.3em 0.1em 0.3em;
-            } */
-
 }
 
 
@@ -1689,10 +1245,6 @@ z-index: -1; */
       body {
         margin-top: 40em;
       }
-      /* .container.home #content > p,
-      .container.home #content > h3   {
-        text-align: center;
-      } */
        .container.home.container #content {
         margin-top: 0;
         background-color: rgba(245,245,245);
@@ -1717,7 +1269,6 @@ z-index: -1; */
       }
       #body_scheda_prodotto .container #content {
         margin-top: 0;
-        /* background: rgb(245,245,245); */
       }
 
       #right-of-menu, #menu_icon, .menu_btn,#menu li.menu_btn, #topbar_container_shadow, #menu button:first-child , #cart_icon{
@@ -1763,10 +1314,7 @@ z-index: -1; */
        #menu .selected_page {
          background-color: #ffcc67;
        }
-       /*  for those that use the tablet with a mouse :) */
        #menu li a:hover {
-         /* color: #009688; */
-         /* border-bottom: #009688 dashed; */
          border-bottom: #404354 solid;
        }
        #footer {
@@ -1777,12 +1325,8 @@ z-index: -1; */
          padding-top: 1em;
          min-height: 90%;
        }
-       /* #footer li > * {
-       padding: 0.5em;
-       } */
        #footer li{
          width: 7em;
-         /* height: 1.8em; */
          margin-left: 1em;
          margin-right: 1em;
          margin-top: 0.2em;
@@ -1798,14 +1342,9 @@ z-index: -1; */
         #header_image {
           top: -10em;
         }
-        /* #title {
-          top: 0em;
-        } */
-
 }
                         /*        DESKTOP MODE HEADER          */
 
-/* added "body" to almost every rule to increase specificity, but instead I should just create a different @media for mobile */
 
 @media screen and (min-width: 1025px) {
 
@@ -1817,8 +1356,6 @@ z-index: -1; */
       .container, body #container_scheda_prodotto #immagine_prodotto, #immagine_prodotto, #title, body #footer {
               width: 1025px;
         }
-
-
 
       #informazioni #orari li {
         display: block;
