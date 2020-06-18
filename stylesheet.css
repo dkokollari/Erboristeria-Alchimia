@@ -1184,11 +1184,11 @@ strong {
 } */
 #body_scheda_prodotto #topbar_image{
   /* filter: brightness(0.7); */
-  position: absolute;
-  background-color: white;
+  /* position: absolute; */
+  /* background-color: white; */
   object-fit: contain;
   height: 20em;
-  width: 100%;
+  /* width: 100%; */
   transform: translateY(-8.45em);
   filter: brightness(1);
 }
