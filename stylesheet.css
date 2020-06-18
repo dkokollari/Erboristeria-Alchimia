@@ -94,7 +94,7 @@ body:not(.show-focus-outlines) [tabindex]:focus {
 } */
 
 
-#container_informazioni #header_image {
+/* #container_informazioni #header_image {
   background-image: url(img/informazioni_background.jpg);
 }
 
@@ -103,7 +103,7 @@ body:not(.show-focus-outlines) [tabindex]:focus {
 }
 .container #header_image {
   background-image: url(img/prodotti_background.jpg);
-}
+} */
 #header_image {
   background-repeat: no-repeat;
   background-size: 100%;
@@ -116,10 +116,10 @@ body:not(.show-focus-outlines) [tabindex]:focus {
   /* pointer-events: none; */
 }
 
-#top_of_page {
+/* #top_of_page {
   position: absolute;
   top: 0;
-}
+} */
 
                                         /*       CONTENT       */
 
@@ -136,7 +136,7 @@ ul {
   padding-bottom: 2em;
 }
 #content > *, .expanded > * {
-  margin-left:1.8rem;
+  margin-left: 1.8rem;
   margin-right: 1.8rem;
 }
 #content > *.expanded {
@@ -149,17 +149,17 @@ ul {
   text-transform: capitalize;
   font-size: 1.8em;
   letter-spacing: 0.1em;
-  margin-left: 1.8rem;
-  margin-right: 1.8rem;
+  /* margin-left: 1.8rem;
+  margin-right: 1.8rem; */
   font-weight: 300;
-  text-align: center;
+  /* text-align: center; */
   color: var(--green-main);
 }
 /* TODO queste proprieta' generiche non vanno cosi'bene */
 h3 {
-  text-align: center;
+  /* text-align: center; */
   font-size: 1.1em;
-  font-weight: 600;
+  /* font-weight: 600; */
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--yellow-dark);
