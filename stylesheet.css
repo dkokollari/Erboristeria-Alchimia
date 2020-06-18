@@ -2,7 +2,7 @@
 * { margin: 0; padding: 0;}
 
                             /* doesn't validate with older css versions */
-:root {
+/* :root {
 
   --green-dark: #00796b;
   --green-main: #009688;
@@ -14,10 +14,10 @@
 
   --orange-dark: #d17a48;
   --orange-main: #ff9557;
-  --orange-light: #ffe2d1;
+  --orange-light: #ffe2d1; */
 
   /* --yellow-dark: #ba954b; */
-  --yellow-dark: #009688;
+  /* --yellow-dark: #009688;
   --yellow-main: #ffcc67;
   --yellow-light: #fff1d5;
 
@@ -29,7 +29,7 @@
   --accent3Shade4: #d32f2f;
   --borderRadius: 6px;
 
-}
+} */
 /* activate border outline for easier keyboard navigation */
 /* I added 'em all, you never know....*/
 /* body.show-focus-outlines a:focus,
@@ -153,7 +153,7 @@ ul {
   margin-right: 1.8rem; */
   font-weight: 300;
   /* text-align: center; */
-  color: var(--green-main);
+  color: #009688;
 }
 /* TODO queste proprieta' generiche non vanno cosi'bene */
 h3 {
@@ -162,7 +162,7 @@ h3 {
   /* font-weight: 600; */
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--yellow-dark);
+  color: #009688;
   margin: 0em 7% 0em 7.2em; /*Fouad: ora l'h3 e' accanto data evento al posto immagine*/
 }
 .card.eventi h3 {
@@ -173,7 +173,7 @@ h4, #menu li {                                     /*       DA RIVERE         */
   text-transform: uppercase;
   letter-spacing: 0.02em;
   text-align: center;
-  color: var(--yellow-dark);
+  color: #009688;
   margin:1em;
   font-weight: bold;
   /* list-style-type: none; */
@@ -207,8 +207,8 @@ transition: transform 1s ease;
 /*       FOOTER       */
 #footer {
 height: 14em;
-color: var(--grey-light);
-background: var(--grey-main);
+color: #bfbfca;
+background: #4e5166;
 position: fixed;
 bottom: 0;
 z-index: -2;
@@ -226,7 +226,7 @@ justify-content: center;
 }
 #footer_menu {
 font-weight: 600;
-/* border-top: var(--grey-light) solid 1px;
+/* border-top: #bfbfca solid 1px;
 padding-top: 1em; */
 }
 
@@ -237,7 +237,7 @@ padding-top: 1em; */
 
 
 #footer li > a {
-border-bottom: var(--grey-light) dotted 1px;
+border-bottom: #bfbfca dotted 1px;
 }
 #footer li > * {
   /* display: block; */
@@ -247,7 +247,7 @@ border-bottom: var(--grey-light) dotted 1px;
     padding-bottom: 0.1em;
 }
 #torna_su_btn {
-border-bottom: var(--grey-light) dotted 1px;
+border-bottom: #bfbfca dotted 1px;
 padding-bottom: 0.1em;
 }
 #footer p, #torna_su_btn{
@@ -261,8 +261,8 @@ margin:0.7em auto 0.7em auto;
                             /*     CONSIGLI DI MARIKA       */
 
 .tips_and_tricks {
-  background-color: var(--orange-light);
-  color: var(--orange-dark);
+  background-color: #ffe2d1;
+  color: #d17a48;
   position: relative;
   overflow: hidden;
   max-height: 60em;
@@ -274,10 +274,10 @@ margin:0.7em auto 0.7em auto;
 }
 .tips_and_tricks h3 {
   margin: 1em;
-  color: var(--orange-dark);
+  color: #d17a48;
 }
 .tips_and_tricks h4 {
-  color: var(--orange-dark);
+  color: #d17a48;
   margin-top: 2em;
 }
 .tips_and_tricks ul {
@@ -305,7 +305,7 @@ margin:0.7em auto 0.7em auto;
   position: relative;
   font-size: 1em;
   margin-bottom: 1.5em;
-  background-color: var(--yellow-light);
+  background-color: #fff1d5;
   max-height: 80em;
   overflow: hidden;
   transition: max-height 0.8s ease;
@@ -348,7 +348,7 @@ margin:0.7em auto 0.7em auto;
   text-align: center;
   width: 100%;
   transition: transform 1s ease;
-  color: var(--yellow-dark);
+  color: #009688;
 }
 #content .card p, #eventi #linkMappa {
   margin: 0.7em 7% 0.7em 7%;
@@ -377,12 +377,12 @@ margin:0.7em auto 0.7em auto;
 #eventi #prenotazione span {
   font-weight: bold;
   text-transform: uppercase;
-  color: var(--red-dark);
+  color: #b9463e;
 }
 
 #eventi #dataEvento {
   font-weight: bold;
-  color: var(--grey-dark);
+  color: #404354;
 }
 @media screen and (max-width:410px) {
   #content .card.eventi img {
@@ -433,7 +433,7 @@ margin:0.7em auto 0.7em auto;
          margin-top:0;
          position: sticky;
          top:0;
-         background-color: var(--yellow-light);
+         background-color: #fff1d5;
          transform: translateX(0);
          text-align: center;
        }
@@ -445,23 +445,23 @@ margin:0.7em auto 0.7em auto;
        #menu li {
          display: flex;
          justify-content: center;
-         color: var(--grey-dark);
+         color: #404354;
          flex-grow: 1;
          margin: auto;
          height: 100%;
        }
        #menu li > * {
          margin: auto;
-         color: var(--grey-dark);
+         color: #404354;
        }
        #menu li > a {
-         border-bottom: var(--grey-dark) dashed;
+         border-bottom: #404354 dashed;
        }
        #menu .selected_page {
-         background-color: var(--yellow-main);
+         background-color: #ffcc67;
        }
        #menu li a:hover {
-         border-bottom: var(--grey-dark) solid;
+         border-bottom: #404354 solid;
        }
        #footer {
            width: 100%;
@@ -543,8 +543,8 @@ margin:0.7em auto 0.7em auto;
                             /*     CONSIGLI DI MARIKA       */
 
 .tips_and_tricks {
-  background-color: var(--orange-light);
-  color: var(--orange-dark);
+  background-color: #ffe2d1;
+  color: #d17a48;
   position: relative;
   overflow: hidden;
   max-height: 60em;
@@ -556,10 +556,10 @@ margin:0.7em auto 0.7em auto;
 }
 .tips_and_tricks h3 {
   margin: 1em;
-  color: var(--orange-dark);
+  color: #d17a48;
 }
 .tips_and_tricks h4 {
-  color: var(--orange-dark);
+  color: #d17a48;
   margin-top: 2em;
 }
 .tips_and_tricks ul {
@@ -588,7 +588,7 @@ margin:0.7em auto 0.7em auto;
   position: relative;
   font-size: 1em;
   margin-bottom: 1.5em;
-  background-color: var(--yellow-light);
+  background-color: #fff1d5;
   max-height: 80em;
   overflow: hidden;
   transition: max-height 0.8s ease;
@@ -654,7 +654,7 @@ margin:0.7em auto 0.7em auto;
   text-align: center;
   width: 100%;
   transition: transform 1s ease;
-  color: var(--yellow-dark);
+  color: #009688;
 }
 #content .card p, #eventi #linkMappa {
   margin: 0.7em 5% 0.7em 7%;
@@ -679,12 +679,12 @@ margin:0.7em auto 0.7em auto;
 #eventi #prenotazione span {
   font-weight: bold;
   text-transform: uppercase;
-  color: var(--red-dark);
+  color: #b9463e;
 }
 
 #eventi #dataEvento {
   font-weight: bold;
-  color: var(--grey-dark);
+  color: #404354;
 }
 
 .eventi h3.titoletto {
@@ -770,7 +770,7 @@ strong {
   display: block;
   text-align: center;
   font-weight: bold;
-  color: var(--grey-dark);
+  color: #404354;
 }
 
 #container_informazioni span, #container_informazioni h3,
@@ -880,11 +880,11 @@ strong {
   transform: translateY(-1.4em) scale(0.8);
   transform-origin: left;
   transition: ease 0.2s;
-  color: var(--yellow-dark);
+  color: #009688;
 }
 .form_field_static:focus-within label,
 .form_field_static .filled{
-  color: var(--yellow-dark);
+  color: #009688;
 }
 .form_field input,
 .form_field_static input {
@@ -931,17 +931,17 @@ strong {
 
   /* display: block; */
   /* width: 85%; */
-  /* border: 2px solid var(--yellow-dark); */
+  /* border: 2px solid #009688; */
   border: none;
   border-radius: 7px;
-  /* background-color: var(--yellow-light); */
+  /* background-color: #fff1d5; */
   /* box-shadow: 0 3px 6px rgba(0,0,0,0.10), 0 3px 6px rgba(0,0,0,0.17); */
   background-color: white;
-  border: 2px solid var(--yellow-dark);
+  border: 2px solid #009688;
 
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--yellow-dark);
+  color: #009688;
   font: 600 1.1em 'Poppins', sans-serif;
   line-height: 2.5em;
 }
@@ -1053,7 +1053,7 @@ strong {
 }
 .container .card_product .product_title {
   /* margin-top:1em; */
-  color: var(--yellow-dark);
+  color: #009688;
   grid-area: title;
   font-size: 0.9em;
   margin-bottom: 0.4em;
@@ -1124,7 +1124,7 @@ strong {
   position: absolute;
   bottom: 0.5rem;
   right: 0.5rem;
-  color: var(--grey-dark);
+  color: #404354;
 }
 
 /* SCHEDA PRODOTTO */
@@ -1133,11 +1133,11 @@ strong {
   display: inline-block;
   margin: 0.5em auto 1em auto;
   padding: 0.5em 1em 0.4em 1em;
-  border: 3px solid var(--green-main);
+  border: 3px solid #009688;
   border-radius: 8px;
   text-transform: uppercase;
   font-weight: bold;
-  color: var(--green-main);
+  color: #009688;
   letter-spacing: 0.07em;
   transition: 0.5s ease;
   background-image: none;
@@ -1145,7 +1145,7 @@ strong {
 }
 .classic_btn:hover{
   transition: 0.5s ease;
-  background-color: var(--green-main);
+  background-color: #009688;
   color: rgba(245, 245, 245);
 }
 
@@ -1281,7 +1281,7 @@ background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 100%);
   padding:1.8em;
   color: white;
   font-style: italic;
-  background-color: var(--green-main);
+  background-color: #009688;
   width: auto;
 }
 #body_scheda_prodotto .menu_btn img {
@@ -1472,7 +1472,7 @@ z-index: -1; */
 .container.home h3 {
   /* text-align: left; */
   margin-bottom: 0.5em;
-  color: var(--grey-dark);
+  color: #404354;
 
 }
 .container.home #content > p {
@@ -1484,7 +1484,7 @@ z-index: -1; */
 .container.home #content .home_subtitle {
   margin-top: 1em;
   padding-top: 1em;
-  border-top: 1px solid var(--grey-light);
+  border-top: 1px solid #bfbfca;
 }
 #la_mia_storia_home {
   /* height: 7em; */
@@ -1564,13 +1564,13 @@ z-index: -1; */
               margin: auto;
               display: block;
               width: 85%;
-              /* border: 2px solid var(--yellow-dark); */
+              /* border: 2px solid #009688; */
               border-radius: 7px;
-              background-color: var(--yellow-light);
+              background-color: #fff1d5;
               box-shadow: 0 3px 6px rgba(0,0,0,0.10), 0 3px 6px rgba(0,0,0,0.17);
             }
             #menu ul .selected_page {
-              color: var(--grey-light);
+              color: #bfbfca;
             }
             #menu_icon {
               /* position: fixed; */
@@ -1736,7 +1736,7 @@ z-index: -1; */
          margin-top:0;
          position: sticky;
          top:0;
-         background-color: var(--yellow-light);
+         background-color: #fff1d5;
          transform: translateX(0);
          text-align: center;
        }
@@ -1748,26 +1748,26 @@ z-index: -1; */
        #menu li {
          display: flex;
          justify-content: center;
-         color: var(--grey-dark);
+         color: #404354;
          flex-grow: 1;
          margin: auto;
          height: 100%;
        }
        #menu li > * {
          margin: auto;
-         color: var(--grey-dark);
+         color: #404354;
        }
        #menu li > a {
-         border-bottom: var(--grey-dark) dashed;
+         border-bottom: #404354 dashed;
        }
        #menu .selected_page {
-         background-color: var(--yellow-main);
+         background-color: #ffcc67;
        }
        /*  for those that use the tablet with a mouse :) */
        #menu li a:hover {
-         /* color: var(--yellow-dark); */
-         /* border-bottom: var(--yellow-dark) dashed; */
-         border-bottom: var(--grey-dark) solid;
+         /* color: #009688; */
+         /* border-bottom: #009688 dashed; */
+         border-bottom: #404354 solid;
        }
        #footer {
            width: 100%;
@@ -1814,7 +1814,7 @@ z-index: -1; */
         box-shadow: 0 3px 6px rgba(0,0,0,0.10), 0 3px 6px rgba(0,0,0,0.17);
       }
 
-      .container, #header_image, body #container_scheda_prodotto #immagine_prodotto, #immagine_prodotto, #title, body #footer {
+      .container, body #container_scheda_prodotto #immagine_prodotto, #immagine_prodotto, #title, body #footer {
               width: 1025px;
         }
 
@@ -1844,12 +1844,12 @@ z-index: -1; */
 /*------- ERRORI FORM --------------*/
 
 .errore {
-  background: var(--accent3Shade1);
-  color: var(--accent3Shade4);
+  background: #ffdde0;
+  color: #d32f2f;
   margin: 0.5em 0.5em;
   display: block;
   padding: 1em 1em;
-  border-radius: var(--borderRadius);
+  border-radius:  6px;
   font-weight: 500;
   position: relative;
   cursor: pointer;
