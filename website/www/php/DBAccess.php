@@ -256,6 +256,15 @@
       return $this->getQuery($query, $types, $params);
     }
 
+    public function getTimbriUtente($email) {
+      $query = "SELECT `numero_timbri`
+                FROM   `utenti`
+                WHERE  `email_utente`= ?";
+      $types = "s";
+      $params = [$email];
+      return $this->getQuery($query, $types, $params);
+    }
+
     ##################################################
     # funzioni generiche e/o usate da altre funzioni #
     ##################################################
