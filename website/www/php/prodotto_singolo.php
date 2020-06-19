@@ -31,8 +31,8 @@
     }*/
     $meta_description = '<meta name="description" content="' . $row['nome_articolo'] .'"/>';
     $meta_keywords = '<meta name="keywords" content="' . str_replace('', ', ', $row['nome_articolo']) . '"/>';
-    $img_1 = '<img id="immagine_prodotto" src="' . Image::getImage("../img/products/", $row['id_articolo']) . '" alt="' . $row['nome_articolo']  .  '"/>';
-    $img_2 = '<img id="topbar_image" src="' . Image::getImage("../img/products/", $row['id_articolo']) .  '" alt="' . $row['nome_articolo']  . '"/>';
+    $img_1 = '<img id="immagine_prodotto" src="' . Image::getImage("../img/products/small_img/", $row['id_articolo']) . '" alt="' . $row['nome_articolo']  .  '"/>';
+    $img_2 = '<img id="topbar_image" src="' . Image::getImage("../img/products/small_img/", $row['id_articolo']) .  '" alt="' . $row['nome_articolo']  . '"/>';
     $nome = $row['nome_articolo'];
     $prezzo = $row['prezzo_articolo'] . '&euro;';
     $linea = $row['nome_linea'];
