@@ -850,6 +850,17 @@ strong {
   background-color: #009688;
   color: rgba(245, 245, 245);
 }
+.classic_btn.nohover {
+  transition: none;
+}
+#content ul.page_results {
+  width: 60%;
+  margin-left: 20%;
+  margin-right: 20%;
+}
+.page_results li {
+  display: inline;
+}
 
 #container_scheda_prodotto #immagine_prodotto{
   object-fit: contain;
