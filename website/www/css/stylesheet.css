@@ -1858,3 +1858,8 @@ z-index: -1; */
   position: relative;
   cursor: pointer;
 }
+
+ img.carta_fedelta {
+  height: 10em;
+  width: 70%;
+}

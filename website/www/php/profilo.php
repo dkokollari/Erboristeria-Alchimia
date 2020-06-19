@@ -10,10 +10,10 @@
       exit;
     }
     $img_timbri = '';
-    $num_timbri = '0';
+    $num_timbri = 0;
     if($_SESSION['tipo_utente'] == 'User') {
-      $num_timbri = $con->getTimbriUtente($_SESSION['email_utente']);
-      for($i=0; $i<$num_timbri['numero_timbri']; ++$i) {
+      $num_timbri = $con->getTimbriUtente($_SESSION['email_utente'])[0]['numero_timbri'];
+      for($i=0; $i<$num_timbri; ++$i) {
         $img_timbri .= '<img id="#timbro_' . ($i+1) . '" src="../img/carta_fedelta/2.png"/>' . "\n";
       }
     }
