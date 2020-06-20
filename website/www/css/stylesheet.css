@@ -26,6 +26,8 @@
   --grey-main: #4e5166;
   --grey-light: #bfbfca;
 
+  --accent2Shade1: #e7f6d5;
+  --accent2Shade4: #689f38;
   --accent3Shade1: #ffdde0;
   --accent3Shade4: #d32f2f;
   --borderRadius: 6px;
@@ -1847,7 +1849,7 @@ z-index: -1; */
 }
 /*------- ERRORI FORM --------------*/
 
-.errore {
+.errore, .addedProduct {
   background: var(--accent3Shade1);
   color: var(--accent3Shade4);
   margin: 0.5em 0.5em;
@@ -1857,6 +1859,15 @@ z-index: -1; */
   font-weight: 500;
   position: relative;
   cursor: pointer;
+}
+
+.addedProduct {
+  background: var(--accent2Shade1);
+  color: var(--accent2Shade4);
+}
+
+#body_scheda_prodotto #content p.addedProduct {
+  text-align: center;
 }
 
  img.carta_fedelta {

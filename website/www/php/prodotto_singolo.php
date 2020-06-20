@@ -45,14 +45,16 @@
     if(!isset($_SESSION['tipo_utente'])) {
       $pagina = str_replace('%ADD_TO_CART%', $iscriviti , $pagina);
     } else if($_SESSION['tipo_utente'] == "User") {
-      if(!isset($_GET['addedProduct'])) {
+      if(!isset($_GET['addedProduct']) && !isset($_GET['qta'])) {
         $pagina = str_replace(
           '%ADD_TO_CART%',
           '<a class="classic_btn" href="aggiunta_rimozione_prodotti_carrello.php?add_to_cart&amp;id_articolo='.$id_articolo.'&amp;nome_articolo="'.urlencode($nome).'"&amp;prezzo_articolo='.$prezzo.'>aggiungi al carrello</a>',
           $pagina);
       } else {
         $pagina = str_replace('%ADD_TO_CART%' ,
-        '<p class="addedProduct">Prodotto aggiunto al carrello</p>', $pagina);
+        '<p class="addedProduct">Prodotto aggiunto al carrello con successo! In questo momento ce ne sono '. $_GET['qta'] .' copie nel tuo carrello.</p>' ."\n".
+        '<a class="classic_btn" href="aggiunta_rimozione_prodotti_carrello.php?add_to_cart&amp;id_articolo='.$id_articolo.'&amp;nome_articolo="'.
+        urlencode($nome).'"&amp;prezzo_articolo='.$prezzo.'>aggiungi al carrello</a>', $pagina);
       }
     } else if($_SESSION['tipo_utente'] == "Admin") { //// WARNING: all'admin non faccio vedere tasto aggiungi
         $pagina = str_replace('%ADD_TO_CART%' , '' , $pagina);
@@ -74,6 +76,6 @@
     echo $pagina;
   }
   else {
-    echo 'DEBUG';
+    redirect('Location : index.php');
   }
 ?>

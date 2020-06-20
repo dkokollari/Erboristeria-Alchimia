@@ -6,7 +6,7 @@
   if(isset($_SESSION['email_utente']) ||
       (isset($_COOKIE['email']) && isset($_COOKIE['password']))) {
     $product_ids = array();
-
+    $qtaLastProductAdded=1;
     if(isset($_GET['add_to_cart'])) {
       if(isset($_SESSION['shopping_cart'])) {
         $count = count($_SESSION['shopping_cart']);
@@ -24,7 +24,7 @@
           $flag = false;
           for($i=0; !$flag && $i < count($product_ids); $i++) {
             if($product_ids[$i] == Utilities::getNumericValue('id_articolo')) {
-              $_SESSION['shopping_cart'][$i]['quantita'] += 1;
+              $qtaLastProductAdded=$_SESSION['shopping_cart'][$i]['quantita'] += 1;
               $flag = true;
             }
           }
@@ -38,16 +38,7 @@
           , 'quantita' => 1
           );
       }
-
-      ob_start();
-      $redirect = 'prodotto_singolo.php?addedProduct&id_articolo='.Utilities::getNumericValue('id_articolo');
-      /*include_once '$redirect';
-      $pagina = ob_get_clean();
-      $pagina = str_replace('<h1>Scheda Prodotto</h1>' ,
-      '<p class="addedProduct">Prodotto aggiunto al carrello</p>'. "\n" .'<h1>Scheda Prodotto</h1>' , $pagina);*/
-      /*$pagina = file_get_contents('prodotto_singolo.html');
-      $pagina = str_replace('<h1>Scheda Prodotto</h1>' ,
-      '<p class="addedProduct">Prodotto aggiunto al carrello</p>'. "\n" .'<h1>Scheda Prodotto</h1>' , $pagina);*/
+      $redirect = 'prodotto_singolo.php?addedProduct&id_articolo='.Utilities::getNumericValue('id_articolo'). "&qta=$qtaLastProductAdded";
       header('location : ' . $redirect);
       echo $pagina;
     }

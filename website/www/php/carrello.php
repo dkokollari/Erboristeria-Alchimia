@@ -49,10 +49,7 @@
     $con->closeConnection();
 
     $orderedProducts .= '</ul>' . '<span class="product_price">Totale carrello : ' .  number_format($total, 2) . ' &euro;</span>'. "\n";
-    if(isset($_SESSION['shopping_cart'])
-        && count($_SESSION['shopping_cart']) > 0) {
-          $orderedProducts .= '<a href="prodotto_singolo.php?id_articolo=' . $product["id_articolo"] . ' class="button" id="checkout">Checkout</a>'  . "\n";
-    }
+    $orderedProducts .= '<a href="prodotto_singolo.php?addedProduct&amp;q.ta='.$_SESSION["shopping_cart"]["id_articolo"]["quantita"] . '&amp;id_articolo=' . $product["id_articolo"] . ' class="classic_btn" id="checkout">Checkout</a>'  . "\n";
     } // end if !empty($_SESSION["shopping_cart"])
     else {
       $orderedProducts = '<p id="emptyCart">Il tuo carrello e\' vuoto: consulta la pagina dei nostri <a href= "prodotti.php">prodotti</a>, potremmo avere qualcosa che fa per te!<p>';
