@@ -37,10 +37,10 @@
     $prezzo = $row['prezzo_articolo'] . '&euro;';
     $linea = $row['nome_linea'];
     $categoria = $row['nome_categoria'];
-    $desc_breve = '<p>' . $row['descrizione_articolo'] . '</p>'; //// WARNING: cè bisogno di un attributo 'descrizione breve' a db!
-    $desc_completa = '<p>' . $row['descrizione_articolo'] . '</p>';
-    $preparazione =  '<p>' . $row['descrizione_articolo'] . '</p>'; /// WARNING: cè bisogno di un attributo 'preparazione' a db!
-    $ingredienti =  '<p>' . $row['descrizione_articolo'] . '</p>'; /// WARNING: cè bisogno di un attributo 'preparazione' a db!
+    $desc_breve = $row['descrizione_articolo']; //// WARNING: cè bisogno di un attributo 'descrizione breve' a db!
+    $desc_completa = $row['descrizione_articolo'];
+    $preparazione =  $row['descrizione_articolo']; /// WARNING: cè bisogno di un attributo 'preparazione' a db!
+    $ingredienti =  $row['descrizione_articolo']; /// WARNING: cè bisogno di un attributo 'preparazione' a db!
 
     if(!isset($_SESSION['tipo_utente'])) {
       $pagina = str_replace('%ADD_TO_CART%', $iscriviti , $pagina);
