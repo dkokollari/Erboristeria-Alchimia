@@ -873,7 +873,7 @@ strong {
   object-fit: contain;
   height: 20em;
   transform: translateY(-8.45em);
-  filter: brightness(1);
+  filter: brightness(1) blur(2px);
 }
 
 #topbar_container_shadow {
@@ -886,7 +886,6 @@ strong {
   background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 100%);
   z-index: 2;
 }
-
 #body_scheda_prodotto #content h2 {
   margin-top: 0.8em;
   margin-bottom: 0.7em;
@@ -1013,9 +1012,9 @@ background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 100%);
   padding-top: 3em;
   border: none;
 }
-.container.home .topbar_text {
+/* .container.home .topbar_text {
   background: transparent;
-}
+} */
 #benvenuti {
   top: 5rem;
   font-size: 2.1em;
@@ -1211,8 +1210,7 @@ background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 100%);
               z-index: 2;
               transition: 0.5s;
               color: white;
-              background: linear-gradient(180deg, rgba(0,0,0,0.0) 0%, rgba(0,0,0,0.4) 100%);
-              text-shadow: 0px 0px 6px rgb(0,0,0,0.6);
+              text-shadow: 0px 0px 9px rgb(0,0,0,1);
             }
             .topbar_text.nopacity {
               opacity: 1;
