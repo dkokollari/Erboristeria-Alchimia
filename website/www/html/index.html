@@ -16,7 +16,7 @@
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   </head>
   <body>
-    <div class="container home" id="container_prodotti">
+    <div class="container home">
       <!--          HEADER             -->
       <!-- <div id="header_image" class="fit"></div> -->
       <img id="immagine_prodotto" src="../img/marika_background_mobile.jpg" alt="sfondo pagina prodotti"/>
@@ -26,23 +26,23 @@
 
       <div id="topbar_container_shadow">
         <div id="topbar">
-          <img id="topbar_image" src="img/marika_background_mobile.jpg" alt="sfondo barra in alto"/>
+          <img id="topbar_image" src="../img/marika_background_mobile.jpg" alt="sfondo barra in alto"/>
           <h1 id="topbar_title">Home</h1>
         </div>
       </div>
       <!-- <button class="menu_btn"> -->
         <span id="menu_icon" class="material-icons-round menu_btn top_icon">menu</span>
-        <span id="cart_icon" class="material-icons-outlined top_icon">shopping_cart</span>
+        <span id="cart_icon" class="material-icons-outlined top_icon" xml:lang="en">shopping_cart</span>
       <!-- </button> -->
       <div id="menu">
         <ul title="Menu">
-          <li class="selected_page"><span xml:lang="en">Homepage</span></li>
-          <li><a href="../php/eventi.php">Eventi</a></li>
-          <li><a href="../php/teinfusi.php">T&egrave; &amp; Infusi</a></li>
-          <li><a href="../php/prodotti.php">Prodotti</a></li>
-          <li><a href="../php/informazioni.php">Informazioni</a></li>
-          <li><a href="../php/la_mia_storia.php">La mia Storia</a></li>
-          <li><a href="../php/prodotti.php">Prodotti</a></li>
+          <li><a href="homepage.html" xml:lang="en">Homepage</a></li>
+          <li><a href="eventi.html">Eventi</a></li>
+          <li><a href="teinfusi.html">T&egrave; &amp; Infusi</a></li>
+          <li><a href="prodotti.html">Prodotti</a></li>
+          <li><a href="informazioni.html">Informazioni</a></li>
+          <li><a href="la_mia_storia.html">La mia Storia</a></li>
+          <li class="selected_page"><p>Prodotti</p></li>
           <li class="menu_btn">
             <img src="../icons/cancel.svg" alt="Chiudi il menu"/>
           </li>
@@ -91,20 +91,21 @@
       </div>
       <!--          FOOTER             -->
       <div id="footer">
-        <a id="torna_su_btn">Torna all'inizio della pagina</a>
+        <!-- <a id="torna_su_btn">Torna all'inizio della pagina</a> -->
+        <a id="torna_su_btn" href="#start">Torna all'inizio della pagina</a>
         <p id="footer_menu">Menu</p>
         <ul>
-          <li><span xml:lang="en">Homepage</span></li>
-          <li><a href="../php/eventi.php">Eventi</a></li>
-          <li><a href="../php/teinfusi.php">T&egrave; &amp; Infusi</a></li>
-          <li><a href="../php/prodotti.php">Prodotti</a></li>
-          <li><a href="../php/informazioni.php">Informazioni</a></li>
-          <li><a href="../php/la_mia_storia.php">La mia Storia</a></li>
-          <li><a href="../php/prodotti.php">Prodotti</a></li>
+          <li><a href="homepage.html" xml:lang="en">Homepage</a></li>
+          <li><a href="eventi.html">Eventi</a></li>
+          <li><a href="teinfusi.html">T&egrave; &amp; Infusi</a></li>
+          <li><a href="prodotti.html">Prodotti</a></li>
+          <li><a href="infomazioni.html">Informazioni</a></li>
+          <li><a href="la_mia_storia.html">La mia Storia</a></li>
+          <li><span>Prodotti</span></li>
         </ul>
         <p id="copyright">Copyright &#64; 2020 erbalchimia@gmail.com. Tutti i diritti riservati</p>
       </div>
     </div>
-  <script type="text/javascript" src="../javascript/design.js"></script>
+    <script type="text/javascript" src="../js/design.js"></script>
   </body>
 </html>
