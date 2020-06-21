@@ -50,6 +50,9 @@
           case "prodotti" :
             $menu = str_replace('<li><a href="prodotti.php">prodotti</a></li>',
                                 '<li class="selected_page">prodotti</li>', $menu);
+          case "login" :
+            $menu = str_replace('<li><a href="login.php">Accedi</a></li>',
+                                '<li class="selected_page">Accedi</li>', $menu);
           break;
 
           case "teinfusi" :

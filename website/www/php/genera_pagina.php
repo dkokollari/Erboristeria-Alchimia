@@ -78,6 +78,15 @@
           $lista_menu = menu_pagina::menu($target);
         break;
 
+        case "login" :
+          $titolo = "Accedi";
+          $titolo_pagina = "Accedi ad Erboristeria Alchimia";
+          $descrizione_pagina = "Pagina di accesso al sito";
+          $keywords_pagina = "login, email, password, erboristeria, alchimia";
+          // $container_pagina = "log_in_box_container";
+          $lista_menu = menu_pagina::menu($target);
+        break;
+
         case "prodotti" :
           $titolo = "Prodotti";
           $titolo_pagina = "Prodotti di Erboristeria Alchimia";
