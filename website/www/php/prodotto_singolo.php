@@ -42,7 +42,7 @@
     $preparazione =  $row['descrizione_articolo']; /// WARNING: cè bisogno di un attributo 'preparazione' a db!
     $ingredienti =  $row['descrizione_articolo']; /// WARNING: cè bisogno di un attributo 'preparazione' a db!
 
-    if(!isset($_SESSION['tipo_utente'])) {
+    if($_SESSION['tipo_utente'] == 'Visitatore') {
       $pagina = str_replace('%ADD_TO_CART%', $iscriviti , $pagina);
     } else if($_SESSION['tipo_utente'] == "User") {
       if(!isset($_GET['addedProduct']) && !isset($_GET['qta'])) {
@@ -76,6 +76,6 @@
     echo $pagina;
   }
   else {
-    redirect('Location : index.php');
+    header('Location : index.php');
   }
 ?>
