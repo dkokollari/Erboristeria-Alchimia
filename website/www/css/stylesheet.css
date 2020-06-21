@@ -678,6 +678,11 @@ strong {
   line-height: 2.5em;
 }
 
+#delete_user {
+  border: 2px solid #d01616;
+  color: #d01616;
+}
+
 #login div.errori {
   color: red;
 }
