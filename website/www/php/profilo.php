@@ -20,7 +20,8 @@
     $con->closeConnection();
     $aggTimbri = '<p class="addedProduct">Grazie per il tuo acquisto!</p>';
     $minPrezzoTimbro = 10; //prezzo acquisto che dà diritto ad un timbro
-    if(isset($_SESSION['valAcquisto']) && !empty($_SESSION['valAcquisto'])) {
+    if(isset($_SESSION['valAcquisto']) && !empty($_SESSION['valAcquisto'])
+        && $_SESSION['valAcquisto'] % $minPrezzoTimbro > 0) {
       $num_timbri['numero_timbri'] += $_SESSION['valAcquisto'] % $minPrezzoTimbro;
       $aggTimbri = '<p class="addedProduct">Grazie per il tuo acquisto! Ti sono stati convalidate delle caselle
        nella tua carta fedelt&agrave;: quando la tua carta sar&agrave; piena, recati in negozio
