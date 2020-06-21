@@ -23,7 +23,7 @@
           $titolo_pagina = "Carrello di Erboristeria Alchimia";
           $descrizione_pagina = "Il tuo carrello verde made by Erboristeria Alchimia";
           $keywords_pagina = "carrello, acquista, acquisti, erboristeria, alchimia";
-          $meta_link = '<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>';
+          $link_head = '<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>';
           $container_pagina = "container_prodotti"; // TODO: controllare  effetti su CSS usando container_carrello
           $attributi_body = 'id="carrello"';
           $icona_top = "";
@@ -78,6 +78,15 @@
           $lista_menu = menu_pagina::menu($target);
         break;
 
+        case "login" :
+          $titolo = "Accedi";
+          $titolo_pagina = "Accedi ad Erboristeria Alchimia";
+          $descrizione_pagina = "Pagina di accesso al sito";
+          $keywords_pagina = "login, email, password, erboristeria, alchimia";
+          // $container_pagina = "log_in_box_container";
+          $lista_menu = menu_pagina::menu($target);
+        break;
+
         case "prodotti" :
           $titolo = "Prodotti";
           $titolo_pagina = "Prodotti di Erboristeria Alchimia";
@@ -89,8 +98,8 @@
 
         case "profilo" :
           $titolo = "Profilo";
-          $titolo_pagina = "Gestione del profilo";
-          $descrizione_pagina = "Pagina di gestione delle informazioni del tuo profilo";
+          $titolo_pagina = "Gestione del profilo di Erboristeria Alchimia";
+          $descrizione_pagina = "Pagina di gestione delle informazioni del tuo profilo, visualizza la tessera e scopri quante caselle riempite hai";
           $keywords_pagina = "profilo, informazioni, personali, erboristeria, alchimia";
           $container_pagina = "container_il_tuo_profilo";
           $lista_menu = menu_pagina::menu($target);
@@ -101,7 +110,9 @@
           $titolo_pagina = "Registrati ad Erboristeria Alchimia";
           $descrizione_pagina = "Pagina di registrazione al sito";
           $keywords_pagina = "registrazione, email, password, erboristeria, alchimia";
-          $container_pagina = "log_in_box_container"; // TODO: controllare  effetti su CSS usando container_redirect
+          $script_body = '<script src="../javascript/validate_form.js"></script>
+                          <script src="../javascript/date-input-polyfill.dist.js"></script>';
+          // $container_pagina = "log_in_box_container"; // TODO: controllare  effetti su CSS usando container_redirect
           $lista_menu = menu_pagina::menu();
         break;
 
@@ -128,8 +139,8 @@
       $pagina = str_replace("%DESCRIZIONE_PAGINA%", $descrizione_pagina, $pagina);
       $pagina = str_replace("%KEYWORDS_PAGINA%", $keywords_pagina, $pagina);
       $pagina = str_replace("%META_HEAD%", $meta_head, $pagina);
-      $pagina = str_replace("%LINK_HEAD%", $meta_link, $pagina);
-      $pagina = str_replace("%SCRIPT_HEAD%", $meta_script, $pagina);
+      $pagina = str_replace("%LINK_HEAD%", $link_head, $pagina);
+      $pagina = str_replace("%SCRIPT_HEAD%", $script_head, $pagina);
       $pagina = str_replace("%ATTRIBUTI_BODY%", $attributi_body, $pagina);
       $pagina = str_replace("%CONTAINER_PAGINA%", $container_pagina, $pagina);
       $pagina = str_replace("%ICONA_TOP%", $icona_top, $pagina);
