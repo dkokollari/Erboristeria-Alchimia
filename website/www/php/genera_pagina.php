@@ -24,7 +24,7 @@
           $descrizione_pagina = "Il tuo carrello verde made by Erboristeria Alchimia";
           $keywords_pagina = "carrello, acquista, acquisti, erboristeria, alchimia";
           $link_head = '<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>';
-          $container_pagina = "container_prodotti"; // TODO: controllare  effetti su CSS usando container_carrello
+          $container_pagina = "container_carrello";
           $attributi_body = 'id="carrello"';
           $icona_top = "";
           $lista_menu = menu_pagina::menu($target);
@@ -35,7 +35,7 @@
           $titolo_pagina = "Eventi di Erboristeria Alchimia";
           $descrizione_pagina = "Qui troverai i prossimi eventi in programma e quelli passati organizzati";
           $keywords_pagina = "eventi, evento, relatori, relatore, organizzazione, organizza, erboristeria, alchimia";
-          $container_pagina = "container_te_e_infusi"; // TODO: controllare  effetti su CSS usando container_eventi
+          $container_pagina = "container_eventi";
           $lista_menu = menu_pagina::menu($target);
         break;
 
@@ -44,7 +44,7 @@
           $titolo_pagina = "Nuovo evento di Erboristeria Alchimia";
           $descrizione_pagina = "Form di inserimento nuovo evento";
           $keywords_pagina = "inserimento, evento, form, nuovo, erboristeria, alchimia";
-          $container_pagina = "container"; // TODO: controllare  effetti su CSS usando container_form_eventi
+          $container_pagina = "container_form_eventi";
           $lista_menu = menu_pagina::menu();
         break;
 
@@ -53,7 +53,7 @@
           $titolo_pagina = "Nuovo te & infusi di Erboristeria Alchimia";
           $descrizione_pagina = "Form di inserimento e modifica di un t&egrave; o infuso";
           $keywords_pagina = "inserimento, modifica, form, t&egrave;, infusi, infuso, erboristeria, alchimia";
-          $container_pagina = "container"; // TODO: controllare  effetti su CSS usando container_form_teinfusi
+          $container_pagina = "container_form_teinfusi";
           $lista_menu = menu_pagina::menu();
           $script_body = '<script type="text/javascript" src="../javascript/validationFormTeInfusi.js"></script>';
         break;
@@ -102,7 +102,7 @@
           $titolo_pagina = "Gestione del profilo di Erboristeria Alchimia";
           $descrizione_pagina = "Pagina di gestione delle informazioni del tuo profilo, visualizza la tessera e scopri quante caselle riempite hai";
           $keywords_pagina = "profilo, informazioni, personali, erboristeria, alchimia";
-          $container_pagina = "container_il_tuo_profilo";
+          $container_pagina = "container_profilo";
           $lista_menu = menu_pagina::menu($target);
           $script_body = '<script src="../javascript/validate_form.js"></script>
                           <script src="../javascript/date-input-polyfill.dist.js"></script>';
@@ -124,7 +124,7 @@
           $titolo_pagina = "Reindirizzamento di Erboristeria Alchimia";
           $descrizione_pagina = "Sembra esserci stato un errore, questa &egrave; una pagina di reindirizzamento";
           $keywords_pagina = "reindirizzamento, redirect, errore, errori, erboristeria, alchimia";
-          $container_pagina = "container"; // TODO: controllare  effetti su CSS usando container_redirect
+          $container_pagina = "container_redirect";
           $lista_menu = menu_pagina::menu();
         break;
 
