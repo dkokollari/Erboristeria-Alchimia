@@ -12,7 +12,7 @@
   /*-------------menu a tendina sesso---------------*/
   $opt_sesso = '<label for="sesso">Sesso</label>' . "\n" .
                 '<select name="sesso" id="sesso">' . "\n" .
-                '<option selected value="none">Seleziona filtro</option>' . "\n" .
+                '<option selected="selected" value="none">Seleziona filtro</option>' . "\n" .
                 '<option value="Unisex">Unisex</option>' . "\n" .
                 '<option value="Per lei">Per lei</option>' . "\n" .
                 '<option value="Per lui">Per lui</option>' . "\n" .'</select>' . "\n";
@@ -20,7 +20,7 @@
   /*-------------menu a tendina categoria---------------*/
   $opt_categoria = '<label for="categoria">Categoria</label>' . "\n" .
                    '<select name="categoria" id="categoria">' . "\n" .
-                   '<option selected value="none">Seleziona filtro</option>' . "\n";
+                   '<option selected="selected" value="none">Seleziona filtro</option>' . "\n";
 
   $result = $con->connection->query('SELECT distinct nome_categoria from categorie');
 
@@ -32,12 +32,12 @@
   /*-------------menu a tendina casa produttrice---------------*/
   $opt_casa_prod = '<label for="casa_prod">Casa produttrice</label>' . "\n" .
             '<select name="casa_prod" id="casa_prod">' . "\n" .
-            '<option selected value="none">Seleziona filtro</option>' . "\n";
+            '<option selected="selected" value="none">Seleziona filtro</option>' . "\n";
 
   $result = $con->connection->query('SELECT distinct nome_ditta from ditte');
 
   while($row = $result->fetch_assoc()) {
-    $opt_casa_prod .= '<option value="' . $row['nome_ditta'] . '">' . $row['nome_ditta'] . '</option>' . "\n";
+    $opt_casa_prod .= '<option value="' .htmlentities($row['nome_ditta']). '">' . htmlentities($row['nome_ditta']). '</option>' . "\n";
   }
   $opt_casa_prod .= '</select>' . "\n";
 
@@ -67,7 +67,7 @@
       // restituisco i dati usati da utente per compilare il form + aggiorno la query di ricerca
       $opt_sesso = str_replace('selected', '' , $opt_sesso);
       $opt_sesso = str_replace('<option value="' . $sex_filter . '">' . $sex_filter . '</option>',
-       '<option selected value="' . $sex_filter . '">' . $sex_filter . '</option>' , $opt_sesso);
+       '<option selected="selected" value="' . $sex_filter . '">' . $sex_filter . '</option>' , $opt_sesso);
       $query_ricerca = str_replace("%sex%", "AND sesso_target = '$sex_filter'", $query_ricerca);
     }
     else $query_ricerca = str_replace("%sex%", "", $query_ricerca);
@@ -78,7 +78,7 @@
     '<option value="' . $categ_filter . '">' . $categ_filter . '</option>') != false) {
       $opt_categoria = str_replace('selected', '' , $opt_categoria);
       $opt_categoria = str_replace('<option value="' . $categ_filter . '">' . $categ_filter . '</option>',
-       '<option selected value="' . $categ_filter . '">' . $categ_filter . '</option>' , $opt_categoria);
+       '<option selected="selected" value="' . $categ_filter . '">' . $categ_filter . '</option>' , $opt_categoria);
       $query_ricerca = str_replace("%categorie%", ",categorie" , $query_ricerca);
       $query_ricerca = str_replace("%categ%", "AND categoria_articolo = id_categoria
           AND nome_categoria = '$categ_filter'", $query_ricerca);
@@ -97,7 +97,7 @@
     '<option value="' . trim($_GET['casa_prod']) . '">' . trim($_GET['casa_prod']) . '</option>') !== false) {
       $opt_casa_prod = str_replace('selected', '' , $opt_casa_prod);
       $opt_casa_prod = str_replace('<option value="' . trim($_GET['casa_prod']) . '">' . trim($_GET['casa_prod']) . '</option>',
-       '<option selected value="' . trim($_GET['casa_prod']) . '">' . trim($_GET['casa_prod']) . '</option>' , $opt_casa_prod);
+       '<option selected="selected" value="' . trim($_GET['casa_prod']) . '">' . trim($_GET['casa_prod']) . '</option>' , $opt_casa_prod);
       $query_ricerca = str_replace("%ditte%", ",ditte" , $query_ricerca);
       $query_ricerca = str_replace("%produzioni%", ",produzioni" , $query_ricerca);
       $query_ricerca = str_replace("%casa_prod%", "AND articolo_produzione = id_articolo
