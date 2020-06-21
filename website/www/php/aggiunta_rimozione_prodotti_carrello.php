@@ -40,19 +40,17 @@
           );
       }
       $redirect = 'prodotto_singolo.php?addedProduct&id_articolo='.Utilities::getNumericValue('id_articolo'). "&qta=$qtaLastProductAdded";
-      header('location : ' . $redirect);
     }
-    if($_GET['action'] == 'delete') {
+    if(isset($_GET['action']) && $_GET['action'] == 'delete') {
       foreach($_SESSION['shopping_cart'] as $key => $product) {
         if($product['id_articolo'] ==  Utilities::getNumericValue('id_articolo')) {
-          $_SESSION['valAcquisto'] -= $product['prezzo_articolo'];
+          $_SESSION['valAcquisto'] -= $product['prezzo_articolo']*$product['quantita'];
           unset($_SESSION['shopping_cart'][$key]);
         }
       }
      $_SESSION['shopping_cart'] = array_values($_SESSION['shopping_cart']);
-     $pagina = file_get_contents("../html/carrello.html");
-     $pagina = str_replace('%RIMOZIONE_PRODOTTO%','<p class="addedProduct">Prodotto rimosso dal carrello con successo</p>', $pagina);
-     echo $pagina;
+     $redirect = 'carrello.php?action=productRemoved';
     }
+    header('location : ' . $redirect);
   }
 ?>
