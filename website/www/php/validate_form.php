@@ -1,5 +1,5 @@
 <?php
-  class Validate_form{
+  class Validate_form {
     // lunghezza minima 8 e massima 100 caratteri, almeno 1 lettera ed 1 numero
     public static function check_pwd($password) {
       return preg_match('/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,100}$/', $password);
