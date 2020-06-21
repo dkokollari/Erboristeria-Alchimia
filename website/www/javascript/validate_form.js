@@ -68,12 +68,12 @@ var cognomeValidityChecks = [{
 	element: document.querySelector('div[class="form_field cognome"] .input-requirements li:nth-child(2)')
 }];
 
-var usernameValidityChecks = [{
+var emailValidityChecks = [{
 	isInvalid: function(input) {
 		return !input.value.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/);
 	},
 	invalidityMessage: 'Questa e-mail sembra non essere valida',
-	element: document.querySelector('div[class="form_field username"]')
+	element: document.querySelector('div[class="form_field email"]')
 }];
 
 var passwordValidityChecks = [{
@@ -137,7 +137,7 @@ function checkInput(input) {
 
 var nomeInput = document.getElementById('nome');
 var cognomeInput = document.getElementById('cognome');
-var usernameInput = document.getElementById('username');
+var emailInput = document.getElementById('email');
 var passwordInput = document.getElementById('password');
 var passwordConfermaInput = document.getElementById('password_conferma');
 var dataNascitaInput = document.getElementById('data_nascita');
@@ -150,8 +150,8 @@ nomeInput.CustomValidation.validityChecks = nomeValidityChecks;
 cognomeInput.CustomValidation = new CustomValidation();
 cognomeInput.CustomValidation.validityChecks = cognomeValidityChecks;
 
-usernameInput.CustomValidation = new CustomValidation();
-usernameInput.CustomValidation.validityChecks = usernameValidityChecks;
+emailInput.CustomValidation = new CustomValidation();
+emailInput.CustomValidation.validityChecks = emailValidityChecks;
 
 passwordInput.CustomValidation = new CustomValidation();
 passwordInput.CustomValidation.validityChecks = passwordValidityChecks;
