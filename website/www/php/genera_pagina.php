@@ -101,6 +101,8 @@
           $titolo_pagina = "Registrati ad Erboristeria Alchimia";
           $descrizione_pagina = "Pagina di registrazione al sito";
           $keywords_pagina = "registrazione, email, password, erboristeria, alchimia";
+          $script_body = '<script src="js/validate_form.js"></script>
+                          <script src="js/date-input-polyfill.dist.js"></script>';
           // $container_pagina = "log_in_box_container"; // TODO: controllare  effetti su CSS usando container_redirect
           $lista_menu = menu_pagina::menu();
         break;
