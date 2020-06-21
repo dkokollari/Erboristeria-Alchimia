@@ -76,10 +76,11 @@
          }
          else {
            $id = $con->getId_TeInfusi($nome);  // non è una modifica ed è stato eseguita la query, quindi aggiorno id con nuovo valore
+           $id = $id[0]['id_te_e_infusi'];
          }
 
          if($imgpresent) { // se è presente l'immagine la carichiamo
-             $image->uploadImageTeInfusi($_FILES['immagine']['name'], $_FILES['immagine']['tmp_name'], $id);
+             $image->uploadImage($_FILES['immagine']['name'], $_FILES['immagine']['tmp_name'], $id, "../img/te_e_infusi/");
              header('Location: teinfusi.php');
              exit;
          }
