@@ -66,6 +66,7 @@
 
   $contenuto = file_get_contents("../html/form_utente.html");
   $contenuto = str_replace("%ACTION_FORM%", "registrazione.php", $contenuto);
+  $contenuto = str_replace("%TITOLO%", "Registrazione a portata di un click", $contenuto);
   $contenuto = str_replace("%STATO_UTENTE%", $status, $contenuto);
   $contenuto = str_replace("%VALUE_nome%", "", $contenuto);
   $contenuto = str_replace("%VALUE_cognome%", "", $contenuto);
