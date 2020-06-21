@@ -3,7 +3,7 @@
   require_once("DBAccess.php");
   require_once("genera_pagina.php");
   require_once("validate_form.php");
-  
+
   if($_SESSION['auth']) {
     $con = new DBAccess();
     if(!$con->openConnection()) {
@@ -42,7 +42,7 @@
     if($_POST['Modifica_profilo']) {
       $nome = ucfirst(strtolower(mysql_real_escape_string(trim($_POST['nome']))));
       $cognome = ucfirst(strtolower(mysql_real_escape_string(trim($_POST['cognome']))));
-      $email = mysql_real_escape_string(trim($_POST['username']));
+      $email = mysql_real_escape_string(trim($_POST['email']));
       $password = mysql_real_escape_string(trim($_POST['password']));
       $password_conferma = mysql_real_escape_string(trim($_POST['password_conferma']));
       $data_nascita = mysql_real_escape_string(trim($_POST['data_nascita']));
