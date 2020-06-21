@@ -110,7 +110,7 @@
     $contenuto = file_get_contents("../html/profilo.html");
     $contenuto = str_replace("%AGG_TIMBRI%", $aggTimbri, $contenuto);
     $contenuto = str_replace("%TIMBRI%", $img_timbri, $contenuto);
-    $contenuto = str_replace("%NUMERO_TIMBRI%", $num_timbri['numero_timbri'], $contenuto);
+    $contenuto = str_replace("%NUMERO_TIMBRI%", $num_timbri, $contenuto);
     $contenuto = str_replace("%AUGURI%", $auguri, $contenuto);
     $contenuto .= file_get_contents("../html/form_utente.html");
     $contenuto = str_replace("%ACTION_FORM%", "profilo.php", $contenuto);
