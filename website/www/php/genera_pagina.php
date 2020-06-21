@@ -89,7 +89,7 @@
 
         case "profilo" :
           $titolo = "Profilo";
-          $titolo_pagina = "Gestione del profilo";
+          $titolo_pagina = "Gestione del profilo di Erboristeria Alchimia";
           $descrizione_pagina = "Pagina di gestione delle informazioni del tuo profilo";
           $keywords_pagina = "profilo, informazioni, personali, erboristeria, alchimia";
           $container_pagina = "container_il_tuo_profilo";
