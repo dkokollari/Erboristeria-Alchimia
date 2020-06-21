@@ -18,6 +18,11 @@
       }
     }
     $con->closeConnection();
+    $minPrezzoTimbro = 10; //prezzo acquisto che dà diritto ad un timbro
+    if(isset($_SESSION['valAcquisto']) && !empty($_SESSION['valAcquisto'])) {
+      $num_timbri['numero_timbri'] += $_SESSION['valAcquisto'] % $minPrezzoTimbro;
+    }
+
     $contenuto = file_get_contents("../html/profilo.html");
     $contenuto = str_replace("%TIMBRI%", $img_timbri, $contenuto);
     $contenuto = str_replace("%NUMERO_TIMBRI%", $num_timbri['numero_timbri'], $contenuto);

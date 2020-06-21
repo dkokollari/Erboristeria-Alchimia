@@ -43,13 +43,13 @@
             '<button class="button">Rimuovi</button>' . "\n" . '</a></li>' . "\n" .
         '</ul>'. "\n" .
       '</li>' .  "\n";
-      $total += $row["prezzo_articolo"] * $product["quantita"];
+      $_SESSION['valAcquisto'] = $total += $row["prezzo_articolo"] * $product["quantita"];
       }
     }
     $con->closeConnection();
 
     $orderedProducts .= '</ul>' . '<span class="product_price">Totale carrello : ' .  number_format($total, 2) . ' &euro;</span>'. "\n";
-    $orderedProducts .= '<a href="prodotto_singolo.php?addedProduct&amp;q.ta='.$_SESSION["shopping_cart"]["id_articolo"]["quantita"] . '&amp;id_articolo=' . $product["id_articolo"] . ' class="classic_btn" id="checkout">Checkout</a>'  . "\n";
+    $orderedProducts .= "<a href=\"profilo.php?\" class=\"classic_btn\" id=\"checkout\">Checkout</a>"  . "\n";
     } // end if !empty($_SESSION["shopping_cart"])
     else {
       $orderedProducts = '<p id="emptyCart">Il tuo carrello e\' vuoto: consulta la pagina dei nostri <a href= "prodotti.php">prodotti</a>, potremmo avere qualcosa che fa per te!<p>';

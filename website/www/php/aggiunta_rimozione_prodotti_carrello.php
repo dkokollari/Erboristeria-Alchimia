@@ -47,6 +47,7 @@
   if($_GET['action'] == 'delete') {
     foreach($_SESSION['shopping_cart'] as $key => $product) {
       if($product['id_articolo'] ==  Utilities::getNumericValue('id_articolo')) {
+        $_SESSION['valAcquisto'] -= $product['prezzo_articolo'];
         unset($_SESSION['shopping_cart'][$key]);
       }
     }
