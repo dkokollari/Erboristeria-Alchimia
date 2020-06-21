@@ -172,7 +172,7 @@
     $contenuto = str_replace("%ERR_ORG%", $err_org, $contenuto);
     $contenuto = str_replace("%ERR_IMG%", $err_img, $contenuto);
 
-    $pagina = Genera_pagina::genera("../html/base.html", "form_eventi", $contenuto);
+    $pagina = Genera_pagina::genera("../html/base5.html", "form_eventi", $contenuto);
     echo $pagina;
   } // end if $con->openConnection()
   else {
