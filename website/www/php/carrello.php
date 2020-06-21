@@ -55,7 +55,11 @@
       $orderedProducts = '<p id="emptyCart">Il tuo carrello e\' vuoto: consulta la pagina dei nostri <a href= "prodotti.php">prodotti</a>, potremmo avere qualcosa che fa per te!<p>';
     }
     $contenuto = file_get_contents("../html/carrello.html");
+    $contenuto = str_replace('%RIMOZIONE_PRODOTTO%','', $contenuto);
     $contenuto = str_replace("%ORDERS%", $orderedProducts, $contenuto);
+    if(isset($_GET['action']) && $_GET['action'] == 'productRemoved')
+     $contenuto = str_replace('<ul class="adjust_margins">',
+     '<ul class="adjust_margins">'. "\n" .'<p class="addedProduct">Prodotto rimosso dal carrello con successo</p>' . "\n", $contenuto);
     $pagina = Genera_pagina::genera("../html/base.html", "carrello", $contenuto);
     echo $pagina;
 ?>

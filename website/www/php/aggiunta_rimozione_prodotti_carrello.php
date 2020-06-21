@@ -5,6 +5,7 @@
   $orderedProducts = '';
   if(isset($_SESSION['email_utente']) ||
       (isset($_COOKIE['email']) && isset($_COOKIE['password']))) {
+    $redirect = '';
     $product_ids = array();
     $qtaLastProductAdded=1;
     if(isset($_GET['add_to_cart'])) {
@@ -39,18 +40,17 @@
           );
       }
       $redirect = 'prodotto_singolo.php?addedProduct&id_articolo='.Utilities::getNumericValue('id_articolo'). "&qta=$qtaLastProductAdded";
-      header('location : ' . $redirect);
-      echo $pagina;
     }
-  }
-
-  if($_GET['action'] == 'delete') {
-    foreach($_SESSION['shopping_cart'] as $key => $product) {
-      if($product['id_articolo'] ==  Utilities::getNumericValue('id_articolo')) {
-        $_SESSION['valAcquisto'] -= $product['prezzo_articolo'];
-        unset($_SESSION['shopping_cart'][$key]);
+    if(isset($_GET['action']) && $_GET['action'] == 'delete') {
+      foreach($_SESSION['shopping_cart'] as $key => $product) {
+        if($product['id_articolo'] ==  Utilities::getNumericValue('id_articolo')) {
+          $_SESSION['valAcquisto'] -= $product['prezzo_articolo']*$product['quantita'];
+          unset($_SESSION['shopping_cart'][$key]);
+        }
       }
+     $_SESSION['shopping_cart'] = array_values($_SESSION['shopping_cart']);
+     $redirect = 'carrello.php?action=productRemoved';
     }
-   $_SESSION['shopping_cart'] = array_values($_SESSION['shopping_cart']);
+    header('location : ' . $redirect);
   }
 ?>
