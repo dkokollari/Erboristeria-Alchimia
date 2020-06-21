@@ -8,6 +8,7 @@
 const headerImg = document.getElementById("header_image");
 const content = document.querySelector("#content");
 const topbar = document.querySelector("#topbar");
+const topbarLogo = document.querySelector("#topbar_logo");
 const topbarTitle = document.querySelector("#topbar_title");
 const menu = document.querySelector("#menu");
 const rightofmenu= document.querySelector("#right-of-menu");
@@ -153,7 +154,7 @@ function expandCard() {
   this.lastElementChild.classList.toggle("rotated");
 }
 
-// 
+//
 // document.getElementById("torna_su_btn").addEventListener('click', function () {
 //       window.scrollTo(0,0);
 // });
@@ -235,11 +236,13 @@ const title = document.getElementById("title");
      if (window.scrollY > marginTopEm) {
        topbar.classList.add("visible_topbar");
        topbarTitle.classList.add("nopacity");
+       topbarLogo.classList.add("nopacity");
        if(scopri) scopri.classList.add("hide_header_elements");
        title.classList.add("hide_header_elements");
      } else {
        topbar.classList.remove("visible_topbar")
        topbarTitle.classList.remove("nopacity");
+       topbarLogo.classList.remove("nopacity");
        if(scopri) scopri.classList.remove("hide_header_elements");
        title.classList.remove("hide_header_elements");
      }
