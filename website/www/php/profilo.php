@@ -73,6 +73,10 @@
                 : $errore);
     } // end if $_POST['Modifica_profilo']
 
+    if($_POST['Elimina_profilo']) {
+      $con->deleteUtenti($_SESSION['email_utente']);
+      header('Location: logout.php');
+    } // end if $_POST['Elimina_profilo']
 
     // prelievo tessera utente e visualizzazione messaggi
     $num_timbri = 0;
