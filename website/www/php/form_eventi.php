@@ -113,15 +113,20 @@
          if($errori==0) {
             $data = (new DateTime($_POST['dataora_evento']))->format('Y-m-d H:i:s');
 
-            if($con->insertEventi($descImg, $titolo, $data, $relatori, $mappa, $org)) {
+            if($con->insertEventi($data, $descImg, $titolo, $relatori, $mappa, $org)) {
               $id = $con->getId_Eventi($titolo);
+              $id = $id[0]['id_evento'];
               $con->insertMappaEventi($mappa, $desc_map);
 
-              if(isset($_POST['sottotitolo1'])) $con->insertDescrizioneEventi($id, $stt1);
-              if(isset($_POST['sottotitolo2'])) $con->insertDescrizioneEventi($id, $stt2);
-              if(isset($_POST['sottotitolo3'])) $con->insertDescrizioneEventi($id, $stt3);
-              if(isset($_POST['sottotitolo4'])) $con->insertDescrizioneEventi($id, $stt4);
-              if(isset($_POST['sottotitolo5'])) $con->insertDescrizioneEventi($id, $stt5);
+              if(!empty($_POST['sottotitolo1'])) $con->insertDescrizioneEventi($id, $stt1);
+              if(!empty($_POST['sottotitolo2'])) $con->insertDescrizioneEventi($id, $stt2);
+              if(!empty($_POST['sottotitolo3'])) $con->insertDescrizioneEventi($id, $stt3);
+              if(!empty($_POST['sottotitolo4'])) $con->insertDescrizioneEventi($id, $stt4);
+              if(!empty($_POST['sottotitolo5'])) $con->insertDescrizioneEventi($id, $stt5);
+
+              if($imgpresent) { // se è presente l'immagine la carichiamo
+                  $image->uploadImage($_FILES['immagine']['name'], $_FILES['immagine']['tmp_name'], $id, "../img/eventi/");
+              }
 
               header('Location: eventi.php');
               exit;

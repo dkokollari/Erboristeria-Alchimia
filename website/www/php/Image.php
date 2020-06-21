@@ -9,9 +9,8 @@
       else return '<span class="err_msg">inserisci una immagine (.jpg, .jpeg, .png, .gif)</span>';
     }
 
-    public function uploadImageTeInfusi($name, $temp, $id) {
+    public function uploadImage($name, $temp, $id, $dir) {
       if($id!="errore") {
-        $dir = "../img/te_e_infusi/";
         $tmp = getImage($dir, $id);
         if($tmp != $dir."0.jpg") deleteImage($tmp);
         move_uploaded_file($temp, $dir.$name);
