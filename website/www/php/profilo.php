@@ -56,14 +56,14 @@
       $errore_conferma = '<span class="errore">Le password inserite non corrispondono</span>';
       $errore_sconosciuto = '<span class="errore">Per favore disconnettiti e accedi di nuovo</span>';
 
-      $fields = [$nome, $cognome, $email, $password, $data_nascita];
+      $fields = [$email, $password, $data_nascita];
       if(Validate_form::is_empty($fields)) {
         $errore = $errore_empty;
       }
-      else if(!Validate_form::check_str($nome)) {
+      else if(!empty($nome) && !Validate_form::check_str($nome)) {
         $errore = $errore_nome;
       }
-      else if(!Validate_form::check_str($cognome)) {
+      else if(!empty($cognome) && !Validate_form::check_str($cognome)) {
         $errore = $errore_cognome;
       }
       else if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
