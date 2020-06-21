@@ -18,10 +18,10 @@
       }
       $compleanno = DateTime::createFromFormat("Y-m-d", $_SESSION['data_nascita_utente']);
       if($compleanno->format('d') == date('d') && $compleanno->format('m') == date('m')) {
-        $auguri = '<p class="addedProduct">Tanti auguri di buon compleanno da Erboristeria Alchimia, '.
-        $_SESSION['nome_utente'].'! Per la giornata di oggi, hai diritto ad uno sconto di 10&euro;
-         su un prodotto a tua scelta: corri in negozio, ti aspettiamo; ci teniamo a farti gli auguri
-         di persona! </p>';
+        $auguri = '<p class="addedProduct">Tanti auguri di buon compleanno da Erboristeria Alchimia, '.$_SESSION['nome_utente'].'! <br/>
+          Per la giornata di oggi, hai diritto ad uno sconto di 10&euro; su un prodotto a tua scelta: corri in negozio, ti aspettiamo. <br/>
+          Ci teniamo a farti gli auguri di persona!
+          </p>';
       }
     } // end if $_SESSION['tipo_utente'] == 'User'
     $minPrezzoTimbro = 10; // prezzo acquisto che dà diritto ad un timbro
@@ -34,7 +34,7 @@
         nella tua carta fedelt&agrave;: quando la tua carta sar&agrave; piena, recati in negozio
         per sfruttarla come buono da 15&euro;.</p>';
       }
-    } 
+    }
 
     $contenuto = file_get_contents("../html/profilo.html");
     $contenuto = str_replace("%AGG_TIMBRI%", $aggTimbri, $contenuto);
