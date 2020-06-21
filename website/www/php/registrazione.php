@@ -73,7 +73,7 @@
   $contenuto = str_replace("%VALUE_email%", "", $contenuto);
   $contenuto = str_replace("%VALUE_data_nascita%", "", $contenuto);
   $contenuto = str_replace("%NOME_SUBMIT%", "Registrati", $contenuto);
-  $contenuto = str_replace("%AGGIUNGI_SUBMIT%", "", $contenuto);
+  $contenuto = str_replace("%AGGIUNGI_SUBMIT%", '<span>Sei gi&agrave; registrato? <a href="login.php">CLICCA QUI</a></span>', $contenuto);
   $pagina = Genera_pagina::genera("../html/base5.html", "registrazione", $contenuto);
   echo $pagina;
 ?>
