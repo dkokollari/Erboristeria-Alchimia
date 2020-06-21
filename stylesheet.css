@@ -1,9 +1,9 @@
 @font-face {font-family: 'Velvetberries'; src: url(fonts/velvetberries.woff);}
 * { margin: 0; padding: 0;}
 html {
+  background-color: white;
   scroll-behavior: smooth;
 }
-
 a {
   text-decoration: none;
   color: inherit;
@@ -52,6 +52,7 @@ ul {
   width: 100%;
   margin-left: 0;
   margin-right: 0;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.10), 0 3px 6px rgba(0,0,0,0.17);
 }
 #content h2, #body_scheda_prodotto #content h1 {
   text-transform: capitalize;
