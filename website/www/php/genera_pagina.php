@@ -55,6 +55,7 @@
           $keywords_pagina = "inserimento, modifica, form, t&egrave;, infusi, infuso, erboristeria, alchimia";
           $container_pagina = "container"; // TODO: controllare  effetti su CSS usando container_form_teinfusi
           $lista_menu = menu_pagina::menu();
+          $script_body = '<script type="text/javascript" src="../javascript/validationFormTeInfusi.js"></script>';
         break;
 
         case "index" :
