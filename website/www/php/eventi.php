@@ -14,6 +14,7 @@
     setlocale(LC_TIME, "it_IT");
 
     foreach ($lista_eventi as $row) {
+      $index++;
       //strftime() visualizza la data nella lingua definita dal locale
       $data_ora = new DateTime($row["data_ora_evento"]);
       $giorno_testo = htmlentities(utf8_encode(strftime("%A", $data_ora->getTimestamp())));
@@ -54,16 +55,16 @@
           <h4 class="titoletto">Relatori</h4>
           <p>'.$relatori.'</p>
           <h4 class="titoletto">Mappa e data</h4>
-          <a id="linkMappa" href="'.$url_mappa.'">'.$indirizzo_mappa.'</a>
+          <a id="linkMappa'.$index.'" href="'.$url_mappa.'">'.$indirizzo_mappa.'</a>
           <p>'.$descrizione_mappa.'</p>
-          <p id="dataEvento">
+          <p id="dataEvento'.$index.'">
               '.$giorno_testo.' '.$giorno_numero.' '.$mese.' - ore '.$ore_minuti.'
           </p>
-          <p id="org">
+          <p id="org'.$index.'">
             '.$organizzazione.'
           </p>
           '.($posti_limitati ?
-          '<p id="prenotazione">
+          '<p id="prenotazione'.$index.'">
             <span>I posti sono limitati, &egrave; gradita la prenotazione</span> (i contatti si trovano <a href="../html/pagina_informazioni.html#contatti">qui</a>)
           </p>' : "").'
         </div>
