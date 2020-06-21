@@ -1,5 +1,6 @@
 <?php
   require_once("session.php");
+  require_once("genera_pagina.php");
   require_once("DBAccess.php");
 
   if($_SESSION['auth']) { // utente con sessione
@@ -28,7 +29,6 @@
   } // end else if utente con cookie senza sessione
 
   // utente senza cookie e senza sessione
-  $pagina = file_get_contents("../html/login.html");
   if($_POST['Login']) {
     $email = mysql_real_escape_string(trim($_POST['email']));
     $password = mysql_real_escape_string(trim($_POST['password']));
@@ -67,8 +67,10 @@
     } // end else if email e password valide
   } // end if $_POST["Login"]
 
-  $pagina = str_replace("%ERR_LOGIN%", $errore, $pagina);
-  $pagina = str_replace("%LOGIN_STATUS%", $logged, $pagina);
+  $contenuto = file_get_contents("../html/login.html");
+  $contenuto = str_replace("%ERR_LOGIN%", $errore, $contenuto);
+  $contenuto = str_replace("%LOGIN_STATUS%", $logged, $contenuto);
+  $pagina = Genera_pagina::genera("../html/base.html", "login", $contenuto);
   echo $pagina;
 
   function setSessione($array="") { // guardare DBAccess::getSingolo_Utenti() per vedere la struttura di $array
