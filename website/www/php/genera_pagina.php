@@ -99,7 +99,7 @@
         case "profilo" :
           $titolo = "Profilo";
           $titolo_pagina = "Gestione del profilo di Erboristeria Alchimia";
-          $descrizione_pagina = "Pagina di gestione delle informazioni del tuo profilo";
+          $descrizione_pagina = "Pagina di gestione delle informazioni del tuo profilo, visualizza la tessera e scopri quante caselle riempite hai";
           $keywords_pagina = "profilo, informazioni, personali, erboristeria, alchimia";
           $container_pagina = "container_il_tuo_profilo";
           $lista_menu = menu_pagina::menu($target);
