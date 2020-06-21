@@ -1,8 +1,8 @@
 <?php
   require_once("session.php");
-  require_once(" DBAccess.php");
-  require_once(" Image.php");
-  require_once(" control_input.php");
+  require_once("DBAccess.php");
+  require_once("Image.php");
+  require_once("control_input.php");
 
   if($_SESSION['tipo_utente'] != 'Admin'){
     header('Location: redirect.php?error=3');
