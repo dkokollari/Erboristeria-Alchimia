@@ -1,62 +1,60 @@
-<div id="log_in_box_container">
-  <div id="log_in_box">
-    <form action="%ACTION_FORM%" method="post">
-      <fieldset id="log_in_form">
-        <legend><h2>%TITOLO%</h2></legend>
-        %STATO_UTENTE%
-        <div class="form_field nome">
-          <label for="nome">
-            <span>Nome</span>
-          </label>
-          <input id="nome" name="nome" type="text" %VALUE_nome%/>
-          <ul class="input-requirements">
-            <li>Almeno 3 caratteri (e meno di 100 caratteri)</li>
-            <li>Contiene lettere (no numeri o caratteri speciali)</li>
-          </ul>
-        </div>
-        <div class="form_field cognome">
-          <label for="cognome">
-            <span>Cognome</span>
-          </label>
-          <input id="cognome" name="cognome" type="text" %VALUE_cognome%/>
-          <ul class="input-requirements">
-            <li>Almeno 3 caratteri (e meno di 100 caratteri)</li>
-            <li>Contiene lettere (no numeri o caratteri speciali)</li>
-          </ul>
-        </div>
-        <div class="form_field username">
-          <label for="email">
-            <span lang="en">E-mail</span>
-          </label>
-          <input id="email" name="email" type="email" %VALUE_email%/>
-        </div>
-        <div class="form_field password">
-          <label for="password">
-            <span lang="en">Password</span>
-          </label>
-          <input id="password" name="password" type="password"/>
-          <ul class="input-requirements">
-            <li>Almeno 8 caratteri (e meno di 100 caratteri)</li>
-            <li>Almeno 1 numero</li>
-            <li>Almeno 1 lettera minuscola</li>
-            <li>Almeno 1 lettera maiuscola</li>
-          </ul>
-        </div>
-        <div class="form_field password_conferma">
-          <label for="password_conferma">
-            <span><span lang="en">Password</span> (conferma)</span>
-          </label>
-          <input id="password_conferma" name="password_conferma" type="password"/>
-        </div>
-        <div class="form_field_static data_nascita">
-          <label for="data_nascita">
-            <span>Data nascita</span>
-          </label>
-          <input id="data_nascita" name="data_nascita" type="date" %VALUE_data_nascita%/>
-        </div>
-        <input id="log_in" type="submit" name="%NOME_SUBMIT%"/>
-        %AGGIUNGI_SUBMIT%
-      </fieldset>
-    </form>
-  </div>
+<div id="log_in_box">
+  <form action="%ACTION_FORM%" method="post">
+    <fieldset id="log_in_form">
+      <legend><h2>%TITOLO%</h2></legend>
+      %STATO_UTENTE%
+      <div class="form_field nome">
+        <label for="nome">
+          <span>Nome</span>
+        </label>
+        <input id="nome" name="nome" type="text" %VALUE_nome%/>
+        <ul class="input-requirements">
+          <li>Almeno 3 caratteri (e meno di 100 caratteri)</li>
+          <li>Contiene lettere (no numeri o caratteri speciali)</li>
+        </ul>
+      </div>
+      <div class="form_field cognome">
+        <label for="cognome">
+          <span>Cognome</span>
+        </label>
+        <input id="cognome" name="cognome" type="text" %VALUE_cognome%/>
+        <ul class="input-requirements">
+          <li>Almeno 3 caratteri (e meno di 100 caratteri)</li>
+          <li>Contiene lettere (no numeri o caratteri speciali)</li>
+        </ul>
+      </div>
+      <div class="form_field username">
+        <label for="email">
+          <span lang="en">E-mail</span>
+        </label>
+        <input id="email" name="email" type="email" %VALUE_email%/>
+      </div>
+      <div class="form_field password">
+        <label for="password">
+          <span lang="en">Password</span>
+        </label>
+        <input id="password" name="password" type="password"/>
+        <ul class="input-requirements">
+          <li>Almeno 8 caratteri (e meno di 100 caratteri)</li>
+          <li>Almeno 1 numero</li>
+          <li>Almeno 1 lettera minuscola</li>
+          <li>Almeno 1 lettera maiuscola</li>
+        </ul>
+      </div>
+      <div class="form_field password_conferma">
+        <label for="password_conferma">
+          <span><span lang="en">Password</span> (conferma)</span>
+        </label>
+        <input id="password_conferma" name="password_conferma" type="password"/>
+      </div>
+      <div class="form_field_static data_nascita">
+        <label for="data_nascita">
+          <span>Data nascita</span>
+        </label>
+        <input id="data_nascita" name="data_nascita" type="date" %VALUE_data_nascita%/>
+      </div>
+      <input id="log_in" type="submit" name="%NOME_SUBMIT%"/>
+      %AGGIUNGI_SUBMIT%
+    </fieldset>
+  </form>
 </div>
