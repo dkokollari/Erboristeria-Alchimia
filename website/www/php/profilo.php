@@ -67,7 +67,6 @@
             $_SESSION['cognome_utente'] = $array[0]['cognome_utente'];
             $_SESSION['email_utente'] = $array[0]['email_utente'];
             $_SESSION['password_utente'] = $array[0]['password_utente'];
-            $_SESSION['tipo_utente'] = $array[0]['tipo_utente'];
             $_SESSION['data_nascita_utente'] = $array[0]['data_nascita_utente'];
           }
         }
