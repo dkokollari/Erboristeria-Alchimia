@@ -40,14 +40,16 @@ CustomValidation.prototype = {
 
 var nomeValidityChecks = [{
 	isInvalid: function(input) {
-		return input.value.length < 3;
+		if (input.value === "") return false;
+		else return input.value.length < 3 ;
 	},
 	invalidityMessage: 'Il nome deve essere lungo almeno 3 caratteri',
 	element: document.querySelector('div[class="form_field nome"] .input-requirements li:nth-child(1)')
 }, {
 	isInvalid: function(input) {
 		var illegalCharacters = input.value.match(/[^a-zA-Z]/g);
-		return illegalCharacters ? true : false;
+		if (input.value === "") return false;
+		else return (illegalCharacters ? true : false);
 	},
 	invalidityMessage: 'Sono ammesse solo lettere',
 	element: document.querySelector('div[class="form_field nome"] .input-requirements li:nth-child(2)')
@@ -55,14 +57,16 @@ var nomeValidityChecks = [{
 
 var cognomeValidityChecks = [{
 	isInvalid: function(input) {
-		return input.value.length < 3;
+		if (input.value === "") return false;
+		else return input.value.length < 3;
 	},
 	invalidityMessage: 'Il cognome deve essere lungo almeno 3 caratteri',
 	element: document.querySelector('div[class="form_field cognome"]  .input-requirements li:nth-child(1)')
 }, {
 	isInvalid: function(input) {
 		var illegalCharacters = input.value.match(/[^a-zA-Z]/g);
-		return illegalCharacters ? true : false;
+		if (input.value === "") return false;
+		else return (illegalCharacters ? true : false);
 	},
 	invalidityMessage: 'Sono ammesse solo lettere',
 	element: document.querySelector('div[class="form_field cognome"] .input-requirements li:nth-child(2)')

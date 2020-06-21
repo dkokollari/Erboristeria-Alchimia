@@ -6,7 +6,7 @@
   if($_POST['Registrati']) {
     $nome = ucfirst(strtolower(mysql_real_escape_string(trim($_POST['nome']))));
     $cognome = ucfirst(strtolower(mysql_real_escape_string(trim($_POST['cognome']))));
-    $email = mysql_real_escape_string(trim($_POST['username']));
+    $email = mysql_real_escape_string(trim($_POST['email']));
     $password = mysql_real_escape_string(trim($_POST['password']));
     $password_conferma = mysql_real_escape_string(trim($_POST['password_conferma']));
     $data_nascita = mysql_real_escape_string(trim($_POST['data_nascita']));
@@ -19,14 +19,14 @@
     $errore_password = '<span class="errore">Inserisci una password di lunghezza tra 8 e 100 caratteri, almeno 1 lettera ed 1 numero</span>'; // riferirsi alle regole di validate_form
     $errore_conferma = '<span class="errore">Le password inserite non corrispondono</span>';
 
-    $fields = [$nome, $cognome, $email, $password, $data_nascita];
+    $fields = [$email, $password, $data_nascita];
     if(Validate_form::is_empty($fields)) {
       $errore = $errore_empty;
     }
-    else if(!Validate_form::check_str($nome)) {
+    else if(!empty($nome) && !Validate_form::check_str($nome)) {
       $errore = $errore_nome;
     }
-    else if(!Validate_form::check_str($cognome)) {
+    else if(!empty($cognome) && !Validate_form::check_str($cognome)) {
       $errore = $errore_cognome;
     }
     else if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
