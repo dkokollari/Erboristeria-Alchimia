@@ -1390,15 +1390,28 @@ background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 100%);
 
 }
 /*------- ERRORI FORM --------------*/
-
-.errore {
-  background: #ffdde0;
-  color: #d32f2f;
+.errore, .addedProduct {
+  background: var(--accent3Shade1);
+  color: var(--accent3Shade4);
   margin: 0.5em 0.5em;
   display: block;
   padding: 1em 1em;
-  border-radius:  6px;
+  border-radius: var(--borderRadius);
   font-weight: 500;
   position: relative;
   cursor: pointer;
+}
+
+.addedProduct {
+  background: var(--accent2Shade1);
+  color: var(--accent2Shade4);
+}
+
+#body_scheda_prodotto #content p.addedProduct {
+  text-align: center;
+}
+
+ img.carta_fedelta {
+  height: 10em;
+  width: 70%;
 }
