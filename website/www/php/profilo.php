@@ -5,6 +5,12 @@
   require_once("validate_form.php");
 
   if($_SESSION['auth']) {
+    $con = new DBAccess();
+    if(!$con->openConnection()) {
+      header('Location: redirect.php?error=1');
+      exit;
+    }
+
     if($_POST['Modifica_profilo']) {
       $nome = ucfirst(strtolower(mysql_real_escape_string(trim($_POST['nome']))));
       $cognome = ucfirst(strtolower(mysql_real_escape_string(trim($_POST['cognome']))));
@@ -42,11 +48,6 @@
         $errore = $errore_conferma;
       }
       else {
-        $con = new DBAccess();
-        if(!$con->openConnection()) {
-          header('Location: redirect.php?error=1');
-          exit;
-        }
         if($email != $_SESSION['email_utente'] && $con->getSingolo_Utenti($email)) {
           $errore = $errore_full;
         }
@@ -65,7 +66,6 @@
             $_SESSION['data_nascita_utente'] = $array[0]['data_nascita_utente'];
           }
         }
-        $con->closeConnection();
       }
 
       $status = (empty($errore)
@@ -73,16 +73,11 @@
                 : $errore);
     } // end if $_POST['Modifica_profilo']
 
+
     // prelievo tessera utente e visualizzazione messaggi
-    $con = new DBAccess();
-    if(!$con->openConnection()) {
-      header('Location: redirect.php?error=1');
-      exit;
-    }
     $num_timbri = 0;
     if($_SESSION['tipo_utente'] == 'User') {
       $num_timbri = $con->getTimbriUtente($_SESSION['email_utente'])[0]['numero_timbri'];
-      $con->closeConnection();
       for($i = 0; $i < $num_timbri; $i++) {
         $img_timbri .= '<img id="#timbro_'.($i+1).'" src="../img/carta_fedelta/2.png"/>'."\n";
       }
@@ -107,6 +102,7 @@
                       </p>';
       }
     }
+    $con->closeConnection();
 
     $contenuto = file_get_contents("../html/profilo.html");
     $contenuto = str_replace("%AGG_TIMBRI%", $aggTimbri, $contenuto);
