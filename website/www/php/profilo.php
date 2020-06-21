@@ -43,7 +43,22 @@
     $contenuto = str_replace("%TIMBRI%", $img_timbri, $contenuto);
     $contenuto = str_replace("%NUMERO_TIMBRI%", $num_timbri['numero_timbri'], $contenuto);
     $contenuto = str_replace("%AUGURI%", $auguri, $contenuto);
-    $pagina = Genera_pagina::genera("../html/base.html", "profilo", $contenuto);
+    $contenuto .= file_get_contents("../html/form_utente.html");
+    $contenuto = str_replace("%ACTION_FORM%", "profilo.php", $contenuto);
+    $contenuto = str_replace("%TITOLO%", "Modifica i dati", $contenuto);
+    $contenuto = str_replace("%STATO_UTENTE%", $status, $contenuto);
+    // pre-fill input, riempimento campi
+    $array_place_html = ['nome', 'cognome', 'email', 'data_nascita'];
+    $array_place_session = ['nome_utente', 'cognome_utente', 'email_utente', 'data_nascita_utente'];
+    foreach (array_combine($array_place_html, $array_place_session) as $html => $session) {
+      if($_SESSION[$session]!="") {
+        $contenuto = str_replace('<label for="'.$html.'">', '<label class="filled" for="'.$html.'">', $contenuto);
+        $contenuto = str_replace('%VALUE_'.$html.'%', 'value="'.$_SESSION[$session].'"', $contenuto);
+      }
+    }
+    $contenuto = str_replace("%NOME_SUBMIT%", "Modifica_profilo", $contenuto);
+    $contenuto = str_replace("%AGGIUNGI_SUBMIT%", '<input id="delete_user" type="submit" value="Elimina il profilo" name="Elimina_profilo"/>', $contenuto);
+    $pagina = Genera_pagina::genera("../html/base5.html", "profilo", $contenuto);
     echo $pagina;
   } // end if $_SESSION['auth']
   else {
