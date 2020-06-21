@@ -23,7 +23,7 @@
           $titolo_pagina = "Carrello di Erboristeria Alchimia";
           $descrizione_pagina = "Il tuo carrello verde made by Erboristeria Alchimia";
           $keywords_pagina = "carrello, acquista, acquisti, erboristeria, alchimia";
-          $meta_link = '<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>';
+          $link_head = '<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>';
           $container_pagina = "container_prodotti"; // TODO: controllare  effetti su CSS usando container_carrello
           $attributi_body = 'id="carrello"';
           $icona_top = "";
@@ -128,8 +128,8 @@
       $pagina = str_replace("%DESCRIZIONE_PAGINA%", $descrizione_pagina, $pagina);
       $pagina = str_replace("%KEYWORDS_PAGINA%", $keywords_pagina, $pagina);
       $pagina = str_replace("%META_HEAD%", $meta_head, $pagina);
-      $pagina = str_replace("%LINK_HEAD%", $meta_link, $pagina);
-      $pagina = str_replace("%SCRIPT_HEAD%", $meta_script, $pagina);
+      $pagina = str_replace("%LINK_HEAD%", $link_head, $pagina);
+      $pagina = str_replace("%SCRIPT_HEAD%", $script_head, $pagina);
       $pagina = str_replace("%ATTRIBUTI_BODY%", $attributi_body, $pagina);
       $pagina = str_replace("%CONTAINER_PAGINA%", $container_pagina, $pagina);
       $pagina = str_replace("%ICONA_TOP%", $icona_top, $pagina);
