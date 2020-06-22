@@ -9,8 +9,7 @@
                <li><a href="eventi.php">Eventi</a></li>
                <li><a href="la_mia_storia.php">La mia storia</a></li>
                <li><a href="informazioni.php">Informazioni</a></li>
-               <li><a href="carrello.php">Carrello</a></li>
-               <li><a href="profilo.php">Profilo</a></li>';
+               <li><a href="carrello.php">Carrello</a></li>';
 
       if(!$_SESSION['auth'])
         $menu .= '<li><a href="login.php">Accedi</a></li>';
