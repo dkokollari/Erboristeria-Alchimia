@@ -8,6 +8,7 @@
 const headerImg = document.getElementById("header_image");
 const content = document.querySelector("#content");
 const topbar = document.querySelector("#topbar");
+const topbarLogo = document.querySelector("#topbar_logo");
 const topbarTitle = document.querySelector("#topbar_title");
 const menu = document.querySelector("#menu");
 const rightofmenu= document.querySelector("#right-of-menu");
@@ -59,8 +60,8 @@ function menuToggle() {
 
 
 $(document).ready(function() {
-  if(document.getElementById("email")){
-    if($("#email").val() != "") {
+  if(document.getElementById("username")){
+    if($("#username").val() != "") {
       $(username.previousElementSibling).addClass("filled");
     }
   }
@@ -68,7 +69,7 @@ $(document).ready(function() {
 
 
 /*        function that moves the label in the login and register page     */
-$("#nome, #cognome, #email, #password, #password_conferma, #data_nascita").on("blur", function() {
+$("#nome, #cognome, #username, #password, #password_conferma, #data_nascita").on("blur", function() {
 $(this.previousElementSibling).removeClass("filled");
 if($(this).val() != "") {
 $(this.previousElementSibling).addClass("filled");
@@ -235,11 +236,13 @@ const title = document.getElementById("title");
      if (window.scrollY > marginTopEm) {
        topbar.classList.add("visible_topbar");
        topbarTitle.classList.add("nopacity");
+       topbarLogo.classList.add("nopacity");
        if(scopri) scopri.classList.add("hide_header_elements");
        title.classList.add("hide_header_elements");
      } else {
        topbar.classList.remove("visible_topbar")
        topbarTitle.classList.remove("nopacity");
+       topbarLogo.classList.remove("nopacity");
        if(scopri) scopri.classList.remove("hide_header_elements");
        title.classList.remove("hide_header_elements");
      }
