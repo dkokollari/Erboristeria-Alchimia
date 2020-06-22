@@ -222,6 +222,7 @@ margin:0.7em auto 0.7em auto;
   transition: max-height 0.4s ease;
   position: absolute;
   top: 0;
+  left: 0;
 }
 .card.collapsed h3 {
   margin-top: 7em;
@@ -379,15 +380,15 @@ margin:0.7em auto 0.7em auto;
   transition: none;
 }
 .card h4 {
-  margin: 1.2em 5% 0.7em 5%;
+  margin: 1.5em 5% 0.7em 5%;
   line-height: 1.1em;
   height: 2em;
   transition: 0.4s ease;
-  text-align: left;
 }
 .card .expand_btn {
   position: absolute;
   bottom: 0;
+  left: 0;
   line-height: 1.2em;
   text-align: center;
   width: 100%;
