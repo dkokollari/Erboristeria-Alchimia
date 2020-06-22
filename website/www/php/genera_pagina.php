@@ -27,7 +27,7 @@
           $lista_menu = menu_pagina::menu();
           $script_body = '<script src="../javascript/jquery.placeholder.min.js"></script>
                           <script>
-                            $('input, textarea').placeholder();
+                            $(\'input, textarea\').placeholder();
                           </script>';
         break;
 
@@ -110,7 +110,7 @@
           $lista_menu = menu_pagina::menu($target);
           $script_body = '<script src="../javascript/jquery.placeholder.min.js"></script>
                           <script>
-                            $('input, textarea').placeholder();
+                            $(\'input, textarea\').placeholder();
                           </script>';
         break;
 
