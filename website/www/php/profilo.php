@@ -69,8 +69,8 @@
     } // end if $_POST['Modifica_profilo']
 
     // prelievo tessera utente e visualizzazione messaggi
-    $num_timbri = 0;
     if($_SESSION['tipo_utente'] == 'User') {
+      $minPrezzoTimbro = 10; // prezzo acquisto che dà diritto ad un timbro ("effettivamente final")
       $num_timbri = $con->getTimbriUtente($_SESSION['email_utente'])[0]['numero_timbri_utente_utente'];
       for($i = 0; $i < $num_timbri; $i++) {
         $img_timbri .= '<img id="#timbro_'.($i+1).'" src="../img/carta_fedelta/2.png"/>'."\n";
@@ -83,21 +83,18 @@
                      Ci teniamo a farti gli auguri di persona!
                    </p>';
       }
-    } // end if $_SESSION['tipo_utente'] == 'User'
-
-    $minPrezzoTimbro = 10; // prezzo acquisto che dà diritto ad un timbro
-    if(isset($_SESSION['valAcquisto']) && !empty($_SESSION['valAcquisto'])) {
-      $_SESSION["shopping_cart"] = null; // svuoto il carrello
-      $aggTimbri = '<p class="addedProduct">Grazie per il tuo acquisto!</p>';
-      if($_SESSION['valAcquisto'] % $minPrezzoTimbro > 0) {
-        $num_timbri['numero_timbri_utente'] += $_SESSION['valAcquisto'] % $minPrezzoTimbro;
-        $aggTimbri = '<p class="addedProduct">
-                        Grazie per il tuo acquisto! Ti sono state riempite delle caselle nella tua carta fedelt&agrave;: quando la tua carta sar&agrave; piena, recati in negozio per sfruttarla come buono da 15&euro;.
-                      </p>';
+      if(isset($_SESSION['valAcquisto']) && !empty($_SESSION['valAcquisto'])) {
+        $_SESSION["shopping_cart"] = null; // svuoto il carrello
+        $aggTimbri = '<p class="addedProduct">Grazie per il tuo acquisto!</p>';
+        if($_SESSION['valAcquisto'] % $minPrezzoTimbro > 0) {
+          $num_timbri += (int) ($_SESSION['valAcquisto'] / $minPrezzoTimbro);
+          $aggTimbri = '<p class="addedProduct">
+                          Grazie per il tuo acquisto! Ti sono state riempite delle caselle nella tua carta fedelt&agrave;: quando la tua carta sar&agrave; piena, recati in negozio per sfruttarla come buono da 15&euro;.
+                        </p>';
+        }
       }
-    }
+    } // end if $_SESSION['tipo_utente'] == 'User'
     $con->closeConnection();
-
     $contenuto = file_get_contents("../html/profilo.html");
     $contenuto = str_replace("%AGG_TIMBRI%", $aggTimbri, $contenuto);
     $contenuto = str_replace("%TIMBRI%", $img_timbri, $contenuto);
