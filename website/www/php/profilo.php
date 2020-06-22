@@ -71,7 +71,7 @@
     // prelievo tessera utente e visualizzazione messaggi
     $num_timbri = 0;
     if($_SESSION['tipo_utente'] == 'User') {
-      $num_timbri = $con->getTimbriUtente($_SESSION['email_utente'])[0]['numero_timbri'];
+      $num_timbri = $con->getTimbriUtente($_SESSION['email_utente'])[0]['numero_timbri_utente_utente'];
       for($i = 0; $i < $num_timbri; $i++) {
         $img_timbri .= '<img id="#timbro_'.($i+1).'" src="../img/carta_fedelta/2.png"/>'."\n";
       }
@@ -90,7 +90,7 @@
       $_SESSION["shopping_cart"] = null; // svuoto il carrello
       $aggTimbri = '<p class="addedProduct">Grazie per il tuo acquisto!</p>';
       if($_SESSION['valAcquisto'] % $minPrezzoTimbro > 0) {
-        $num_timbri['numero_timbri'] += $_SESSION['valAcquisto'] % $minPrezzoTimbro;
+        $num_timbri['numero_timbri_utente'] += $_SESSION['valAcquisto'] % $minPrezzoTimbro;
         $aggTimbri = '<p class="addedProduct">
                         Grazie per il tuo acquisto! Ti sono state riempite delle caselle nella tua carta fedelt&agrave;: quando la tua carta sar&agrave; piena, recati in negozio per sfruttarla come buono da 15&euro;.
                       </p>';
@@ -101,7 +101,7 @@
     $contenuto = file_get_contents("../html/profilo.html");
     $contenuto = str_replace("%AGG_TIMBRI%", $aggTimbri, $contenuto);
     $contenuto = str_replace("%TIMBRI%", $img_timbri, $contenuto);
-    $contenuto = str_replace("%NUMERO_TIMBRI%", $num_timbri, $contenuto);
+    $contenuto = str_replace("%numero_timbri%", $num_timbri, $contenuto);
     $contenuto = str_replace("%AUGURI%", $auguri, $contenuto);
     $contenuto .= file_get_contents("../html/form_utente.html");
     $contenuto = str_replace("%ACTION_FORM%", "profilo.php", $contenuto);
