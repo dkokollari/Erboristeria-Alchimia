@@ -52,7 +52,7 @@
 
     $results_per_page = 6;
     // controllo che il valore di page passato in querystring sia intero > 0, altrimenti lo setto a 1
-    $page = Utilities::getNumericValue_GET('page');
+    $page = Utilities::getNumericValue('page');
     $start = ($page > 1) ? ($page*$results_per_page) - $results_per_page : 0;
 
     $query_ricerca = 'SELECT SQL_CALC_FOUND_ROWS *
