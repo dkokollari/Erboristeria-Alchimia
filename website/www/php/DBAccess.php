@@ -127,8 +127,8 @@
                        `ingredienti_te_e_infusi`,
                        `descrizione_te_e_infusi`,
                        `preparazione_te_e_infusi`
-                FROM   `te_e_infusi`
-                WHERE  `id_te_e_infusi`= ?";
+                  FROM `te_e_infusi`
+                 WHERE `id_te_e_infusi`= ?";
       $types = "i";
       $params = [$id];
       return $this->getQuery($query, $types, $params);
@@ -267,10 +267,11 @@
                        `email_utente`,
                        `password_utente`,
                        `tipo_utente`,
+                       `numero_timbri_utente`,
                        `data_nascita_utente`,
                        `data_registrazione_utente`
-                FROM   `utenti`
-                WHERE  `email_utente`= ?";
+                  FROM `utenti`
+                 WHERE `email_utente`= ?";
       $types = "s";
       $params = [$email];
       return $this->getQuery($query, $types, $params);
@@ -278,8 +279,8 @@
 
     public function getTimbriUtente($email) {
       $query = "SELECT `numero_timbri`
-                FROM   `utenti`
-                WHERE  `email_utente`= ?";
+                  FROM `utenti`
+                 WHERE `email_utente`= ?";
       $types = "s";
       $params = [$email];
       return $this->getQuery($query, $types, $params);
