@@ -149,17 +149,28 @@
     }
     $stmt->close();
 
+    //faccio vedere sempre al massimo $n_toShow pagine
+    $n_toShow = 3;
+    $total_pages = ($total_pages > $n_toShow) ? $n_toShow : $total_pages;
     $links_to_result_pages = '';
-    for($n_page=1; $n_page<=$total_pages; ++$n_page) {
-      if($n_page != $page) {
-        $links_to_result_pages .= '<a class="classic_btn" href="prodotti.php?page=' . $n_page . "&amp;search=$search_value&amp;sesso=$sex_filter" .
-        "&amp;categoria=$categ_filter&amp;casa_prod=$casa_prod_filter" . '">' . $n_page . '</a>' . "\n";
+    if($page>1) {
+      $links_to_result_pages = '<li><a class="classic_btn prev_next" href="prodotti.php?page=' . ($page-1) . "&amp;search=$search_value&amp;sesso=$sex_filter" .
+      "&amp;categoria=$categ_filter&amp;casa_prod=$casa_prod_filter" . '">Indietro</a></li>' . "\n";
+    }
+    for($n_page=0; $n_page<$total_pages; ++$n_page) {
+      if($n_page+$page != $page) {
+        $links_to_result_pages .= '<li><a class="classic_btn" href="prodotti.php?page=' . $page+$n_page . "&amp;search=$search_value&amp;sesso=$sex_filter" .
+        "&amp;categoria=$categ_filter&amp;casa_prod=$casa_prod_filter" . '">' . $page+$n_page . '</a></li>' . "\n";
       } else {
-        $links_to_result_pages .= '<span class="classic_btn">'.$page.'</span>'; //tolgo link circolari
+        $links_to_result_pages .= '<li class="classic_btn nohover">'.$page.'</li>'; //tolgo link circolari
       }
     }
+    if($page<$total_pages) {
+      $links_to_result_pages .= '<li><a class="classic_btn prev_next" href="prodotti.php?page=' . ($page+1) . "&amp;search=$search_value&amp;sesso=$sex_filter" .
+      "&amp;categoria=$categ_filter&amp;casa_prod=$casa_prod_filter" . '">Avanti</a></li>' . "\n";
+    }
 
-	$pagina = str_replace("%PRODUCTS%", $productToPrint, $pagina);
+	  $pagina = str_replace("%PRODUCTS%", $productToPrint, $pagina);
     /*$pagina = str_replace("%PRODUCTS%", htmlspecialchars($opt_casa_prod).((strpos($opt_casa_prod,
     '<option value="' . $_GET['casa_prod'] . '">' . $_GET['casa_prod'] . '</option>') !== false) ? "true" : "false"), $pagina);*/
     $pagina = str_replace("%PAGES_MENU%", $links_to_result_pages , $pagina);
