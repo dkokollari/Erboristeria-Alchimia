@@ -1,8 +1,8 @@
 <div id="log_in_box">
-  <form action="%ACTION_FORM%" method="post">
+  <form action="../php/registrazione.php" method="post">
     <fieldset id="log_in_form">
-      <legend><h2>%TITOLO%</h2></legend>
-      %STATO_UTENTE%
+      <legend><h2>Registrati</h2></legend>
+      %REGISTER_ERROR%
       <div class="form_field nome">
         <label for="nome">
           <span>Nome</span>
@@ -23,15 +23,15 @@
           <li>Contiene lettere (no numeri o caratteri speciali)</li>
         </ul>
       </div>
-      <div class="form_field email">
-        <label for="email">
-          <span lang="en">E-mail*</span>
+      <div class="form_field username">
+        <label for="username">
+          <span lang="en">E-mail</span>
         </label>
-        <input id="email" name="email" type="email" %VALUE_email%/>
+        <input id="username" name="username" type="text" %VALUE_username%/>
       </div>
       <div class="form_field password">
         <label for="password">
-          <span lang="en">Password*</span>
+          <span lang="en">Password</span>
         </label>
         <input id="password" name="password" type="password"/>
         <ul class="input-requirements">
@@ -43,7 +43,7 @@
       </div>
       <div class="form_field password_conferma">
         <label for="password_conferma">
-          <span><span lang="en">Password</span> (conferma)*</span>
+          <span><span lang="en">Password</span> (conferma)</span>
         </label>
         <input id="password_conferma" name="password_conferma" type="password"/>
       </div>
@@ -53,9 +53,7 @@
         </label>
         <input id="data_nascita" name="data_nascita" type="date" %VALUE_data_nascita%/>
       </div>
-      <span>I campi obbligatori sono indicati con *</span>
-      <input id="log_in" type="submit" name="%NOME_SUBMIT%"/>
-      %AGGIUNGI_SUBMIT%
+      <input id="log_in" type="submit" name="Registrati"/>
     </fieldset>
   </form>
 </div>

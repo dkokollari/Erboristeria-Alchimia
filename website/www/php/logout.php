@@ -1,5 +1,5 @@
 <?php
-  session_start();
+  require_once("session.php");
   session_destroy();
 
   if(isset($_COOKIE['password']) && isset($_COOKIE['email'])) {

@@ -583,7 +583,7 @@ strong {
 #log_in_box fieldset {
   border:none;
 }
-#username, #password, #nome, #cognome, #password_conferma, #data_nascita{
+#email, #password, #nome, #cognome, #password_conferma, #data_nascita{
   width: 100%;
 }
 .form_field{
@@ -662,7 +662,7 @@ strong {
 	content: "\2713";
 }
 
-#log_in{
+#log_in, #delete_user {
   width: 100%;
   margin: 3em 0 3em 0;
 
@@ -676,6 +676,11 @@ strong {
   color: #009688;
   font: 600 1.1em 'Poppins', sans-serif;
   line-height: 2.5em;
+}
+
+#delete_user {
+  border: 2px solid #d01616;
+  color: #d01616;
 }
 
 #login div.errori {

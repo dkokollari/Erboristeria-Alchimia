@@ -12,7 +12,7 @@
     #    CONNESSIONE (connessione, disconnessione)                               #
     #    TE & INFUSI (inserimento, aggiornamento, rimozione, visualizzazione)    #
     #    EVENTI (inserimento, visualizzazione)                                   #
-    #    UTENTI (inserimento, aggiornamento)                                     #
+    #    UTENTI (inserimento, aggiornamento, rimozione)                          #
     ##############################################################################
 
     ####################################
@@ -206,9 +206,9 @@
       return $this->getQuery($query, $types, $params, false);
     }
 
-    ################################################
-    # gestione utenti (inserimento, aggiornamento) #
-    ################################################
+    ###########################################################
+    # gestione utenti (inserimento, aggiornamento, rimozione) #
+    ###########################################################
 
     public function insertUtenti($nome, $cognome, $email, $password, $data_nascita) {
       $query = "INSERT INTO `utenti` (`nome_utente`,
@@ -239,6 +239,13 @@
       return $this->getQuery($query, $types, $params, false);
     }
 
+    public function deleteUtenti($email_target) {
+      $safe_email = $this->getSingolo_Utenti($email_target);
+      $safe_email = $safe_email[0]['email_utente'];
+      $query = "DELETE FROM `utenti`
+                      WHERE `email_utente`='".$safe_email."'";
+      return $this->getQuery($query, null, null, false);
+    }
     # getters utenti #
 
     public function getSingolo_Utenti($email) {

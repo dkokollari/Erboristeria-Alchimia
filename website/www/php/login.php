@@ -1,6 +1,7 @@
 <?php
   require_once("session.php");
   require_once("DBAccess.php");
+  require_once("genera_pagina.php");
 
   if($_SESSION['auth']) { // utente con sessione
     header('location: index.php');
@@ -28,7 +29,6 @@
   } // end else if utente con cookie senza sessione
 
   // utente senza cookie e senza sessione
-  $pagina = file_get_contents("../html/login.html");
   if($_POST['Login']) {
     $email = mysql_real_escape_string(trim($_POST['email']));
     $password = mysql_real_escape_string(trim($_POST['password']));
@@ -36,7 +36,9 @@
     $maxLengthPwd = 100;
     $errore_empty = '<span class="errore">Inserire sia una email che una password</span>';
     $errore_wrong = '<span class="errore">La email o la password inserite non sono corrette</span>';
-    if(empty($email) || empty($password)) $errore = $errore_empty;
+    if(empty($email) || empty($password)) {
+      $errore = $errore_empty;
+    }
     else if(!filter_var($email, FILTER_VALIDATE_EMAIL) ||
                (strlen($password) < $minLengthPwd || strlen($password) > $maxLengthPwd)) {
       $errore = $errore_wrong;
@@ -49,10 +51,12 @@
       }
       else {
         $utente = $con->getSingolo_Utenti($email);
-        if(empty($utente)) $errore = $errore_wrong;
+        if(empty($utente))
+          $errore = $errore_wrong;
         else {
           $passwordCheck = password_verify($password, $utente[0]['password_utente']);
-          if(!$passwordCheck) $errore = $errore_wrong;
+          if(!$passwordCheck)
+            $errore = $errore_wrong;
           else {
             setSessione($utente);
             if(isset($_POST['remember_me'])) {
@@ -67,8 +71,10 @@
     } // end else if email e password valide
   } // end if $_POST["Login"]
 
-  $pagina = str_replace("%ERR_LOGIN%", $errore, $pagina);
-  $pagina = str_replace("%LOGIN_STATUS%", $logged, $pagina);
+  $contenuto = file_get_contents("../html/login.html");
+  $contenuto = str_replace("%ERR_LOGIN%", $errore, $contenuto);
+  $contenuto = str_replace("%LOGIN_STATUS%", $logged, $contenuto);
+  $pagina = Genera_pagina::genera("../html/base.html", "login", $contenuto);
   echo $pagina;
 
   function setSessione($array="") { // guardare DBAccess::getSingolo_Utenti() per vedere la struttura di $array

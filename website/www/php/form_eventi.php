@@ -1,8 +1,9 @@
 <?php
   require_once("session.php");
-  require_once("DBAccess.php");
-  require_once("Image.php");
   require_once("control_input.php");
+  require_once("DBAccess.php");
+  require_once("genera_pagina.php");
+  require_once("Image.php");
 
   /*if($_SESSION['tipo_utente'] != 'Admin') {
     header('Location: redirect.php?error=3');
@@ -10,41 +11,24 @@
   }*/
 
   $con = new DBAccess();
-  if($con->openConnection()) {
-    require_once("genera_pagina.php");
-
-    $messaggio = "";
-    $err_tit = "";
+  if(!$con->openConnection()) {
+    header('Location: redirect.php?error=1');
+    exit;
+  }
+  else {
     $oggi = (new DateTime())->format('Y-m-d').'T'.(new DateTime())->format('H:i');
-    $val_titolo = "";
-    $val_stt1 = "";
-    $val_stt2 = "";
-    $val_stt3 = "";
-    $val_stt4 = "";
-    $val_stt5 = "";
-    $val_rel = "";
-    $val_map = "";
-    $descr_ind = "";
-    $val_org = "";
-    $descr_ind = "";
-    $err_rel = "";
-    $err_desc = "";
-    $err_ind = "";
-    $err_org = "";
-    $err_img = "";
-    $errori = 0;
 
       if(isset($_POST['submit'])) {
          $titolo =  control_input::name_control($_POST['titolo_evento']);
 
          if(!$titolo) {
-           $err_tit = 'il titolo deve contenere almeno 5 caratteri(non numeri e caratteri speciali)';
+           $err_tit = 'Il titolo deve contenere almeno 5 caratteri (non numeri e caratteri speciali)';
            $errori++;
          }
 
          if(empty($_POST['sottotitolo1']) && empty($_POST['sottotitolo2']) && empty($_POST['sottotitolo3'])
               && empty($_POST['sottotitolo4']) && empty($_POST['sottotitolo5'])) {
-                $err_desc = 'inserisci almeno un sottotitolo';
+                $err_desc = 'Inserisci almeno un sottotitolo';
                 $errori++;
          }
 
@@ -58,7 +42,7 @@
          if((!empty($_POST['sottotitolo1']) && !$stt1) || (!empty($_POST['sottotitolo2']) && !$stt2) ||
           (!empty($_POST['sottotitolo3']) && !$stt3) || (!empty($_POST['sottotitolo4']) && !$stt4) ||
           (!empty($_POST['sottotitolo5']) && !$stt5)) {
-           $err_desc = 'i sottotitoli devono contenere almeno 5 caratteri (non pi&ugrave; di 100)';
+           $err_desc = 'I sottotitoli devono contenere almeno 5 caratteri (non pi&ugrave; di 100)';
            $errori++;
          }
 
@@ -66,7 +50,7 @@
          $relatori = control_input::rel_control($_POST['relatori']);
 
          if(!empty($_POST['relatori']) && !$relatori) {
-           $err_rel = 'relatori deve contenere almeno 5 caratteri (non numeri e caratteri speciali)';
+           $err_rel = 'Il campo relatori deve contenere almeno 5 caratteri (non numeri e caratteri speciali)';
            $errori++;
          }
          if(empty($_POST['relatori'])) {
@@ -74,18 +58,18 @@
          }
          // controllo indirizzo
          if(empty($_POST['mappa_evento']) || empty($_POST['desc_mappa_evento'])) {
-           $err_ind = "inserire l'indirizzo e la descrizione dell'evento";
+           $err_ind = "Inserire l'indirizzo e la descrizione dell'evento";
            $errori++;
          }
          else {
              $mappa = control_input::ind_control($_POST['mappa_evento']);
              $desc_map = control_input::description_control($_POST['desc_mappa_evento']);
              if(!$mappa) {
-               $err_ind = "controllare che sia corretto l'indirizzo";
+               $err_ind = "Controllare che sia corretto l'indirizzo";
                $errori++;
              }
              if(!$desc_map) {
-               $err_ind = "la descrizione dell'indirizzo deve contenere almeno 20 caratteri (non pi&ugrave; di 500)";
+               $err_ind = "La descrizione dell'indirizzo deve contenere almeno 20 caratteri (non pi&ugrave; di 500)";
                $errori++;
              }
          }
@@ -113,15 +97,20 @@
          if($errori==0) {
             $data = (new DateTime($_POST['dataora_evento']))->format('Y-m-d H:i:s');
 
-            if($con->insertEventi($descImg, $titolo, $data, $relatori, $mappa, $org)) {
+            if($con->insertEventi($data, $descImg, $titolo, $relatori, $mappa, $org)) {
               $id = $con->getId_Eventi($titolo);
+              $id = $id[0]['id_evento'];
               $con->insertMappaEventi($mappa, $desc_map);
 
-              if(isset($_POST['sottotitolo1'])) $con->insertDescrizioneEventi($id, $stt1);
-              if(isset($_POST['sottotitolo2'])) $con->insertDescrizioneEventi($id, $stt2);
-              if(isset($_POST['sottotitolo3'])) $con->insertDescrizioneEventi($id, $stt3);
-              if(isset($_POST['sottotitolo4'])) $con->insertDescrizioneEventi($id, $stt4);
-              if(isset($_POST['sottotitolo5'])) $con->insertDescrizioneEventi($id, $stt5);
+              if(!empty($_POST['sottotitolo1'])) $con->insertDescrizioneEventi($id, $stt1);
+              if(!empty($_POST['sottotitolo2'])) $con->insertDescrizioneEventi($id, $stt2);
+              if(!empty($_POST['sottotitolo3'])) $con->insertDescrizioneEventi($id, $stt3);
+              if(!empty($_POST['sottotitolo4'])) $con->insertDescrizioneEventi($id, $stt4);
+              if(!empty($_POST['sottotitolo5'])) $con->insertDescrizioneEventi($id, $stt5);
+
+              if($imgpresent) { // se è presente l'immagine la carichiamo
+                  $image->uploadImage($_FILES['immagine']['name'], $_FILES['immagine']['tmp_name'], $id, "../img/eventi/");
+              }
 
               header('Location: eventi.php');
               exit;
@@ -167,11 +156,8 @@
     $contenuto = str_replace("%ERR_ORG%", $err_org, $contenuto);
     $contenuto = str_replace("%ERR_IMG%", $err_img, $contenuto);
 
-    $pagina = Genera_pagina::genera("../html/base.html", "form_eventi", $contenuto);
+    $pagina = Genera_pagina::genera("../html/base5.html", "form_eventi", $contenuto);
     echo $pagina;
-  } // end if $con->openConnection()
-  else {
-    header('Location: redirect.php?error=1');
-    exit;
   }
+
 ?>
