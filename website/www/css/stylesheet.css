@@ -90,17 +90,13 @@ transform: rotate(-180deg);
 transition: transform 1s ease;
 }
 .accessibility_hidden {
-
   position: absolute;
-
   width: 1px;
   height: 1px;
   margin: -1px;
   border: 0;
   padding: 0;
-
   white-space: nowrap;
-
   clip-path: inset(100%);
   clip: rect(0 0 0 0);
   overflow: hidden;
@@ -237,22 +233,10 @@ margin:0.7em auto 0.7em auto;
   transition: 0.4s ease;
   margin-top: 11.5em;
 }
-.card .expand_btn {
-  position: absolute;
-  bottom: 0;
-  line-height: 1.2em;
-  text-align: center;
-  width: 100%;
-  transition: transform 1s ease;
-  color: #009688;
-}
 #content .card p, #eventi #linkMappa {
   margin: 0.7em 7% 0.7em 7%;
   font-size: 0.9em;
 }
-
-
-
 #eventi #prenotazione span {
   font-weight: bold;
   text-transform: uppercase;
@@ -389,6 +373,7 @@ margin:0.7em auto 0.7em auto;
 .card .expand_btn {
   position: absolute;
   bottom: 0;
+  left:0;
   line-height: 1.2em;
   text-align: center;
   width: 100%;
