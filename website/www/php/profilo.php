@@ -71,7 +71,7 @@
     // prelievo tessera utente e visualizzazione messaggi
     if($_SESSION['tipo_utente'] == 'User') {
       $minPrezzoTimbro = 10; // prezzo acquisto che dà diritto ad un timbro ("effettivamente final")
-      $num_timbri = $con->getTimbriUtente($_SESSION['email_utente'])[0]['numero_timbri_utente_utente'];
+      $num_timbri = $con->getTimbriUtente($_SESSION['email_utente'])[0]['numero_timbri_utente'];
       for($i = 0; $i < $num_timbri; $i++) {
         $img_timbri .= '<img id="#timbro_'.($i+1).'" src="../img/carta_fedelta/2.png"/>'."\n";
       }
