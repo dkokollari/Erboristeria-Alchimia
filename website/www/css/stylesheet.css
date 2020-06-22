@@ -49,9 +49,9 @@ ul {
   margin-right: 1.8rem;
 }
 #content > *.expanded {
-  width: 100%;
+  /*width: 100%; WARNING : tolto io (FOUAD) perche toglieva i margini ai consigli di Marika: Do, controlla!
   margin-left: 0;
-  margin-right: 0;
+  margin-right: 0;*/
   box-shadow: 0 3px 6px rgba(0,0,0,0.10), 0 3px 6px rgba(0,0,0,0.17);
 }
 #content h2, #body_scheda_prodotto #content h1 {
@@ -182,6 +182,7 @@ margin:0.7em auto 0.7em auto;
   transition: 0.8s ease;
   position: absolute;
   bottom: 0;
+  left: 0;
   margin:0;
   text-align: center;
   width: 100%;
@@ -189,84 +190,6 @@ margin:0.7em auto 0.7em auto;
 .tips_and_tricks li {
   margin-bottom: 1em;
 }
-
-                          /*       LISTA DI INFUSI      */
-.card {
-  border-radius: 7px;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.10), 0 3px 6px rgba(0,0,0,0.17);
-  position: relative;
-  font-size: 1em;
-  margin-bottom: 1.5em;
-  background-color: #fff1d5;
-  max-height: 80em;
-  overflow: hidden;
-  transition: max-height 0.8s ease;
-  opacity: 1;
-  padding-bottom: 1em;
-  cursor: pointer;
-}
-.card.collapsed {
-  max-height: 10.5em;
-}
-.card.collapsed img {
-  max-height: 7em;
-}
-.card img {
-  width: 100%;
-  border-radius: 7px 7px 0 0;
-  max-height: 10.5em;
-  object-fit: cover;
-  transition: max-height 0.4s ease;
-  position: absolute;
-  top: 0;
-}
-.card.collapsed h3 {
-  margin-top: 7em;
-}
-.card h3 {
-  margin: 0.3em 0.6em 1.2em 0.6em;
-  line-height: 1.1em;
-  display: flex;
-  height: 2em;
-  align-items: center;
-  justify-content: center;
-  transition: 0.4s ease;
-  margin-top: 11.5em;
-}
-#content .card p, #eventi #linkMappa {
-  margin: 0.7em 7% 0.7em 7%;
-  font-size: 0.9em;
-}
-#eventi #prenotazione span {
-  font-weight: bold;
-  text-transform: uppercase;
-  color: #b9463e;
-}
-
-#eventi #dataEvento {
-  font-weight: bold;
-  color: #404354;
-}
-@media screen and (max-width:410px) {
-  #content .card.eventi img {
-    height: 12em;
-  }
-}
-
-#eventi ul {
-  list-style: none;
-  margin-left: 5%;
-  margin-right: 7%;
-}
-
-#eventi ul li {
-  background-image: url('img/ampolla.jpeg');
-  background-position: top left;
-  background-size: 1.5em;
-  background-repeat: no-repeat;
-  padding-left: 1.6em;
-}
-
                           /*       LISTA DI INFUSI      */
 
 .card {
@@ -275,16 +198,12 @@ margin:0.7em auto 0.7em auto;
   position: relative;
   font-size: 1em;
   margin-bottom: 1.5em;
-  background-color: #fff1d5;
   max-height: 80em;
   overflow: hidden;
   transition: max-height 0.8s ease;
   opacity: 1;
   padding-bottom: 1em;
   cursor: pointer;
-}
-.card.eventi {
-  max-height: none;
 }
 .card.collapsed {
   max-height: 10.5em;
@@ -299,6 +218,7 @@ margin:0.7em auto 0.7em auto;
   transition: max-height 0.4s ease;
   position: absolute;
   top: 0;
+  left: 0;
 }
 .card.eventi img {
   height: 15em;
@@ -324,7 +244,7 @@ margin:0.7em auto 0.7em auto;
   transition: none;
 }
 .card h4 {
-  margin: 1.2em 5% 0.7em 5%;
+  margin: 1.5em 5% 0.7em 5%;
   line-height: 1.1em;
   height: 2em;
   transition: 0.4s ease;
@@ -344,8 +264,16 @@ margin:0.7em auto 0.7em auto;
   margin: 0.7em 5% 0.7em 7%;
   font-size: 0.9em;
 }
-
-
+@media screen and (max-width:410px) {
+  #content .card.eventi img {
+    height: 12em;
+  }
+}
+#eventi ul {
+  list-style: none;
+  margin-left: 5%;
+  margin-right: 7%;
+}
                           /*        EVENTI      */
 
 .card.eventi #linkMappa {
