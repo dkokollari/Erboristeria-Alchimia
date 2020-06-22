@@ -267,6 +267,7 @@
                        `email_utente`,
                        `password_utente`,
                        `tipo_utente`,
+                       `numero_timbri_utente`,
                        `data_nascita_utente`,
                        `data_registrazione_utente`
                   FROM `utenti`
