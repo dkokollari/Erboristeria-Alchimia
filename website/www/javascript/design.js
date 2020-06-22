@@ -314,13 +314,25 @@ function validateFormTeInfusi() {
    var name = document.getElementById("Nome").value;
    var description = document.getElementById("Descrizione").value;
    var nameMsgErr = "", descrMsgErr = "";
+   var errori = 0;
 
-   if(!name.match(/[^a-zA-Z0-9]/g)) nameMsgErr = "il nome non pu&ograve; contenere caratteri speciali";
-   if(name.length < 5 || name.length > 50) nameMsgErr = "il nome deve contenere almeno 5 caratteri non pi&ugrave; di 50";
+   if(!name.match(/[^a-zA-Z0-9]/g)){
+      nameMsgErr = 'il nome non deve contenere caretteri speciali o  numeri';
+      errori++;
+    }
+   if(name.length < 5 || name.length > 50){
+      errori++:
+      nameMsgErr = "il nome deve contenere almeno 5 caratteri non pi&ugrave; di 50";
+    }
    document.getElementById("err_nome").innerHTML = nameMsgErr;
 
-   if(descrption.length < 20  ||  descrption.length > 500) descrMsgErr = "la descrizione deve contenere almeno 20 caratteri non pi&ugrave; di 500";
+   if(descrption.length < 20  ||  descrption.length > 500){
+     descrMsgErr = "descrizione deve contenere almeno 20 caratteri non pi&ugrave; di 500";
+     errori++;
+   }
    document.getElementById("err_desc").innerHTML= descrMsgErr;
+
+   return errori==0 ? true : false;
 }
 
 
