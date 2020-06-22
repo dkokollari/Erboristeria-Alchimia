@@ -846,13 +846,10 @@ strong {
   background-image: none;
   text-align: center;
 }
-.classic_btn:hover{
+.classic_btn:hover, .classic_btn.selected {
   transition: 0.5s ease;
   background-color: #009688;
   color: rgba(245, 245, 245);
-}
-.classic_btn.nohover {
-  transition: none;
 }
 #content ul.page_results {
   width: 60%;

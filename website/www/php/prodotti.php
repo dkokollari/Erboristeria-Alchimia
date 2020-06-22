@@ -152,14 +152,22 @@
     $con->closeConnection();
 
     $links_to_result_pages = '';
+    if($page > 1) {
+      $links_to_result_pages = '<a href="prodotti.php?page=' . ($page-1) . "&amp;search=$search_value&amp;sesso=$sex_filter" .
+      "&amp;categoria=$categ_filter&amp;casa_prod=$casa_prod_filter" . '" class="classic_btn">Indietro</a>' . "\n";
+    }
     for($n_page=1; $n_page<=$total_pages; ++$n_page) {
       if($n_page != $page) {
         $links_to_result_pages .= '<a href="prodotti.php?page=' . $n_page . "&amp;search=$search_value&amp;sesso=$sex_filter" .
-        "&amp;categoria=$categ_filter&amp;casa_prod=$casa_prod_filter" . '">' . $n_page . '</a>' . "\n";
+        "&amp;categoria=$categ_filter&amp;casa_prod=$casa_prod_filter" . '" class="classic_btn">' . $n_page . '</a>' . "\n";
       }
       else {
-        $links_to_result_pages .= "<span>$page</span>"; // tolgo link circolari
+        $links_to_result_pages .= "<span class=\"classic_btn selected\">$page</span>"; // tolgo link circolari
       }
+    }
+    if($page < $total_pages) {
+      $links_to_result_pages .= '<a href="prodotti.php?page=' . ($page+1) . "&amp;search=$search_value&amp;sesso=$sex_filter" .
+      "&amp;categoria=$categ_filter&amp;casa_prod=$casa_prod_filter" . '" class="classic_btn">Avanti</a>' . "\n";
     }
   } // end if isset($_GET['search'])
 
