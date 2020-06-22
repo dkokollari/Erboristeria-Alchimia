@@ -162,13 +162,13 @@
       }
     }
   } // end if isset($_GET['search'])
-  
+
   $contenuto = file_get_contents("../html/prodotti.html");
   $contenuto = str_replace("%PRODUCTS%", $productToPrint, $contenuto);
   $contenuto = str_replace("%PAGES_MENU%", $links_to_result_pages , $contenuto);
   $contenuto = str_replace("%SEX_FILTER%", $opt_sesso , $contenuto);
   $contenuto = str_replace("%CATEGORY_FILTER%", $opt_categoria , $contenuto);
   $contenuto = str_replace("%COMPANY_FILTER%", $opt_casa_prod , $contenuto);
-  $pagina = Genera_pagina::genera("../html/base.html", "prodotti", $contenuto);
+  $pagina = Genera_pagina::genera("../html/base5.html", "prodotti", $contenuto);
   echo $pagina;
 ?>
