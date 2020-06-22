@@ -1,21 +1,25 @@
 <?php
   require_once("session.php");
   require_once("DBAccess.php");
-  require_once("Image.php");
   require_once("genera_pagina.php");
+  require_once("Image.php");
 
   $con = new DBAccess();
-  if($con->openConnection()) {
+  if(!$con->openConnection()) {
+    header('Location: redirect.php?error=1');
+    exit;
+  }
+  else {
     $style = file_get_contents("../css/stylesheet.css");
     $lista_eventi = $con->getEventi();
     $lista_descrizione = $con->getDescrizione_Eventi();
 
-    //necessario se il locale non è ancora impostato
+    // necessario se il locale non è ancora impostato
     setlocale(LC_TIME, "it_IT");
 
     foreach ($lista_eventi as $row) {
       $index++;
-      //strftime() visualizza la data nella lingua definita dal locale
+      // strftime() visualizza la data nella lingua definita dal locale
       $data_ora = new DateTime($row["data_ora_evento"]);
       $giorno_testo = htmlentities(utf8_encode(strftime("%A", $data_ora->getTimestamp())));
       $giorno_numero = $data_ora->format("d");
@@ -76,9 +80,5 @@
     $contenuto = str_replace("%LISTA_EVENTI%", $lista, $contenuto);
     $pagina = Genera_pagina::genera("../html/base.html", "eventi", $contenuto);
     echo $pagina;
-  }
-  else {
-    header('Location: redirect.php?error=1');
-    exit;
   }
 ?>

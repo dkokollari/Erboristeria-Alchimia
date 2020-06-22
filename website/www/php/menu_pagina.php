@@ -3,16 +3,18 @@
 
   class menu_pagina {
     public static function menu($target="") {
-      $menu =  '<li><a href="index.php" xml:lang="en">Homepage</a></li>
-                <li><a href="teinfusi.php">T&egrave; &amp; infusi</a></li>
-                <li><a href="prodotti.php">Prodotti</a></li>
-                <li><a href="eventi.php">Eventi</a></li>
-                <li><a href="la_mia_storia.php">La mia storia</a></li>
-                <li><a href="informazioni.php">Informazioni</a></li>';
+      $menu = '<li><a href="index.php" xml:lang="en">Homepage</a></li>
+               <li><a href="teinfusi.php">T&egrave; &amp; infusi</a></li>
+               <li><a href="prodotti.php">Prodotti</a></li>
+               <li><a href="eventi.php">Eventi</a></li>
+               <li><a href="la_mia_storia.php">La mia storia</a></li>
+               <li><a href="informazioni.php">Informazioni</a></li>';
 
-      if(!$_SESSION['auth']) $menu .= '<li><a href="login.php">Accedi</a></li>';
+      if(!$_SESSION['auth'])
+        $menu .= '<li><a href="login.php">Accedi</a></li>';
       else {
-        if($_SESSION['tipo_utente']=='User') $menu .= '<li><a href="carrello.php">Carrello</a></li>';
+        if($_SESSION['tipo_utente']=='User')
+          $menu .= '<li><a href="carrello.php">Carrello</a></li>';
         $menu .= '<li><a href="profilo.php">Profilo</a></li>
                   <li><a href="logout.php" xml:lang="en">Logout</a></li>';
       }

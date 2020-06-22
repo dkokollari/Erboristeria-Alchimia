@@ -8,10 +8,10 @@
       $pagina = file_get_contents($base);
       // impostazione icona del carrello
       if($_SESSION['auth']) {
-        if($_SESSION['tipo_utente']=="User") {
+        if($_SESSION['tipo_utente'] == "User") {
           $icona_top = '<span id="cart_icon" class="material-icons-outlined top_icon">shopping_cart</span>';
         }
-        elseif($_SESSION['tipo_utente']=="Admin") {
+        elseif($_SESSION['tipo_utente'] == "Admin") {
           $icona_top = ''; // TODO: aggiungere icona "pannello gestione utenti"
         }
       }

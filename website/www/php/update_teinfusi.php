@@ -3,7 +3,11 @@
   require_once("Image.php");
 
   $con = new DBAccess();
-  if($con->openConnection()) {
+  if(!$con->openConnection()) {
+    header('Location: redirect.php?error=1');
+    exit;
+  }
+  else {
     $pagina = file_get_contents("../html/inserimento_teinfusi.html");
 
     $id = $_GET['id'];
@@ -17,8 +21,8 @@
 
     // se è stato premuto il buttone submit
     if(isset($_POST['submit'])) {
-      $errori=0;
-      $imgpresent= false;
+      $errori = 0;
+      $imgpresent = false;
       $tipo = $_POST['Tipo'];
       $nome = trim($_POST['Nome']);
       $ingre = trim($_POST['Ingredienti']);
@@ -31,29 +35,33 @@
         $imgpresent = true;
         $descImg = trim($_POST['desc_img']);
         $errDescImg = validInput($descImg,"Descrizione immagine");
-        if($errDescImg!="") $errori++;
-
+        if($errDescImg != "")
+          $errori++;
         $errImg = $image->isValid($_FILES['immagine']['name']);
-        if($errImg!="") $errori++;
+        if($errImg != "")
+          $errori++;
       }
 
       // CONTROLLO input
       $errNome = validInput($nome, "Nome");
       $errDescr = validInput($descr, "Descrizione");
-      if($errNome!="") $errori++;
-      if($errDescr!="") $errori++;
+      if($errNome != "")
+        $errori++;
+      if($errDescr != "")
+        $errori++;
 
       // se non ci sono errori
-      if($errori==0) {
+      if($errori == 0) {
         if($con->updateTeInfusi($id, $descImg, $tipo, $nome, $ingre, $descr, $prepa)) {
           if($imgpresent) {
-            if($image->uploadImageTeInfusi($_FILES['immagine']['name'], $_FILES['immagine']['tmp_name'], $id)) {
+            if($image->uploadImageTeInfusi($_FILES['immagine']['name'], $_FILES['immagine']['tmp_name'], $id))
               $messaggio = "";
-            }
-            else $messaggio = '<p class="error-msg">Errore: immagine non salvata</p>';
+            else
+              $messaggio = '<p class="error-msg">Errore: immagine non salvata</p>';
           }
         }
-        else $messaggio = '<p class="error-msg">Query non eseguita riprovare pi&ugrave; tardi</p>';
+        else
+          $messaggio = '<p class="error-msg">Query non eseguita riprovare pi&ugrave; tardi</p>';
       } // end if se non ci sono errori
       else {
         $messaggio = '<p class="error-msg">Errore: ci sono '.$errori.' errori</p>';
@@ -64,6 +72,7 @@
         $valdescImg = $_POST['desc_img'];
       }
     } // end if se è stato premuto il buttone submit
+    $con->closeConnection();
 
     $pagina = str_replace("%action%", "updateTeInfusi.php?id=".$id, $pagina);
     $pagina = str_replace("%nome%", $valnome, $pagina);
@@ -76,13 +85,7 @@
     $pagina = str_replace("%ERR_DESC%", $errDescr, $pagina);
     $pagina = str_replace("%ERR_IMG%", $errImg, $pagina);
     $pagina = str_replace("%ERR_IMGDESC%", $errDescImg, $pagina);
-
-    $con->closeConnection();
     echo $pagina;
-  }
-  else {
-    header('Location: redirect.php?error=1');
-    exit;
   }
 
   function validInput($name, $description) {

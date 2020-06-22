@@ -1,8 +1,9 @@
 <?php
+  require_once("session.php");
   require_once("DBAccess.php");
+  require_once("genera_pagina.php");
   require_once("Image.php");
   require_once("Utilities.php");
-  require_once("genera_pagina.php");
 
   $con = new DBAccess();
   if(!$con->openConnection()) {
@@ -161,6 +162,7 @@
       }
     }
   } // end if isset($_GET['search'])
+  
   $contenuto = file_get_contents("../html/prodotti.html");
   $contenuto = str_replace("%PRODUCTS%", $productToPrint, $contenuto);
   $contenuto = str_replace("%PAGES_MENU%", $links_to_result_pages , $contenuto);

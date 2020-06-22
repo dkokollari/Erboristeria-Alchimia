@@ -1,7 +1,7 @@
 <?php
   require_once("session.php");
-  require_once("genera_pagina.php");
   require_once("DBAccess.php");
+  require_once("genera_pagina.php");
 
   if($_SESSION['auth']) { // utente con sessione
     header('location: index.php');
@@ -36,7 +36,9 @@
     $maxLengthPwd = 100;
     $errore_empty = '<span class="errore">Inserire sia una email che una password</span>';
     $errore_wrong = '<span class="errore">La email o la password inserite non sono corrette</span>';
-    if(empty($email) || empty($password)) $errore = $errore_empty;
+    if(empty($email) || empty($password)) {
+      $errore = $errore_empty;
+    }
     else if(!filter_var($email, FILTER_VALIDATE_EMAIL) ||
                (strlen($password) < $minLengthPwd || strlen($password) > $maxLengthPwd)) {
       $errore = $errore_wrong;
@@ -49,10 +51,12 @@
       }
       else {
         $utente = $con->getSingolo_Utenti($email);
-        if(empty($utente)) $errore = $errore_wrong;
+        if(empty($utente))
+          $errore = $errore_wrong;
         else {
           $passwordCheck = password_verify($password, $utente[0]['password_utente']);
-          if(!$passwordCheck) $errore = $errore_wrong;
+          if(!$passwordCheck)
+            $errore = $errore_wrong;
           else {
             setSessione($utente);
             if(isset($_POST['remember_me'])) {

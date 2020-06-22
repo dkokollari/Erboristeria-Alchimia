@@ -34,33 +34,25 @@
       $errore_sconosciuto = '<span class="errore">Per favore disconnettiti e accedi di nuovo</span>';
 
       $fields = [$email, $password, $data_nascita];
-      if(Validate_form::is_empty($fields)) {
+      if(Validate_form::is_empty($fields))
         $errore = $errore_empty;
-      }
-      else if(!empty($nome) && !Validate_form::check_str($nome)) {
+      else if(!empty($nome) && !Validate_form::check_str($nome))
         $errore = $errore_nome;
-      }
-      else if(!empty($cognome) && !Validate_form::check_str($cognome)) {
+      else if(!empty($cognome) && !Validate_form::check_str($cognome))
         $errore = $errore_cognome;
-      }
-      else if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+      else if(!filter_var($email, FILTER_VALIDATE_EMAIL))
         $errore = $errore_email;
-      }
-      else if(!Validate_form::check_pwd($password)) {
+      else if(!Validate_form::check_pwd($password))
         $errore = $errore_password;
-      }
-      else if($password != $password_conferma) {
+      else if($password != $password_conferma)
         $errore = $errore_conferma;
-      }
-      else {
-        if($email != $_SESSION['email_utente'] && $con->getSingolo_Utenti($email)) {
+      else
+        if($email != $_SESSION['email_utente'] && $con->getSingolo_Utenti($email))
           $errore = $errore_full;
-        }
         else {
           $result = $con->updateUtenti($_SESSION['email_utente'], $nome, $cognome, $email, $password, $data_nascita);
-          if(!$result) {
+          if(!$result)
             $errore = $errore_sconosciuto;
-          }
           else {
             $array = $con->getSingolo_Utenti($email);
             $_SESSION['nome_utente'] = $array[0]['nome_utente'];
@@ -70,7 +62,6 @@
             $_SESSION['data_nascita_utente'] = $array[0]['data_nascita_utente'];
           }
         }
-      }
 
       $status = (empty($errore)
                 ? "<span>Profilo aggiornato con successo</span>"
@@ -120,10 +111,9 @@
     $array_place_html = ['nome', 'cognome', 'email', 'data_nascita'];
     $array_place_session = ['nome_utente', 'cognome_utente', 'email_utente', 'data_nascita_utente'];
     foreach (array_combine($array_place_html, $array_place_session) as $html => $session) {
-      if($_SESSION[$session]!="") {
+      if($_SESSION[$session]!="")
         $contenuto = str_replace('<label for="'.$html.'">', '<label class="filled" for="'.$html.'">', $contenuto);
         $contenuto = str_replace('%VALUE_'.$html.'%', 'value="'.$_SESSION[$session].'"', $contenuto);
-      }
     }
     $contenuto = str_replace("%NOME_SUBMIT%", "Modifica_profilo", $contenuto);
     $contenuto = str_replace("%AGGIUNGI_SUBMIT%", '<input id="delete_user" type="submit" value="Elimina il profilo" name="Elimina_profilo"/>', $contenuto);
