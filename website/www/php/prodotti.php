@@ -177,6 +177,6 @@
   $contenuto = str_replace("%SEX_FILTER%", $opt_sesso , $contenuto);
   $contenuto = str_replace("%CATEGORY_FILTER%", $opt_categoria , $contenuto);
   $contenuto = str_replace("%COMPANY_FILTER%", $opt_casa_prod , $contenuto);
-  $pagina = Genera_pagina::genera("../html/base.html", "prodotti", $contenuto);
+  $pagina = Genera_pagina::genera("../html/base5.html", "prodotti", $contenuto);
   echo $pagina;
 ?>

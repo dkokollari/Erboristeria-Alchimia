@@ -1,0 +1,23 @@
+<h2>Pannello amministratore</h2>
+<form action="../php/admin.php" method="POST">
+  <fieldset>
+    <input type="text" id="myInput" placeholder="Inserisci una e-mail.." name="email_search" title="Inserisci una e-mail"/>
+    <label for="ordina_utenti">
+      <span>Ordina per</span>
+      <select id="ordina_utenti" name="ordina_utenti">
+        <option selected="selected" value="">&nbsp;</option>
+        <option value="timbri_DESC">Timbri</option>
+        <option value="tipo_utente">Tipo utente</option>
+        <option value="data_nascita_ASC">Data nascita ASC</option>
+        <option value="data_nascita_DESC">Data nascita DESC</option>
+        <option value="data_registrazione_ASC">Data registrazione ASC</option>
+        <option value="data_registrazione_DESC">Data registrazione DESC</option>
+      </select>
+    </label>
+    <input type="submit" name="search" value="Invia"/>
+  </fieldset>
+</form>
+%UTENTI%
+<ul class="page_results">
+  %PAGES_MENU%
+</ul>
