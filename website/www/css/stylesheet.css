@@ -267,46 +267,6 @@ margin:0.7em auto 0.7em auto;
   padding-left: 1.6em;
 }
 
-                            /*     CONSIGLI DI MARIKA       */
-
-.tips_and_tricks {
-  background-color: #ffe2d1;
-  color: #d17a48;
-  position: relative;
-  overflow: hidden;
-  max-height: 60em;
-  cursor: pointer;
-  transition: 0.8s ease;
-}
-.tips_and_tricks.collapsed {
-    max-height: 4.5em;
-}
-.tips_and_tricks h3 {
-  margin: 1em;
-  color: #d17a48;
-}
-.tips_and_tricks h4 {
-  color: #d17a48;
-  margin-top: 2em;
-}
-.tips_and_tricks ul {
-  padding-left: 1.5em;
-}
-.tips_and_tricks ul span {
-  font-weight: 600;
-}
-.tips_and_tricks .expand_icon {
-  transition: 0.8s ease;
-  position: absolute;
-  bottom: 0;
-  margin:0;
-  text-align: center;
-  width: 100%;
-}
-.tips_and_tricks li {
-  margin-bottom: 1em;
-}
-
                           /*       LISTA DI INFUSI      */
 
 .card {
