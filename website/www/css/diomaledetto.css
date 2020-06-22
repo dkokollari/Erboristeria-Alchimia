@@ -724,20 +724,129 @@ strong {
 
                             /* PAGINA PRODUCTS */
 .container #content .card_product {
-  max-width: 400px;
+  /*max-width: 400px;/* WARNING: commentato io (FOUAD) 22/06 */
   border-radius: 7px;
   height:6em;
   box-shadow: 0 3px 6px rgba(0,0,0,0.10), 0 3px 6px rgba(0,0,0,0.17);
-  margin-bottom: 1em;
+  margin-bottom: 1.5em;/* WARNING: commentato io (FOUAD) 22/06 */
   padding:0.7em;
-  margin-left:1.2em;
-  margin-right:1.2em;
+  /*margin-left:1.2em;  WARNING: commentato io (FOUAD) 22/06
+  margin-right:1.2em;*/
   overflow: hidden;
   position: relative;
   background-color: #fff;
   text-align: left;
 }
+#container_prodotti .card_product .product_title,
+#container_prodotti .card_product .product_line,
+#container_prodotti .card_product .product_manufacturer,
+#container_prodotti .card_product .product_bottom{
+  margin-left: 6rem;
+  line-height: 1em;
+}
+#container_prodotti .card_product .product_image {
+  background-size: contain;
+  height: 6em;
+  width: 6em;
+  /* margin:1.25em; */
+  /* align-self: center; */
+  grid-area: image;
+  border-radius: 10px;
+  float: left;
 
+}
+#container_prodotti .card_product .product_title {
+  /* margin-top:1em; */
+  color: var(--yellow-dark);
+  grid-area: title;
+  font-size: 0.9em;
+  margin-bottom: 0.4em;
+  /* margin-left: 7em; */
+  text-align: left;
+  /* margin-top: 0.5em; */
+}
+#container_prodotti .card_product .product_manufacturer {
+  /* margin-top:0.5em; */
+  grid-area: manufacturer;
+  font-size: 0.9em;
+  margin-bottom: 0.4em;
+  display: block;
+
+}
+#container_prodotti .card_product .product_line {
+  /* margin-top:0.3em; */
+  display: block;
+  grid-area: line;
+  font-weight: lighter;
+  font-style: italic;
+  font-size: 0.8em;
+}
+#container_prodotti .card_product .product_description {
+  margin:0 0 0 6.5em;
+  height: 6em;
+  position: relative;
+}
+#container_prodotti .card_product .product_tags {
+  font-size: 0.6em;
+  letter-spacing: 0.1em;
+  align-self: end;
+  justify-self: start;
+  margin-bottom: 0.5em;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #fff;
+  display: inline;
+  position: absolute;
+  bottom: 0.5em; /*/* WARNING: SIA QUESTO CHE IL MARGIN ALTRIMENTI FA SKIFO, NON SO PERCHÈ! */*/
+  line-height: 1.8em;
+
+}
+#container_prodotti .card_product .product_tags {
+  border-radius: 10px;
+  /* margin-right: 0.2em; */
+  padding: 0.2em 0.5em 0.2em 0.5em;
+}
+#container_prodotti .card_product .product_tags.Cosmetico {
+  background-color: #ff9557;
+  margin-left: 3.5rem;
+}
+#container_prodotti .card_product .product_tags.Uomo, #container_prodotti .card_product .product_tags.Unisex {
+  background-color: #005377;
+}
+#container_prodotti .card_product .product_tags span.Donna {
+  background-color: #90323D;
+}
+#container_prodotti .card_product .product_tags span.casa {
+  background-color: #E39695;
+}
+#container_prodotti span.product_price,
+#container_prodotti ul li.product_price { //prezzo totale
+
+  /* margin-right: 1em; */
+  font-size: 1.1em;  //* WARNING: Lho modificato io (Fouad) perche è troppo grande il font sui cellulari! */
+  margin:0;
+  /* margin-bottom: 1.1em; */
+  /* margin-right: 2em; */
+  line-height: 1em;
+  /* bottom:0; */
+  display: block;
+  text-align: center;
+  font-weight: bold;
+}
+#container_prodotti ul li.product_price { //prezzo singola card
+  grid-area: price;
+  text-align: right;
+  justify-self:end;
+  align-self: end;
+  position: absolute;
+  display: inline;
+  bottom: 0.5em;
+  right: 0.5em;
+  float: right;
+}
+#container_prodotti span.product_price {
+  margin: 2em 0 0 2em;
+}
 @media screen and (min-width:480px) {
   .container #content .card_product {
     margin-left: auto;
@@ -832,6 +941,39 @@ strong {
 
 /* SCHEDA PRODOTTO */
 
+#body_scheda_prodotto .add_to_cart_btn {
+  display: block;
+  margin: 0.5em auto 1em auto;
+  padding: 0.5em 1em 0.4em 1em;
+  border: 3px solid var(--green-main);
+  border-radius: 8px;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: var(--green-main);
+  letter-spacing: 0.07em;
+  transition: 0.5s ease;
+  background-image: none;
+}
+#body_scheda_prodotto #container_scheda_prodotto .add_to_cart_btn:hover{
+  transition: 0.5s ease;
+  background-color: var(--green-main);
+  color: rgba(245, 245, 245);
+}
+
+#body_scheda_prodotto {
+  background-color: #fff;
+}
+#container_scheda_prodotto #immagine_prodotto{
+  object-fit: contain;
+  height: 20em;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: -1;
+  background-color: white;
+  margin-top: 4em;
+  padding-bottom: 2em;
+}
 .classic_btn {
   display: inline-block;
   margin: 0.5em auto 1em auto;
@@ -1108,12 +1250,15 @@ background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 100%);
 
                                   /*   ----------------  MOBILE   ------------------   */
 
-@media screen and (max-width:699px) {
+@media screen and (max-width:750px) {
               #container_te_e_infusi #header_image {
-                background-image: url(img/home_background_mobile.jpg);
+                background-image: url(../img/home_background_mobile.jpg);
+              }
+              #container_prodotti #header_image {
+                background-image: url(img/prodotti_background_mobile.jpg);
               }
               .container #header_image {
-                background-image: url(img/prodotti_background_mobile.jpg);
+                background-image: url(../img/prodotti_background_mobile.jpg);
               }
               #close_menu {
                 margin:auto;
@@ -1497,3 +1642,46 @@ body .container.home #content .card_product.event .product_description > * {
   margin-bottom: 0.5em;
 }
 
+#checkout {
+  margin-left: 25%;
+  margin-right: 25%;
+  margin-top: 3em;
+  display: block;
+  width: 50%;
+}
+
+#container_prodotti ul {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 2em;
+}
+
+#container_prodotti ul ul {
+  display: block;
+}
+
+#container_prodotti ul ul.recap_product  {
+  display: flex;
+  align-items: center;
+  grid-template-columns: none;
+  grid-gap: 0;
+}
+
+#container_prodotti ul ul.recap_product li {
+  text-align: center;
+  width: 33.3%;
+}
+
+#container_prodotti ul ul.recap_product  {
+  display: flex;
+  align-items: center;
+  grid-template-columns: none;
+  grid-gap: 0;
+}
+
+@media screen and (max-width:750px) {
+  #container_prodotti ul {
+    display: block;
+  }
+}

@@ -90,7 +90,7 @@
       $_SESSION["shopping_cart"] = null; // svuoto il carrello
       $aggTimbri = '<p class="addedProduct">Grazie per il tuo acquisto!</p>';
       if($_SESSION['valAcquisto'] % $minPrezzoTimbro > 0) {
-        $num_timbri['numero_timbri'] += $_SESSION['valAcquisto'] % $minPrezzoTimbro;
+        $num_timbri['numero_timbri'] += (int) ($_SESSION['valAcquisto'] / $minPrezzoTimbro);
         $aggTimbri = '<p class="addedProduct">
                         Grazie per il tuo acquisto! Ti sono state riempite delle caselle nella tua carta fedelt&agrave;: quando la tua carta sar&agrave; piena, recati in negozio per sfruttarla come buono da 15&euro;.
                       </p>';
