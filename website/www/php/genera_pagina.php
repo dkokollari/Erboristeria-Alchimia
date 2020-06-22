@@ -18,6 +18,19 @@
 
       // pagine generabili
       switch($target) {
+        case "admin" :
+          $titolo = "Admin";
+          $titolo_pagina = "Pannello amministratore di Erboristeria Alchimia";
+          $descrizione_pagina = "Gestione degli utenti";
+          $keywords_pagina = "admin, amministratore, gestione, utenti, erboristeria, alchimia";
+          $container_pagina = "container_admin";
+          $lista_menu = menu_pagina::menu();
+          $script_body = '<script src="../javascript/jquery.placeholder.min.js"></script>
+                          <script>
+                            $('input, textarea').placeholder();
+                          </script>';
+        break;
+
         case "carrello" :
           $titolo = "Carrello";
           $titolo_pagina = "Carrello di Erboristeria Alchimia";
