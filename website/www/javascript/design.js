@@ -153,11 +153,11 @@ function expandCard() {
   this.lastElementChild.classList.toggle("rotated");
 }
 
-
-document.getElementById("torna_su_btn").addEventListener('click', function () {
-      window.scrollTo(0,0);
-});
-
+//
+// document.getElementById("torna_su_btn").addEventListener('click', function () {
+//       window.scrollTo(0,0);
+// });
+//
 
 
 
@@ -245,10 +245,11 @@ const title = document.getElementById("title");
      }
   }
 
+
 /*---------------=======-------VALIDAZIONE FORM LOGIN -----------------------*/
 
 /*
-NON VA DC!!!!!!!!!!
+NON VA !
 document.getElementById("form").addEventListener("submit", (e) => {
   if(!validazioneForm()) {
     e.preventDefault();
