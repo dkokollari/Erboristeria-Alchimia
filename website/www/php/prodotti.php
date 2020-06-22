@@ -31,7 +31,7 @@
   $opt_categoria .= '</select>' . "\n";
 
   /*-------------menu a tendina casa produttrice---------------*/
-  $opt_casa_prod = '<label for="casa_prod">Casa produttrice</label>' . "\n" .
+  $opt_casa_prod = '<label for="casa_prod">Produttore</label>' . "\n" .
             '<select name="casa_prod" id="casa_prod">' . "\n" .
             '<option selected="selected" value="none">Seleziona filtro</option>' . "\n";
 

@@ -571,16 +571,84 @@ strong {
   color: green;
 }
                                 /*PAGINA Ricerca*/
-
+#search_filters {
+  position: relative;
+  height: 6em;
+  margin-left: 0.5em;
+}
 #myInput {
+  position: absolute;
+  left: 0em;
+  width: 83%;
+  margin-right: 17%;
+  margin-left: 1%;
   background-image: url('/img/searchicon.png');
-  background-position: 10px 12px;
+  background-position: 99%;
   background-repeat: no-repeat;
-  width: 100%;
-  font-size: 16px;
-  padding: 12px 20px 12px 40px;
+  padding: 0.5em 0em 0.5em 0em;
   border: 1px solid #ddd;
-  margin-bottom: 12px;
+}
+input[type="submit"] {
+    top: 0em;
+    right: 0em;
+    position: absolute;
+    width: 15%;
+    padding: 0.2em;
+}
+#submit_search {
+  width: 15%;
+  position: absolute;
+  right: 0em;
+  top: 0em;
+  padding: 0.2em 0em 0.2em 0em;
+}
+label[for="sesso"], label[for="casa_prod"], label[for="categoria"] {
+    position: absolute;
+    top: 2.4em;
+    left: 1%;
+}
+label[for="casa_prod"] {
+    top: 4.2em;
+}
+label[for="categoria"] {
+    right: auto;
+    left: 57%;
+}
+#sesso, #casa_prod, #categoria {
+    position: absolute;
+    left: 27%;
+    top: 2.7em;
+}
+#casa_prod {
+    top: 5.1em;
+    max-width: 9.4em;
+}
+#categoria {
+    right: 0%;
+    left: auto;
+}
+
+@media screen and (max-width:700px) {
+  #search_filters {
+    height: 7.8em;
+  }
+  label[for="categoria"], label[for="sesso"], label[for="casa_prod"]{
+    right: auto;
+    left: 1%;
+  }
+  label[for="categoria"] {
+    top: 6.2em;
+  }
+  label[for="sesso"] {
+    top: 2.4em;
+  }
+  #sesso, #casa_prod ,#categoria {
+    right: 0%;
+    left: auto;
+  }
+  #categoria {
+    top: 7.2em;
+  }
 }
 
 #myUL {
