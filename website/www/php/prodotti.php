@@ -154,10 +154,15 @@
     $links_to_result_pages = '';
     if($page > 1) {
       $links_to_result_pages = '<a href="prodotti.php?page=' . ($page-1) . "&amp;search=$search_value&amp;sesso=$sex_filter" .
-      "&amp;categoria=$categ_filter&amp;casa_prod=$casa_prod_filter" . '" class="classic_btn">Indietro</a>' . "\n";
+      "&amp;categoria=$categ_filter&amp;casa_prod=$casa_prod_filter" . '" class="classic_btn always_visible">Indietro</a>' . "\n";
     }
     for($n_page=1; $n_page<=$total_pages; ++$n_page) {
-      if($n_page != $page) {
+      if($n_page != $page &&
+            ($n_page > ($page+1) || $n_page < ($page-1))) { //in ogni pagina di risultati di ricerca, faccio vedere solo un altro link ad altre pagine di risultati
+        $links_to_result_pages .= '<a href="prodotti.php?page=' . $n_page . "&amp;search=$search_value&amp;sesso=$sex_filter" .
+        "&amp;categoria=$categ_filter&amp;casa_prod=$casa_prod_filter" . '" class="classic_btn hidden">' . $n_page . '</a>' . "\n";
+      }
+      else if($n_page != $page) { //in ogni pagina di risultati di ricerca, faccio vedere solo tre link ad altre pagine di risultati
         $links_to_result_pages .= '<a href="prodotti.php?page=' . $n_page . "&amp;search=$search_value&amp;sesso=$sex_filter" .
         "&amp;categoria=$categ_filter&amp;casa_prod=$casa_prod_filter" . '" class="classic_btn">' . $n_page . '</a>' . "\n";
       }
@@ -167,7 +172,7 @@
     }
     if($page < $total_pages) {
       $links_to_result_pages .= '<a href="prodotti.php?page=' . ($page+1) . "&amp;search=$search_value&amp;sesso=$sex_filter" .
-      "&amp;categoria=$categ_filter&amp;casa_prod=$casa_prod_filter" . '" class="classic_btn">Avanti</a>' . "\n";
+      "&amp;categoria=$categ_filter&amp;casa_prod=$casa_prod_filter" . '" class="classic_btn always_visible">Avanti</a>' . "\n";
     }
   } // end if isset($_GET['search'])
 
