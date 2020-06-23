@@ -56,7 +56,7 @@
     $start = ($page > 1) ? ($page*$results_per_page) - $results_per_page : 0;
 
     $query_ricerca = 'SELECT SQL_CALC_FOUND_ROWS *
-                    FROM articoli %categorie% %ditte% %produzioni%
+                    FROM articoli, categorie, ditte, produzioni
                     WHERE nome_articolo LIKE ? %sex% %categ% %casa_prod%
                     ORDER BY id_articolo DESC LIMIT ' . $start . ', ' . $results_per_page;
 
@@ -80,12 +80,10 @@
       $opt_categoria = str_replace('selected', '' , $opt_categoria);
       $opt_categoria = str_replace('<option value="' . $categ_filter . '">' . $categ_filter . '</option>',
        '<option selected="selected" value="' . $categ_filter . '">' . $categ_filter . '</option>' , $opt_categoria);
-      $query_ricerca = str_replace("%categorie%", ",categorie" , $query_ricerca);
       $query_ricerca = str_replace("%categ%", "AND categoria_articolo = id_categoria
           AND nome_categoria = '$categ_filter'", $query_ricerca);
     }
     else {
-      $query_ricerca = str_replace("%categorie%", "" , $query_ricerca);
       $query_ricerca = str_replace("%categ%", "" , $query_ricerca);
     }
 
@@ -99,14 +97,10 @@
       $opt_casa_prod = str_replace('selected', '' , $opt_casa_prod);
       $opt_casa_prod = str_replace('<option value="' . trim($_GET['casa_prod']) . '">' . trim($_GET['casa_prod']) . '</option>',
        '<option selected="selected" value="' . trim($_GET['casa_prod']) . '">' . trim($_GET['casa_prod']) . '</option>' , $opt_casa_prod);
-      $query_ricerca = str_replace("%ditte%", ",ditte" , $query_ricerca);
-      $query_ricerca = str_replace("%produzioni%", ",produzioni" , $query_ricerca);
       $query_ricerca = str_replace("%casa_prod%", "AND articolo_produzione = id_articolo
         AND ditta_produzione = id_ditta AND nome_ditta = '$casa_prod_filter' ", $query_ricerca);
     }
     else {
-       $query_ricerca = str_replace("%ditte%", "" , $query_ricerca);
-       $query_ricerca = str_replace("%produzioni%", "" , $query_ricerca);
        $query_ricerca = str_replace("%casa_prod%", "" , $query_ricerca);
     }
 
@@ -128,7 +122,7 @@
     }
     else{
       $total_pages = ceil($total_records/$results_per_page); // se c'è una sola pagina non voglio mostrare un link circolare alla pagina stessa!
-      $productToPrint .= '<ul>' . "\n";
+      $productToPrint .= '<ul class="container_prodotti">' . "\n";
       while($row = $result->fetch_assoc()) {
         $productToPrint .=
         '<li class="card_product product_description">' . "\n" .
@@ -137,10 +131,12 @@
               Image::getImage('../img/products/small_img/', $row['id_articolo']) . '" alt="immagine '. $row['nome_articolo'] . '"/>' . "\n" .
           '<h3 class="product_title">' .  $row['nome_articolo'] . '</h3>' . "\n" .
           '<ul>' . "\n" .
-              '<li class="product_manufacturer">' . $row["nome_ditta"] . '</li>' . "\n" .
-              '<li class="product_line">' . 'Linea ' . $row["nome_linea"] .'</li>' . "\n" .
-              '<li class="product_tags ' . $row["nome_categoria"] . '">' . $row["nome_categoria"] . '</li>' . "\n" .
-              '<li class="product_tags ' . $row["sesso_target"] . '">' . $row["sesso_target"] . '</li>' . "\n" .
+              /*'<li class="product_manufacturer">' . $row["nome_ditta"] . '</li>' . "\n" .*/
+              /*'<li class="product_line">' . 'Linea ' . $row["nome_linea"] .'</li>' . "\n" .*/
+              /*'<div class="product_tags">' . "\n" .*/
+                '<li class="product_tags ' . $row["nome_categoria"] . '">' . $row["nome_categoria"] . '</li>' . "\n" .
+                '<li class="product_tags ' . $row["sesso_target"] . '">' . $row["sesso_target"] . '</li>' . "\n" .
+              /*'</div>' . "\n" .*/
               '<li class="product_price">' . $row["prezzo_articolo"] . ' &euro;</li>' . "\n" .
           '</ul>' . "\n" .
           '</a>' . "\n" .

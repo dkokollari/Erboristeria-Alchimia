@@ -49,9 +49,9 @@ ul {
   margin-right: 1.8rem;
 }
 #content > *.expanded {
-  /*width: 100%; WARNING : tolto io (FOUAD) perche toglieva i margini ai consigli di Marika: Do, controlla!
+  width: 100%; /*WARNING : tolto io (FOUAD) perche toglieva i margini ai consigli di Marika: Do, controlla!*/
   margin-left: 0;
-  margin-right: 0;*/
+  margin-right: 0;
   box-shadow: 0 3px 6px rgba(0,0,0,0.10), 0 3px 6px rgba(0,0,0,0.17);
 }
 #content h2, #body_scheda_prodotto #content h1 {
@@ -67,6 +67,9 @@ h3 {
   text-transform: uppercase;
   color: #009688;
   margin: 0em 7% 0em 7.2em;
+}
+.card.eventi {
+  text-align: left;
 }
 .card.eventi h3 {
   margin: 0.5em 5% 0.5em 5%;
@@ -111,6 +114,7 @@ bottom: 0;
 z-index: -2;
 text-align: center;
 padding-top: 0.5em;
+width: 100%;
 }
 #footer > * {
 font-size: 0.8em;
@@ -165,6 +169,7 @@ margin:0.7em auto 0.7em auto;
     max-height: 4.5em;
 }
 .tips_and_tricks h3 {
+  text-align: center;
   margin: 1em;
   color: #d17a48;
 }
@@ -214,12 +219,11 @@ margin:0.7em auto 0.7em auto;
 .card img {
   border-radius: 7px 7px 0 0;
   width: 100%;
-  max-height: 10.5em;
   object-fit: cover;
+  max-height: 10.5em;
   transition: max-height 0.4s ease;
   position: absolute;
   top: 0;
-  left: 0;
 }
 .card.eventi img {
   height: 15em;
@@ -244,10 +248,7 @@ margin:0.7em auto 0.7em auto;
 .eventi.card.collapsed h3 {
   margin-top: 0em;
 }
-.eventi.card.collapsed {
-  max-height: none;
-}
-.eventi.card.collapsed img {
+.eventi.card.collapsed, .eventi.card.collapsed img {
   max-height: none;
 }
  #prenotazione, #org { /*sovrascrivo .rotated per eventi*/
@@ -272,8 +273,12 @@ margin:0.7em auto 0.7em auto;
   color: #009688;
 }
 #content .card p, #eventi #linkMappa {
-  margin: 0.7em 5% 0.7em 7%;
+  margin: 0.7em 7% 0.7em 7%;
   font-size: 0.9em;
+}
+#result_pages {
+  margin-top: 1.2em;
+  text-align: center;
 }
 @media screen and (max-width:410px) {
   #content .card.eventi img {
@@ -628,7 +633,7 @@ label[for="categoria"] {
     left: auto;
 }
 
-@media screen and (max-width:700px) {
+@media screen and (max-width:750px) {
   #search_filters {
     height: 7.8em;
   }
@@ -677,26 +682,25 @@ label[for="categoria"] {
                             /* PAGINA PRODUCTS */
 .container #content .card_product {
 /*  max-width: 400px; WARNING: l'ho tolto io Do */
+  position: relative;
   border-radius: 7px;
   height:6em;
   box-shadow: 0 3px 6px rgba(0,0,0,0.10), 0 3px 6px rgba(0,0,0,0.17);
-  margin-bottom: 1em;
+  margin: 1.2em 1.2em 0em 1.2em;
   padding:0.7em;
-  margin-left:1.2em;
-  margin-right:1.2em;
   overflow: hidden;
-  position: relative;
   background-color: #fff;
-  text-align: left;
+  /*text-align: left;*/
 }
-#container_prodotti ul {
+ul.container_prodotti {
+  text-align: left;
   list-style: none;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 2em;
 }
 @media screen and (max-width:750px) {
-  #container_prodotti ul {
+  ul.container_prodotti {
       display: block;
   }
 }
@@ -743,37 +747,48 @@ label[for="categoria"] {
   position: relative;
 }
 .product_tags {
-  font-size: 0.6em;
+  font-size: 0.8em;
   letter-spacing: 0.1em;
-  align-self: end;
+  /*align-self: end;
   justify-self: start;
   text-transform: uppercase;
-  font-weight: bold;
+  font-weight: bold;*/
   color: #fff;
-  display: inline;
-  position: absolute;
-  bottom: 0;
-  line-height: 1.8em;
-
-}
-.product_tags span {
+/*  position: absolute;*/
+  bottom: 1.2em;
+  /* WARNING: FOUAD speremo!*/
   border-radius: 10px;
   padding: 0.2em 0.5em 0.2em 0.5em;
+  position: absolute;
 }
-.product_tags span.cosmetici {
+/*.product_tags li {
+  border-radius: 10px;
+  padding: 0.2em 0.5em 0.2em 0.5em;
+  margin-left: 0.5rem;
+}*/
+.product_tags.Cosmetico, .product_tags.Alimentare {
   background-color: #ff9557;
+  width: 5rem; /*WARNING dimensioni empiriche basate valori a db che non cambierano si presume!*/
+  margin-left: 11rem;
 }
-.product_tags span.uomo {
+.product_tags.Unisex, .product_tags.Donna, .product_tags.Casa, .product_tags.Bimbo, .product_tags.Unisex {
+  width: 3rem;
+  margin-left: 6.5rem;
+}
+.product_tags.Uomo {
   background-color: #005377;
 }
-.product_tags span.donna {
+.product_tags.Donna {
   background-color: #90323D;
 }
-.product_tags span.casa {
+.product_tags.Casa {
   background-color: #E39695;
 }
-.product_tags span.bimbi{
+.product_tags.Bimbo{
   background-color: #06a77d;
+}
+.product_tags.Unisex {
+  background-color: #005377;
 }
 .container .card_product .product_price {
   grid-area: price;
@@ -790,6 +805,24 @@ label[for="categoria"] {
   bottom: 0.5rem;
   right: 0.5rem;
   color: #404354;
+}
+@media screen and (max-width: 520px) {
+  .container .card_product .product_image {
+    display: none;
+  }
+  .product_tags {
+    bottom: 2em;
+  }
+  .product_tags.Unisex, .product_tags.Donna, .product_tags.Casa, .product_tags.Bimbo, .product_tags.Unisex {
+    margin-left: 0.5rem;
+  }
+  .product_tags.Cosmetico, .product_tags.Alimentare {
+    margin-left: 4.5rem;
+  }
+  .container .card_product h3.product_title {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+  }
 }
 
 /* SCHEDA PRODOTTO */
@@ -920,9 +953,9 @@ label[for="categoria"] {
 #body_scheda_prodotto #content p {
   text-align: left;
 }
-#content {
+/*#content { /* WARNING: messo mano io (FOUAD) il 24/06 */
     text-align: center;
-}
+}*/
 #immagine_prodotto{
   object-fit: cover;
   height: 20em;
@@ -1216,28 +1249,33 @@ background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 100%);
             #content {
               margin-top: 20em;
             }
+            #content .card.eventi img { //id messo per essere piu potente dell'altra proprieta per schermi grandi
+              margin: 0% 7% 0% 7%;
+              width: 84%;
+              float: none;
+            }
+            .card.eventi ul {
+              clear: both;
+              margin: 0.5em 7% 2em 7%;
+            }
             .classic_btn {
               display: none;
             }
             .classic_btn.always_visible {
               display: inline-block;
             }
-            #footer {
-                width: 100%;
-            }
 }
-
 
 
                         /*        TABLET MODE HEADER          */
 
-@media screen and (min-width:700px)   {
+@media screen and (min-width:750px)   {
       body {
         margin-top: 28em;
       }
        .container.home.container #content {
         margin-top: 0;
-        background-color: rgba(245,245,245);
+        background-color: rgba(245,245,245,1);
       }
       .container.home.container #content .home_subtitle:first-child {
         padding-top:2em;
@@ -1269,6 +1307,7 @@ background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 100%);
        }
        #content {
          margin-top: 0;
+         text-align: center;
        }
        #menu {
          z-index: 5;
@@ -1306,9 +1345,6 @@ background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 100%);
        #menu li a:hover {
          border-bottom: #404354 solid;
        }
-       #footer {
-           width: 100%;
-       }
        body #content {
          margin-top: 0;
          padding-top: 1em;
@@ -1326,7 +1362,7 @@ background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 100%);
        }
 }
 
-@media screen and (min-width:700px) and (max-width:1024px) {
+@media screen and (min-width:750px) and (max-width:1024px) {
 
         #header_image {
           top: -10em;
@@ -1338,7 +1374,8 @@ background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 100%);
 @media screen and (min-width: 1025px) {
 
       .container {
-        margin: 0 auto 0 auto;
+        margin-left:auto;
+        margin-right:auto;
         box-shadow: 0 3px 6px rgba(0,0,0,0.10), 0 3px 6px rgba(0,0,0,0.17);
       }
 
