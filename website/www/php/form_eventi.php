@@ -69,7 +69,7 @@
                $errori++;
              }
              if(!$desc_map) {
-               $err_ind = "La descrizione dell'indirizzo deve contenere almeno 20 caratteri (non pi&ugrave; di 500)";
+               $err_ind = "La descrizione dell'indirizzo deve contenere almeno 5 caratteri (non pi&ugrave; di 500)";
                $errori++;
              }
          }

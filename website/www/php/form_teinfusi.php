@@ -16,7 +16,7 @@
     exit;
   }
   else {
-    if(isset($_GET['id'])) {  // modifica te e infusi 
+    if(isset($_GET['id'])) {  // modifica te e infusi
       $id = $_GET['id'];
       $getElement = $con->getSingolo_TeInfusi($id);
       $valtipo = htmlentities($getElement[0]['tipo_te_e_infusi']);

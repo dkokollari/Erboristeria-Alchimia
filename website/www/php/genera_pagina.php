@@ -59,6 +59,7 @@
           $keywords_pagina = "inserimento, evento, form, nuovo, erboristeria, alchimia";
           $container_pagina = "container_form_eventi";
           $lista_menu = menu_pagina::menu();
+          $script_body = '<script src="../javascript/validationFormTeInfusiEventi.js"></script>';
         break;
 
         case "form_teinfusi" :
@@ -68,7 +69,7 @@
           $keywords_pagina = "inserimento, modifica, form, t&egrave;, infusi, infuso, erboristeria, alchimia";
           $container_pagina = "container_form_teinfusi";
           $lista_menu = menu_pagina::menu();
-          $script_body = '<script type="text/javascript" src="../javascript/validationFormTeInfusi.js"></script>';
+          $script_body = '<script type="text/javascript" src="../javascript/validationFormTeInfusiEventi.js"></script>';
         break;
 
         case "index" :
