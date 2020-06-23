@@ -1212,14 +1212,13 @@ background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 100%);
               margin-top: 20em;
             }
             #content .card.eventi img { //id messo per essere piu potente dell'altra proprieta per schermi grandi
-              margin-right: 10%;
-              margin-left: 10%;
-              width: 80%;
+              margin: 0% 7% 0% 7%;
+              width: 84%;
               float: none;
             }
             .card.eventi ul {
               clear: both;
-              margin: 0.5em 5% 2em 7%;
+              margin: 0.5em 7% 2em 7%;
             }
             .classic_btn {
               display: none;
