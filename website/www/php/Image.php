@@ -15,7 +15,7 @@
       if($id != "errore") {
         $tmp = getImage($dir, $id);
         if($tmp != $dir."0.jpg")
-          deleteImage($tmp);
+          deleteImage($dir, $id);
         move_uploaded_file($temp, $dir.$name);
         $split = explode('.', $name);
         $ext = array_pop($split);
@@ -29,7 +29,8 @@
       return false;
     }
 
-    public function deleteImage($file) {
+    public function deleteImage($path, $id) {
+      $file = getImage($path, $id);
       if(file_exists($file))
         unlink($file);
     }

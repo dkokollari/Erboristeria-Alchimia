@@ -18,12 +18,12 @@
   }
   else {
     if($con->deleteTeInfusi($id))
-      $img->deleteImage("../img/te_e_infusi/".$id."jpg");
+      $img->deleteImage("../img/te_e_infusi/",$id);
     else {
       header('Location: redirect.php?error=4');
       exit;
      }
-  } 
+  }
 
   header('Location: modifica_teInfusi.php');
   exit;
