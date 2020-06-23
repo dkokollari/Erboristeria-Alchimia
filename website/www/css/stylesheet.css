@@ -49,9 +49,9 @@ ul {
   margin-right: 1.8rem;
 }
 #content > *.expanded {
-  /*width: 100%; WARNING : tolto io (FOUAD) perche toglieva i margini ai consigli di Marika: Do, controlla!
+  width: 100%; /*WARNING : tolto io (FOUAD) perche toglieva i margini ai consigli di Marika: Do, controlla!*/
   margin-left: 0;
-  margin-right: 0;*/
+  margin-right: 0;
   box-shadow: 0 3px 6px rgba(0,0,0,0.10), 0 3px 6px rgba(0,0,0,0.17);
 }
 #content h2, #body_scheda_prodotto #content h1 {
