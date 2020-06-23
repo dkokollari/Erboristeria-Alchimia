@@ -277,6 +277,7 @@ margin:0.7em auto 0.7em auto;
   font-size: 0.9em;
 }
 #result_pages {
+  margin-top: 1.2em;
   text-align: center;
 }
 @media screen and (max-width:410px) {
@@ -681,26 +682,25 @@ label[for="categoria"] {
                             /* PAGINA PRODUCTS */
 .container #content .card_product {
 /*  max-width: 400px; WARNING: l'ho tolto io Do */
+  position: relative;
   border-radius: 7px;
   height:6em;
   box-shadow: 0 3px 6px rgba(0,0,0,0.10), 0 3px 6px rgba(0,0,0,0.17);
-  margin-bottom: 1em;
+  margin: 1.2em 1.2em 0em 1.2em;
   padding:0.7em;
-  margin-left:1.2em;
-  margin-right:1.2em;
   overflow: hidden;
-  position: relative;
   background-color: #fff;
-  text-align: left;
+  /*text-align: left;*/
 }
-#container_prodotti ul {
+ul.container_prodotti {
+  text-align: left;
   list-style: none;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 2em;
 }
 @media screen and (max-width:750px) {
-  #container_prodotti ul {
+  ul.container_prodotti {
       display: block;
   }
 }
@@ -747,37 +747,48 @@ label[for="categoria"] {
   position: relative;
 }
 .product_tags {
-  font-size: 0.6em;
+  font-size: 0.8em;
   letter-spacing: 0.1em;
-  align-self: end;
+  /*align-self: end;
   justify-self: start;
   text-transform: uppercase;
-  font-weight: bold;
+  font-weight: bold;*/
   color: #fff;
-  display: inline;
-  position: absolute;
-  bottom: 0;
-  line-height: 1.8em;
-
-}
-.product_tags span {
+/*  position: absolute;*/
+  bottom: 1.2em;
+  /* WARNING: FOUAD speremo!*/
   border-radius: 10px;
   padding: 0.2em 0.5em 0.2em 0.5em;
+  position: absolute;
 }
-.product_tags span.cosmetici {
+/*.product_tags li {
+  border-radius: 10px;
+  padding: 0.2em 0.5em 0.2em 0.5em;
+  margin-left: 0.5rem;
+}*/
+.product_tags.Cosmetico, .product_tags.Alimentare {
   background-color: #ff9557;
+  width: 5rem; /*WARNING dimensioni empiriche basate valori a db che non cambierano si presume!*/
+  margin-left: 11rem;
 }
-.product_tags span.uomo {
+.product_tags.Unisex, .product_tags.Donna, .product_tags.Casa, .product_tags.Bimbo, .product_tags.Unisex {
+  width: 3rem;
+  margin-left: 6.5rem;
+}
+.product_tags.Uomo {
   background-color: #005377;
 }
-.product_tags span.donna {
+.product_tags.Donna {
   background-color: #90323D;
 }
-.product_tags span.casa {
+.product_tags.Casa {
   background-color: #E39695;
 }
-.product_tags span.bimbi{
+.product_tags.Bimbo{
   background-color: #06a77d;
+}
+.product_tags.Unisex {
+  background-color: #005377;
 }
 .container .card_product .product_price {
   grid-area: price;
@@ -794,6 +805,24 @@ label[for="categoria"] {
   bottom: 0.5rem;
   right: 0.5rem;
   color: #404354;
+}
+@media screen and (max-width: 520px) {
+  .container .card_product .product_image {
+    display: none;
+  }
+  .product_tags {
+    bottom: 2em;
+  }
+  .product_tags.Unisex, .product_tags.Donna, .product_tags.Casa, .product_tags.Bimbo, .product_tags.Unisex {
+    margin-left: 0.5rem;
+  }
+  .product_tags.Cosmetico, .product_tags.Alimentare {
+    margin-left: 4.5rem;
+  }
+  .container .card_product h3.product_title {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+  }
 }
 
 /* SCHEDA PRODOTTO */
