@@ -1,40 +1,48 @@
 <form method="post" action="../php/form_teinfusi.php"  onsubmit="return validateFormTeInfusi()" enctype="multipart/form-data">
-    <fieldset>
-      <legend>Form T&egrave; e infuso</legend>
-      <div>
-        %MESSAGGIO%
-        <p>campi obbligatori(*)</p>
-      </div>
+  <fieldset>
+    <legend>Form T&egrave; e infuso</legend>
+    <div>
+      %MESSAGGIO%
+      <p>campi obbligatori(*)</p>
+    </div>
+
+    <div>
       <label for="Nome">Nome*</label>
-      <div>
-        <input type="text" name="Nome" id="Nome" maxlength="15" value="%nome%"/>
-        <span class="error-msg" id="err_nome">%ERR_NOME%</span>
-		   </div>
+      <input type="text" name="Nome" id="Nome" tabindex="1" value="%nome%"/>
+      <p class="error-msg" id="err_nome">%ERR_NOME%</p>
+		</div>
+
+    <div>
       <label for="Tipo">Tipo</label>
-      <div>
-        <select name="Tipo" id="Tipo">
-          <option value="T&egrave;">T&egrave;</option>
-          <option value="Infuso">Infuso</option>
-        </select>
-      </div>
+      <select name="Tipo" id="Tipo" tabindex="2">
+        <option value="T&egrave;">T&egrave;</option>
+        <option value="Infuso">Infuso</option>
+      </select>
+    </div>
+
+    <div>
       <label for="Ingredienti">Ingredienti</label>
-      <div>
-        <input name="Ingredienti" id="Ingredienti" value="%ingre%"/>
-      </div>
+      <textarea name="Ingredienti" id="Ingredienti" tabindex="3" rows="8" cols="80">%ingre%</textarea>
+      <p class="error-msg" id="err_ing">%ERR_ING%</p>
+    </div>
+
+    <div>
       <label for="Descrizione">Descrizione*</label>
-      <div>
-        <input id="Descrizione" name="Descrizione" value="%descr%"/>
-        <span class="error-msg" id="err_desc">%ERR_DESC%</span>
-      </div>
+      <textarea id="Descrizione" name="Descrizione" tabindex="4" rows="5" cols="80">%descr%</textarea>
+      <p class="error-msg" id="err_desc">%ERR_DESC%</p>
+    </div>
+
+    <div>
       <label for="Preparazione">Preparazione</label>
-      <div>
-        <input id="Preparazione" name="Preparazione" value="%prepa%"/>
-      </div>
+      <textarea id="Preparazione" name="Preparazione" tabindex="5" rows="5" cols="80">%prepa%</textarea>
+      <p class="error-msg" id="err_desc">%ERR_PREPA%</p>
+    </div>
+
+    <div>
       <label for="immagine">Immagine</label>
-      <div>
-        <input type="file" id="immagine" name="immagine"/>
-         %ERR_IMG%
-      </div>
-     <input type="submit" value="Aggiungi" name="submit"/>
-   </fieldset>
+      <input type="file" id="immagine" name="immagine" tabindex="6"/>
+        %ERR_IMG%
+    </div>
+    <input type="submit" value="Aggiungi" name="submit" tabindex="7"/>
+  </fieldset>
 </form>

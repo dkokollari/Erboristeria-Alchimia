@@ -8,12 +8,12 @@
 
     <div>
       <label for="titolo_evento">Titolo</label>
-      <input type="text" id="titolo_evento" name="titolo_evento"  value="%val_titolo%"/>
-      <span class="error-msg" id="err_tit">%ERR_TIT%</span>
+      <input type="text" id="titolo_evento" name="titolo_evento"  tabindex="1" value="%val_titolo%"/>
+      <p class="error-msg" id="err_tit">%ERR_TIT%</p>
     </div>
       <div>
           <label for="dataora_evento">Data e ora dell'evento</label>
-          <input type="datetime-local" id="dataora_evento" name="dataora_evento" value="%OGGI%" min="%OGGI%"/>
+          <input type="datetime-local" id="dataora_evento" name="dataora_evento" tabindex="2" value="%OGGI%" min="%OGGI%"/>
       </div>
 
       <div>
@@ -21,48 +21,48 @@
           <legend>Descrizione (sottotitoli)</legend>
           <p class="error-msg" id="err_desc">%ERR_DESC%</p>
         <div>
-          <input class="sottotitolo" type="text" id="sottotitolo1" name="sottotitolo1" value="%val_stt1%"/>
-          <input class="sottotitolo" type="text" id="sottotitolo2" name="sottotitolo2" value="%val_stt2%"/>
-          <input class="sottotitolo" type="text" id="sottotitolo3" name="sottotitolo3" value="%val_stt3%"/>
-          <input class="sottotitolo" type="text" id="sottotitolo4" name="sottotitolo4" value="%val_stt4%" />
-          <input class="sottotitolo" type="text" id="sottotitolo5" name="sottotitolo5" value="%val_stt5%"/>
+          <input class="sottotitolo" type="text" id="sottotitolo1" name="sottotitolo1" tabindex="3" value="%val_stt1%"/>
+          <input class="sottotitolo" type="text" id="sottotitolo2" name="sottotitolo2" tabindex="4" value="%val_stt2%"/>
+          <input class="sottotitolo" type="text" id="sottotitolo3" name="sottotitolo3" tabindex="5" value="%val_stt3%"/>
+          <input class="sottotitolo" type="text" id="sottotitolo4" name="sottotitolo4" tabindex="6" value="%val_stt4%" />
+          <input class="sottotitolo" type="text" id="sottotitolo5" name="sottotitolo5" tabindex="7"value="%val_stt5%"/>
         </div>
         </fieldset>
       </div>
 
      <div>
        <label for="relatori">Relatori</label>
-       <textarea id="relatori" name="relatori" rows="5" cols="80">%val_rel%</textarea>
-         <span class="error-msg" id="err_rel">%ERR_REL%</span>
+       <textarea id="relatori" name="relatori" tabindex="8" rows="5" cols="80">%val_rel%</textarea>
+       <p class="error-msg" id="err_rel">%ERR_REL%</p>
      </div>
 
      <div>
        <fieldset>
          <legend>Mappa</legend>
-       <span class="error-msg" id="err_ind">%ERR_IND%</span>
+       <p class="error-msg" id="err_ind">%ERR_IND%</p>
        <div>
          <label for="mappa_evento">Indirizzo</label>
-         <input type="text" id="mappa_evento" name="mappa_evento" value="%val_map%"/>
+         <input type="text" id="mappa_evento" name="mappa_evento" tabindex="9" value="%val_map%"/>
        </div>
        <div>
          <label for="desc_mappa_evento">descrizione indirizzo</label>
-         <textarea id="desc_mappa_evento" name="desc_mappa_evento" rows="3" cols="80">%descr_ind%</textarea>
+         <textarea id="desc_mappa_evento" name="desc_mappa_evento" tabindex="10" rows="3" cols="80">%descr_ind%</textarea>
        </div>
        </fieldset>
      </div>
 
      <div>
        <label for="organizzazione_evento">Organizzazione (falcoltativo)</label>
-       <input type="text" id="organizzazione_evento" name="organizzazione_evento" value="%val_org%"/>
-       <span class="error-msg" id="err_org">%ERR_ORG%</span>
+       <input type="text" id="organizzazione_evento" name="organizzazione_evento" tabindex="11" value="%val_org%"/>
+       <p class="error-msg" id="err_org">%ERR_ORG%</p>
      </div>
 
     <div>
       <label for="immagine">Immagine (falcoltativo)</label>
-      <input type="file" id="immagine" name="immagine"/>
+      <input type="file" id="immagine" name="immagine" tabindex="12"/>
        %ERR_IMG%
     </div>
 
-     <input type="submit" value="Aggiungi" name="submit"/>
+     <input type="submit" value="Aggiungi" name="submit" tabindex="13"/>
    </fieldset>
 </form>

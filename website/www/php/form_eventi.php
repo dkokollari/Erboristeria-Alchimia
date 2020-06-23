@@ -63,7 +63,7 @@
          }
          else {
              $mappa = control_input::ind_control($_POST['mappa_evento']);
-             $desc_map = control_input::description_control($_POST['desc_mappa_evento']);
+             $desc_map = control_input::text_control($_POST['desc_mappa_evento']);
              if(!$mappa) {
                $err_ind = "Controllare che sia corretto l'indirizzo";
                $errori++;
@@ -76,7 +76,7 @@
 
          $org = 'Nessuna Organizzazione per questo evento';
          if(!empty($_POST['organizzazione_evento'])) {
-           $org = control_input::ind_control($_POST['organizzazione_evento']);
+           $org = control_input::rel_control($_POST['organizzazione_evento']);
            if(!$org) {
              $err_org = 'deve contenere almeno 5 caratteri (non caratteri speciali)';
              $errori++;

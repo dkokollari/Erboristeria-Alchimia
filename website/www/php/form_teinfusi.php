@@ -16,7 +16,7 @@
     exit;
   }
   else {
-    if(isset($_GET['id'])) {  // modifica te e infusi
+    if(isset($_GET['id'])) {  // modifica te e infusi 
       $id = $_GET['id'];
       $getElement = $con->getSingolo_TeInfusi($id);
       $valtipo = htmlentities($getElement[0]['tipo_te_e_infusi']);
@@ -31,16 +31,24 @@
       $tipo = $_POST['Tipo'];
       // CONTROLLO input
       $nome = control_input::name_control($_POST['Nome']);
-      $ingre = control_input::control($_POST['Ingredienti']);
-      $descr = control_input::description_control($_POST['Descrizione']);
-      $prepa = control_input::control($_POST['Preparazione']);
-      if(empty($nome)) {
+      $ingre = control_input::text_control($_POST['Ingredienti']);
+      $descr = control_input::text_control($_POST['Descrizione']);
+      $prepa = control_input::text_control($_POST['Preparazione']);
+      if(!$nome) {
         $errori++;
         $errNome = 'Non deve contenere caratteri speciali, lunghezza minima di 5 caratteri e massima 50';
       }
-      if(empty($descr)) {
+      if(!empty(trim($_POST['Ingredienti'])) && !$ingre){
         $errori++;
-        $errDescr = 'Deve contenere almeno 20 caratteri e non pi&ugrave; di 50';
+        $errIng = 'ingredienti deve contenere almeno 5 caratteri(massimo 500 caratteri)';
+      }
+      if(!$descr) {
+        $errori++;
+        $errDescr = 'Deve contenere almeno 20 caratteri e non pi&ugrave; di 500';
+      }
+      if(!empty(trim($_POST['Preparazione'])) && !$prepa){
+        $errori++;
+        $errPrepa = 'la preparazione deve contenere almeno 5 caratteri(massimo 500 caratteri)';
       }
 
       $image = new Image();
@@ -91,6 +99,8 @@
     $contenuto = str_replace("%descr%", $valdescr, $contenuto);
     $contenuto = str_replace("%prepa%", $valprepa, $contenuto);
     $contenuto = str_replace("%ERR_NOME%", $errNome, $contenuto);
+    $contenuto = str_replace("%ERR_ING%", $errIng, $contenuto);
+    $contenuto = str_replace("%ERR_PREPA%", $errPrepa, $contenuto);
     $contenuto = str_replace("%MESSAGGIO%", $messaggio, $contenuto);
     $contenuto = str_replace("%ERR_DESC%", $errDescr, $contenuto);
     $contenuto = str_replace("%ERR_IMG%", $errImg, $contenuto);
