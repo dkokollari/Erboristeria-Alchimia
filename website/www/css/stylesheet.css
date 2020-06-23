@@ -68,6 +68,9 @@ h3 {
   color: #009688;
   margin: 0em 7% 0em 7.2em;
 }
+.card.eventi {
+  text-align: left;
+}
 .card.eventi h3 {
   margin: 0.5em 5% 0.5em 5%;
 }
@@ -111,6 +114,7 @@ bottom: 0;
 z-index: -2;
 text-align: center;
 padding-top: 0.5em;
+width: 100%;
 }
 #footer > * {
 font-size: 0.8em;
@@ -271,6 +275,9 @@ margin:0.7em auto 0.7em auto;
 #content .card p, #eventi #linkMappa {
   margin: 0.7em 7% 0.7em 7%;
   font-size: 0.9em;
+}
+#result_pages {
+  text-align: center;
 }
 @media screen and (max-width:410px) {
   #content .card.eventi img {
@@ -1228,11 +1235,7 @@ background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 100%);
             .classic_btn.always_visible {
               display: inline-block;
             }
-            #footer {
-                width: 100%;
-            }
 }
-
 
 
                         /*        TABLET MODE HEADER          */
@@ -1275,6 +1278,7 @@ background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 100%);
        }
        #content {
          margin-top: 0;
+         text-align: center;
        }
        #menu {
          z-index: 5;
@@ -1311,9 +1315,6 @@ background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 100%);
        }
        #menu li a:hover {
          border-bottom: #404354 solid;
-       }
-       #footer {
-           width: 100%;
        }
        body #content {
          margin-top: 0;
