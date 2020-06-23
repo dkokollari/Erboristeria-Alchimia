@@ -1,4 +1,5 @@
 <?php
+  require_once("session.php");
   require_once("genera_pagina.php");
 
   $contenuto = file_get_contents("../html/informazioni.html");

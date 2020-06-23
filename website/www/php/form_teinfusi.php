@@ -1,8 +1,9 @@
 <?php
   require_once("session.php");
-  require_once("DBAccess.php");
-  require_once("Image.php");
   require_once("control_input.php");
+  require_once("DBAccess.php");
+  require_once("genera_pagina.php");
+  require_once("Image.php");
 
   if($_SESSION['tipo_utente'] != 'Admin'){
     header('Location: redirect.php?error=3');
@@ -10,24 +11,12 @@
   }
 
   $con = new DBAccess();
-  if($con->openConnection()) {
-    require_once("genera_pagina.php");
-
-    $messaggio = "";
-    $valnome = "";
-    $valingre = "";
-    $valdescr = "";
-    $valprepa = "";
-    $messaggio = "";
-    $errNome = "";
-    $errIng = "";
-    $errPrepa="";
-    $errImg= "";
-    $errDescr="";
-    $descImg="";
-    $errori = 0;
-
-    if(isset($_GET['id'])) {  // modifica te e infusi
+  if(!$con->openConnection()) {
+    header('Location: redirect.php?error=1');
+    exit;
+  }
+  else {
+    if(isset($_GET['id'])) {  // modifica te e infusi 
       $id = $_GET['id'];
       $getElement = $con->getSingolo_TeInfusi($id);
       $valtipo = htmlentities($getElement[0]['tipo_te_e_infusi']);
@@ -47,7 +36,7 @@
       $prepa = control_input::text_control($_POST['Preparazione']);
       if(!$nome) {
         $errori++;
-        $errNome = 'il nome deve contenere almeno 5 caratteri(no caretteri speciali o  numeri)';
+        $errNome = 'Non deve contenere caratteri speciali, lunghezza minima di 5 caratteri e massima 50';
       }
       if(!empty(trim($_POST['Ingredienti'])) && !$ingre){
         $errori++;
@@ -55,7 +44,7 @@
       }
       if(!$descr) {
         $errori++;
-        $errDescr = 'descrizione deve contenere almeno 20 caratteri e non pi&ugrave; di 500';
+        $errDescr = 'Deve contenere almeno 20 caratteri e non pi&ugrave; di 500';
       }
       if(!empty(trim($_POST['Preparazione'])) && !$prepa){
         $errori++;
@@ -69,11 +58,11 @@
         $imgpresent = true;
         $errImg = $image->isValid($_FILES['immagine']['name']);
         if($errImg!="") $errori++;
-        $descImg = "immagine del ".$tipo." ".$nome;
+        $descImg = "Immagine del ".$tipo." ".$nome;
       }
 
-
-      if($errori==0) { // se non ci sono errori
+      // se non ci sono errori
+      if($errori==0) {
          if(isset($_GET['id'])) {  // modifica te e infusi
            if(!$con->updateTeInfusi($id, $descImg, $tipo, $nome,  $ingre, $prepa, $descr)) {
              header('Location:  redirect.php?error=4');  // query non eseguita
@@ -103,6 +92,7 @@
         $valprepa = $_POST['Preparazione'];
       }
     } // end if se è stato premuto il buttone submit
+
     $contenuto = file_get_contents("../html/form_teinfusi.html");
     $contenuto = str_replace("%nome%", $valnome, $contenuto);
     $contenuto = str_replace("%ingre%", $valingre, $contenuto);
@@ -114,12 +104,7 @@
     $contenuto = str_replace("%MESSAGGIO%", $messaggio, $contenuto);
     $contenuto = str_replace("%ERR_DESC%", $errDescr, $contenuto);
     $contenuto = str_replace("%ERR_IMG%", $errImg, $contenuto);
-
     $pagina = Genera_pagina::genera("../html/base.html", "form_teinfusi", $contenuto);
     echo $pagina;
-  }
-  else {
-    header('Location:  redirect.php?error=1');
-    exit;
   }
 ?>

@@ -2,12 +2,10 @@
   require_once("session.php");
   require_once("Utilities.php");
 
-  $orderedProducts = '';
   if(isset($_SESSION['email_utente']) ||
       (isset($_COOKIE['email']) && isset($_COOKIE['password']))) {
-    $redirect = '';
     $product_ids = array();
-    $qtaLastProductAdded=1;
+    $qtaLastProductAdded = 1;
     if(isset($_GET['add_to_cart'])) {
       if(isset($_SESSION['shopping_cart'])) {
         $count = count($_SESSION['shopping_cart']);
@@ -23,14 +21,14 @@
         }
         else {
           $flag = false;
-          for($i=0; !$flag && $i < count($product_ids); $i++) {
+          for($i = 0; !$flag && $i < count($product_ids); $i++) {
             if($product_ids[$i] == Utilities::getNumericValue('id_articolo')) {
-              $qtaLastProductAdded=$_SESSION['shopping_cart'][$i]['quantita'] += 1;
+              $qtaLastProductAdded = $_SESSION['shopping_cart'][$i]['quantita'] += 1;
               $flag = true;
             }
           }
         }
-      } //endif isset($_SESSION['shopping_cart'])
+      } // end if isset($_SESSION['shopping_cart'])
       else {
         $_SESSION['shopping_cart'][0] = array
           ( 'id_articolo' => Utilities::getNumericValue('id_articolo')
@@ -39,18 +37,18 @@
           , 'quantita' => 1
           );
       }
-      $redirect = 'prodotto_singolo.php?addedProduct&id_articolo='.Utilities::getNumericValue('id_articolo'). "&qta=$qtaLastProductAdded";
-    }
+      $redirect = 'prodotto_singolo.php?addedProduct&id_articolo='.Utilities::getNumericValue('id_articolo')."&qta=$qtaLastProductAdded";
+    } // end if isset($_GET['add_to_cart'])
     if(isset($_GET['action']) && $_GET['action'] == 'delete') {
       foreach($_SESSION['shopping_cart'] as $key => $product) {
         if($product['id_articolo'] ==  Utilities::getNumericValue('id_articolo')) {
-          $_SESSION['valAcquisto'] -= $product['prezzo_articolo']*$product['quantita'];
+          $_SESSION['valAcquisto'] -= $product['prezzo_articolo'] * $product['quantita'];
           unset($_SESSION['shopping_cart'][$key]);
         }
       }
      $_SESSION['shopping_cart'] = array_values($_SESSION['shopping_cart']);
      $redirect = 'carrello.php?action=productRemoved';
     }
-    header('location : ' . $redirect);
+    header('location : '.$redirect);
   }
 ?>

@@ -10,7 +10,9 @@
     }
 
     public static function is_empty($params=null) {
-      foreach ($params as $value) if(empty($value)) return true;
+      foreach ($params as $value)
+        if(empty($value))
+          return true;
       return empty($params);
     }
 

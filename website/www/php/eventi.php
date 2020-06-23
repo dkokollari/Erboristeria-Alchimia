@@ -1,20 +1,25 @@
 <?php
   require_once("session.php");
   require_once("DBAccess.php");
-  require_once("Image.php");
   require_once("genera_pagina.php");
+  require_once("Image.php");
 
   $con = new DBAccess();
-  if($con->openConnection()) {
+  if(!$con->openConnection()) {
+    header('Location: redirect.php?error=1');
+    exit;
+  }
+  else {
     $style = file_get_contents("../css/stylesheet.css");
     $lista_eventi = $con->getEventi();
     $lista_descrizione = $con->getDescrizione_Eventi();
 
-    //necessario se il locale non è ancora impostato
+    // necessario se il locale non è ancora impostato
     setlocale(LC_TIME, "it_IT");
 
     foreach ($lista_eventi as $row) {
-      //strftime() visualizza la data nella lingua definita dal locale
+      $index++;
+      // strftime() visualizza la data nella lingua definita dal locale
       $data_ora = new DateTime($row["data_ora_evento"]);
       $giorno_testo = htmlentities(utf8_encode(strftime("%A", $data_ora->getTimestamp())));
       $giorno_numero = $data_ora->format("d");
@@ -54,16 +59,16 @@
           <h4 class="titoletto">Relatori</h4>
           <p>'.$relatori.'</p>
           <h4 class="titoletto">Mappa e data</h4>
-          <a id="linkMappa" href="'.$url_mappa.'">'.$indirizzo_mappa.'</a>
+          <a id="linkMappa'.$index.'" href="'.$url_mappa.'">'.$indirizzo_mappa.'</a>
           <p>'.$descrizione_mappa.'</p>
-          <p id="dataEvento">
+          <p id="dataEvento'.$index.'">
               '.$giorno_testo.' '.$giorno_numero.' '.$mese.' - ore '.$ore_minuti.'
           </p>
-          <p id="org">
+          <p id="org'.$index.'">
             '.$organizzazione.'
           </p>
           '.($posti_limitati ?
-          '<p id="prenotazione">
+          '<p id="prenotazione'.$index.'">
             <span>I posti sono limitati, &egrave; gradita la prenotazione</span> (i contatti si trovano <a href="../html/pagina_informazioni.html#contatti">qui</a>)
           </p>' : "").'
         </div>
@@ -75,9 +80,5 @@
     $contenuto = str_replace("%LISTA_EVENTI%", $lista, $contenuto);
     $pagina = Genera_pagina::genera("../html/base.html", "eventi", $contenuto);
     echo $pagina;
-  }
-  else {
-    header('Location: redirect.php?error=1');
-    exit;
   }
 ?>

@@ -1,11 +1,15 @@
 <?php
   require_once("session.php");
   require_once("DBAccess.php");
-  require_once("Image.php");
   require_once("genera_pagina.php");
+  require_once("Image.php");
 
   $con = new DBAccess();
-  if($con->openConnection()) {
+  if(!$con->openConnection()) {
+    header('Location: redirect.php?error=1');
+    exit;
+  }
+  else {
     $lista_te_e_infusi = $con->getTeInfusi();
 
     foreach ($lista_te_e_infusi as $row) {
@@ -21,7 +25,7 @@
                        : false);
 
       $lista .=
-        '<div class="card collapsed" title="'.$nome.'. Premi per espandere la descrizione">
+        '<div class="card collapsed" id="'.$nome.'" title="'.$nome.'. Premi per espandere la descrizione">
           <h3>'.$nome.'</h3>
           <a class="accessibility_hidden">Salta la descrizione di questo t&egrave; o infuso</a>
           <img src="'.$immagine.'" alt="'.$descrizione_immagine.'"/>
@@ -47,9 +51,5 @@
     $contenuto = str_replace("%LISTA_TE_E_INFUSI%", $lista, $contenuto);
     $pagina = Genera_pagina::genera("../html/base.html", "teinfusi", $contenuto);
     echo $pagina;
-  }
-  else {
-    header('Location: redirect.php?error=1');
-    exit;
   }
 ?>

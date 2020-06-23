@@ -34,44 +34,34 @@
       $errore_sconosciuto = '<span class="errore">Per favore disconnettiti e accedi di nuovo</span>';
 
       $fields = [$email, $password, $data_nascita];
-      if(Validate_form::is_empty($fields)) {
+      if(Validate_form::is_empty($fields))
         $errore = $errore_empty;
-      }
-      else if(!empty($nome) && !Validate_form::check_str($nome)) {
+      else if(!empty($nome) && !Validate_form::check_str($nome))
         $errore = $errore_nome;
-      }
-      else if(!empty($cognome) && !Validate_form::check_str($cognome)) {
+      else if(!empty($cognome) && !Validate_form::check_str($cognome))
         $errore = $errore_cognome;
-      }
-      else if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+      else if(!filter_var($email, FILTER_VALIDATE_EMAIL))
         $errore = $errore_email;
-      }
-      else if(!Validate_form::check_pwd($password)) {
+      else if(!Validate_form::check_pwd($password))
         $errore = $errore_password;
-      }
-      else if($password != $password_conferma) {
+      else if($password != $password_conferma)
         $errore = $errore_conferma;
-      }
-      else {
-        if($email != $_SESSION['email_utente'] && $con->getSingolo_Utenti($email)) {
+      else
+        if($email != $_SESSION['email_utente'] && $con->getSingolo_Utenti($email))
           $errore = $errore_full;
-        }
         else {
           $result = $con->updateUtenti($_SESSION['email_utente'], $nome, $cognome, $email, $password, $data_nascita);
-          if(!$result) {
+          if(!$result)
             $errore = $errore_sconosciuto;
-          }
           else {
             $array = $con->getSingolo_Utenti($email);
             $_SESSION['nome_utente'] = $array[0]['nome_utente'];
             $_SESSION['cognome_utente'] = $array[0]['cognome_utente'];
             $_SESSION['email_utente'] = $array[0]['email_utente'];
             $_SESSION['password_utente'] = $array[0]['password_utente'];
-            $_SESSION['tipo_utente'] = $array[0]['tipo_utente'];
             $_SESSION['data_nascita_utente'] = $array[0]['data_nascita_utente'];
           }
         }
-      }
 
       $status = (empty($errore)
                 ? "<span>Profilo aggiornato con successo</span>"
@@ -79,9 +69,9 @@
     } // end if $_POST['Modifica_profilo']
 
     // prelievo tessera utente e visualizzazione messaggi
-    $num_timbri = 0;
     if($_SESSION['tipo_utente'] == 'User') {
-      $num_timbri = $con->getTimbriUtente($_SESSION['email_utente'])[0]['numero_timbri'];
+      $minPrezzoTimbro = 10; // prezzo acquisto che dà diritto ad un timbro ("effettivamente final")
+      $num_timbri = $con->getTimbriUtente($_SESSION['email_utente'])[0]['numero_timbri_utente'];
       for($i = 0; $i < $num_timbri; $i++) {
         $img_timbri .= '<img id="#timbro_'.($i+1).'" src="../img/carta_fedelta/2.png"/>'."\n";
       }
@@ -93,25 +83,22 @@
                      Ci teniamo a farti gli auguri di persona!
                    </p>';
       }
-    } // end if $_SESSION['tipo_utente'] == 'User'
-
-    $minPrezzoTimbro = 10; // prezzo acquisto che dà diritto ad un timbro
-    if(isset($_SESSION['valAcquisto']) && !empty($_SESSION['valAcquisto'])) {
-      $_SESSION["shopping_cart"] = null; // svuoto il carrello
-      $aggTimbri = '<p class="addedProduct">Grazie per il tuo acquisto!</p>';
-      if($_SESSION['valAcquisto'] % $minPrezzoTimbro > 0) {
-        $num_timbri['numero_timbri'] += $_SESSION['valAcquisto'] % $minPrezzoTimbro;
-        $aggTimbri = '<p class="addedProduct">
-                        Grazie per il tuo acquisto! Ti sono state riempite delle caselle nella tua carta fedelt&agrave;: quando la tua carta sar&agrave; piena, recati in negozio per sfruttarla come buono da 15&euro;.
-                      </p>';
+      if(isset($_SESSION['valAcquisto']) && !empty($_SESSION['valAcquisto'])) {
+        $_SESSION["shopping_cart"] = null; // svuoto il carrello
+        $aggTimbri = '<p class="addedProduct">Grazie per il tuo acquisto!</p>';
+        if($_SESSION['valAcquisto'] % $minPrezzoTimbro > 0) {
+          $num_timbri += (int) ($_SESSION['valAcquisto'] / $minPrezzoTimbro);
+          $aggTimbri = '<p class="addedProduct">
+                          Grazie per il tuo acquisto! Ti sono state riempite delle caselle nella tua carta fedelt&agrave;: quando la tua carta sar&agrave; piena, recati in negozio per sfruttarla come buono da 15&euro;.
+                        </p>';
+        }
       }
-    }
+    } // end if $_SESSION['tipo_utente'] == 'User'
     $con->closeConnection();
-
     $contenuto = file_get_contents("../html/profilo.html");
     $contenuto = str_replace("%AGG_TIMBRI%", $aggTimbri, $contenuto);
     $contenuto = str_replace("%TIMBRI%", $img_timbri, $contenuto);
-    $contenuto = str_replace("%NUMERO_TIMBRI%", $num_timbri['numero_timbri'], $contenuto);
+    $contenuto = str_replace("%numero_timbri%", $num_timbri, $contenuto);
     $contenuto = str_replace("%AUGURI%", $auguri, $contenuto);
     $contenuto .= file_get_contents("../html/form_utente.html");
     $contenuto = str_replace("%ACTION_FORM%", "profilo.php", $contenuto);
@@ -121,10 +108,9 @@
     $array_place_html = ['nome', 'cognome', 'email', 'data_nascita'];
     $array_place_session = ['nome_utente', 'cognome_utente', 'email_utente', 'data_nascita_utente'];
     foreach (array_combine($array_place_html, $array_place_session) as $html => $session) {
-      if($_SESSION[$session]!="") {
+      if($_SESSION[$session]!="")
         $contenuto = str_replace('<label for="'.$html.'">', '<label class="filled" for="'.$html.'">', $contenuto);
         $contenuto = str_replace('%VALUE_'.$html.'%', 'value="'.$_SESSION[$session].'"', $contenuto);
-      }
     }
     $contenuto = str_replace("%NOME_SUBMIT%", "Modifica_profilo", $contenuto);
     $contenuto = str_replace("%AGGIUNGI_SUBMIT%", '<input id="delete_user" type="submit" value="Elimina il profilo" name="Elimina_profilo"/>', $contenuto);

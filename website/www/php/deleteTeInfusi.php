@@ -12,19 +12,18 @@
   $img = new Image();
   $id = $_GET['id'];
 
-  if($con->openConnection()) {
-    if($con->deleteTeInfusi($id)) {
-  	   $img->deleteImage("../img/te_e_infusi/".$id."jpg");
+  if(!$con->openConnection()) {
+    header('Location: redirect.php?error=1');
+    exit;
+  }
+  else {
+    if($con->deleteTeInfusi($id))
+      $img->deleteImage("../img/te_e_infusi/".$id."jpg");
+    else {
+      header('Location: redirect.php?error=4');
+      exit;
      }
-     else {
-       header('Location: redirect.php?error=4');
-       exit;
-     }
-   } // end if $con->openConnection()
-   else {
-     header('Location: redirect.php?error=1');
-     exit;
-   }
+  } 
 
   header('Location: modifica_teInfusi.php');
   exit;

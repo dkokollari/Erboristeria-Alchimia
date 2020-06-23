@@ -1,6 +1,7 @@
 <?php
-  require_once("genera_pagina.php");
+  require_once("session.php");
   require_once("DBAccess.php");
+  require_once("genera_pagina.php");
   require_once("validate_form.php");
 
   if($_POST['Registrati']) {
@@ -20,24 +21,18 @@
     $errore_conferma = '<span class="errore">Le password inserite non corrispondono</span>';
 
     $fields = [$email, $password, $data_nascita];
-    if(Validate_form::is_empty($fields)) {
+    if(Validate_form::is_empty($fields))
       $errore = $errore_empty;
-    }
-    else if(!empty($nome) && !Validate_form::check_str($nome)) {
+    else if(!empty($nome) && !Validate_form::check_str($nome))
       $errore = $errore_nome;
-    }
-    else if(!empty($cognome) && !Validate_form::check_str($cognome)) {
+    else if(!empty($cognome) && !Validate_form::check_str($cognome))
       $errore = $errore_cognome;
-    }
-    else if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    else if(!filter_var($email, FILTER_VALIDATE_EMAIL))
       $errore = $errore_email;
-    }
-    else if(!Validate_form::check_pwd($password)) {
+    else if(!Validate_form::check_pwd($password))
       $errore = $errore_password;
-    }
-    else if($password != $password_conferma) {
+    else if($password != $password_conferma)
       $errore = $errore_conferma;
-    }
     else {
       $con = new DBAccess();
       if(!$con->openConnection()){
@@ -45,17 +40,14 @@
         exit;
       }
 
-      if($con->getSingolo_Utenti($email)) {
+      if($con->getSingolo_Utenti($email))
         $errore = $errore_full;
-      }
-      else {
+      else
         $con->insertUtenti($nome,
                            $cognome,
                            $email,
                            $password,
                            $data_nascita);
-      }
-
       $con->closeConnection();
     }
 
