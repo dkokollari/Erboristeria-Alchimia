@@ -165,6 +165,7 @@ margin:0.7em auto 0.7em auto;
     max-height: 4.5em;
 }
 .tips_and_tricks h3 {
+  text-align: center;
   margin: 1em;
   color: #d17a48;
 }
