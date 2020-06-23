@@ -215,6 +215,7 @@ margin:0.7em auto 0.7em auto;
   border-radius: 7px 7px 0 0;
   width: 100%;
   object-fit: cover;
+  max-height: 10.5em;
   transition: max-height 0.4s ease;
   position: absolute;
   top: 0;
