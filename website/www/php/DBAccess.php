@@ -247,16 +247,58 @@
       return $this->getQuery($query, null, null, false);
     }
 
-    public function getUtenti() {
-      $query = "SELECT `nome_utente`,
+    public function getUtenti($rows=false, $email_target="", $ordine="", $limit_start=-1, $limit_result=-1) {
+      if($rows)
+        $SQL_CALC_FOUND_ROWS = "SQL_CALC_FOUND_ROWS";
+      if(!empty($email_target)) {
+        $where = "WHERE `email_utente` LIKE ?";
+        $types = "s";
+        $params = ["%".$email_target."%"];
+      } // end if !empty($email_target)
+      if(!empty($ordine)) {
+        switch($ordine) {
+          case "timbri" :
+            $order_by = "ORDER BY `numero_timbri_utente` DESC";
+          break;
+          case "tipo_utente" :
+            $order_by = "ORDER BY `tipo_utente` DESC";
+          break;
+          case "data_nascita_ASC" :
+            $order_by = "ORDER BY `data_nascita_utente`";
+          break;
+          case "data_nascita_DESC" :
+            $order_by = "ORDER BY `data_nascita_utente` DESC";
+          break;
+          case "data_registrazione_ASC" :
+            $order_by = "ORDER BY `data_registrazione_utente`";
+          break;
+          case "data_registrazione_DESC" :
+            $order_by = "ORDER BY `data_registrazione_utente` DESC";
+          break;
+        }
+      } // end if !empty($ordine)
+      if($limit_start!=-1 && $limit_result!=-1) {
+        $limit = "LIMIT ?, ?";
+        $types .= "ii";
+        if(empty($params))
+          $params = [$limit_start, $limit_result];
+        else
+          array_push($params, $limit_start, $limit_result);
+      } // end if !empty($limit_start) && !empty($limit_result)
+      $query = "SELECT ".$SQL_CALC_FOUND_ROWS."
+                       `nome_utente`,
                        `cognome_utente`,
                        `email_utente`,
                        `password_utente`,
                        `tipo_utente`,
+                       `numero_timbri_utente`,
                        `data_nascita_utente`,
                        `data_registrazione_utente`
-                FROM   `utenti`";
-      return $this->getQuery($query);
+                  FROM `utenti`
+                  ".$where."
+                  ".$order_by."
+                  ".$limit."";
+      return $this->getQuery($query, $types, $params);
     }
 
     # getters utenti #
@@ -309,6 +351,12 @@
       }
       $stmt->close();
       return $output;
+    }
+
+    // ritorna il numero di risultati generati dall'ultima query con SQL_CALC_FOUND_ROWS
+    public function getRows() {
+      $query = "SELECT FOUND_ROWS() as total";
+      return $this->getQuery($query);
     }
 
     // mette i tag di paragrafo ad ogni nuova riga
