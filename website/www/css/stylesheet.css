@@ -60,6 +60,7 @@ ul {
   letter-spacing: 0.1em;
   font-weight: 300;
   color: #009688;
+  text-align: center;
 }
 h3 {
   font-size: 1.1em;
@@ -168,7 +169,8 @@ margin:0.7em auto 0.7em auto;
 .tips_and_tricks.collapsed {
     max-height: 4.5em;
 }
-.tips_and_tricks h3 {
+#content .tips_and_tricks h3 {
+  text-align: center;
   margin: 1em;
   color: #d17a48;
 }
@@ -382,7 +384,7 @@ margin:0.7em auto 0.7em auto;
   transition: none;
 }
 .card h4 {
-  margin: 1.2em 5% 0.7em 5%;
+  margin: 1.6em 5% 0.7em 5%;
   line-height: 1.1em;
   height: 2em;
   transition: 0.4s ease;
