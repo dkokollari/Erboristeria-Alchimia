@@ -48,7 +48,8 @@
                           <li>'.$timbri.' timbri</li>
                         </ul>
                         <form action="admin.php" method="POST">
-                          <input type="text" id="new_timbri" name="new_timbri" placeholder="Numero timbri" title="Nuovo numero timbri"/>
+                          <input type="hidden" name="hidden_email" value="'.$email.'"/>
+                          <input type="text" name="new_timbri" id="new_timbri" placeholder="Numero timbri" title="Nuovo numero timbri"/>
                           <input type="submit" name="edit" value="edit" class="material-icons"/>
                           <input type="submit" name="delete" value="delete" class="material-icons"/>
                         </form>
