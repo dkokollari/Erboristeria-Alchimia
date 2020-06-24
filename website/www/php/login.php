@@ -70,10 +70,16 @@
       }
     } // end else if email e password valide
   } // end if $_POST["Login"]
+  else if($_POST['Registrati']) { // redirect dalla pagina registrazione
+    $status = "<span>Registrazione effettuata con successo</span>";
+  }
+
+  if(!empty($errore)) {
+    $status = $errore;
+  }
 
   $contenuto = file_get_contents("../html/login.html");
-  $contenuto = str_replace("%ERR_LOGIN%", $errore, $contenuto);
-  $contenuto = str_replace("%LOGIN_STATUS%", $logged, $contenuto);
+  $contenuto = str_replace("%STATUS_LOGIN%", $status, $contenuto);
   $pagina = Genera_pagina::genera("../html/base.html", "login", $contenuto);
   echo $pagina;
 

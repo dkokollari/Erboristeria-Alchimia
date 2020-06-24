@@ -60,6 +60,7 @@ ul {
   letter-spacing: 0.1em;
   font-weight: 300;
   color: #009688;
+  text-align: center;
 }
 h3 {
   font-size: 1.1em;
@@ -168,7 +169,8 @@ margin:0.7em auto 0.7em auto;
 .tips_and_tricks.collapsed {
     max-height: 4.5em;
 }
-.tips_and_tricks h3 {
+#content .tips_and_tricks h3 {
+  text-align: center;
   margin: 1em;
   color: #d17a48;
 }
@@ -340,8 +342,9 @@ margin:0.7em auto 0.7em auto;
   padding-bottom: 1em;
   cursor: pointer;
 }
-.card.eventi {
+#content .card.eventi {
   max-height: none;
+  text-align: left;
 }
 .card.collapsed {
   max-height: 10.5em;
@@ -360,7 +363,7 @@ margin:0.7em auto 0.7em auto;
 .card.eventi img {
   height: 15em;
   width: 15em;
-  margin: 0% 0% 2em 5%;
+  margin: 0% 7% 2em 7%;
   float: left;
   position:static;
 }
@@ -381,7 +384,7 @@ margin:0.7em auto 0.7em auto;
   transition: none;
 }
 .card h4 {
-  margin: 1.2em 5% 0.7em 5%;
+  margin: 1.6em 5% 0.7em 5%;
   line-height: 1.1em;
   height: 2em;
   transition: 0.4s ease;
@@ -410,7 +413,7 @@ margin:0.7em auto 0.7em auto;
 
 .card ul {
   list-style: disc;
-  margin: 0.5em 5% 2em 20.5em;
+  margin: 0.5em 5% 2em 20.5em; /*/* WARNING: FOUAD, 25/06: margine enorme e sospetto!! */*/
 }
 .card ul li {
   margin-bottom: 1.2em;
@@ -585,7 +588,7 @@ strong {
 #log_in_box fieldset {
   border:none;
 }
-#username, #password, #nome, #cognome, #password_conferma, #data_nascita{
+#email, #password, #nome, #cognome, #password_conferma, #data_nascita{
   width: 100%;
 }
 .form_field{
@@ -738,6 +741,10 @@ strong {
   position: relative;
   background-color: #fff;
   text-align: left;
+}
+.container #content .adjust_margins .card_product {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 @media screen and (min-width:480px) {
@@ -1275,6 +1282,14 @@ ul.container_prodotti {
             }
             .classic_btn.always_visible {
               display: inline-block;
+            }
+            #content .card.eventi img {
+              width: 84%;
+              float: none;
+            }
+            .card.eventi ul {
+              clear: both;
+              margin: 0.5em 7% 2em 7%;
             }
 }
 @media screen and (max-width:950px) {
