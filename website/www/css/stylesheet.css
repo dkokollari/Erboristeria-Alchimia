@@ -250,9 +250,10 @@ margin:0.7em auto 0.7em auto;
   margin: 0.7em 7% 0.7em 7%;
   font-size: 0.9em;
 }
-
-
-
+#result_pages {
+  margin-top: 1.2em;
+  text-align: center;
+}
 #eventi #prenotazione span {
   font-weight: bold;
   text-transform: uppercase;
@@ -1262,6 +1263,12 @@ background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 100%);
             }
             #footer {
                 width: 100%;
+            }
+            .classic_btn {
+              display: none;
+            }
+            .classic_btn.always_visible {
+              display: inline-block;
             }
 }
 
