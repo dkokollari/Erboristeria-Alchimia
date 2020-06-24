@@ -57,19 +57,8 @@ function menuToggle() {
   rightofmenu.classList.toggle("hidemenu");
 }
 
-
-
-$(document).ready(function() {
-  if(document.getElementById("username")){
-    if($("#username").val() != "") {
-      $(username.previousElementSibling).addClass("filled");
-    }
-  }
-});
-
-
 /*        function that moves the label in the login and register page     */
-$("#nome, #cognome, #username, #password, #password_conferma, #data_nascita").on("blur", function() {
+$("#nome, #cognome, #email, #password, #password_conferma, #data_nascita").on("blur", function() {
 $(this.previousElementSibling).removeClass("filled");
 if($(this).val() != "") {
 $(this.previousElementSibling).addClass("filled");

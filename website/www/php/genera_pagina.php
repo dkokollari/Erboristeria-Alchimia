@@ -30,7 +30,6 @@
                             $(\'input, textarea\').placeholder();
                           </script>';
         break;
-
         case "carrello" :
           $titolo = "Carrello";
           $titolo_pagina = "Carrello di Erboristeria Alchimia";
@@ -42,7 +41,6 @@
           $icona_top = "";
           $lista_menu = menu_pagina::menu($target);
         break;
-
         case "eventi" :
           $titolo = "Eventi";
           $titolo_pagina = "Eventi di Erboristeria Alchimia";
@@ -51,7 +49,6 @@
           $container_pagina = "container_eventi";
           $lista_menu = menu_pagina::menu($target);
         break;
-
         case "form_eventi" :
           $titolo = "Nuovo evento";
           $titolo_pagina = "Nuovo evento di Erboristeria Alchimia";
@@ -61,7 +58,6 @@
           $lista_menu = menu_pagina::menu();
           $script_body = '<script src="../javascript/validationFormTeInfusiEventi.js"></script>';
         break;
-
         case "form_teinfusi" :
           $titolo = "Nuovo Te & Infusi";
           $titolo_pagina = "Nuovo te & infusi di Erboristeria Alchimia";
@@ -71,10 +67,8 @@
           $lista_menu = menu_pagina::menu();
           $script_body = '<script type="text/javascript" src="../javascript/validationFormTeInfusiEventi.js"></script>';
         break;
-
         case "index" :
         break;
-
         case "informazioni" :
           $titolo = "Informazioni";
           $titolo_pagina = "Informazioni di Erboristeria Alchimia";
@@ -83,7 +77,6 @@
           $container_pagina = "container_informazioni";
           $lista_menu = menu_pagina::menu($target);
         break;
-
         case "la_mia_storia" :
           $titolo = "La mia storia";
           $titolo_pagina = "La mia storia di Erboristeria Alchimia";
@@ -92,7 +85,6 @@
           $container_pagina = "container_la_mia_storia";
           $lista_menu = menu_pagina::menu($target);
         break;
-
         case "login" :
           $titolo = "Accedi";
           $titolo_pagina = "Accedi ad Erboristeria Alchimia";
@@ -101,7 +93,6 @@
           // $container_pagina = "log_in_box_container";
           $lista_menu = menu_pagina::menu($target);
         break;
-
         case "prodotti" :
           $titolo = "Prodotti";
           $titolo_pagina = "Prodotti di Erboristeria Alchimia";
@@ -114,7 +105,6 @@
                             $(\'input, textarea\').placeholder();
                           </script>';
         break;
-
         case "profilo" :
           $titolo = "Profilo";
           $titolo_pagina = "Gestione del profilo di Erboristeria Alchimia";
@@ -125,7 +115,6 @@
           $script_body = '<script src="../javascript/validate_form.js"></script>
                           <script src="../javascript/date-input-polyfill.dist.js"></script>';
         break;
-
         case "registrazione" :
           $titolo = "Registrati";
           $titolo_pagina = "Registrati ad Erboristeria Alchimia";
@@ -136,7 +125,6 @@
           $script_body = '<script src="../javascript/validate_form.js"></script>
                           <script src="../javascript/date-input-polyfill.dist.js"></script>';
         break;
-
         case "redirect" :
           $titolo = "Reindirizzamento";
           $titolo_pagina = "Reindirizzamento di Erboristeria Alchimia";
@@ -145,7 +133,6 @@
           $container_pagina = "container_redirect";
           $lista_menu = menu_pagina::menu();
         break;
-
         case "teinfusi" :
           $titolo = "T&egrave; &amp; Infusi";
           $titolo_pagina = "T&egrave; e infusi di Erboristeria Alchimia";
@@ -155,6 +142,7 @@
           $lista_menu = menu_pagina::menu($target);
         break;
       }
+
       $pagina = str_replace("%TITOLO%", $titolo, $pagina);
       $pagina = str_replace("%TITOLO_PAGINA%", $titolo_pagina, $pagina);
       $pagina = str_replace("%DESCRIZIONE_PAGINA%", $descrizione_pagina, $pagina);
@@ -170,6 +158,8 @@
       $pagina = str_replace("%LISTA_MENU%", $lista_menu, $pagina);
       $pagina = str_replace("%CONTENUTO_PAGINA%", $contenuto, $pagina);
       $pagina = str_replace("%SCRIPT_BODY%", $script_body, $pagina);
+      $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+      $pagina = str_replace("%ACTUAL_LINK%", $actual_link, $pagina);
       return $pagina;
     }
 

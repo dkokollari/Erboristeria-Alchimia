@@ -103,8 +103,8 @@
           $email = $row["email_utente"];
           $nome = htmlentities($row["nome_utente"]);
           $cognome = htmlentities($row["cognome_utente"]);
-          $data_nascita = date('d-m-Y' , strtotime($row["data_nascita_utente"]));
-          $data_registrazione = date('d-m-Y H:i:s' , strtotime($row["data_registrazione_utente"]));
+          $data_nascita = date('d-m-Y', strtotime($row["data_nascita_utente"]));
+          $data_registrazione = date('d-m-Y H:i:s', strtotime($row["data_registrazione_utente"]));
           $tipo = $row["tipo_utente"];
           $timbri = $row["numero_timbri_utente"];
           $utenti .= '<li class="card_product product_description card_user">
@@ -120,7 +120,7 @@
                         </ul>
                         <form action="admin.php" method="POST">
                           <input type="hidden" name="hidden_email" value="'.$email.'"/>
-                          <input type="text" name="new_timbri" id="new_timbri" placeholder="Numero timbri" title="Nuovo numero timbri"/>
+                          <input type="text" name="new_timbri" placeholder="Numero timbri" title="Nuovo numero timbri"/>
                           <input type="submit" name="edit" value="edit" class="material-icons"/>
                           <input type="submit" name="delete" value="delete" class="material-icons"/>
                         </form>
