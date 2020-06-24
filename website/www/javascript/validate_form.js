@@ -115,10 +115,18 @@ var passwordConfermaValidityChecks = [{
 }];
 
 var dataNascitaValidityChecks = [{
-	isInvalid: function() {
-		return dataNascitaInput.value === "";
+	isInvalid: function(input) {
+		return input.value === "";
 	},
-	invalidityMessage: 'La data non può essere vuota',
+	invalidityMessage: 'La data non deve essere vuota',
+	element: document.querySelector('div[class="form_field_static data_nascita"]')
+}, {
+	isInvalid: function(input) {
+		var date_input = new Date(String(input.value));
+		var today = new Date();
+		return date_input >= today;
+	},
+	invalidityMessage: 'La data non risulta valida',
 	element: document.querySelector('div[class="form_field_static data_nascita"]')
 }];
 
