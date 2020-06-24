@@ -131,12 +131,10 @@
               Image::getImage('../img/products/small_img/', $row['id_articolo']) . '" alt="immagine '. $row['nome_articolo'] . '"/>' . "\n" .
           '<h3 class="product_title">' .  $row['nome_articolo'] . '</h3>' . "\n" .
           '<ul>' . "\n" .
-              /*'<li class="product_manufacturer">' . $row["nome_ditta"] . '</li>' . "\n" .*/
-              /*'<li class="product_line">' . 'Linea ' . $row["nome_linea"] .'</li>' . "\n" .*/
-              /*'<div class="product_tags">' . "\n" .*/
-                '<li class="product_tags ' . $row["nome_categoria"] . '">' . $row["nome_categoria"] . '</li>' . "\n" .
-                '<li class="product_tags ' . $row["sesso_target"] . '">' . $row["sesso_target"] . '</li>' . "\n" .
-              /*'</div>' . "\n" .*/
+              '<li class="product_manufacturer">' . $row["nome_ditta"] . '</li>' . "\n" .
+              '<li class="product_line">' . $row["nome_linea"] .'</li>' . "\n" .
+              '<li class="product_tags ' . $row["nome_categoria"] . '">' . $row["nome_categoria"] . '</li>' . "\n" .
+              '<li class="product_tags ' . $row["sesso_target"] . '">' . $row["sesso_target"] . '</li>' . "\n" .
               '<li class="product_price">' . $row["prezzo_articolo"] . ' &euro;</li>' . "\n" .
           '</ul>' . "\n" .
           '</a>' . "\n" .
