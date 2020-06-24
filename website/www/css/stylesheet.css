@@ -751,15 +751,8 @@ strong {
 .container #content .card_product .product_manufacturer,
 .container #content .card_product .product_bottom{
   margin-left: 6.5rem;
+  margin-top: 0.3rem;
   line-height: 1.1em;
-}
-.container #content .card_product .product_line {
-  position: absolute;
-  top: 4.4rem;
-}
-.container #content .card_product .product_manufacturer {
-  position: absolute;
-  top: 3.1em;
 }
 .container .card_product .product_image {
   background-size: contain;
