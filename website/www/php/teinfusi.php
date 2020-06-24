@@ -25,7 +25,7 @@
                        : false);
 
       $lista .=
-        '<div class="card collapsed" id="'.$nome.'" title="'.$nome.'. Premi per espandere la descrizione">
+        '<div class="card collapsed" title="'.$nome.'. Premi per espandere la descrizione">
           <h3>'.$nome.'</h3>
           <a class="accessibility_hidden">Salta la descrizione di questo t&egrave; o infuso</a>
           <img src="'.$immagine.'" alt="'.$descrizione_immagine.'"/>
