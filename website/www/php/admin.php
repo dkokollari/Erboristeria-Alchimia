@@ -47,6 +47,33 @@
                       </li>
                       ';
         } // end foreach $lista_utenti as $row
+
+        // sezione numeretti delle pagine
+        $total_records = $con->getRows();
+        $total_records = $total_records[0]["total"];
+        $con->closeConnection();
+        $total_pages = ceil($total_records / $numero_risultati);
+        if($page > 1) {
+          $pages_menu = '<a href="admin.php?page='.($page-1)."&amp;email_search=$email_search&amp;ordina_utenti=$ordina_utenti".
+          "&amp;numero_risultati=$numero_risultati&amp;search=Invia".'" class="classic_btn always_visible">Indietro</a>'."\n";
+        }
+        for($n_page = 1; $n_page <= $total_pages; $n_page++) {
+          if($n_page != $page && ($n_page > ($page+1) || $n_page < ($page-1))) {
+            $pages_menu .= '<a href="admin.php?page='.$n_page."&amp;email_search=$email_search&amp;ordina_utenti=$ordina_utenti".
+            "&amp;numero_risultati=$numero_risultati&amp;search=Invia".'" class="classic_btn hidden">'.$n_page.'</a>'."\n";
+          }
+          else if($n_page != $page) {
+            $pages_menu .= '<a href="admin.php?page='.$n_page."&amp;email_search=$email_search&amp;ordina_utenti=$ordina_utenti".
+            "&amp;numero_risultati=$numero_risultati&amp;search=Invia".'" class="classic_btn">'.$n_page.'</a>'."\n";
+          }
+          else {
+            $pages_menu .= '<span class="classic_btn selected">'.$page.'</span>';
+          }
+        }
+        if($page < $total_pages) {
+          $pages_menu .= '<a href="admin.php?page='.($page+1)."&amp;email_search=$email_search&amp;ordina_utenti=$ordina_utenti".
+          "&amp;numero_risultati=$numero_risultati&amp;search=Invia".'" class="classic_btn always_visible">Avanti</a>'."\n";
+        }
       } // end else $con->openConnection()
     } // end if isset($_GET['search'])
 
