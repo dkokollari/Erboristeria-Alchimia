@@ -340,8 +340,9 @@ margin:0.7em auto 0.7em auto;
   padding-bottom: 1em;
   cursor: pointer;
 }
-.card.eventi {
+#content .card.eventi {
   max-height: none;
+  text-align: left;
 }
 .card.collapsed {
   max-height: 10.5em;
@@ -360,7 +361,7 @@ margin:0.7em auto 0.7em auto;
 .card.eventi img {
   height: 15em;
   width: 15em;
-  margin: 0% 0% 2em 5%;
+  margin: 0% 7% 2em 7%;
   float: left;
   position:static;
 }
@@ -410,7 +411,7 @@ margin:0.7em auto 0.7em auto;
 
 .card ul {
   list-style: disc;
-  margin: 0.5em 5% 2em 20.5em;
+  margin: 0.5em 5% 2em 20.5em; /*/* WARNING: FOUAD, 25/06: margine enorme e sospetto!! */*/
 }
 .card ul li {
   margin-bottom: 1.2em;
@@ -1279,6 +1280,14 @@ ul.container_prodotti {
             }
             .classic_btn.always_visible {
               display: inline-block;
+            }
+            #content .card.eventi img {
+              width: 84%;
+              float: none;
+            }
+            .card.eventi ul {
+              clear: both;
+              margin: 0.5em 7% 2em 7%;
             }
 }
 @media screen and (max-width:950px) {
