@@ -23,6 +23,7 @@
         $lista_utenti = $con->getUtenti(true, $email_search, $ordina_utenti, $start, $numero_risultati);
 
         $immagine_utente_src = "../icons/person_outline-24px.svg";
+        $utenti = '<ul>';
         foreach ($lista_utenti as $row) {
           $email = $row["email_utente"];
           $nome = htmlentities($row["nome_utente"]);
@@ -47,7 +48,7 @@
                       </li>
                       ';
         } // end foreach $lista_utenti as $row
-
+        $utenti .= '</ul>';
         // sezione numeretti delle pagine
         $total_records = $con->getRows();
         $total_records = $total_records[0]["total"];
