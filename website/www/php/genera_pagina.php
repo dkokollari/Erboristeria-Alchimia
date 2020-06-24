@@ -170,6 +170,8 @@
       $pagina = str_replace("%LISTA_MENU%", $lista_menu, $pagina);
       $pagina = str_replace("%CONTENUTO_PAGINA%", $contenuto, $pagina);
       $pagina = str_replace("%SCRIPT_BODY%", $script_body, $pagina);
+      $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+      $pagina = str_replace("%ACTUAL_LINK%", $actual_link, $pagina);
       return $pagina;
     }
 
