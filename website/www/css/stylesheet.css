@@ -1,4 +1,4 @@
-@font-face {font-family: 'Velvetberries'; src: url(../fonts/velvetberries.woff);}
+@font-face {font-family: 'Velvetberries'; src: url(fonts/velvetberries.woff);}
 * { margin: 0; padding: 0;}
 html {
   background-color: white;
@@ -723,23 +723,23 @@ strong {
 }
 
                             /* PAGINA PRODUCTS */
-.container .card_product {
+.container #content .card_product {
   max-width: 400px;
   height: 6em;
   border-radius: 7px;
   box-shadow: 0 3px 6px rgba(0,0,0,0.10), 0 3px 6px rgba(0,0,0,0.17);
   margin-bottom: 1em;
-  padding:0.7em;
+  padding:0.7rem;
   margin-left: 1.2em;
   margin-right: 1.2em;
   overflow: hidden;
   position: relative;
-    background-color: #fff;
-    text-align: left;
+  background-color: #fff;
+  text-align: left;
 }
 
 @media screen and (min-width:480px) {
-  .container #content  .card_product {
+  .container #content .card_product {
     margin-left: auto;
     margin-right: auto;
   }
@@ -750,7 +750,15 @@ strong {
 .container #content .card_product .product_manufacturer,
 .container #content .card_product .product_bottom{
   margin-left: 6.5rem;
-  line-height: 1em;
+  line-height: 1.1em;
+}
+.container #content .card_product .product_line {
+  position: absolute;
+  top: 4.4rem;
+}
+.container #content .card_product .product_manufacturer {
+  position: absolute;
+  top: 3.1em;
 }
 .container .card_product .product_image {
   background-size: contain;
@@ -765,8 +773,9 @@ strong {
   color: #009688;
   grid-area: title;
   font-size: 0.9em;
-  margin-bottom: 0.4em;
+/*  margin-bottom: 0.4em;*/
   text-align: left;
+  line-height: 1.2em;
 }
 
 .container .card_product .product_line {
@@ -783,29 +792,35 @@ strong {
 .product_tags {
   font-size: 0.6em;
   letter-spacing: 0.1em;
-  align-self: end;
-  justify-self: start;
+/*  align-self: end;
+  justify-self: start;*/
   text-transform: uppercase;
   font-weight: bold;
   color: #fff;
   display: inline;
-  position: absolute;
-  bottom: 0;
+/*  position: absolute;
+  bottom: 0;*/
   line-height: 1.8em;
-
-}
-.product_tags span {
   border-radius: 10px;
   padding: 0.2em 0.5em 0.2em 0.5em;
+
 }
-.product_tags span.cosmetici {
+.product_tags.cosmetici {
   background-color: #ff9557;
+  position: absolute;
+  bottom: 0.7em;
+  margin-left: 6.5em;
 }
 .product_tags span.uomo {
   background-color: #005377;
 }
-.product_tags span.donna {
+.product_tags.donna {
   background-color: #90323D;
+  position: absolute;
+  bottom: 0.7em;
+  left: 7.2rem;
+  float: left;
+  width: 4em;
 }
 .product_tags span.casa {
   background-color: #E39695;
@@ -846,13 +861,10 @@ strong {
   background-image: none;
   text-align: center;
 }
-.classic_btn:hover{
+.classic_btn:hover, .classic_btn.selected {
   transition: 0.5s ease;
   background-color: #009688;
   color: rgba(245, 245, 245);
-}
-.classic_btn.nohover {
-  transition: none;
 }
 #content ul.page_results {
   width: 60%;
@@ -1425,72 +1437,4 @@ background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 100%);
  img.carta_fedelta {
   height: 10em;
   width: 70%;
-}
-
-/*MEGA FIX INDEX.PHP*/
-
-#container_prodotti .card_product.event {
-  padding:0.9em;
-  height: auto;
-}
-#container_prodotti .card_product.event .product_image {
-  height: 14em;
-  object-fit: cover;
-}
-#container_prodotti #content .card_product.event .product_title {
-  font-size: 1.2em;
-  text-align: center;
-  margin-bottom: 1em;
-  margin-top: 0.5em;
-}
-#container_prodotti #content .card_product.event .product_manufacturer {
-  font-size: 0.95em;
-  line-height: 1.4em;
-  margin-bottom: 0.4em;
-}
-#container_prodotti #content .home_subtitle.event_date {
-  font-size: 1.4em;
-  text-align: left;
-  border-top: none;
-  border-bottom: 1px solid var(--yellow-dark);
-  padding-top: 0;
-  margin-top: 0.5em;
-  margin-bottom: 0.5em;
-  padding-bottom: 0.1em;
-}
-#container_prodotti #content .card_product.event .product_line {
-  line-height: 1.2em;
-  margin-bottom: 2em;
-  font-size: 0.9em;
-}
-#container_prodotti #content .card_product.event .product_description {
-  margin-left: 0;
-  height: auto;
-}
-#container_prodotti #content .card_product.event .info {
-  margin-top: 0;
-  /* position: absolute; */
-  bottom: 0;
-  text-transform: uppercase;
-  font-weight: bold;
-  color: var(--grey-dark);
-  font-size: 0.9em;
-  margin-bottom: 0;
-  text-align: center;
-}
-#container_prodotti #content .card_product.event .info.luogo {
-  margin-bottom: 0;
-  text-transform: capitalize;
-  line-height: 1em;
-}
-
-/* #container_prodotti #content .card_product.event.teinfuso .product_description {
-  margin-left: 6.9em;
-} */
-.event_image {
-  height: 7em;
-  width: 100%;
-  object-fit: cover;
-  border-radius: 7px;
-  margin-bottom: 0.5em;
 }
