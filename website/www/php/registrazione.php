@@ -51,9 +51,15 @@
       $con->closeConnection();
     }
 
-    $status = (empty($errore)
-              ? "<span>Registrazione riuscita</span>"
-              : $errore);
+    if(empty($errore)) {
+      // suicide solution - https://stackoverflow.com/a/32502860
+      header('HTTP/1.1 307 Temporary Redirect');
+      header('Location: login.php');
+      exit;
+    }
+    else {
+      $status = $errore;
+    }
   } // end if $_POST['Registrati']
 
   $contenuto = file_get_contents("../html/form_utente.html");

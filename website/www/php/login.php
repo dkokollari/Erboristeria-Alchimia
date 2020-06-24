@@ -70,6 +70,10 @@
       }
     } // end else if email e password valide
   } // end if $_POST["Login"]
+  else if($_POST['Registrati']) { // redirect dalla pagina registrazione
+    $status = "<span>Registrazione effettuata con successo</span>";
+  }
+
   if(!empty($errore)) {
     $status = $errore;
   }
