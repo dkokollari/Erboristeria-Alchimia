@@ -118,7 +118,7 @@ var dataNascitaValidityChecks = [{
 	isInvalid: function(input) {
 		return input.value === "";
 	},
-	invalidityMessage: 'La data non può essere vuota',
+	invalidityMessage: 'La data non deve essere vuota',
 	element: document.querySelector('div[class="form_field_static data_nascita"]')
 }, {
 	isInvalid: function(input) {
