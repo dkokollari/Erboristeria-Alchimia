@@ -4,6 +4,8 @@
   require_once("genera_pagina.php");
   require_once("Utilities.php");
 
+  $contenuto = file_get_contents("../html/admin.html");
+
   // if($_SESSION['auth'] && $_SESSION['tipo_utente'] == "Admin") {
     if(isset($_POST['edit'])) {
       $con = new DBAccess();
@@ -40,6 +42,53 @@
                 ? $page * $numero_risultati - $numero_risultati
                 : 0);
 
+      // sezione memorizza scelta combobox
+      switch($ordina_utenti) {
+        case "" :
+          $contenuto = str_replace('<option value="">&nbsp;</option>',
+                                   '<option selected="selected" value="">&nbsp;</option>', $contenuto);
+        break;
+        case "timbri" :
+          $contenuto = str_replace('<option value="timbri">Timbri</option>',
+                                   '<option selected="selected" value="timbri">Timbri</option>', $contenuto);
+        break;
+        case "tipo_utente" :
+          $contenuto = str_replace('<option value="tipo_utente">Tipo utente</option>',
+                                   '<option selected="selected" value="tipo_utente">Tipo utente</option>', $contenuto);
+        break;
+        case "data_nascita_ASC" :
+          $contenuto = str_replace('<option value="data_nascita_ASC">Data nascita ASC</option>',
+                                   '<option selected="selected" value="data_nascita_ASC">Data nascita ASC</option>', $contenuto);
+        break;
+        case "data_nascita_DESC" :
+          $contenuto = str_replace('<option value="data_nascita_DESC">Data nascita DESC</option>',
+                                   '<option selected="selected" value="data_nascita_DESC">Data nascita DESC</option>', $contenuto);
+        break;
+        case "data_registrazione_ASC" :
+          $contenuto = str_replace('<option value="data_registrazione_ASC">Data registrazione ASC</option>',
+                                   '<option selected="selected" value="data_registrazione_ASC">Data registrazione ASC</option>', $contenuto);
+        break;
+        case "data_registrazione_DESC" :
+          $contenuto = str_replace('<option value="data_registrazione_DESC">Data registrazione DESC</option>',
+                                   '<option selected="selected" value="data_registrazione_DESC">Data registrazione DESC</option>', $contenuto);
+        break;
+      };
+      switch($numero_risultati) {
+        case "20" :
+          $contenuto = str_replace('<option value="20">20</option>',
+                                   '<option selected="selected" value="20">20</option>', $contenuto);
+        break;
+        case "40" :
+          $contenuto = str_replace('<option value="40">40</option>',
+                                   '<option selected="selected" value="40">40</option>', $contenuto);
+        break;
+        case "80" :
+          $contenuto = str_replace('<option value="80">80</option>',
+                                   '<option selected="selected" value="80">80</option>', $contenuto);
+        break;
+      };
+
+      // sezione ottenimento utenti
       $con = new DBAccess();
       if(!$con->openConnection()) {
         header('Location: redirect.php?error=1');
@@ -79,7 +128,8 @@
                       ';
         } // end foreach $lista_utenti as $row
         $utenti .= '</ul>';
-        // sezione numeretti delle pagine
+
+        // sezione numeretti pagine
         $total_records = $con->getRows();
         $total_records = $total_records[0]["total"];
         $con->closeConnection();
@@ -108,9 +158,6 @@
       } // end else $con->openConnection()
     } // end else isset($_GET['search'])
 
-
-
-    $contenuto = file_get_contents("../html/admin.html");
     $contenuto = str_replace("%UTENTI%", $utenti, $contenuto);
     $contenuto = str_replace("%PAGES_MENU%", $pages_menu, $contenuto);
     $pagina = Genera_pagina::genera("../html/base5.html", "admin", $contenuto);
