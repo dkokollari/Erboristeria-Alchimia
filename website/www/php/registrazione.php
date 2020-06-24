@@ -19,6 +19,7 @@
     $errore_email = '<span class="errore">Inserisci una email valida</span>';
     $errore_password = '<span class="errore">Inserisci una password di lunghezza tra 8 e 100 caratteri, almeno 1 lettera ed 1 numero</span>'; // riferirsi alle regole di validate_form
     $errore_conferma = '<span class="errore">Le password inserite non corrispondono</span>';
+    $errore_data_nascita = '<span class="errore">Inserisci una data di nascita valida</span>';
 
     $fields = [$email, $password, $data_nascita];
     if(Validate_form::is_empty($fields))
@@ -33,6 +34,9 @@
       $errore = $errore_password;
     else if($password != $password_conferma)
       $errore = $errore_conferma;
+    else if($data_nascita >= date("Y-m-d")) {
+      $errore = $errore_data_nascita;
+    }
     else {
       $con = new DBAccess();
       if(!$con->openConnection()){
