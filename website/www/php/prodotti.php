@@ -42,7 +42,11 @@
   }
   $opt_casa_prod .= '</select>' . "\n";
 
-  if(isset($_GET['search'])) {
+  if(!isset($_GET['search'])) {
+    header('Location: prodotti.php?search=&sesso=none&categoria=none&casa_prod=none');
+    exit;
+  }
+  else {
     $noOption = "none"; // indica l'opzione "Seleziona Filtro" per i menu a tendina
     $search_value = mysql_real_escape_string(trim($_GET['search']));
 
