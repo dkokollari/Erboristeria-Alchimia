@@ -103,8 +103,8 @@
           $email = $row["email_utente"];
           $nome = htmlentities($row["nome_utente"]);
           $cognome = htmlentities($row["cognome_utente"]);
-          $data_nascita = date('d-m-Y' , strtotime($row["data_nascita_utente"]));
-          $data_registrazione = date('d-m-Y H:i:s' , strtotime($row["data_registrazione_utente"]));
+          $data_nascita = date('d-m-Y', strtotime($row["data_nascita_utente"]));
+          $data_registrazione = date('d-m-Y H:i:s', strtotime($row["data_registrazione_utente"]));
           $tipo = $row["tipo_utente"];
           $timbri = $row["numero_timbri_utente"];
           $utenti .= '<li class="card_product product_description card_user">
