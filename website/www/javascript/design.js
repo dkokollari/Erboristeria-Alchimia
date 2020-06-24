@@ -325,7 +325,7 @@ function validateFormTeInfusi() {
       errori++;
     }
    if(name.length < 5 || name.length > 50){
-      errori++:
+      errori++;
       nameMsgErr = "il nome deve contenere almeno 5 caratteri non pi&ugrave; di 50";
     }
    document.getElementById("err_nome").innerHTML = nameMsgErr;
