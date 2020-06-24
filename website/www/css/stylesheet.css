@@ -585,7 +585,7 @@ strong {
 #log_in_box fieldset {
   border:none;
 }
-#username, #password, #nome, #cognome, #password_conferma, #data_nascita{
+#email, #password, #nome, #cognome, #password_conferma, #data_nascita{
   width: 100%;
 }
 .form_field{
