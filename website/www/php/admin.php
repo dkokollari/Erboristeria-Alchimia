@@ -47,8 +47,11 @@
                           <li>'.$tipo.'</li>
                           <li>'.$timbri.' timbri</li>
                         </ul>
-                        <span class="material-icons">edit</span>
-                        <span class="material-icons">delete</span>
+                        <form action="admin.php" method="POST">
+                          <input type="text" id="new_timbri" name="new_timbri" placeholder="Numero timbri" title="Nuovo numero timbri"/>
+                          <input type="submit" name="edit" value="edit" class="material-icons"/>
+                          <input type="submit" name="delete" value="delete" class="material-icons"/>
+                        </form>
                       </li>
                       ';
         } // end foreach $lista_utenti as $row
