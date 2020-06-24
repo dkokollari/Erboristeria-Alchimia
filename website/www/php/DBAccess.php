@@ -356,7 +356,7 @@
     // ritorna il numero di risultati generati dall'ultima query con SQL_CALC_FOUND_ROWS
     public function getRows() {
       $query = "SELECT FOUND_ROWS() as total";
-      return $this->getQuery($query)
+      return $this->getQuery($query);
     }
 
     // mette i tag di paragrafo ad ogni nuova riga
