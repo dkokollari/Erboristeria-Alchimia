@@ -73,7 +73,6 @@
 
   $contenuto = file_get_contents("../html/login.html");
   $contenuto = str_replace("%ERR_LOGIN%", $errore, $contenuto);
-  $contenuto = str_replace("%LOGIN_STATUS%", $logged, $contenuto);
   $pagina = Genera_pagina::genera("../html/base.html", "login", $contenuto);
   echo $pagina;
 
