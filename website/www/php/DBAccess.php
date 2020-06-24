@@ -247,7 +247,9 @@
       return $this->getQuery($query, null, null, false);
     }
 
-    public function getUtenti($email_target="", $ordine="", $limit_start=-1, $limit_result=-1) {
+    public function getUtenti($rows=false, $email_target="", $ordine="", $limit_start=-1, $limit_result=-1) {
+      if($rows)
+        $SQL_CALC_FOUND_ROWS = "SQL_CALC_FOUND_ROWS";
       if(!empty($email_target)) {
         $where = "WHERE `email_utente` LIKE ?";
         $types = "s";
@@ -283,7 +285,8 @@
         else
           array_push($params, $limit_start, $limit_result);
       } // end if !empty($limit_start) && !empty($limit_result)
-      $query = "SELECT `nome_utente`,
+      $query = "SELECT ".$SQL_CALC_FOUND_ROWS."
+                       `nome_utente`,
                        `cognome_utente`,
                        `email_utente`,
                        `password_utente`,
