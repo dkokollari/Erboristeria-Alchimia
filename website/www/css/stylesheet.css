@@ -808,7 +808,7 @@ strong {
 .product_tags span.Uomo {
   background-color: #005377;
 }
-.product_tags.Donna {
+.product_tags.Donna, .product_tags.Unisex {
   background-color: #90323D;
   position: absolute;
   bottom: 0.7em;
