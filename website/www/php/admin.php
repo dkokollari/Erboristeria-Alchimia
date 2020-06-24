@@ -36,7 +36,7 @@
           $data_registrazione = date('d-m-Y H:i:s' , strtotime($row["data_registrazione_utente"]));
           $tipo = $row["tipo_utente"];
           $timbri = $row["numero_timbri_utente"];
-          $utenti .= '<li class="card_product product_description">
+          $utenti .= '<li class="card_product product_description card_user">
                         <img class="product_image" src="'.$immagine_utente_src.'" alt="Immagine utente"/>
                         <h3 class="product_title">'.$email.'</h3>
                         <ul>

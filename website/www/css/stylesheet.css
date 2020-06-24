@@ -1525,3 +1525,10 @@ ul.container_prodotti {
   border-radius: 7px;
   margin-bottom: 0.5em;
 }
+
+.container #content .card_product.card_user {
+  height: 12em;
+}
+.container #content .card_product.card_user h3 {
+  word-wrap: break-word;
+}
