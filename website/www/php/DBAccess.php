@@ -328,6 +328,17 @@
       return $this->getQuery($query, $types, $params);
     }
 
+    # setters utenti #
+
+    public function updateTimbriSingolo_Utenti($email, $timbri) {
+      $query = "UPDATE `utenti`
+                   SET `numero_timbri_utente`= ?
+                 WHERE `email_utente`= ?";
+      $types = "is";
+      $params = [$timbri, $email];
+      return $this->getQuery($query, $types, $params, false);
+    }
+
     ##################################################
     # funzioni generiche e/o usate da altre funzioni #
     ##################################################
