@@ -201,7 +201,7 @@ margin:0.7em auto 0.7em auto;
   position: relative;
   font-size: 1em;
   margin-bottom: 1.5em;
-  background-color: #fff1d5;
+  background-color: #fff;
   max-height: 80em;
   overflow: hidden;
   transition: max-height 0.8s ease;
@@ -697,6 +697,7 @@ strong {
   padding: 12px 20px 12px 40px;
   border: 1px solid #ddd;
   margin-bottom: 12px;
+  box-sizing: border-box;
 }
 
 #myUL {
@@ -739,7 +740,7 @@ strong {
 }
 
 @media screen and (min-width:480px) {
-  .container .card_product {
+  .container.home #content .card_product,   .container.home #content .event_date {
     margin-left: auto;
     margin-right: auto;
   }
@@ -805,16 +806,16 @@ strong {
   padding: 0.2em 0.5em 0.2em 0.5em;
 
 }
-.product_tags.cosmetici {
+.product_tags.Cosmetico {
   background-color: #ff9557;
   position: absolute;
   bottom: 0.7em;
   margin-left: 6.5em;
 }
-.product_tags span.uomo {
+.product_tags span.Uomo {
   background-color: #005377;
 }
-.product_tags.donna {
+.product_tags.Donna {
   background-color: #90323D;
   position: absolute;
   bottom: 0.7em;
@@ -822,7 +823,7 @@ strong {
   float: left;
   width: 4em;
 }
-.product_tags span.casa {
+.product_tags span.Casa {
   background-color: #E39695;
 }
 .product_tags span.bimbi{
@@ -1276,7 +1277,7 @@ background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 100%);
 
 @media screen and (min-width:700px)   {
       body {
-        margin-top: 40em;
+        margin-top: 25em;
       }
        .container.home.container #content {
         margin-top: 0;
@@ -1288,7 +1289,7 @@ background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 100%);
       }
       #title {
         font-size: 10em;
-        top: 5rem;
+        top: 0;
         width: 100%;
       }
       #container_te_e_infusi #header_image {
@@ -1305,7 +1306,7 @@ background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 100%);
         background: rgba(245,245,245,1);
       }
 
-      #right-of-menu, #menu_icon, .menu_btn,#menu li.menu_btn, #topbar_container_shadow, #menu button:first-child , #cart_icon{
+      #right-of-menu, #menu_icon, .menu_btn,#menu li.menu_btn, #topbar_container_shadow, #menu button:first-child , #cart_icon, #scopri_il_sito{
          display: none;
        }
        .container {
@@ -1383,7 +1384,7 @@ background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 100%);
 @media screen and (min-width: 1025px) {
 
       .container {
-        margin: 0 auto 0 auto;
+        margin: 25em auto 0 auto;
         box-shadow: 0 3px 6px rgba(0,0,0,0.10), 0 3px 6px rgba(0,0,0,0.17);
       }
 
@@ -1437,4 +1438,77 @@ background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 100%);
  img.carta_fedelta {
   height: 10em;
   width: 70%;
+}
+
+.container.home #content .card_product.event {
+  padding:0.9em;
+  height: auto;
+}
+.container.home #content .card_product.event > * {
+
+  margin-left: auto;
+  margin-right: auto;
+  position: static;
+}
+.container.home #content .card_product.event .product_image {
+  height: 14em;
+  object-fit: cover;
+}
+.container.home #content .card_product.event .product_title {
+  font-size: 1.2em;
+  text-align: center;
+  margin-bottom: 1em;
+  margin-top: 0.5em;
+}
+.container.home #content .card_product.event .product_manufacturer {
+  font-size: 0.95em;
+  line-height: 1.4em;
+  margin-bottom: 0.4em;
+}
+.container.home #content .home_subtitle.event_date {
+  font-size: 1.4em;
+  text-align: left;
+  border-top: none;
+  border-bottom: 1px solid #009688 ;
+  padding-top: 0;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  padding-bottom: 0.1em;
+  max-width: 430px;
+}
+.container.home #content .card_product.event .product_line {
+  line-height: 1.2em;
+  margin-bottom: 2em;
+  font-size: 0.9em;
+}
+.container.home #content .card_product.event .product_description {
+  margin-left: 0;
+  height: auto;
+}
+.container.home #content .card_product.event .info {
+  margin-top: 0;
+  /* position: absolute; */
+  bottom: 0;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: var(--grey-dark);
+  font-size: 0.9em;
+  margin-bottom: 0;
+  text-align: center;
+}
+.container.home #content .card_product.event .info.luogo {
+  margin-bottom: 0;
+  text-transform: capitalize;
+  line-height: 1em;
+}
+
+/* .container.home #content .card_product.event.teinfuso .product_description {
+  margin-left: 6.9em;
+} */
+#content .event_image {
+  height: 7em;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 7px;
+  margin-bottom: 0.5em;
 }
