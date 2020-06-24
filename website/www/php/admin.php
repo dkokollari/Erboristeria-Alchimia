@@ -5,6 +5,28 @@
   require_once("Utilities.php");
 
   // if($_SESSION['auth'] && $_SESSION['tipo_utente'] == "Admin") {
+    if(isset($_POST['edit'])) {
+      $con = new DBAccess();
+      if(!$con->openConnection()) {
+        header('Location: redirect.php?error=1');
+        exit;
+      }
+      else {
+        $con->updateTimbriSingolo_Utenti($_POST['hidden_email'], $_POST['new_timbri']);
+        $con->closeConnection();
+      }
+    }
+    else if(isset($_POST['delete'])) {
+      $con = new DBAccess();
+      if(!$con->openConnection()) {
+        header('Location: redirect.php?error=1');
+        exit;
+      }
+      else {
+        $con->deleteUtenti($_POST['hidden_email']);
+        $con->closeConnection();
+      }
+    }
     if(!isset($_GET['search'])) {
       header('Location: admin.php?email_search=&ordina_utenti=&numero_risultati=20&search=Invia');
       exit;
