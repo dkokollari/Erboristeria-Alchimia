@@ -5,7 +5,11 @@
   require_once("Utilities.php");
 
   // if($_SESSION['auth'] && $_SESSION['tipo_utente'] == "Admin") {
-    if(isset($_GET['search'])) {
+    if(!isset($_GET['search'])) {
+      header('Location: admin.php?email_search=&ordina_utenti=&numero_risultati=20&search=Invia');
+      exit;
+    }
+    else {
       $email_search = mysql_real_escape_string(trim($_GET['email_search']));
       $ordina_utenti = mysql_real_escape_string(trim($_GET['ordina_utenti']));
       $numero_risultati = mysql_real_escape_string(trim($_GET['numero_risultati']));
@@ -23,6 +27,7 @@
         $lista_utenti = $con->getUtenti(true, $email_search, $ordina_utenti, $start, $numero_risultati);
 
         $immagine_utente_src = "../icons/person_outline-24px.svg";
+        $utenti = '<ul>';
         foreach ($lista_utenti as $row) {
           $email = $row["email_utente"];
           $nome = htmlentities($row["nome_utente"]);
@@ -31,7 +36,7 @@
           $data_registrazione = date('d-m-Y H:i:s' , strtotime($row["data_registrazione_utente"]));
           $tipo = $row["tipo_utente"];
           $timbri = $row["numero_timbri_utente"];
-          $utenti .= '<li class="card_product product_description">
+          $utenti .= '<li class="card_product product_description card_user">
                         <img class="product_image" src="'.$immagine_utente_src.'" alt="Immagine utente"/>
                         <h3 class="product_title">'.$email.'</h3>
                         <ul>
@@ -47,7 +52,7 @@
                       </li>
                       ';
         } // end foreach $lista_utenti as $row
-
+        $utenti .= '</ul>';
         // sezione numeretti delle pagine
         $total_records = $con->getRows();
         $total_records = $total_records[0]["total"];
@@ -75,7 +80,7 @@
           "&amp;numero_risultati=$numero_risultati&amp;search=Invia".'" class="classic_btn always_visible">Avanti</a>'."\n";
         }
       } // end else $con->openConnection()
-    } // end if isset($_GET['search'])
+    } // end else isset($_GET['search'])
 
 
 

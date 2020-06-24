@@ -42,7 +42,11 @@
   }
   $opt_casa_prod .= '</select>' . "\n";
 
-  if(isset($_GET['search'])) {
+  if(!isset($_GET['search'])) {
+    header('Location: prodotti.php?search=&sesso=none&categoria=none&casa_prod=none');
+    exit;
+  }
+  else {
     $noOption = "none"; // indica l'opzione "Seleziona Filtro" per i menu a tendina
     $search_value = mysql_real_escape_string(trim($_GET['search']));
 
@@ -56,8 +60,11 @@
     $start = ($page > 1) ? ($page*$results_per_page) - $results_per_page : 0;
 
     $query_ricerca = 'SELECT SQL_CALC_FOUND_ROWS *
-                    FROM articoli, categorie, ditte, produzioni
-                    WHERE nome_articolo LIKE ? %sex% %categ% %casa_prod%
+                    FROM articoli, categorie, ditte, produzioni, linee
+                    WHERE nome_articolo LIKE ?
+                    AND articolo_produzione = id_articolo AND categoria_articolo = id_categoria
+                    AND ditta_produzione = id_ditta AND linea_articolo = id_linea
+                     %sex%  %categ% %casa_prod%
                     ORDER BY id_articolo DESC LIMIT ' . $start . ', ' . $results_per_page;
 
 
@@ -80,8 +87,7 @@
       $opt_categoria = str_replace('selected', '' , $opt_categoria);
       $opt_categoria = str_replace('<option value="' . $categ_filter . '">' . $categ_filter . '</option>',
        '<option selected="selected" value="' . $categ_filter . '">' . $categ_filter . '</option>' , $opt_categoria);
-      $query_ricerca = str_replace("%categ%", "AND categoria_articolo = id_categoria
-          AND nome_categoria = '$categ_filter'", $query_ricerca);
+      $query_ricerca = str_replace("%categ%", "AND nome_categoria = '$categ_filter'", $query_ricerca);
     }
     else {
       $query_ricerca = str_replace("%categ%", "" , $query_ricerca);
@@ -97,8 +103,7 @@
       $opt_casa_prod = str_replace('selected', '' , $opt_casa_prod);
       $opt_casa_prod = str_replace('<option value="' . trim($_GET['casa_prod']) . '">' . trim($_GET['casa_prod']) . '</option>',
        '<option selected="selected" value="' . trim($_GET['casa_prod']) . '">' . trim($_GET['casa_prod']) . '</option>' , $opt_casa_prod);
-      $query_ricerca = str_replace("%casa_prod%", "AND articolo_produzione = id_articolo
-        AND ditta_produzione = id_ditta AND nome_ditta = '$casa_prod_filter' ", $query_ricerca);
+      $query_ricerca = str_replace("%casa_prod%", "AND nome_ditta = '$casa_prod_filter' ", $query_ricerca);
     }
     else {
        $query_ricerca = str_replace("%casa_prod%", "" , $query_ricerca);
