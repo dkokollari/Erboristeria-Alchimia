@@ -1,4 +1,4 @@
-@font-face {font-family: 'Velvetberries'; src: url(fonts/velvetberries.woff);}
+@font-face {font-family: 'Velvetberries'; src: url(../fonts/velvetberries.woff);}
 * { margin: 0; padding: 0;}
 
                             /* doesn't validate with older css versions */
