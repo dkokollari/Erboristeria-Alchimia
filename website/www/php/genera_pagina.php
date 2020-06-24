@@ -92,6 +92,10 @@
           $keywords_pagina = "login, email, password, erboristeria, alchimia";
           // $container_pagina = "log_in_box_container";
           $lista_menu = menu_pagina::menu($target);
+          $script_body = '<script src="../javascript/jquery.placeholder.min.js"></script>
+                          <script>
+                            $(\'input, textarea\').placeholder();
+                          </script>';
         break;
         case "prodotti" :
           $titolo = "Prodotti";
