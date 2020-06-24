@@ -739,6 +739,10 @@ strong {
   background-color: #fff;
   text-align: left;
 }
+.container #content .adjust_margins .card_product {
+  margin-left: auto;
+  margin-right: auto;
+}
 
 @media screen and (min-width:480px) {
   .container.home #content .card_product,   .container.home #content .event_date {
