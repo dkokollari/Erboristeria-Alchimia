@@ -4,17 +4,6 @@ require_once ("menu_pagina.php");
 
 class Genera_pagina
 {
-    private $header_background =
-      '<img id="immagine_prodotto" src="%IMG_BACKGROUND%" alt="%ALT%"/>
-       <h1 id="title">%TITOLO%</h1>
-       <div id="topbar_container_shadow">
-        <div id="topbar">
-          <img id="topbar_image" src="%IMG_BACKGROUND%" alt="%ALT%"/>
-          <a id="topbar_logo" class="topbar_text"><abbr title="Erboristeria Alchimia" href="start">EA</abbr></a>
-          <h1 id="topbar_title" class="topbar_text" "%XML_LANG%">%TITOLO%</h1>
-        </div>
-       </div>';
-
     public function genera($base, $target, $contenuto="") {
       $pagina = file_get_contents($base);
       // impostazione icona del carrello
@@ -180,6 +169,15 @@ class Genera_pagina
           $lista_menu = menu_pagina::menu($target);
         break;
       }
+      $header_background = '<img id="immagine_prodotto" src="%IMG_BACKGROUND%" alt="%ALT%"/>
+                              <h1 id="title">%TITOLO%</h1>
+                              <div id="topbar_container_shadow">
+                                <div id="topbar">
+                                  <img id="topbar_image" src="%IMG_BACKGROUND%" alt="%ALT%"/>
+                                  <a id="topbar_logo" class="topbar_text"><abbr title="Erboristeria Alchimia" href="start">EA</abbr></a>
+                                  <h1 id="topbar_title" class="topbar_text" "%XML_LANG%">%TITOLO%</h1>
+                                </div>
+                              </div>';
 
       $pagina = str_replace("%TITOLO%", $titolo, $pagina);
       $pagina = str_replace("%TITOLO_PAGINA%", $titolo_pagina, $pagina);
@@ -190,10 +188,6 @@ class Genera_pagina
       $pagina = str_replace("%LINK_HEAD%", $link_head, $pagina);
       $pagina = str_replace("%SCRIPT_HEAD%", $script_head, $pagina);
       $pagina = str_replace("%ATTRIBUTI_BODY%", $attributi_body, $pagina);
-      $header_background = str_replace("%TITOLO%", $titolo , $header_background);
-      $header_background = str_replace("%IMG_BACKGROUND%", $img_background , $header_background);
-      $header_background = str_replace("%XML_LANG%", $xml_lang , $header_background);
-      $header_background = str_replace("%ALT%", $alt_img , $header_background);
       $pagina = str_replace("%HEADER_BACKGROUND%", $header_background, $pagina);
       $pagina = str_replace("%ICONA_TOP%", $icona_top, $pagina);
       if($base == "../html/base5.html")
