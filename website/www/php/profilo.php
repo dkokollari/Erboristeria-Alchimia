@@ -59,7 +59,7 @@ if ($_SESSION['auth'])
       }
     }
 
-    $status = (empty($errore) ? "<span>Profilo aggiornato con successo</span>" : $errore);
+    $status = (empty($errore) ? "<span class=\"addedProduct\">Profilo aggiornato con successo</span>" : $errore);
   } // end if $_POST['Modifica_profilo']
   // prelievo tessera utente e visualizzazione messaggi
   if ($_SESSION['tipo_utente'] == 'User')
