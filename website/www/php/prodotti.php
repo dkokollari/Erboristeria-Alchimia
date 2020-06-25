@@ -112,7 +112,6 @@ else
     die('prepare() failed: ' . htmlspecialchars(mysqli_error($con->connection)));
   }
 
-  $search_value = preg_replace("#[^0-9a-z]#i", "", $search_value); // sostituisco tutto cio che non e' cifra o lettera con stringa vuota
   $search_value_query = '%' . $search_value . '%'; // per il LIKE nella query
   $stmt->bind_param("s", $search_value_query);
   $stmt->execute();
