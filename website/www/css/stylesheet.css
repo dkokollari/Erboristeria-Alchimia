@@ -1306,7 +1306,7 @@ ul.container_prodotti {
   ul.container_prodotti {
     display: block;
   }
-  .container #content .card_product {
+  .container.prodotti #content .card_product {
         margin-left: auto;
         margin-right: auto;
   }
