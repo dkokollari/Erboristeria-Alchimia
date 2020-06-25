@@ -1398,6 +1398,10 @@ ul.container_prodotti {
        #totale {
           clear: both;
        }
+       .card_product, ul ul.recap_product {
+         margin-left: 1.2em;
+         margin-right: 1.2em;
+      }
 }
 
 @media screen and (min-width:700px) and (max-width:1024px) {
@@ -1546,4 +1550,16 @@ ul.container_prodotti {
 }
 .container #content .card_product.card_user h3 {
   word-wrap: break-word;
+}
+
+ul ul.recap_product  {
+  display: flex;
+  align-items: center;
+  grid-template-columns: none;
+  grid-gap: 0;
+  margin: 1em 0em 1em 0em;
+}
+ul ul.recap_product li {
+  text-align: center;
+  width: 33.3%;
 }
