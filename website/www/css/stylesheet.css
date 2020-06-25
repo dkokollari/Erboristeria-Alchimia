@@ -1490,8 +1490,8 @@ body.container.form_teinfusi, body.container.profilo, body.container.redirect  {
 }
 
  img.carta_fedelta {
-  height: 10em;
-  width: 70%;
+  height: 10.5em;
+  margin-bottom: 1.2em;
 }
 
 .container.home #content .card_product.event {

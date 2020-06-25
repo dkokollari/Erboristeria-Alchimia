@@ -59,35 +59,39 @@ if ($_SESSION['auth'])
       }
     }
 
-    $status = (empty($errore) ? "<span class=\"success\">Profilo aggiornato con successo</span>" : $errore);
+    $status = (empty($errore) ? '<span class="success">Profilo aggiornato con successo</span>' : $errore);
   } // end if $_POST['Modifica_profilo']
   // prelievo tessera utente e visualizzazione messaggi
   if ($_SESSION['tipo_utente'] == 'User')
   {
     $minPrezzoTimbro = 10; // prezzo acquisto che dà diritto ad un timbro ("effettivamente final")
     $num_timbri = $con->getTimbriUtente($_SESSION['email_utente']) [0]['numero_timbri_utente'];
-    for ($i = 0;$i < $num_timbri;$i++)
-    {
-      $img_timbri .= '<img id="#timbro_' . ($i + 1) . '" src="../img/carta_fedelta/2.png"/>' . "\n";
-    }
+    $num_buoni = $num_timbri / 20; /*20 e' il numero massimo di buoni per carta fedelta*/
+    $avvisoCartaPiena = '<p class="success">Hai riempito almeno una carta fedelt&agrave;&#33;
+    recati in negozio e sfrutta i tuoi buoni per i prossimi acquisti, ti aspettiamo&#33;</p>';
+    $img_timbri =
+      ($num_buoni >= 1) ? '<img class="carta_fedelta" src="../img/carta_fedelta/20.png
+        alt="la tua carta fedelt&agrave;: hai ' .$num_timbri . ' timbri"/>' :
+      '<img class="carta_fedelta" src="../img/carta_fedelta/' . $num_timbri . '.png"
+        alt="la tua carta fedelt&agrave;: hai ' .$num_timbri . ' timbri"/>';
     $compleanno = DateTime::createFromFormat("Y-m-d", $_SESSION['data_nascita_utente']);
     if ($compleanno->format('d') == date('d') && $compleanno->format('m') == date('m'))
     {
       $auguri = '<p class="success">
-                     Tanti auguri di buon compleanno da Erboristeria Alchimia, ' . $_SESSION['nome_utente'] . '! <br/>
+                     Tanti auguri di buon compleanno da Erboristeria Alchimia, ' . $_SESSION['nome_utente'] . '&#33; <br/>
                      Per la giornata di oggi, hai diritto ad uno sconto di 10&euro; su un prodotto a tua scelta: corri in negozio, ti aspettiamo. <br/>
-                     Ci teniamo a farti gli auguri di persona!
+                     Ci teniamo a farti gli auguri di persona&#33;
                    </p>';
     }
     if (isset($_SESSION['valAcquisto']) && !empty($_SESSION['valAcquisto']))
     {
       $_SESSION["shopping_cart"] = null; // svuoto il carrello
-      $aggTimbri = '<p class="success">Grazie per il tuo acquisto!</p>';
+      $aggTimbri = '<p class="success">Grazie per il tuo acquisto&#33;</p>';
       if ($_SESSION['valAcquisto'] % $minPrezzoTimbro > 0)
       {
         $num_timbri += (int)($_SESSION['valAcquisto'] / $minPrezzoTimbro);
         $aggTimbri = '<p class="success">
-                          Grazie per il tuo acquisto! Ti sono state riempite delle caselle nella tua carta fedelt&agrave;: quando la tua carta sar&agrave; piena, recati in negozio per sfruttarla come buono da 15&euro;.
+                          Grazie per il tuo acquisto&#33; Ti sono state riempite delle caselle nella tua carta fedelt&agrave;: quando la tua carta sar&agrave; piena, recati in negozio per sfruttarla come buono da 15&euro;.
                         </p>';
       }
     }
@@ -95,8 +99,11 @@ if ($_SESSION['auth'])
   $con->closeConnection();
   $contenuto = file_get_contents("../html/profilo.html");
   $contenuto = str_replace("%AGG_TIMBRI%", $aggTimbri, $contenuto);
-  $contenuto = str_replace("%TIMBRI%", $img_timbri, $contenuto);
-  $contenuto = str_replace("%numero_timbri%", $num_timbri, $contenuto);
+    $contenuto = str_replace("%NUMERO_TIMBRI%", $num_timbri, $contenuto);
+  $contenuto = ($num_buoni >=1) ?
+   str_replace("%CARTA_PIENA%", $avvisoCartaPiena, $contenuto) :
+      str_replace("%CARTA_PIENA%", '', $contenuto);
+  $contenuto = str_replace("%IMG_CARTA%", $img_timbri, $contenuto);
   $contenuto = str_replace("%AUGURI%", $auguri, $contenuto);
   $contenuto .= file_get_contents("../html/form_utente.html");
   $contenuto = str_replace("%ACTION_FORM%", "profilo.php", $contenuto);
