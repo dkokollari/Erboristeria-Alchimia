@@ -4,8 +4,7 @@ require_once ("menu_pagina.php");
 
 class Genera_pagina
 {
-
-    $header_background =
+    private $header_background =
       '<img id="immagine_prodotto" src="%IMG_BACKGROUND%" alt="%ALT%"/>
        <h1 id="title">%TITOLO%</h1>
        <div id="topbar_container_shadow">
@@ -31,8 +30,6 @@ class Genera_pagina
       {
         $icona_top = '<span id="cart_icon" class="material-icons-outlined top_icon">admin_pannel_settings</span>';
       }
-    }
-
       // pagine generabili
       switch($target) {
         case "admin" :
@@ -186,12 +183,17 @@ class Genera_pagina
 
       $pagina = str_replace("%TITOLO%", $titolo, $pagina);
       $pagina = str_replace("%TITOLO_PAGINA%", $titolo_pagina, $pagina);
+      $pagina = str_replace("%TITOLO_PAGINA%", $titolo_pagina, $pagina);
       $pagina = str_replace("%DESCRIZIONE_PAGINA%", $descrizione_pagina, $pagina);
       $pagina = str_replace("%KEYWORDS_PAGINA%", $keywords_pagina, $pagina);
       $pagina = str_replace("%META_HEAD%", $meta_head, $pagina);
       $pagina = str_replace("%LINK_HEAD%", $link_head, $pagina);
       $pagina = str_replace("%SCRIPT_HEAD%", $script_head, $pagina);
       $pagina = str_replace("%ATTRIBUTI_BODY%", $attributi_body, $pagina);
+      $header_background = str_replace("%TITOLO%", $titolo , $header_background);
+      $header_background = str_replace("%IMG_BACKGROUND%", $img_background , $header_background);
+      $header_background = str_replace("%XML_LANG%", $xml_lang , $header_background);
+      $header_background = str_replace("%ALT%", $alt_img , $header_background);
       $pagina = str_replace("%HEADER_BACKGROUND%", $header_background, $pagina);
       $pagina = str_replace("%ICONA_TOP%", $icona_top, $pagina);
       if($base == "../html/base5.html")
@@ -204,25 +206,5 @@ class Genera_pagina
       $pagina = str_replace("%ACTUAL_LINK%", $actual_link, $pagina);
       return $pagina;
     }
-
-    $pagina = str_replace("%TITOLO%", $titolo, $pagina);
-    $pagina = str_replace("%TITOLO_PAGINA%", $titolo_pagina, $pagina);
-    $pagina = str_replace("%DESCRIZIONE_PAGINA%", $descrizione_pagina, $pagina);
-    $pagina = str_replace("%KEYWORDS_PAGINA%", $keywords_pagina, $pagina);
-    $pagina = str_replace("%META_HEAD%", $meta_head, $pagina);
-    $pagina = str_replace("%LINK_HEAD%", $link_head, $pagina);
-    $pagina = str_replace("%SCRIPT_HEAD%", $script_head, $pagina);
-    $pagina = str_replace("%ATTRIBUTI_BODY%", $attributi_body, $pagina);
-    $pagina = str_replace("%CONTAINER_PAGINA%", $container_pagina, $pagina);
-    $pagina = str_replace("%ICONA_TOP%", $icona_top, $pagina);
-    if ($base == "../html/base5.html") $lista_menu = str_replace("xml:lang", "lang", $lista_menu);
-    $pagina = str_replace("%LISTA_MENU%", $lista_menu, $pagina);
-    $pagina = str_replace("%CONTENUTO_PAGINA%", $contenuto, $pagina);
-    $pagina = str_replace("%SCRIPT_BODY%", $script_body, $pagina);
-    if ($base == "../html/base5.html") $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . htmlentities("://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]", ENT_DISALLOWED);
-    $pagina = str_replace("%ACTUAL_LINK%", $actual_link, $pagina);
-    return $pagina;
-  }
-
 }
 ?>
