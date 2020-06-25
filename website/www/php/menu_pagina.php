@@ -3,7 +3,7 @@
 
   class menu_pagina {
     public static function menu($target="") {
-      $menu = '<li><a href="index.html" xml:lang="en">Homepage</a></li>
+      $menu = '<li><a href="index.php" xml:lang="en">Homepage</a></li>
                <li><a href="teinfusi.php">T&egrave; &amp; infusi</a></li>
                <li><a href="prodotti.php">Prodotti</a></li>
                <li><a href="eventi.php">Eventi</a></li>
