@@ -1394,6 +1394,7 @@ body.container.form_teinfusi, body.container.profilo, body.container.redirect  {
        }
        #menu .selected_page {
          background-color: #ffcc67;
+         line-height: 2.8em;
        }
        #menu li a:hover {
          border-bottom: #404354 solid;

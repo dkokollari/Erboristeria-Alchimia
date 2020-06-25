@@ -9,15 +9,11 @@ class Genera_pagina
       // impostazione icona del carrello
       if($_SESSION['auth']) {
         if($_SESSION['tipo_utente'] == "User") {
-          $icona_top = '<span id="cart_icon" class="material-icons-outlined top_icon">shopping_cart</span>';
+          $icona_top = '<a id="cart_icon" class="material-icons-outlined top_icon" href="carrello.php">shopping_cart</a>';
         }
         else if($_SESSION['tipo_utente'] == "Admin") {
-          $icona_top = '<span id="cart_icon" class="material-icons-outlined top_icon">admin_pannel_settings</span>';
+          $icona_top = '<a id="cart_icon" class="material-icons-outlined top_icon" href="admin.php">admin_pannel_settings</a>';
         }
-      }
-      else if ($_SESSION['tipo_utente'] == "Admin")
-      {
-        $icona_top = '<span id="cart_icon" class="material-icons-outlined top_icon">admin_pannel_settings</span>';
       }
       $header_background = '<img id="immagine_prodotto" src="%IMG_BACKGROUND%" alt="%ALT_IMG_BACKGROUND%"/>
                               <h1 id="title">%TITOLO%</h1>
