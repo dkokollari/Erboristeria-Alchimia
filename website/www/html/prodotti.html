@@ -5,6 +5,8 @@
 <h2>Trova ci&ograve; che ti serve</h2>
 <form action="../php/prodotti.php" method="get"> <!--ora che il method e' get va fatto controllo anche sul valore dei filtri! -->
   <fieldset id="search_filters">
+    <legend></legend>
+    <label for="myInput">cerca</label>
     <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Inserisci il nome.." name="search" title="Inserisci un nome"/>
     <input type="submit" value="invia"/>
     %SEX_FILTER%
