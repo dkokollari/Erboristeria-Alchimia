@@ -24,6 +24,10 @@ body {
   text-shadow: 0px 0px 6px rgba(0, 0, 0, 0.9);
 }
 
+.teinfusi #title {
+    font-size: 6.2em;
+}
+
 #header_image {
   background-repeat: no-repeat;
   background-size: 100%;
