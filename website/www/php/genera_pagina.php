@@ -82,7 +82,7 @@ class Genera_pagina
           $script_body = '<script type="text/javascript" src="../javascript/validationFormTeInfusiEventi.js"></script>';
         break;
         case "index" :
-          $titolo = "Homepage";
+          $titolo = "Erboristeria Alchimia";
           $titolo_pagina = "Homepage di Erboristeria Alchimia";
           $descrizione_pagina = "Tutti i contenuti  e gli aggiornamenti recenti a tua disposizione. Resta a contatto con Erboristeria Alchimia";
           $keywords_pagina = "homepage, home, prodotti, eventi, te, infusi, erboristeria, alchimia";
