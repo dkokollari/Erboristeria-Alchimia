@@ -15,9 +15,11 @@ class DBAccess
   #    EVENTI (inserimento, visualizzazione)                                   #
   #    UTENTI (inserimento, aggiornamento, rimozione, visualizzazione)         #
   ##############################################################################
+
   ####################################
   # gestione connessione al database #
   ####################################
+
   public function openConnection()
   {
     $this->connection = mysqli_connect(static ::HOST_DB, static ::USER_NAME, static ::PASSWORD, static ::DB_NAME);
@@ -38,27 +40,28 @@ class DBAccess
   #################################################################################
   # gestione te & infusi (inserimento, aggiornamento, rimozione, visualizzazione) #
   #################################################################################
+
   public function insertTeInfusi($descrizione_immagine, $tipo, $nome, $ingredienti, $descrizione, $preparazione)
   {
     if (!empty($descrizione_immagine))
     {
       $query = "INSERT INTO `te_e_infusi` (`descrizione_immagine_te_e_infusi`,
-                                             `tipo_te_e_infusi`,
-                                             `nome_te_e_infusi`,
-                                             `ingredienti_te_e_infusi`,
-                                             `descrizione_te_e_infusi`,
-                                             `preparazione_te_e_infusi`)
-                                     VALUES (?, ?, ?, ?, ?, ?)";
+                                           `tipo_te_e_infusi`,
+                                           `nome_te_e_infusi`,
+                                           `ingredienti_te_e_infusi`,
+                                           `descrizione_te_e_infusi`,
+                                           `preparazione_te_e_infusi`)
+                                   VALUES (?, ?, ?, ?, ?, ?)";
       $types = "ssssss";
       $params = [$descrizione_immagine, $tipo, $nome, $ingredienti, $descrizione, $preparazione];
     }
     else
     {
       $query = "INSERT INTO `te_e_infusi` (`tipo_te_e_infusi`,
-                                             `nome_te_e_infusi`,
-                                             `ingredienti_te_e_infusi`,
-                                             `descrizione_te_e_infusi`,
-                                             `preparazione_te_e_infusi`)
+                                           `nome_te_e_infusi`,
+                                           `ingredienti_te_e_infusi`,
+                                           `descrizione_te_e_infusi`,
+                                           `preparazione_te_e_infusi`)
                                      VALUES (?, ?, ?, ?, ?)";
       $types = "sssss";
       $params = [$tipo, $nome, $ingredienti, $descrizione, $preparazione];
@@ -68,32 +71,30 @@ class DBAccess
 
   public function updateTeInfusi($id, $descrizione_immagine, $tipo, $nome, $ingredienti, $descrizione, $preparazione)
   {
-    $safe_id = $this->getSingoloTeInfuso($id);
-    $safe_id = $safe_id[0]['id_te_e_infusi'];
     if (!empty($descrizione_immagine))
     {
       $query = "UPDATE `te_e_infusi`
-                     SET `descrizione_immagine_te_e_infusi`= ?,
-                         `tipo_te_e_infusi`= ?,
-                         `nome_te_e_infusi`= ?,
-                         `ingredienti_te_e_infusi`= ?,
-                         `descrizione_te_e_infusi`= ?,
-                         `preparazione_te_e_infusi`= ?
-                   WHERE `id_te_e_infusi` = '" . $safe_id . "'";
-      $types = "ssssss";
-      $params = [$descrizione_immagine, $tipo, $nome, $ingredienti, $descrizione, $preparazione];
+                   SET `descrizione_immagine_te_e_infusi`= ?,
+                       `tipo_te_e_infusi`= ?,
+                       `nome_te_e_infusi`= ?,
+                       `ingredienti_te_e_infusi`= ?,
+                       `descrizione_te_e_infusi`= ?,
+                       `preparazione_te_e_infusi`= ?
+                 WHERE `id_te_e_infusi` = ?";
+      $types = "ssssssi";
+      $params = [$descrizione_immagine, $tipo, $nome, $ingredienti, $descrizione, $preparazione, $id];
     }
     else
     {
       $query = "UPDATE `te_e_infusi`
-                     SET `tipo_te_e_infusi`= ?,
-                         `nome_te_e_infusi`= ?,
-                         `ingredienti_te_e_infusi`= ?,
-                         `descrizione_te_e_infusi`= ?,
-                         `preparazione_te_e_infusi`= ?
-                   WHERE `id_te_e_infusi` = '" . $safe_id . "'";
-      $types = "sssss";
-      $params = [$tipo, $nome, $ingredienti, $descrizione, $preparazione];
+                   SET `tipo_te_e_infusi`= ?,
+                       `nome_te_e_infusi`= ?,
+                       `ingredienti_te_e_infusi`= ?,
+                       `descrizione_te_e_infusi`= ?,
+                       `preparazione_te_e_infusi`= ?
+                 WHERE `id_te_e_infusi` = ?";
+      $types = "sssssi";
+      $params = [$tipo, $nome, $ingredienti, $descrizione, $preparazione, $id];
     }
     return $this->getQuery($query, $types, $params, false);
   }
@@ -101,7 +102,7 @@ class DBAccess
   public function deleteTeInfusi($id)
   {
     $query = "DELETE FROM `te_e_infusi`
-                      WHERE `id_te_e_infusi` = ?";
+                    WHERE `id_te_e_infusi` = ?";
     $types = "i";
     $params = [$id];
     return $this->getQuery($query, $types, $params, false);
@@ -110,21 +111,22 @@ class DBAccess
   public function getTeInfusi()
   {
     $query = "SELECT `id_te_e_infusi`,
-                       `descrizione_immagine_te_e_infusi`,
-                       `nome_te_e_infusi`,
-                       `ingredienti_te_e_infusi`,
-                       `descrizione_te_e_infusi`,
-                       `preparazione_te_e_infusi`
-                  FROM `te_e_infusi`";
+                     `descrizione_immagine_te_e_infusi`,
+                     `nome_te_e_infusi`,
+                     `ingredienti_te_e_infusi`,
+                     `descrizione_te_e_infusi`,
+                     `preparazione_te_e_infusi`
+                FROM `te_e_infusi`";
     return $this->getQuery($query);
   }
 
   # getters te & infusi #
+
   public function getId_TeInfusi($nome)
   {
     $query = "SELECT `id_te_e_infusi`
-                  FROM `te_e_infusi`
-                 WHERE `nome_te_e_infusi`= ?";
+                FROM `te_e_infusi`
+               WHERE `nome_te_e_infusi`= ?";
     $types = "s";
     $params = [$nome];
     return $this->getQuery($query, $types, $params, false);
@@ -133,14 +135,14 @@ class DBAccess
   public function getSingolo_TeInfusi($id)
   {
     $query = "SELECT `id_te_e_infusi`,
-                       `descrizione_immagine_te_e_infusi`,
-                       `tipo_te_e_infusi`,
-                       `nome_te_e_infusi`,
-                       `ingredienti_te_e_infusi`,
-                       `descrizione_te_e_infusi`,
-                       `preparazione_te_e_infusi`
-                  FROM `te_e_infusi`
-                 WHERE `id_te_e_infusi`= ?";
+                     `descrizione_immagine_te_e_infusi`,
+                     `tipo_te_e_infusi`,
+                     `nome_te_e_infusi`,
+                     `ingredienti_te_e_infusi`,
+                     `descrizione_te_e_infusi`,
+                     `preparazione_te_e_infusi`
+                FROM `te_e_infusi`
+               WHERE `id_te_e_infusi`= ?";
     $types = "i";
     $params = [$id];
     return $this->getQuery($query, $types, $params);
@@ -149,15 +151,16 @@ class DBAccess
   ##################################################
   # gestione eventi (inserimento, visualizzazione) #
   ##################################################
+
   public function insertEventi($data, $descrizione_immagine, $titolo, $relatori, $mappa, $organizzazione)
   {
     $query = "INSERT INTO `eventi` (`data_ora_evento`,
-                                      `descrizione_immagine_evento`,
-                                      `titolo_evento`,
-                                      `relatore_evento`,
-                                      `mappa_evento`,
-                                      `organizzazione_evento`)
-                              VALUES (?, ?, ?, ?, ?, ?)";
+                                    `descrizione_immagine_evento`,
+                                    `titolo_evento`,
+                                    `relatore_evento`,
+                                    `mappa_evento`,
+                                    `organizzazione_evento`)
+                            VALUES (?, ?, ?, ?, ?, ?)";
     $types = "ssssss";
     $params = [$data, $descrizione_immagine, $titolo, $relatori, $mappa, $organizzazione];
     return $this->getQuery($query, $types, $params, false);
@@ -166,27 +169,28 @@ class DBAccess
   public function getEventi()
   {
     $query = "SELECT `id_evento`,
-                       `data_ora_evento`,
-                       `descrizione_immagine_evento`,
-                       `titolo_evento`,
-                       `relatore_evento`,
-                       `indirizzo_mappe_evento`,
-                       `url_mappe_evento`,
-                       `descrizione_mappe_evento`,
-                       `organizzazione_evento`,
-                       `prenotazione_posti_evento`
-                  FROM `eventi`,
-                       `mappe_eventi`
-                 WHERE `mappa_evento` = `indirizzo_mappe_evento`";
+                     `data_ora_evento`,
+                     `descrizione_immagine_evento`,
+                     `titolo_evento`,
+                     `relatore_evento`,
+                     `indirizzo_mappe_evento`,
+                     `url_mappe_evento`,
+                     `descrizione_mappe_evento`,
+                     `organizzazione_evento`,
+                     `prenotazione_posti_evento`
+                FROM `eventi`,
+                     `mappe_eventi`
+               WHERE `mappa_evento` = `indirizzo_mappe_evento`";
     return $this->getQuery($query);
   }
 
   # getters eventi #
+
   public function getId_Eventi($titolo)
   {
     $query = "SELECT `id_evento`
-                  FROM `eventi`
-                 WHERE `titolo_evento`= ?";
+                FROM `eventi`
+               WHERE `titolo_evento`= ?";
     $types = "s";
     $params = [$titolo];
     return $this->getQuery($query, $types, $params);
@@ -195,17 +199,18 @@ class DBAccess
   public function getDescrizione_Eventi()
   {
     $query = "SELECT `evento`,
-                       `sottotitolo`
-                FROM   `descrizione_eventi`";
+                     `sottotitolo`
+                FROM `descrizione_eventi`";
     return $this->getQuery($query);
   }
 
   # setters eventi #
+
   public function insertDescrizioneEventi($id, $sottotitolo)
   {
     $query = "INSERT INTO `descrizione_eventi` (`evento`,
-                                                  `sottotitolo`)
-                                          VALUES (?, ?)";
+                                                `sottotitolo`)
+                                        VALUES (?, ?)";
     $types = "ss";
     $params = [$id, $sottotitolo];
     return $this->getQuery($query, $types, $params, false);
@@ -214,8 +219,8 @@ class DBAccess
   public function insertMappaEventi($mappa, $descrizione)
   {
     $query = "INSERT INTO `mappe_eventi` (`indirizzo_mappe_evento`,
-                                            `descrizione_mappe_evento`)
-                                    VALUES (?, ?)";
+                                          `descrizione_mappe_evento`)
+                                  VALUES (?, ?)";
     $types = "ss";
     $params = [$mappa, $descrizione];
     return $this->getQuery($query, $types, $params, false);
@@ -224,14 +229,15 @@ class DBAccess
   ############################################################################
   # gestione utenti (inserimento, aggiornamento, rimozione, visualizzazione) #
   ############################################################################
+
   public function insertUtenti($nome, $cognome, $email, $password, $data_nascita)
   {
     $query = "INSERT INTO `utenti` (`nome_utente`,
-                                      `cognome_utente`,
-                                      `email_utente`,
-                                      `password_utente`,
-                                      `data_nascita_utente`)
-                              VALUES (?, ?, ?, ?, ?)";
+                                    `cognome_utente`,
+                                    `email_utente`,
+                                    `password_utente`,
+                                    `data_nascita_utente`)
+                            VALUES (?, ?, ?, ?, ?)";
     $hidden = password_hash($password, PASSWORD_BCRYPT);
     $types = "sssss";
     $params = [$nome, $cognome, $email, $hidden, $data_nascita];
@@ -240,28 +246,26 @@ class DBAccess
 
   public function updateUtenti($email_target, $nome, $cognome, $email, $password, $data_nascita)
   {
-    $safe_email = $this->getSingolo_Utenti($email_target);
-    $safe_email = $safe_email[0]['email_utente'];
     $query = "UPDATE `utenti`
                    SET `nome_utente`= ?,
                        `cognome_utente`= ?,
                        `email_utente`= ?,
                        `password_utente`= ?,
                        `data_nascita_utente`= ?
-                 WHERE `email_utente`='" . $safe_email . "'";
+                 WHERE `email_utente`= ?";
     $hidden = password_hash($password, PASSWORD_BCRYPT);
-    $types = "sssss";
-    $params = [$nome, $cognome, $email, $hidden, $data_nascita];
+    $types = "ssssss";
+    $params = [$nome, $cognome, $email, $hidden, $data_nascita, $email_target];
     return $this->getQuery($query, $types, $params, false);
   }
 
   public function deleteUtenti($email_target)
   {
-    $safe_email = $this->getSingolo_Utenti($email_target);
-    $safe_email = $safe_email[0]['email_utente'];
     $query = "DELETE FROM `utenti`
-                      WHERE `email_utente`='" . $safe_email . "'";
-    return $this->getQuery($query, null, null, false);
+                      WHERE `email_utente`= ?";
+    $types = "s";
+    $params = [$email_target];
+    return $this->getQuery($query, $types, $params, false);
   }
 
   public function getUtenti($rows = false, $email_target = "", $ordine = "", $limit_start = - 1, $limit_result = - 1)
@@ -324,15 +328,15 @@ class DBAccess
   public function getSingolo_Utenti($email)
   {
     $query = "SELECT `nome_utente`,
-                       `cognome_utente`,
-                       `email_utente`,
-                       `password_utente`,
-                       `tipo_utente`,
-                       `numero_timbri_utente`,
-                       `data_nascita_utente`,
-                       `data_registrazione_utente`
-                  FROM `utenti`
-                 WHERE `email_utente`= ?";
+                     `cognome_utente`,
+                     `email_utente`,
+                     `password_utente`,
+                     `tipo_utente`,
+                     `numero_timbri_utente`,
+                     `data_nascita_utente`,
+                     `data_registrazione_utente`
+                FROM `utenti`
+               WHERE `email_utente`= ?";
     $types = "s";
     $params = [$email];
     return $this->getQuery($query, $types, $params);
@@ -341,8 +345,8 @@ class DBAccess
   public function getTimbriUtente($email)
   {
     $query = "SELECT `numero_timbri`
-                  FROM `utenti`
-                 WHERE `email_utente`= ?";
+                FROM `utenti`
+               WHERE `email_utente`= ?";
     $types = "s";
     $params = [$email];
     return $this->getQuery($query, $types, $params);
@@ -352,8 +356,8 @@ class DBAccess
   public function updateTimbriSingolo_Utenti($email, $timbri)
   {
     $query = "UPDATE `utenti`
-                   SET `numero_timbri_utente`= ?
-                 WHERE `email_utente`= ?";
+                 SET `numero_timbri_utente`= ?
+               WHERE `email_utente`= ?";
     $types = "is";
     $params = [$timbri, $email];
     return $this->getQuery($query, $types, $params, false);
