@@ -65,7 +65,7 @@ if (isset($_GET['id_articolo']) && is_numeric($_GET['id_articolo']))
     }
     else
     {
-      $pagina = str_replace('%ADD_TO_CART%', '<p class="addedProduct">Prodotto aggiunto al carrello con successo! In questo momento ce ne sono ' . $_GET['qta'] . ' copie nel tuo carrello.</p>' . "\n" . '<a class="classic_btn" href="aggiunta_rimozione_prodotti_carrello.php?add_to_cart&amp;id_articolo=' . $id_articolo . '&amp;nome_articolo="' . urlencode($nome) . '"&amp;prezzo_articolo=' . $prezzo . '>aggiungi al carrello</a>', $pagina);
+      $pagina = str_replace('%ADD_TO_CART%', '<p class="success">Prodotto aggiunto al carrello con successo! In questo momento ce ne sono ' . $_GET['qta'] . ' copie nel tuo carrello.</p>' . "\n" . '<a class="classic_btn" href="aggiunta_rimozione_prodotti_carrello.php?add_to_cart&amp;id_articolo=' . $id_articolo . '&amp;nome_articolo="' . urlencode($nome) . '"&amp;prezzo_articolo=' . $prezzo . '>aggiungi al carrello</a>', $pagina);
     }
   }
   else if ($_SESSION['tipo_utente'] == "Admin")

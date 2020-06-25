@@ -48,7 +48,7 @@ class Genera_pagina
           $titolo_pagina = "Carrello di Erboristeria Alchimia";
           $descrizione_pagina = "Il tuo carrello verde made by Erboristeria Alchimia";
           $keywords_pagina = "carrello, acquista, acquisti, erboristeria, alchimia";
-          $link_head = '<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>';
+          //$link_head = '<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>';
           $attributi_body = 'class="container carrello noheader"';
           $header_background = "";
           $icona_top = "";
@@ -114,7 +114,7 @@ class Genera_pagina
           $titolo_pagina = "Accedi ad Erboristeria Alchimia";
           $descrizione_pagina = "Pagina di accesso al sito";
           $keywords_pagina = "login, email, password, erboristeria, alchimia";
-          // $container_pagina = "log_in_box_container";
+          $attributi_body = 'class="container form_teinfusi"';
           $header_background = "";
           $lista_menu = menu_pagina::menu($target);
           $script_body = '<script src="../javascript/jquery.placeholder.min.js"></script>
