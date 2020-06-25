@@ -353,6 +353,7 @@ class DBAccess
   }
 
   # setters utenti #
+  
   public function updateTimbriSingolo_Utenti($email, $timbri)
   {
     $query = "UPDATE `utenti`
@@ -366,7 +367,7 @@ class DBAccess
   ##################################################
   # funzioni generiche e/o usate da altre funzioni #
   ##################################################
-  
+
   // esegue una query con statement e torna un $output
   private function getQuery($query, $types = null, $params = null, $view = true)
   {
