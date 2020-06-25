@@ -498,30 +498,30 @@ strong {
   text-align: center;
 }
 
-.informazioni #linkMappa {
+.informazioni #content #linkMappa {
   display: block;
   text-align: center;
 }
 
-.informazioni ul {
+.informazioni #content ul {
   height: 100%;
 }
 
-.informazioni li {
+.informazioni #content li {
   list-style-type : none;
   text-align: center;
   height: 4em;
 }
 
-.informazioni span {
+.informazioni #content span {
   display: block;
   text-align: center;
   font-weight: bold;
   color: #404354;
 }
 
-.informazioni span, .informazioni h3,
-.informazioni  h4 {
+.informazioni #content span, .informazioni #content h3,
+.informazioni #content h4 {
   margin-top: 0.5em;
   margin-bottom: 0.5em;
 }
