@@ -162,8 +162,8 @@
       $pagina = str_replace("%LISTA_MENU%", $lista_menu, $pagina);
       $pagina = str_replace("%CONTENUTO_PAGINA%", $contenuto, $pagina);
       $pagina = str_replace("%SCRIPT_BODY%", $script_body, $pagina);
-      // visibile solo nelle pagine con base5.html
-      $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http").htmlentities("://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]", ENT_DISALLOWED);
+      if($base == "../html/base5.html")
+        $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http").htmlentities("://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]", ENT_DISALLOWED);
       $pagina = str_replace("%ACTUAL_LINK%", $actual_link, $pagina);
       return $pagina;
     }
