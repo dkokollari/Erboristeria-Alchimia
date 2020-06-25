@@ -19,40 +19,46 @@ if (isset($_GET['id_articolo']) && is_numeric($_GET['id_articolo']))
     aggiornata ad ogni acquisto: quando la tua carta è piena, corri in negozio: avrai diritto ad uno sconto del 25&#37; su un prodotto
     a scelta!</p>';
 
-  $query = 'SELECT `nome_articolo`,
-                     `prezzo_articolo`,
-                     `sesso_target`,
-                     `descrizione_articolo`,
-                     `nome_ditta`,
-                     `nome_linea`,
-                     `nome_categoria`
-                FROM `articoli`,
-                     `ditte`,
-                     `produzioni`,
-                     `linee`,
-                     `categorie`
-               WHERE `id_articolo` = "' . $id_articolo . '" AND
-                     `articolo_produzione` = `id_articolo` AND
-                     `ditta_produzione` = `id_ditta` AND
-                     `id_linea` = `linea_articolo` AND
-                     `categoria_articolo` = `id_categoria`';
+$query = 'SELECT `nome_articolo`,
+                   `prezzo_articolo`,
+                   `sesso_target`,
+                   `descrizione_articolo`,
+                   `nome_ditta`,
+                   `nome_linea`,
+                   `nome_categoria`
+              FROM `articoli`,
+                   `ditte`,
+                   `produzioni`,
+                   `linee`,
+                   `categorie`
+             WHERE `id_articolo` = "' . $id_articolo . '" AND
+                   `articolo_produzione` = `id_articolo` AND
+                   `ditta_produzione` = `id_ditta` AND
+                   `id_linea` = `linea_articolo` AND
+                   `categoria_articolo` = `id_categoria`';
   $result = mysqli_query($con->connection, $query);
+  //$lista_descrizione = $con->getDescrizioneSingolo_Articoli($id_articolo);
   if ($result) $row = $result->fetch_assoc();
   else header('Location: redirect.php?error=4');
   exit;
 
-  $meta_description = '<meta name="description" content="' . $row['nome_articolo'] . '"/>';
-  $meta_keywords = '<meta name="keywords" content="' . str_replace('', ', ', $row['nome_articolo']) . '"/>';
+  $meta_description = '<meta name="description" content="' . htmlentities($row['nome_articolo']) . '"/>';
+  $meta_keywords = '<meta name="keywords" content="' . str_replace('', ', ', htmlentities($row['nome_articolo'])) . '"/>';
   $img_1 = '<img id="immagine_prodotto" src="' . Image::getImage("../img/products/small_img/", $row['id_articolo']) . '" alt="' . $row['nome_articolo'] . '"/>';
   $img_2 = '<img id="topbar_image" src="' . Image::getImage("../img/products/small_img/", $row['id_articolo']) . '" alt="' . $row['nome_articolo'] . '"/>';
-  $nome = $row['nome_articolo'];
+  $nome = htmlentities($row['nome_articolo']);
   $prezzo = $row['prezzo_articolo'] . '&euro;';
-  $linea = $row['nome_linea'];
-  $categoria = $row['nome_categoria'];
-  $desc_breve = $row['descrizione_articolo']; //// WARNING: cè bisogno di un attributo 'descrizione breve' a db!
-  $desc_completa = $row['descrizione_articolo'];
-  $preparazione = $row['descrizione_articolo']; /// WARNING: cè bisogno di un attributo 'preparazione' a db!
-  $ingredienti = $row['descrizione_articolo']; /// WARNING: cè bisogno di un attributo 'preparazione' a db!
+  $linea = htmlentities($row['nome_linea']);
+  $categoria = htmlentities($row['nome_categoria']);
+  $desc_breve = htmlentities($row['descrizione_articolo']);
+  $descrizione_formattata = "";
+  foreach ($lista_descrizione as $row_descr)
+  {
+    $sottotitolo = htmlentities($row['sottotitolo']);
+    $paragrafo = htmlentities($row['descrizione']);
+    $descrizione_formattata .= '<h4>' . $sottotitolo . '</h4>' .
+                               '<p>' . $paragrafo . '</p>';
+  }
   if ($_SESSION['tipo_utente'] == 'Visitatore')
   {
     $pagina = str_replace('%ADD_TO_CART%', $iscriviti, $pagina);
@@ -83,10 +89,11 @@ if (isset($_GET['id_articolo']) && is_numeric($_GET['id_articolo']))
   $pagina = str_replace('%LINE%', $linea, $pagina);
   $pagina = str_replace('%CATEGORY%', $categoria, $pagina);
   $pagina = str_replace('%SHORT_DESCRIPTION%', $desc_breve, $pagina);
-  $pagina = str_replace('%LONG_DESCRIPTION%', $desc_completa, $pagina);
+  $pagina = str_replace('%LONG_DESCRIPTION%', $descrizione_formattata, $pagina);
   $pagina = str_replace('%HOW_TO%', $preparazione, $pagina);
   $pagina = str_replace('%INGREDIENTS%', $ingredienti, $pagina);
-  echo $pagina;
+  //echo $pagina;
+  echo $lista_descrizione;
 } // end if isset($_GET['id_articolo']) && is_numeric($_GET['id_articolo'])
 else
 {
