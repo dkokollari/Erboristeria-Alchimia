@@ -262,7 +262,7 @@ class DBAccess
   public function deleteUtenti($email_target)
   {
     $query = "DELETE FROM `utenti`
-                      WHERE `email_utente`= ?";
+                    WHERE `email_utente`= ?";
     $types = "s";
     $params = [$email_target];
     return $this->getQuery($query, $types, $params, false);
