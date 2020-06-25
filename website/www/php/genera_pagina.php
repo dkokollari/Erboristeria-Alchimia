@@ -19,11 +19,11 @@ class Genera_pagina
       {
         $icona_top = '<span id="cart_icon" class="material-icons-outlined top_icon">admin_pannel_settings</span>';
       }
-      $header_background = '<img id="immagine_prodotto" src="%IMG_BACKGROUND%" alt="%ALT%"/>
+      $header_background = '<img id="immagine_prodotto" src="%IMG_BACKGROUND%" alt="%ALT_IMG_BACKGROUND%"/>
                               <h1 id="title">%TITOLO%</h1>
                               <div id="topbar_container_shadow">
                                 <div id="topbar">
-                                  <img id="topbar_image" src="%IMG_BACKGROUND%" alt="%ALT%"/>
+                                  <img id="topbar_image" src="%IMG_BACKGROUND%" alt="%ALT_IMG_BACKGROUND%"/>
                                   <a id="topbar_logo" class="topbar_text"><abbr title="Erboristeria Alchimia" href="start">EA</abbr></a>
                                   <h1 id="topbar_title" class="topbar_text" "%XML_LANG%">%TITOLO%</h1>
                                 </div>
@@ -183,7 +183,7 @@ class Genera_pagina
 
       $header_background = str_replace('%TITOLO%', $titolo, $header_background);
       $header_background = str_replace('%IMG_BACKGROUND%', $img_background, $header_background);
-      $header_background = str_replace('%ALT%', $alt_img, $header_background);
+      $header_background = str_replace('%ALT_IMG_BACKGROUND%', $alt_img, $header_background);
       $header_background = str_replace('%XML_LANG%', $xml_lang, $header_background);
       $pagina = str_replace("%TITOLO%", $titolo, $pagina);
       $pagina = str_replace("%TITOLO_PAGINA%", $titolo_pagina, $pagina);
