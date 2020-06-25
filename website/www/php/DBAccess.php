@@ -207,9 +207,10 @@ class DBAccess
   public function getDescrizioneSingolo_Articoli($id_prodotto)
   {
     $query = "SELECT `sottotitolo`,
-                     'descrizione'
+                     `descrizione`
                 FROM `descrizione_articoli, articoli`
-                WHERE id_articolo = articolo AND articolo = ?";
+               WHERE `id_articolo` = `articolo` AND
+                     `articolo` = ?";
     $types = "s";
     $params = [$id_prodotto];
     return $this->getQuery($query, $types, $params, false);
