@@ -247,12 +247,12 @@ class DBAccess
   public function updateUtenti($email_target, $nome, $cognome, $email, $password, $data_nascita)
   {
     $query = "UPDATE `utenti`
-                   SET `nome_utente`= ?,
-                       `cognome_utente`= ?,
-                       `email_utente`= ?,
-                       `password_utente`= ?,
-                       `data_nascita_utente`= ?
-                 WHERE `email_utente`= ?";
+                 SET `nome_utente`= ?,
+                     `cognome_utente`= ?,
+                     `email_utente`= ?,
+                     `password_utente`= ?,
+                     `data_nascita_utente`= ?
+               WHERE `email_utente`= ?";
     $hidden = password_hash($password, PASSWORD_BCRYPT);
     $types = "ssssss";
     $params = [$nome, $cognome, $email, $hidden, $data_nascita, $email_target];
@@ -353,7 +353,7 @@ class DBAccess
   }
 
   # setters utenti #
-  
+
   public function updateTimbriSingolo_Utenti($email, $timbri)
   {
     $query = "UPDATE `utenti`
