@@ -5,13 +5,11 @@
       %MESSAGGIO%
       <p>campi obbligatori(*)</p>
     </div>
-
     <div>
       <label for="Nome">Nome*</label>
       <input type="text" name="Nome" id="Nome" tabindex="1" value="%nome%"/>
       <p class="error-msg" id="err_nome">%ERR_NOME%</p>
-		</div>
-
+    </div>
     <div>
       <label for="Tipo">Tipo</label>
       <select name="Tipo" id="Tipo" tabindex="2">
@@ -19,29 +17,25 @@
         <option value="Infuso">Infuso</option>
       </select>
     </div>
-
     <div>
       <label for="Ingredienti">Ingredienti</label>
       <textarea name="Ingredienti" id="Ingredienti" tabindex="3" rows="8" cols="80">%ingre%</textarea>
       <p class="error-msg" id="err_ing">%ERR_ING%</p>
     </div>
-
     <div>
       <label for="Descrizione">Descrizione*</label>
       <textarea id="Descrizione" name="Descrizione" tabindex="4" rows="5" cols="80">%descr%</textarea>
       <p class="error-msg" id="err_desc">%ERR_DESC%</p>
     </div>
-
     <div>
       <label for="Preparazione">Preparazione</label>
       <textarea id="Preparazione" name="Preparazione" tabindex="5" rows="5" cols="80">%prepa%</textarea>
       <p class="error-msg" id="err_prepa">%ERR_PREPA%</p>
     </div>
-
     <div>
       <label for="immagine">Immagine</label>
       <input type="file" id="immagine" name="immagine" tabindex="6"/>
-        %ERR_IMG%
+      %ERR_IMG%
     </div>
     <input type="submit" value="Aggiungi" name="submit" tabindex="7"/>
   </fieldset>

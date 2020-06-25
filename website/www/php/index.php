@@ -1,16 +1,16 @@
 <?php
-  require_once("session.php");
-  require_once("menu_pagina.php");
+require_once ("session.php");
+require_once ("menu_pagina.php");
 
-  $menu =  menu_pagina::menu("index");
+$menu = menu_pagina::menu("index");
 
-  $pagina = file_get_contents("../html/index.html");
+$pagina = file_get_contents("../html/index.html");
 
-  $pagina = str_replace("%LISTA_MENU%", $menu, $pagina);
+$pagina = str_replace("%LISTA_MENU%", $menu, $pagina);
 
-  echo $pagina;
+echo $pagina;
 
-  /*if($_SESSION['auth']) {
+/*if($_SESSION['auth']) {
     echo $_SESSION['auth']."\n";
     echo $_SESSION['nome_utente']."\n";
     echo $_SESSION['cognome_utente']."\n";
