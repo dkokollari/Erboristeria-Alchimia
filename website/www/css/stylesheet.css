@@ -974,6 +974,9 @@ strong {
 #content {
     text-align: center;
 }
+.container.teinfusi #content {
+  text-align: left;
+}
 #immagine_prodotto{
   object-fit: cover;
   height: 20em;
@@ -1275,6 +1278,9 @@ ul.container_prodotti {
             #content {
               margin-top: 20em;
             }
+            .noheader #content {
+              margin-top: 0em;
+            }
             #footer {
                 width: 100%;
             }
@@ -1305,8 +1311,11 @@ ul.container_prodotti {
                         /*        TABLET MODE HEADER          */
 
 @media screen and (min-width:700px)   {
-      body {
+      body.home, body.prodotto_singolo {
         margin-top: 25em;
+      }
+      body {
+        margin-top: 20em;
       }
        .container.home.container #content {
         margin-top: 0;
@@ -1417,8 +1426,12 @@ ul.container_prodotti {
 @media screen and (min-width: 1025px) {
 
       .container {
-        margin: 25em auto 0 auto;
+        margin: 20em auto 0 auto;
         box-shadow: 0 3px 6px rgba(0,0,0,0.10), 0 3px 6px rgba(0,0,0,0.17);
+      }
+
+      .container.noheader {
+        margin-top: 0em;
       }
 
       .container, body #container_scheda_prodotto #immagine_prodotto, #immagine_prodotto, #title, body #footer {
