@@ -344,7 +344,7 @@ class DBAccess
 
   public function getTimbriUtente($email)
   {
-    $query = "SELECT `numero_timbri`
+    $query = "SELECT `numero_timbri_utente`
                 FROM `utenti`
                WHERE `email_utente`= ?";
     $types = "s";
