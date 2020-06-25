@@ -86,6 +86,15 @@ class Genera_pagina
           $script_body = '<script type="text/javascript" src="../javascript/validationFormTeInfusiEventi.js"></script>';
         break;
         case "index" :
+          $titolo = "Homepage";
+          $titolo_pagina = "Homepage di Erboristeria Alchimia";
+          $descrizione_pagina = "Tutti i contenuti  e gli aggiornamenti recenti a tua disposizione. Resta a contatto con Erboristeria Alchimia";
+          $keywords_pagina = "homepage, home, prodotti, eventi, te, infusi, erboristeria, alchimia";
+          $attributi_body = 'class="container home"';
+          $img_background = "../img/marika_background_mobile.jpg";
+          $alt_img = "Sfondo pagina Homepage";
+          $xml_lang =  'xml:lang="en"';
+          $lista_menu = menu_pagina::menu($target);
         break;
         case "informazioni" :
           $titolo = "Informazioni";
