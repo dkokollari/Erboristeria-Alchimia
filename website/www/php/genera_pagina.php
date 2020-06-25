@@ -25,7 +25,7 @@ class Genera_pagina
                                 <div id="topbar">
                                   <img id="topbar_image" src="%IMG_BACKGROUND%" alt="%ALT_IMG_BACKGROUND%"/>
                                   <a id="topbar_logo" class="topbar_text"><abbr title="Erboristeria Alchimia" href="start">EA</abbr></a>
-                                  <h1 id="topbar_title" class="topbar_text" "%XML_LANG%">%TITOLO%</h1>
+                                  <h1 id="topbar_title" class="topbar_text" %XML_LANG%>%TITOLO%</h1>
                                 </div>
                               </div>';
       // pagine generabili
