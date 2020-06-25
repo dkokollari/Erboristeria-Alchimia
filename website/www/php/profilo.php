@@ -70,10 +70,10 @@ if ($_SESSION['auth'])
     $avvisoCartaPiena = '<p class="success">Hai riempito almeno una carta fedelt&agrave;&#33;
     recati in negozio e sfrutta i tuoi buoni per i prossimi acquisti, ti aspettiamo&#33;</p>';
     $img_timbri =
-      ($num_buoni >= 1) ? '<img class="carta_fedelta" src="../img/carta_fedelta/20.png
-        alt="la tua carta fedelt&agrave;: hai ' .$num_timbri . ' timbri"/>' :
-      '<img class="carta_fedelta" src="../img/carta_fedelta/' . $num_timbri . '.png"
-        alt="la tua carta fedelt&agrave;: hai ' .$num_timbri . ' timbri"/>';
+      ($num_buoni >= 1) ? '<img class="carta_fedelta" src="../img/carta_fedelta/20.png" 
+      alt="la tua carta fedelt&agrave;: hai ' .$num_timbri . ' timbri"/>' :
+      '<img class="carta_fedelta" src="../img/carta_fedelta/' . $num_timbri . '.png"'
+        . ' alt="la tua carta fedelt&agrave;: hai ' .$num_timbri . ' timbri"/>';
     $compleanno = DateTime::createFromFormat("Y-m-d", $_SESSION['data_nascita_utente']);
     if ($compleanno->format('d') == date('d') && $compleanno->format('m') == date('m'))
     {
@@ -99,7 +99,7 @@ if ($_SESSION['auth'])
   $con->closeConnection();
   $contenuto = file_get_contents("../html/profilo.html");
   $contenuto = str_replace("%AGG_TIMBRI%", $aggTimbri, $contenuto);
-    $contenuto = str_replace("%NUMERO_TIMBRI%", $num_timbri, $contenuto);
+  $contenuto = str_replace("%NUMERO_TIMBRI%", $num_timbri, $contenuto);
   $contenuto = ($num_buoni >=1) ?
    str_replace("%CARTA_PIENA%", $avvisoCartaPiena, $contenuto) :
       str_replace("%CARTA_PIENA%", '', $contenuto);
