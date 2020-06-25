@@ -179,6 +179,10 @@ class Genera_pagina
                                 </div>
                               </div>';
 
+      $header_background = str_replace('%TITOLO%', $titolo, $header_background);
+      $header_background = str_replace('%IMG_BACKGROUND%', $img_background, $header_background);
+      $header_background = str_replace('%ALT%', $alt_img, $header_background);
+      $header_background = str_replace('%XML_LANG%', $xml_lang, $header_background);
       $pagina = str_replace("%TITOLO%", $titolo, $pagina);
       $pagina = str_replace("%TITOLO_PAGINA%", $titolo_pagina, $pagina);
       $pagina = str_replace("%TITOLO_PAGINA%", $titolo_pagina, $pagina);
