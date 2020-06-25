@@ -37,7 +37,7 @@ class menu_pagina
         break;
 
         case "index":
-          $menu = str_replace('<li><a href="index.php" xml:lang="en">Homepage</a></li>', '<li class="selected_page"><span xml:lang="en">Homepage</span></li>', $menu);
+          $menu = str_replace('<li><a href="index.php" xml:lang="en">Homepage</a></li>', '<li class="selected_page">Homepage</li>', $menu);
         break;
 
         case "informazioni":

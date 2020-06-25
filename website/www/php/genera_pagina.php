@@ -15,17 +15,15 @@ class Genera_pagina
           $icona_top = '<span id="cart_icon" class="material-icons-outlined top_icon">admin_pannel_settings</span>';
         }
       }
-      else if ($_SESSION['tipo_utente'] == "Admin")
-      {
-        $icona_top = '<span id="cart_icon" class="material-icons-outlined top_icon">admin_pannel_settings</span>';
-      }
       $header_background = '<img id="immagine_prodotto" src="%IMG_BACKGROUND%" alt="%ALT_IMG_BACKGROUND%"/>
+                              %SPAN%
                               <h1 id="title">%TITOLO%</h1>
+                              %A%
                               <div id="topbar_container_shadow">
                                 <div id="topbar">
                                   <img id="topbar_image" src="%IMG_BACKGROUND%" alt="%ALT_IMG_BACKGROUND%"/>
                                   <a id="topbar_logo" class="topbar_text"><abbr title="Erboristeria Alchimia" href="start">EA</abbr></a>
-                                  <h1 id="topbar_title" class="topbar_text" %XML_LANG%>%TITOLO%</h1>
+                                  <h1 id="topbar_title" class="topbar_text" %XML_LANG%>%TITOLO_TOP%</h1>
                                 </div>
                               </div>';
       // pagine generabili
@@ -86,11 +84,12 @@ class Genera_pagina
           $script_body = '<script type="text/javascript" src="../javascript/validationFormTeInfusiEventi.js"></script>';
         break;
         case "index" :
-          $titolo = "Homepage";
+          $titolo = "Erboristeria Alchimia";
           $titolo_pagina = "Homepage di Erboristeria Alchimia";
           $descrizione_pagina = "Tutti i contenuti  e gli aggiornamenti recenti a tua disposizione. Resta a contatto con Erboristeria Alchimia";
           $keywords_pagina = "homepage, home, prodotti, eventi, te, infusi, erboristeria, alchimia";
           $attributi_body = 'class="container home"';
+          $span = '<span id="benvenuti">Benvenuti in</span>';
           $img_background = "../img/marika_background_mobile.jpg";
           $alt_img = "Sfondo pagina Homepage";
           $xml_lang =  'xml:lang="en"';
@@ -190,7 +189,20 @@ class Genera_pagina
         break;
       }
 
-      $header_background = str_replace('%TITOLO%', $titolo, $header_background);
+      // sostituzione elementi specifici per inder (homepage)
+      if ($target == "index")
+      {
+        $header_background = str_replace('%TITOLO%', "Erboristeria<br/> Alchimia", $header_background);
+        $header_background = str_replace('%TITOLO_TOP%', "Homepage", $header_background);
+        $header_background = str_replace('%A%', '<a id="scopri_il_sito" href="#first">Scopri il sito</a>', $header_background);
+      }
+      else
+      {
+        $header_background = str_replace('%TITOLO%', $titolo, $header_background);
+        $header_background = str_replace('%TITOLO_TOP%', $titolo, $header_background);
+        $header_background = str_replace('%A%', "", $header_background);
+      }
+      $header_background = str_replace('%SPAN%', $span, $header_background);
       $header_background = str_replace('%IMG_BACKGROUND%', $img_background, $header_background);
       $header_background = str_replace('%ALT_IMG_BACKGROUND%', $alt_img, $header_background);
       $header_background = str_replace('%XML_LANG%', $xml_lang, $header_background);
