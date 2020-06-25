@@ -51,7 +51,7 @@ class Genera_pagina
           //$link_head = '<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>';
           $attributi_body = 'class="container carrello noheader"';
           $header_background = "";
-          $icona_top = "";
+          if($_SESSION['tipo_utente'] != "Admin") $icona_top = "";
           $lista_menu = menu_pagina::menu($target);
         break;
         case "eventi" :
