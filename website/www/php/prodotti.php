@@ -137,6 +137,9 @@ else
     }
     $productToPrint .= '</ul>' . "\n";
   }
+  if($total_records == 1) {
+    $productToPrint = str_replace('<ul class="container_prodotti">', '<ul class="container_prodotti one_result">' ,$productToPrint);
+  }
   $stmt->close();
   $con->closeConnection();
 

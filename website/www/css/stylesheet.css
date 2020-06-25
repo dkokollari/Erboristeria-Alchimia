@@ -738,6 +738,13 @@ strong {
   background-color: #fff;
   text-align: left;
 }
+ul.container_prodotti.one_result {
+  display: block;
+}
+#content ul.container_prodotti.one_result li.card_product {
+  margin-left: auto;
+  margin-right: auto;
+}
 .container #content .adjust_margins .card_product {
   margin-left: auto;
   margin-right: auto;
