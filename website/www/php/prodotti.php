@@ -12,7 +12,14 @@ if (!$con->openConnection())
   exit;
 }
 /*-------------menu a tendina sesso---------------*/
-$opt_sesso = '<label for="sesso">Sesso</label>' . "\n" . '<select name="sesso" id="sesso">' . "\n" . '<option selected="selected" value="none">Seleziona filtro</option>' . "\n" . '<option value="Unisex">Unisex</option>' . "\n" . '<option value="Per lei">Per lei</option>' . "\n" . '<option value="Per lui">Per lui</option>' . "\n" . '</select>' . "\n";
+$opt_sesso = '<label for="sesso">Sesso</label>' . "\n" .
+             '<select name="sesso" id="sesso">' . "\n" .
+             '<option selected="selected" value="none">Seleziona filtro</option>' . "\n" .
+             '<option value="Unisex">Unisex</option>' . "\n" .
+             '<option value="Donna">Donna</option>' . "\n" .
+             '<option value="Uomo">Uomo</option>' . "\n" .
+             '<option value="Bimbo">Bimbo</option>' .
+             '</select>' . "\n";
 
 /*-------------menu a tendina categoria---------------*/
 $opt_categoria = '<label for="categoria">Categoria</label>' . "\n" . '<select name="categoria" id="categoria">' . "\n" . '<option selected="selected" value="none">Seleziona filtro</option>' . "\n";
@@ -60,11 +67,10 @@ else
   $start = ($page > 1) ? ($page * $results_per_page) - $results_per_page : 0;
 
   $query_ricerca = 'SELECT SQL_CALC_FOUND_ROWS *
-                    FROM articoli, categorie, ditte, produzioni, linee
+                    FROM articoli left join linee on linea_articolo = id_linea, categorie, ditte, produzioni
                     WHERE nome_articolo LIKE ?
                     AND articolo_produzione = id_articolo AND categoria_articolo = id_categoria
-                    AND ditta_produzione = id_ditta AND linea_articolo = id_linea
-                     %sex%  %categ% %casa_prod%
+                    AND ditta_produzione = id_ditta %sex%  %categ% %casa_prod%
                     ORDER BY id_articolo DESC LIMIT ' . $start . ', ' . $results_per_page;
 
   // sse il filtro in querystring != "none" && è un valore selezionabile, altrimenti
@@ -133,7 +139,21 @@ else
     $productToPrint .= '<ul class="container_prodotti">' . "\n";
     while ($row = $result->fetch_assoc())
     {
-      $productToPrint .= '<li class="card_product product_description">' . "\n" . '<a href="prodotto_singolo.php?id_articolo=' . $row['id_articolo'] . '">' . "\n" . '<img class="product_image" src="' . Image::getImage('../img/products/small_img/', $row['id_articolo']) . '" alt="immagine ' . $row['nome_articolo'] . '"/>' . "\n" . '<h3 class="product_title">' . $row['nome_articolo'] . '</h3>' . "\n" . '<ul>' . "\n" . '<li class="product_manufacturer">' . $row["nome_ditta"] . '</li>' . "\n" . '<li class="product_line">' . $row["nome_linea"] . '</li>' . "\n" . '<li class="product_tags ' . $row["nome_categoria"] . '">' . $row["nome_categoria"] . '</li>' . "\n" . '<li class="product_tags ' . $row["sesso_target"] . '">' . $row["sesso_target"] . '</li>' . "\n" . '<li class="product_price">' . $row["prezzo_articolo"] . ' &euro;</li>' . "\n" . '</ul>' . "\n" . '</a>' . "\n" . '</li>' . "\n";
+      $linea = empty($row["nome_linea"]) ? 'Nessuna linea' : $row["nome_linea"];
+      $productToPrint .= '<li class="card_product product_description">' . "\n" .
+       '<a href="prodotto_singolo.php?id_articolo=' . $row['id_articolo'] . '">' . "\n" .
+       '<img class="product_image"
+            src="' . Image::getImage('../img/products/small_img/', $row['id_articolo']) . '"
+            alt="immagine ' . $row['nome_articolo'] . '"/>' . "\n" .
+       '<h3 class="product_title">' . $row['nome_articolo'] . '</h3>' . "\n" .
+       '<ul>' . "\n" .
+            '<li class="product_manufacturer">' . $row["nome_ditta"] . '</li>' . "\n" .
+            '<li class="product_line">' . $linea . '</li>' . "\n" .
+            '<li class="product_tags ' . $row["nome_categoria"] . '">' . $row["nome_categoria"] . '</li>' . "\n" .
+            '<li class="product_tags ' . $row["sesso_target"] . '">' . $row["sesso_target"] . '</li>' . "\n" .
+            '<li class="product_price">' . $row["prezzo_articolo"] . ' &euro;</li>' . "\n" . '</ul>' . "\n" .
+       '</a>' . "\n" .
+      '</li>' . "\n";
     }
     $productToPrint .= '</ul>' . "\n";
   }
