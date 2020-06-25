@@ -12,7 +12,7 @@
           $icona_top = '<span id="cart_icon" class="material-icons-outlined top_icon">shopping_cart</span>';
         }
         else if($_SESSION['tipo_utente'] == "Admin") {
-          $icona_top = ''; // TODO: aggiungere icona "pannello gestione utenti"
+          $icona_top = '<span id="cart_icon" class="material-icons-outlined top_icon">admin_pannel_settings</span>';
         }
       }
 
