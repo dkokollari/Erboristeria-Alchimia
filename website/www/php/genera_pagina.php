@@ -25,7 +25,7 @@ class Genera_pagina
                                 <div id="topbar">
                                   <img id="topbar_image" src="%IMG_BACKGROUND%" alt="%ALT_IMG_BACKGROUND%"/>
                                   <a id="topbar_logo" class="topbar_text"><abbr title="Erboristeria Alchimia" href="start">EA</abbr></a>
-                                  <h1 id="topbar_title" class="topbar_text" "%XML_LANG%">%TITOLO%</h1>
+                                  <h1 id="topbar_title" class="topbar_text" %XML_LANG%>%TITOLO%</h1>
                                 </div>
                               </div>';
       // pagine generabili
@@ -51,7 +51,7 @@ class Genera_pagina
           //$link_head = '<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>';
           $attributi_body = 'class="container carrello noheader"';
           $header_background = "";
-          $icona_top = "";
+          if($_SESSION['tipo_utente'] != "Admin") $icona_top = "";
           $lista_menu = menu_pagina::menu($target);
         break;
         case "eventi" :
@@ -86,6 +86,15 @@ class Genera_pagina
           $script_body = '<script type="text/javascript" src="../javascript/validationFormTeInfusiEventi.js"></script>';
         break;
         case "index" :
+          $titolo = "Homepage";
+          $titolo_pagina = "Homepage di Erboristeria Alchimia";
+          $descrizione_pagina = "Tutti i contenuti  e gli aggiornamenti recenti a tua disposizione. Resta a contatto con Erboristeria Alchimia";
+          $keywords_pagina = "homepage, home, prodotti, eventi, te, infusi, erboristeria, alchimia";
+          $attributi_body = 'class="container home"';
+          $img_background = "../img/marika_background_mobile.jpg";
+          $alt_img = "Sfondo pagina Homepage";
+          $xml_lang =  'xml:lang="en"';
+          $lista_menu = menu_pagina::menu($target);
         break;
         case "informazioni" :
           $titolo = "Informazioni";
