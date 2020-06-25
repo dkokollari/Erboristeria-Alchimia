@@ -490,34 +490,34 @@ strong {
                           /*       INFORMAZIONI */
 
 
-#container_informazioni #content p {
+.informazioni #content p {
   text-align: center;
 }
 
-#container_informazioni #linkMappa {
+.informazioni #linkMappa {
   display: block;
   text-align: center;
 }
 
-#container_informazioni ul {
+.informazioni ul {
   height: 100%;
 }
 
-#container_informazioni li {
+.informazioni li {
   list-style-type : none;
   text-align: center;
   height: 4em;
 }
 
-#container_informazioni span {
+.informazioni span {
   display: block;
   text-align: center;
   font-weight: bold;
   color: #404354;
 }
 
-#container_informazioni span, #container_informazioni h3,
-#container_informazioni  h4 {
+.informazioni span, .informazioni h3,
+.informazioni  h4 {
   margin-top: 0.5em;
   margin-bottom: 0.5em;
 }
@@ -877,7 +877,6 @@ strong {
 .page_results li {
   display: inline;
 }
-
 #container_scheda_prodotto #immagine_prodotto{
   object-fit: contain;
   height: 20em;
@@ -1126,11 +1125,13 @@ ul.container_prodotti {
     grid-gap: 2em;
 }
 
-
+.classic_btn.hidden {
+  display: none;
+}
                                   /*   ----------------  MOBILE   ------------------   */
 
 @media screen and (max-width:699px) {
-              #container_te_e_infusi #header_image {
+              .teinfusi #header_image {
                 background-image: url(img/home_background_mobile.jpg);
               }
               .container #header_image {
@@ -1277,10 +1278,10 @@ ul.container_prodotti {
             #footer {
                 width: 100%;
             }
-            .classic_btn {
+            .result_pages .classic_btn {
               display: none;
             }
-            .classic_btn.always_visible {
+            .result_pages .classic_btn.always_visible {
               display: inline-block;
             }
             #content .card.eventi img {
@@ -1320,7 +1321,7 @@ ul.container_prodotti {
         top: 0;
         width: 100%;
       }
-      #container_te_e_infusi #header_image {
+      .teinfusi #header_image {
         background-image: url(img/home_background.jpg);
       }
       .container #header_image {
