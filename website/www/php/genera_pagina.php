@@ -4,6 +4,17 @@
 
   class Genera_pagina {
 
+    $header_background =
+      '<img id="immagine_prodotto" src="%IMG_BACKGROUND%" alt="%ALT%"/>
+       <h1 id="title">%TITOLO%</h1>
+       <div id="topbar_container_shadow">
+        <div id="topbar">
+          <img id="topbar_image" src="%IMG_BACKGROUND%" alt="%ALT%"/>
+          <a id="topbar_logo" class="topbar_text"><abbr title="Erboristeria Alchimia" href="start">EA</abbr></a>
+          <h1 id="topbar_title" class="topbar_text" "%XML_LANG%">%TITOLO%</h1>
+        </div>
+       </div>';
+
     public function genera($base, $target, $contenuto="") {
       $pagina = file_get_contents($base);
       // impostazione icona del carrello
@@ -23,7 +34,8 @@
           $titolo_pagina = "Pannello amministratore di Erboristeria Alchimia";
           $descrizione_pagina = "Gestione degli utenti";
           $keywords_pagina = "admin, amministratore, gestione, utenti, erboristeria, alchimia";
-          $container_pagina = 'id="container_admin"';
+          $attributi_body = 'class="container admin"';
+          $header_background = '';
           $lista_menu = menu_pagina::menu();
           $script_body = '<script src="../javascript/jquery.placeholder.min.js"></script>
                           <script>
@@ -36,8 +48,8 @@
           $descrizione_pagina = "Il tuo carrello verde made by Erboristeria Alchimia";
           $keywords_pagina = "carrello, acquista, acquisti, erboristeria, alchimia";
           $link_head = '<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>';
-          $container_pagina = 'id="container_carrello"';
-          $attributi_body = 'id="carrello"';
+          $attributi_body = 'class="container carrello"';
+          $header_background = '';
           $icona_top = "";
           $lista_menu = menu_pagina::menu($target);
         break;
@@ -46,7 +58,10 @@
           $titolo_pagina = "Eventi di Erboristeria Alchimia";
           $descrizione_pagina = "Qui troverai i prossimi eventi in programma e quelli passati organizzati";
           $keywords_pagina = "eventi, evento, relatori, relatore, organizzazione, organizza, erboristeria, alchimia";
-          $container_pagina = 'id="container_eventi"';
+          $attributi_body = 'class="container eventi"';
+          $img_background = '../img/prodotti_background_mobile.jpg';
+          $alt_img = 'sfondo pagina eventi';
+          $xml_lang = '';
           $lista_menu = menu_pagina::menu($target);
         break;
         case "form_eventi" :
@@ -54,7 +69,8 @@
           $titolo_pagina = "Nuovo evento di Erboristeria Alchimia";
           $descrizione_pagina = "Form di inserimento nuovo evento";
           $keywords_pagina = "inserimento, evento, form, nuovo, erboristeria, alchimia";
-          $container_pagina = 'id="container_form_eventi"';
+          $attributi_body = 'class="container form_eventi"';
+          $header_background = '';
           $lista_menu = menu_pagina::menu();
           $script_body = '<script src="../javascript/validationFormTeInfusiEventi.js"></script>';
         break;
@@ -63,7 +79,8 @@
           $titolo_pagina = "Nuovo te & infusi di Erboristeria Alchimia";
           $descrizione_pagina = "Form di inserimento e modifica di un t&egrave; o infuso";
           $keywords_pagina = "inserimento, modifica, form, t&egrave;, infusi, infuso, erboristeria, alchimia";
-          $container_pagina = 'id="container_form_teinfusi"';
+          $attributi_body = 'class="container form_teinfusi"';
+          $header_background = '';
           $lista_menu = menu_pagina::menu();
           $script_body = '<script type="text/javascript" src="../javascript/validationFormTeInfusiEventi.js"></script>';
         break;
@@ -74,7 +91,10 @@
           $titolo_pagina = "Informazioni di Erboristeria Alchimia";
           $descrizione_pagina = "Informazioni utili per contattarci: qui trovi i nostri contatti, gli orari di apertura e il nostro indirizzo";
           $keywords_pagina = "informazioni, orari, apertura, chiusura, email, mail, telefono, cellulare, posizione, mappa, erboristeria, alchimia";
-          $container_pagina = 'id="container_informazioni"';
+          $attributi_body = 'class="container informazioni"';
+          $img_background = '../img/informazioni_background.jpg';
+          $alt_img = 'sfondo pagina informazioni';
+          $xml_lang = '';
           $lista_menu = menu_pagina::menu($target);
         break;
         case "la_mia_storia" :
@@ -82,7 +102,10 @@
           $titolo_pagina = "La mia storia di Erboristeria Alchimia";
           $descrizione_pagina = "Dove e come siamo nati, tutti i dettagli e le curiosità di Erboristeria Alchimia";
           $keywords_pagina = "storia, Marika, erboristeria, alchimia";
-          $container_pagina = 'id="container_la_mia_storia"';
+          $attributi_body = 'class="container la_mia_storia"';
+          $img_background = '../img/la_mia_storia_background.jpg';
+          $alt_img = 'sfondo pagina la mia storia';
+          $xml_lang = '';
           $lista_menu = menu_pagina::menu($target);
         break;
         case "login" :
@@ -91,6 +114,7 @@
           $descrizione_pagina = "Pagina di accesso al sito";
           $keywords_pagina = "login, email, password, erboristeria, alchimia";
           // $container_pagina = "log_in_box_container";
+          $header_background = '';
           $lista_menu = menu_pagina::menu($target);
           $script_body = '<script src="../javascript/jquery.placeholder.min.js"></script>
                           <script>
@@ -102,7 +126,10 @@
           $titolo_pagina = "Prodotti di Erboristeria Alchimia";
           $descrizione_pagina = "I prodotti online di Erboristeria Alchimia. Qualità, sicurezza e convenienza garantiti";
           $keywords_pagina = "prodotto, prodotti, cosmetici, alimentari, erboristeria, alchimia";
-          $container_pagina = 'id="container_prodotti"';
+          $attributi_body = 'class="container prodotti"';
+          $img_background = '../img/prodotti_background_mobile.jpg';
+          $alt_img = 'sfondo pagina prodotti';
+          $xml_lang = '';
           $lista_menu = menu_pagina::menu($target);
           $script_body = '<script src="../javascript/jquery.placeholder.min.js"></script>
                           <script>
@@ -114,7 +141,8 @@
           $titolo_pagina = "Gestione del profilo di Erboristeria Alchimia";
           $descrizione_pagina = "Pagina di gestione delle informazioni del tuo profilo, visualizza la tessera e scopri quante caselle riempite hai";
           $keywords_pagina = "profilo, informazioni, personali, erboristeria, alchimia";
-          $container_pagina = 'id="container_profilo"';
+          $attributi_body = 'class="container profilo"';
+          $header_background = '';
           $lista_menu = menu_pagina::menu($target);
           $script_body = '<script src="../javascript/validate_form.js"></script>
                           <script src="../javascript/date-input-polyfill.dist.js"></script>';
@@ -124,7 +152,8 @@
           $titolo_pagina = "Registrati ad Erboristeria Alchimia";
           $descrizione_pagina = "Pagina di registrazione al sito";
           $keywords_pagina = "registrazione, email, password, erboristeria, alchimia";
-          $container_pagina = 'id="container_registrazione"';
+          $attributi_body = 'class="container registrazione"';
+          $header_background = '';
           $lista_menu = menu_pagina::menu();
           $script_body = '<script src="../javascript/validate_form.js"></script>
                           <script src="../javascript/date-input-polyfill.dist.js"></script>';
@@ -134,7 +163,8 @@
           $titolo_pagina = "Reindirizzamento di Erboristeria Alchimia";
           $descrizione_pagina = "Sembra esserci stato un errore, questa &egrave; una pagina di reindirizzamento";
           $keywords_pagina = "reindirizzamento, redirect, errore, errori, erboristeria, alchimia";
-          $container_pagina = 'id="container_redirect"';
+          $attributi_body = 'class="container redirect"';
+          $header_background = '';
           $lista_menu = menu_pagina::menu();
         break;
         case "teinfusi" :
@@ -142,7 +172,8 @@
           $titolo_pagina = "T&egrave; e infusi di Erboristeria Alchimia";
           $descrizione_pagina = "Visualizza i nostri te e infusi";
           $keywords_pagina = "te, infusi, te e infusi, erboristeria, alchimia";
-          $container_pagina = 'id="container_te_e_infusi"';
+          $attributi_body = 'class="container teinfusi"';
+          $header_background = '';
           $lista_menu = menu_pagina::menu($target);
         break;
       }
@@ -155,7 +186,7 @@
       $pagina = str_replace("%LINK_HEAD%", $link_head, $pagina);
       $pagina = str_replace("%SCRIPT_HEAD%", $script_head, $pagina);
       $pagina = str_replace("%ATTRIBUTI_BODY%", $attributi_body, $pagina);
-      $pagina = str_replace("%CONTAINER_PAGINA%", $container_pagina, $pagina);
+      $pagina = str_replace("%HEADER_BACKGROUND%", $header_background, $pagina);
       $pagina = str_replace("%ICONA_TOP%", $icona_top, $pagina);
       if($base == "../html/base5.html")
         $lista_menu = str_replace("xml:lang", "lang", $lista_menu);
