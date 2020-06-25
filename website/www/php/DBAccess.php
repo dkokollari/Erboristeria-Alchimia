@@ -366,6 +366,7 @@ class DBAccess
   ##################################################
   # funzioni generiche e/o usate da altre funzioni #
   ##################################################
+  
   // esegue una query con statement e torna un $output
   private function getQuery($query, $types = null, $params = null, $view = true)
   {
