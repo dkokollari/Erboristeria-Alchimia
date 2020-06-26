@@ -725,14 +725,14 @@ strong {
 
                             /* PAGINA PRODUCTS */
 .container #content .card_product {
-  max-width: 400px;
+  max-width: 430px;
   height: 6em;
   border-radius: 7px;
   box-shadow: 0 3px 6px rgba(0,0,0,0.10), 0 3px 6px rgba(0,0,0,0.17);
   margin-top: 1em;
   padding:0.7rem;
-  margin-left: 1.2em;
-  margin-right: 1.2em;
+  margin-left: 0.8em;
+  margin-right: 0.8em;
   overflow: hidden;
   position: relative;
   background-color: #fff;
@@ -751,12 +751,15 @@ ul.container_prodotti.one_result {
 }
 
 @media screen and (min-width:480px) {
-  .container.home #content .card_product,   .container.home #content .event_date {
+  .container.home #content .card_product,   .container.home #content .event_date,
+  .container.prodotti #content ul.container_prodotti .card_product{
     margin-left: auto;
     margin-right: auto;
   }
+  .container.prodotti #content ul.container_prodotti .card_product {
+   	width:430px;
+   }
 }
-
 
 .container #content .card_product .product_line,
 .container #content .card_product .product_manufacturer,
@@ -1585,4 +1588,20 @@ ul ul.recap_product  {
 ul ul.recap_product li {
   text-align: center;
   width: 33.3%;
+}
+
+.container.home #content .classic_btn {
+	margin-top:2em;
+}
+.container.prodotti #content ul.container_prodotti {
+	margin-left:0;
+    margin-right:0;
+}
+.container.prodotti #content ul.container_prodotti .card_product h3 {
+	margin-right: 0;
+}
+
+.container #content #log_in_box a {
+	font-weight:bold;
+    color:#009688;
 }
