@@ -12,7 +12,7 @@ class Genera_pagina
           $icona_top = '<a id="cart_icon" class="material-icons-outlined top_icon" href="carrello.php">shopping_cart</a>';
         }
         else if($_SESSION['tipo_utente'] == "Admin") {
-          $icona_top = '<a id="cart_icon" class="material-icons-outlined top_icon" href="admin.php">admin_pannel_settings</a>';
+          $icona_top = '<a id="cart_icon" class="material-icons-outlined top_icon" href="admin.php">admin_panel_settings</a>';
         }
       }
       $header_background = '<div>
@@ -98,11 +98,11 @@ class Genera_pagina
           $lista_menu = menu_pagina::menu($target);
         break;
         case "informazioni" :
-          $titolo = "Informazioni";
+          $titolo = "Info";
           $titolo_pagina = "Informazioni di Erboristeria Alchimia";
           $descrizione_pagina = "Informazioni utili per contattarci: qui trovi i nostri contatti, gli orari di apertura e il nostro indirizzo";
           $keywords_pagina = "informazioni, orari, apertura, chiusura, email, mail, telefono, cellulare, posizione, mappa, erboristeria, alchimia";
-          $attributi_body = 'class="container informazioni noheader"';
+          $attributi_body = 'class="container informazioni"';
           $img_background = '../img/informazioni_background.jpg';
           $alt_img = "sfondo pagina informazioni";
           $xml_lang = "";
@@ -113,7 +113,7 @@ class Genera_pagina
           $titolo_pagina = "La mia storia di Erboristeria Alchimia";
           $descrizione_pagina = "Dove e come siamo nati, tutti i dettagli e le curiosità di Erboristeria Alchimia";
           $keywords_pagina = "storia, Marika, erboristeria, alchimia";
-          $attributi_body = 'class="container la_mia_storia noheader"';
+          $attributi_body = 'class="container la_mia_storia"';
           $img_background = '../img/la_mia_storia_background.jpg';
           $alt_img = "sfondo pagina la mia storia";
           $xml_lang = "";
@@ -153,7 +153,7 @@ class Genera_pagina
           $descrizione_pagina = "I prodotti online di Erboristeria Alchimia. Qualità, sicurezza e convenienza garantiti";
           $keywords_pagina = "prodotto, prodotti, cosmetici, alimentari, erboristeria, alchimia";
           $attributi_body = 'id="body_scheda_prodotto" class="container prodotto_singolo"';
-          $img_background = '../img/prodotti_background_mobile.jpg';
+          $img_background = '../img/products/helan_profumi_della_casa_fragolino_selvatico_100ml.jpg';
           $alt_img = "sfondo pagina prodotto";
           $xml_lang = "";
           $lista_menu = menu_pagina::menu($target);
