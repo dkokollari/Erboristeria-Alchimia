@@ -70,7 +70,7 @@ if ($_SESSION['auth'])
     $avvisoCartaPiena = '<p class="success">Hai riempito almeno una carta fedelt&agrave;&#33;
     recati in negozio e sfrutta i tuoi buoni per i prossimi acquisti, ti aspettiamo&#33;</p>';
     $img_timbri =
-      ($num_buoni >= 1) ? '<img class="carta_fedelta" src="../img/carta_fedelta/20.png" 
+      ($num_buoni >= 1) ? '<img class="carta_fedelta" src="../img/carta_fedelta/20.png"
       alt="la tua carta fedelt&agrave;: hai ' .$num_timbri . ' timbri"/>' :
       '<img class="carta_fedelta" src="../img/carta_fedelta/' . $num_timbri . '.png"'
         . ' alt="la tua carta fedelt&agrave;: hai ' .$num_timbri . ' timbri"/>';

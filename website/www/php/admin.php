@@ -110,7 +110,7 @@ else
       $timbri = $row["numero_timbri_utente"];
       $utenti .= '<li class="card_product product_description card_user">
                         <img class="product_image" src="' . $immagine_utente_src . '" alt="Immagine utente"/>
-                        <h3 class="product_title">' . $email . '</h3>
+                        <h2 class="product_title">' . $email . '</h2>
                         <ul>
                           <li>' . $nome . '</li>
                           <li>' . $cognome . '</li>
@@ -121,7 +121,8 @@ else
                         </ul>
                         <form action="admin.php" method="POST">
                           <input type="hidden" name="hidden_email" value="' . $email . '"/>
-                          <input type="text" name="new_timbri" placeholder="Numero timbri" title="Nuovo numero timbri"/>
+                          <label for="'. $nome .'">timbro</label>
+                          <input type="text" id="'.$nome.'" name="new_timbri" placeholder="Numero timbri" title="Nuovo numero timbri"/>
                           <input type="submit" name="edit" value="edit" class="material-icons"/>
                           <input type="submit" name="delete" value="delete" class="material-icons"/>
                         </form>

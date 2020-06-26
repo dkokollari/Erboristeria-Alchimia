@@ -125,8 +125,8 @@ class Genera_pagina
           $attributi_body = 'class="container form_teinfusi"';
           $header_background = "";
           $lista_menu = menu_pagina::menu($target);
-          $script_body = '<script src="../javascript/jquery.placeholder.min.js"></script>
-                          <script>
+          $script_body = '<script type="text/javascript" src="../javascript/jquery.placeholder.min.js"></script>
+                          <script type="text/javascript">
                             $(\'input, textarea\').placeholder();
                           </script>';
         break;

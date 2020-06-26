@@ -2,7 +2,7 @@
   <form id="form" action="../php/login.php" method="post" onsubmit="return validazioneForm();">
     <fieldset  id="log_in_form">
       <legend>
-        <h2>Accedi</h2>
+        Accedi
       </legend>
       %STATUS_LOGIN%
       <div class="form_field">
@@ -14,11 +14,11 @@
         <input id="password" name="password" type="password"/>
       </div>
       <div class="form_remember_me">
-        <input id="remember_me" type="checkbox" %REMEMBER_ME%/>
+        <input id="remember_me" type="checkbox" />
         <label for="remember_me">Ricorda i miei dati</label>
       </div>
-      <input id="log_in" type="submit" name="Login"/>
-      <span>Non sei ancora registrato? <a href="../php/registrazione.php">CLICCA QUI</a></span>
+      <input id="log_in" type="submit" name="Login" value="login"/>
+      <span>Non sei ancora registrato? <a href="registrazione.php">CLICCA QUI</a></span>
     </fieldset>
   </form>
 </div>
