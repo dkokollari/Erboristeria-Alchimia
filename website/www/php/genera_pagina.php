@@ -202,7 +202,7 @@ class Genera_pagina
         break;
       }
 
-      // sostituzione elementi specifici per inder (homepage)
+      // sostituzione elementi specifici per index (homepage)
       if ($target == "index")
       {
         $header_background = str_replace('%TITOLO%', "Erboristeria<br/> Alchimia", $header_background);
