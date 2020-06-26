@@ -1621,3 +1621,9 @@ ul ul.recap_product li {
 #body_scheda_prodotto #title {
   display: none;
 }
+
+.container #salta a {
+  position: absolute;
+  top: 0;
+  opacity: 0;
+}
