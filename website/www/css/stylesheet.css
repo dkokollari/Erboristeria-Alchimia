@@ -883,7 +883,7 @@ ul.container_prodotti.one_result {
 .page_results li {
   display: inline;
 }
-#container_scheda_prodotto #immagine_prodotto{
+#body_scheda_prodotto #immagine_prodotto{
   object-fit: contain;
   height: 20em;
   position: fixed;
@@ -1140,6 +1140,9 @@ ul.container_prodotti {
                                   /*   ----------------  MOBILE   ------------------   */
 
 @media screen and (max-width:699px) {
+              #body_scheda_prodotto.container.prodotto_singolo #content {
+                margin-top: 24em;
+              }
               .teinfusi #header_image {
                 background-image: url(img/home_background_mobile.jpg);
               }
@@ -1327,6 +1330,11 @@ body.container.form_teinfusi, body.container.profilo, body.container.redirect  {
       }
       body {
         margin-top: 20em;
+      }
+      body.container.carrello, body.container.registrazione,
+      body.container.login, body.container.admin, body.container.form_eventi,
+      body.container.form_teinfusi, body.container.profilo, body.container.redirect  {
+        margin-top: 0em;
       }
        .container.home.container #content {
         margin-top: 0;
@@ -1603,7 +1611,12 @@ ul ul.recap_product li {
 	margin-right: 0;
 }
 
-.container #content #log_in_box a {
+.container #content #log_in_box a, .container.carrello #content a, .container.informazioni #content a, .container.eventi #content a {
 	font-weight:bold;
     color:#009688;
+    text-decoration: underline;
+}
+
+#body_scheda_prodotto #title {
+  display: none;
 }
