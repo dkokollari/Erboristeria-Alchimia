@@ -1319,7 +1319,7 @@ ul.container_prodotti {
   }
 }
 body.container.carrello, body.container.registrazione,
-body.container.login, body.container.admin, body.container.form_eventi,
+body.container.login, body.container.admin, body.container.form_eventi, body.container.form_teinfusi #content,
 body.container.form_teinfusi, body.container.profilo, body.container.redirect  {
   margin-top: 0em;
 }
