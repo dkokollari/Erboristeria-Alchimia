@@ -22,7 +22,7 @@ class Genera_pagina
                               <div id="topbar_container_shadow">
                                 <div id="topbar">
                                   <img id="topbar_image" src="%IMG_BACKGROUND%" alt="%ALT_IMG_BACKGROUND%"/>
-                                  <a id="topbar_logo" class="topbar_text"><abbr title="Erboristeria Alchimia" href="start">EA</abbr></a>
+                                  <a id="topbar_logo" class="topbar_text" href="start"><abbr title="Erboristeria Alchimia">EA</abbr></a>
                                   <h1 id="topbar_title" class="topbar_text" %XML_LANG%>%TITOLO_TOP%</h1>
                                 </div>
                               </div>';
