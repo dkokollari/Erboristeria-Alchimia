@@ -1,0 +1,17 @@
+Paragrafo 4
+
+Per la parte di presentaziona, sono stati previsti due file: uno per la presentazione sui browser del sito, e il secondo per permettere la stampa di quelle pagine del sito che vale la pena poter stampare in quanto contengono informazioni utili agli utenti. 
+Per quanto riguarda la struttura delle pagine, su tutti i dispositivi esse sono rappresentate su una colonna, in modo da avere una certa coerenza e non disorientare l'utente, oltre a permettergli di leggere il contenuto con semplicità.
+Lo stylesheet utilizzato per la presentazione, in particolare, presenta dei punti di rottura prendendo come worst case la dimensione in pixel del Samsung Galaxy S9, il quale ha un'ampiezza di 360px.
+
+4.1 Desktop
+
+La versione desktop del sito dispone, a differenza della versione mobile, di un menù già espanso e suddiviso su due righe. Ricordandoci che il sito si pone come obiettivo quello di essere accattivante e di ricordare l'ambiente che si trova recandosi fisicamente in negozio, si è deciso su alcune pagine di mantenere delle immagini di background sull'header che rappresentino la titolare (nel caso di "homepage" e "la mia storia"), altre che diano risalto alla cura con cui in questa erboristeria vengono confezionati i prodotti, e alcune immagini suggestive che rappresentino visivamente lo scopo delle pagine su cui sono poste (in particolare ci si riferisce a "Te e Infusi" e "Informazioni"). Su altre pagine, sulle quali si è ritenuto opportuno fornire subito agli utenti le informazioni più interessanti - ad esempio il carrello per gli utenti registrati, in quanto si è ritenuto importante permettere di tenere traccia facilmente dei prodotti inseriti - non sono presenti queste immagini ad occupare una porzione della "pagina di giornale", ovvero la prima porzione di una pagina visibile quando si clicca sul relativo link.
+
+4.2 Mobile
+
+La versione mobile del sito è quella più importante perchè gli utenti hanno sempre con sè il proprio smartphone, per cui è importante che il contenuto del sito sia facilmente fruibile su questi dispositivi. La differenza sostanziale di design dalla versione desktop è la funzionalità che, scorrendo il contenuto delle pagine, fa collassare l'header e lo tiene sempre visibile, mostrando il logo del sito, che se cliccato rimanda alla home, il titolo della pagina su cui ci si trova e il menù ad hamburger a portata di mano. Inoltre, sempre prendendo spunto dai moderni design di siti web,
+Questo menù è chiudibile sia premendo sull'icona di chiusura che si trova sotto l'ultima voce che premendo sulla parte ombreggiata alla sua destra.
+Di seguito vengono riportate tre immagini di esempio: a sinistra è mostrata la pagina prodotti così come appare quando la si apre, al centro è mostrata la stessa pagina con l'header collassato e infine è riportata un'immagine che illustra il menu.
+
+/*Inserire le immagini header e headerCollassato e menuAperto*/
