@@ -209,8 +209,7 @@ class DBAccess
     $query = "SELECT `sottotitolo`,
                      `descrizione`
                 FROM `descrizione_articoli`, `articoli`
-               WHERE `id_articolo` = `articolo` AND
-                     `articolo` = ?";
+               WHERE `id_articolo` = ?";
     $types = "s";
     $params = [$id_articolo];
     return $this->getQuery($query, $types, $params);
