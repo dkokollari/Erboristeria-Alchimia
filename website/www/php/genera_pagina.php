@@ -69,7 +69,7 @@ class Genera_pagina
           $descrizione_pagina = "Form di inserimento nuovo evento";
           $keywords_pagina = "inserimento, evento, form, nuovo, erboristeria, alchimia";
           $attributi_body = 'class="container form_eventi noheader"';
-          $header_background = "";
+          $img_background = '../img/prodotti_background_mobile.jpg';
           $lista_menu = menu_pagina::menu();
           $script_body = '<script src="../javascript/validationFormTeInfusiEventi.js"></script>';
         break;
@@ -79,7 +79,7 @@ class Genera_pagina
           $descrizione_pagina = "Form di inserimento e modifica di un t&egrave; o infuso";
           $keywords_pagina = "inserimento, modifica, form, t&egrave;, infusi, infuso, erboristeria, alchimia";
           $attributi_body = 'class="container form_teinfusi noheader"';
-          $header_background = "";
+          $img_background = '../img/te_delle_feste.jpg';
           $lista_menu = menu_pagina::menu();
           $script_body = '<script type="text/javascript" src="../javascript/validationFormTeInfusiEventi.js"></script>';
         break;
