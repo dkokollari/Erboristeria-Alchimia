@@ -15,7 +15,8 @@ class Genera_pagina
           $icona_top = '<a"cart_icon" class="material-icons-outlined top_icon" href="admin.php">admin_pannel_settings</a>';
         }
       }
-      $header_background = '<img id="immagine_prodotto" src="%IMG_BACKGROUND%" alt="%ALT_IMG_BACKGROUND%"/>
+      $header_background = '<div>
+                              <img id="immagine_prodotto" src="%IMG_BACKGROUND%" alt="%ALT_IMG_BACKGROUND%"/>
                               %SPAN%
                               <h1 id="title">%TITOLO%</h1>
                               %A%
@@ -25,7 +26,8 @@ class Genera_pagina
                                   <a id="topbar_logo" class="topbar_text" href="index.php"><abbr title="Erboristeria Alchimia">EA</abbr></a>
                                   <h1 id="topbar_title" class="topbar_text" %XML_LANG%>%TITOLO_TOP%</h1>
                                 </div>
-                              </div>';
+                              </div>
+                            </div>';
       // pagine generabili
       switch($target) {
         case "admin" :
