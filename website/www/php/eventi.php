@@ -79,9 +79,9 @@ else
   }
 
   /*file_put_contents("../css/stylesheet.css", $style);*/
+  $contenuto = file_get_contents("../html/eventi.html");
   $logged_admin = (($_SESSION['auth'] && $_SESSION['tipo_utente'] == "Admin") ? true : false);
   $contenuto = ($logged_admin ? str_replace("%NEW_EVENT%", '<a href="form_eventi.php">Aggiungi un nuovo evento</a>', $contenuto) : str_replace("%NEW_EVENT%", '', $contenuto));
-  $contenuto = file_get_contents("../html/eventi.html");
   $contenuto = str_replace("%LISTA_EVENTI%", $lista, $contenuto);
   $pagina = Genera_pagina::genera("../html/base.html", "eventi", $contenuto);
   echo $pagina;
