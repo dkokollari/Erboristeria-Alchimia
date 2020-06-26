@@ -5,10 +5,10 @@ require_once ("DBAccess.php");
 require_once ("genera_pagina.php");
 require_once ("Image.php");
 
-/*if($_SESSION['tipo_utente'] != 'Admin') {
+if($_SESSION['tipo_utente'] != 'Admin') {
     header('Location: redirect.php?error=3');
     exit;
-  }*/
+  }
 
 $con = new DBAccess();
 if (!$con->openConnection())
