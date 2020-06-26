@@ -147,6 +147,17 @@ class Genera_pagina
                             $(\'input, textarea\').placeholder();
                           </script>';
         break;
+        case "prodotto_singolo" :
+          $titolo = "Prodotto";
+          $titolo_pagina = "Prodotto di Erboristeria Alchimia";
+          $descrizione_pagina = "I prodotti online di Erboristeria Alchimia. Qualità, sicurezza e convenienza garantiti";
+          $keywords_pagina = "prodotto, prodotti, cosmetici, alimentari, erboristeria, alchimia";
+          $attributi_body = 'class="container prodotto_singolo"';
+          $img_background = '../img/prodotti_background_mobile.jpg';
+          $alt_img = "sfondo pagina prodotto";
+          $xml_lang = "";
+          $lista_menu = menu_pagina::menu($target);
+        break;
         case "profilo" :
           $titolo = "Profilo";
           $titolo_pagina = "Gestione del profilo di Erboristeria Alchimia";

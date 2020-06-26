@@ -204,16 +204,16 @@ class DBAccess
     return $this->getQuery($query);
   }
 
-  public function getDescrizioneSingolo_Articoli($id_prodotto)
+  public function getDescrizioneSingolo_Articoli($id_articolo)
   {
     $query = "SELECT `sottotitolo`,
                      `descrizione`
-                FROM `descrizione_articoli, articoli`
+                FROM `descrizione_articoli`, `articoli`
                WHERE `id_articolo` = `articolo` AND
                      `articolo` = ?";
     $types = "s";
-    $params = [$id_prodotto];
-    return $this->getQuery($query, $types, $params, false);
+    $params = [$id_articolo];
+    return $this->getQuery($query, $types, $params);
   }
 
   # setters eventi #

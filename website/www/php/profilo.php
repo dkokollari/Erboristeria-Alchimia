@@ -87,12 +87,14 @@ if ($_SESSION['auth'])
     {
       $_SESSION["shopping_cart"] = null; // svuoto il carrello
       $aggTimbri = '<p class="success">Grazie per il tuo acquisto&#33;</p>';
-      if ($_SESSION['valAcquisto'] % $minPrezzoTimbro > 0)
+      if ($_SESSION['valAcquisto'] / $minPrezzoTimbro > 0)
       {
         $num_timbri += (int)($_SESSION['valAcquisto'] / $minPrezzoTimbro);
+        $con->updateTimbriSingolo_Utenti($_SESSION['email_utente'], $num_timbri);
         $aggTimbri = '<p class="success">
                           Grazie per il tuo acquisto&#33; Ti sono state riempite delle caselle nella tua carta fedelt&agrave;: quando la tua carta sar&agrave; piena, recati in negozio per sfruttarla come buono da 15&euro;.
                         </p>';
+        $_SESSION['valAcquisto'] = null;                
       }
     }
   } // end if $_SESSION['tipo_utente'] == 'User'
