@@ -1478,7 +1478,7 @@ body.container.form_teinfusi, body.container.profilo, body.container.redirect  {
   margin: 0.5em 0.5em;
   display: block;
   padding: 1em 1em;
-  border-radius: var(--borderRadius);
+  border-radius: 6px;
   font-weight: 500;
   position: relative;
   cursor: pointer;
@@ -1549,7 +1549,7 @@ body.container.form_teinfusi, body.container.profilo, body.container.redirect  {
   bottom: 0;
   text-transform: uppercase;
   font-weight: bold;
-  color: var(--grey-dark);
+  color: #4e5166;
   font-size: 0.9em;
   margin-bottom: 0;
   text-align: center;
