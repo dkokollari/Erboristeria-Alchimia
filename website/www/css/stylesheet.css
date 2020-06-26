@@ -1367,7 +1367,7 @@ body.container.form_teinfusi, body.container.profilo, body.container.redirect  {
        }
        #menu {
          z-index: 5;
-         height: 2.8em;
+         /*height: 2.8em;*/
          margin-top:0;
          position: sticky;
          top:0;
@@ -1378,6 +1378,7 @@ body.container.form_teinfusi, body.container.profilo, body.container.redirect  {
        #menu ul {
          text-align: center;
          display: flex;
+         flex-wrap: wrap;
          height: 100%;
        }
        #menu li {
@@ -1385,8 +1386,9 @@ body.container.form_teinfusi, body.container.profilo, body.container.redirect  {
          justify-content: center;
          color: #404354;
          flex-grow: 1;
-         margin: auto;
-         height: 100%;
+         margin: 0em 1.5em 0em 1.5em;
+         height: 2.8em;
+         line-height: 2.8em;
        }
        #menu li > * {
          margin: auto;
