@@ -1622,7 +1622,7 @@ ul ul.recap_product li {
   display: none;
 }
 
-.container #salta a {
+.container #salta {
   position: absolute;
   top: 0;
   opacity: 0;
