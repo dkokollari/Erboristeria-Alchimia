@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html id="start" lang="it">
+  <head>
+    <!-- Meta tags primari -->
+    <title>%TITOLO% — Erboristeria Alchimia</title>
+    <meta name="title" content="%TITOLO_PAGINA%"/>
+    <meta name="description" content="%DESCRIZIONE_PAGINA%"/>
+    <meta name="keywords" content="%KEYWORDS_PAGINA%"/>
+    <meta name="language" content="italian it"/>
+    <meta name="author" content="Andrea Dorigo, Dardan Kokollari, Fouad Mouad, Marcel J. Wandji"/>
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website"/>
+    <meta property="og:url" content="%ACTUAL_LINK%"/>
+    <meta property="og:title" content="%TITOLO_PAGINA%"/>
+    <meta property="og:description" content="%DESCRIZIONE_PAGINA%"/>
+    <meta name="og:image" content="../img/favicon.ico/"/>
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image"/>
+    <meta property="twitter:url" content="%ACTUAL_LINK%"/>
+    <meta property="twitter:title" content="%TITOLO_PAGINA%"/>
+    <meta property="twitter:description" content="%DESCRIZIONE_PAGINA%"/>
+    <meta property="twitter:image" content="../img/favicon.ico/"/>
+    <!-- Altro -->
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta http-equiv="content-Type" content="text/html; charset=utf-8"/>
+    %META_HEAD%
+    <link rel="icon" href="../img/favicon.ico"/>
+    <link rel="stylesheet" type="text/css" media="screen" href="../css/stylesheet.css"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,600&amp;display=swap"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons%7CMaterial+Icons+Outlined%7CMaterial+Icons+Two+Tone%7CMaterial+Icons+Round%7CMaterial+Icons+Sharp"/>
+    %LINK_HEAD%
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    %SCRIPT_HEAD%
+  </head>
+  <body %ATTRIBUTI_BODY%>
+      <!--          HEADER             -->
+      %HEADER_BACKGROUND%
+      <span id="menu_icon" class="material-icons-round menu_btn top_icon">menu</span>
+      %ICONA_TOP%
+      <div id="menu">
+        <ul title="Menu">
+          %LISTA_MENU%
+          <li class="menu_btn">
+            <img src="../icons/cancel.svg" alt="Chiudi il menu"/>
+          </li>
+        </ul>
+      </div>
+      <button id="right-of-menu" class="menu_btn" title="chiudi il menu">chudi menu</button>
+      <!--         CONTENT            -->
+      <div id="content">
+        %CONTENUTO_PAGINA%
+      </div>
+      <!--          FOOTER            -->
+      <div id="footer">
+        <a id="torna_su_btn" href="#start">Torna all'inizio della pagina</a>
+        <p id="footer_menu">Menu</p>
+        <ul>
+          %LISTA_MENU%
+        </ul>
+        <p id="copyright">Copyright &#64; 2020 erbalchimia@gmail.com. Tutti i diritti riservati</p>
+      </div>
+    <script src="../javascript/design.js"></script>
+    %SCRIPT_BODY%
+  </body>
+</html>

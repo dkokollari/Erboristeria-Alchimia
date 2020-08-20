@@ -1319,9 +1319,14 @@ ul.container_prodotti {
   }
 }
 body.container.carrello, body.container.registrazione,
-body.container.login, body.container.admin, body.container.form_eventi,
+body.container.login, body.container.admin, body.container.form_eventi, body.container.form_teinfusi #content,
 body.container.form_teinfusi, body.container.profilo, body.container.redirect  {
   margin-top: 0em;
+}
+body.container.carrello #menu_icon.top_icon, body.container.registrazione #menu_icon.top_icon,
+body.container.login #menu_icon.top_icon, body.container.admin #menu_icon.top_icon, body.container.form_eventi #menu_icon.top_icon,
+body.container.form_teinfusi #menu_icon.top_icon, body.container.profilo #menu_icon.top_icon, body.container.redirect #menu_icon.top_icon {
+  background-color:rgba(0,0,0,0.3);
 }
                         /*        TABLET MODE HEADER          */
 
@@ -1620,4 +1625,10 @@ ul ul.recap_product li {
 
 #body_scheda_prodotto #title {
   display: none;
+}
+
+.container #salta {
+  position: absolute;
+  top: 0;
+  opacity: 0;
 }

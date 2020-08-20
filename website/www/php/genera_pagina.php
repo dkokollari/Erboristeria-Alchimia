@@ -19,6 +19,7 @@ class Genera_pagina
                               <img id="immagine_prodotto" src="%IMG_BACKGROUND%" alt="%ALT_IMG_BACKGROUND%"/>
                               %SPAN%
                               <h1 id="title">%TITOLO%</h1>
+                              <a id="salta" href="#content">salta al contenuto</a>
                               %A%
                               <div id="topbar_container_shadow">
                                 <div id="topbar">
@@ -202,7 +203,7 @@ class Genera_pagina
         break;
       }
 
-      // sostituzione elementi specifici per inder (homepage)
+      // sostituzione elementi specifici per index (homepage)
       if ($target == "index")
       {
         $header_background = str_replace('%TITOLO%', "Erboristeria<br/> Alchimia", $header_background);
