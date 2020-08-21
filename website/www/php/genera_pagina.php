@@ -63,7 +63,6 @@ class Genera_pagina
           $attributi_body = 'class="container eventi"';
           $img_background = '../img/prodotti_background_mobile.jpg';
           $alt_img = "sfondo pagina eventi";
-          $xml_lang = "";
           $lista_menu = menu_pagina::menu($target);
         break;
         case "form_eventi" :
@@ -106,7 +105,6 @@ class Genera_pagina
           $attributi_body = 'class="container informazioni"';
           $img_background = '../img/informazioni_background.jpg';
           $alt_img = "sfondo pagina informazioni";
-          $xml_lang = "";
           $lista_menu = menu_pagina::menu($target);
         break;
         case "la_mia_storia" :
@@ -117,7 +115,6 @@ class Genera_pagina
           $attributi_body = 'class="container la_mia_storia"';
           $img_background = '../img/la_mia_storia_background.jpg';
           $alt_img = "sfondo pagina la mia storia";
-          $xml_lang = "";
           $lista_menu = menu_pagina::menu($target);
         break;
         case "login" :
@@ -141,7 +138,6 @@ class Genera_pagina
           $attributi_body = 'class="container prodotti"';
           $img_background = '../img/prodotti_background_mobile.jpg';
           $alt_img = "sfondo pagina prodotti";
-          $xml_lang = "";
           $lista_menu = menu_pagina::menu($target);
           $script_body = '<script src="../javascript/jquery.placeholder.min.js"></script>
                           <script>
@@ -156,7 +152,6 @@ class Genera_pagina
           $attributi_body = 'id="body_scheda_prodotto" class="container prodotto_singolo"';
           $img_background = '../img/products/helan_profumi_della_casa_fragolino_selvatico_100ml.jpg';
           $alt_img = "sfondo pagina prodotto";
-          $xml_lang = "";
           $lista_menu = menu_pagina::menu($target);
         break;
         case "profilo" :
@@ -198,7 +193,6 @@ class Genera_pagina
           $attributi_body = 'class="container teinfusi"';
           $img_background = '../img/te_delle_feste.jpg';
           $alt_img = "sfondo pagina teinfusi";
-          $xml_lang = "";
           $lista_menu = menu_pagina::menu($target);
         break;
       }
