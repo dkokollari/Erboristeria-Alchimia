@@ -1,0 +1,66 @@
+<form method="post" onsubmit="return validateFormEventi()" action="form_eventi.php" enctype="multipart/form-data">
+  <fieldset>
+    <legend>Inserimento nuovo evento</legend>
+    <div>
+      <p><strong>Una volta inserito l'evento non si potr&agrave; modificare in futuro, quindi si prega di controllare che i campi siano corretti prima di inviarli.</strong></p>
+      %MESSAGGIO%
+    </div>
+    <div>
+      <label for="titolo_evento">Titolo</label>
+      <input type="text" id="titolo_evento" name="titolo_evento" value="%val_titolo%"/>
+      <p class="error-msg" id="err_tit">%ERR_TIT%</p>
+    </div>
+    <div>
+      <label for="dataora_evento">Data e ora dell'evento</label>
+      <input type="datetime-local" id="dataora_evento" name="dataora_evento" value="%OGGI%" min="%OGGI%"/>
+    </div>
+    <div>
+      <fieldset>
+        <legend>Descrizione (sottotitoli)</legend>
+        <p class="error-msg" id="err_desc">%ERR_DESC%</p>
+        <div>
+            <label for="sottotitolo1">sottotitolo 1</label>
+            <input class="sottotitolo" type="text" id="sottotitolo1" name="sottotitolo1" value="%val_stt1%"/>
+            <br /><label for="sottotitolo2">sottotitolo 2</label>
+            <input class="sottotitolo" type="text" id="sottotitolo2" name="sottotitolo2" value="%val_stt2%"/>
+            <br /><label for="sottotitolo3">sottotitolo 3</label>
+            <input class="sottotitolo" type="text" id="sottotitolo3" name="sottotitolo3" value="%val_stt3%"/>
+            <br /><label for="sottotitolo4">sottotitolo 4</label>
+            <input class="sottotitolo" type="text" id="sottotitolo4" name="sottotitolo4" value="%val_stt4%"/>
+            <br /><label for="sottotitolo5">sottotitolo 5</label>
+            <input class="sottotitolo" type="text" id="sottotitolo5" name="sottotitolo5" value="%val_stt5%"/>
+        </div>
+      </fieldset>
+    </div>
+    <div>
+      <label for="relatori">Relatori</label>
+      <textarea id="relatori" name="relatori" rows="5" cols="80">%val_rel%</textarea>
+      <p class="error-msg" id="err_rel">%ERR_REL%</p>
+    </div>
+    <div>
+      <fieldset>
+        <legend>Mappa</legend>
+        <p class="error-msg" id="err_ind">%ERR_IND%</p>
+        <div>
+          <label for="mappa_evento">Indirizzo</label>
+          <input type="text" id="mappa_evento" name="mappa_evento" value="%val_map%"/>
+        </div>
+        <div>
+          <label for="desc_mappa_evento">descrizione indirizzo</label>
+          <textarea id="desc_mappa_evento" name="desc_mappa_evento" rows="3" cols="80">%descr_ind%</textarea>
+        </div>
+      </fieldset>
+    </div>
+    <div>
+      <label for="organizzazione_evento">Organizzazione (falcoltativo)</label>
+      <input type="text" id="organizzazione_evento" name="organizzazione_evento" value="%val_org%"/>
+      <p class="error-msg" id="err_org">%ERR_ORG%</p>
+    </div>
+    <div>
+      <label for="immagine">Immagine (falcoltativo)</label>
+      <input type="file" id="immagine" name="immagine" />
+      %ERR_IMG%
+    </div>
+    <input type="submit" value="Aggiungi" name="submit" />
+  </fieldset>
+</form>

@@ -1,0 +1,33 @@
+<h1>Pannello amministratore</h1>
+<form action="admin.php" method="GET">
+  <fieldset>
+    <legend></legend>
+    <label for="myInput">email</label>
+    <input type="text" id="myInput" placeholder="Inserisci una e-mail.." name="email_search" title="Inserisci una e-mail"/>
+    <label for="ordina_utenti">
+      <span>Ordina per</span>
+      <select id="ordina_utenti" name="ordina_utenti">
+        <option value="">&nbsp;</option>
+        <option value="timbri">Timbri</option>
+        <option value="tipo_utente">Tipo utente</option>
+        <option value="data_nascita_ASC">Data nascita ASC</option>
+        <option value="data_nascita_DESC">Data nascita DESC</option>
+        <option value="data_registrazione_ASC">Data registrazione ASC</option>
+        <option value="data_registrazione_DESC">Data registrazione DESC</option>
+      </select>
+    </label>
+    <label for="numero_risultati">
+      <span>Numero risultati</span>
+      <select id="numero_risultati" name="numero_risultati">
+        <option value="20">20</option>
+        <option value="40">40</option>
+        <option value="80">80</option>
+      </select>
+    </label>
+    <input type="submit" name="search" value="Invia"/>
+  </fieldset>
+</form>
+%UTENTI%
+<div class="page_results">
+  %PAGES_MENU%
+</div>

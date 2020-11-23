@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html id="start" xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
+  <head>
+    <title>%TITOLO% — Erboristeria Alchimia</title>
+    <meta name="title" content="%TITOLO_PAGINA%"/>
+    <meta name="description" content="%DESCRIZIONE_PAGINA%"/>
+    <meta name="keywords" content="%KEYWORDS_PAGINA%"/>
+    <meta name="language" content="italian it"/>
+    <meta name="author" content="Andrea Dorigo, Dardan Kokollari, Fouad Mouad, Marcel J. Wandji"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    %META_HEAD%
+    <link rel="icon" href="../img/favicon.ico"/>
+    <link rel="stylesheet" type="text/css" media="handheld, screen" href="../css/stylesheet.css"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,600&amp;display=swap"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons+Round"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons+Outlined"/>
+    %LINK_HEAD%
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    %SCRIPT_HEAD%
+  </head>
+  <body %ATTRIBUTI_BODY%>
+      <!--          HEADER             -->
+      <div>
+        %HEADER_BACKGROUND%
+
+        <span id="menu_icon" class="material-icons-round menu_btn top_icon">menu</span>
+        %ICONA_TOP%
+        <div id="menu">
+          <ul title="Menu">
+            %LISTA_MENU%
+            <li class="menu_btn">
+              <img src="../icons/cancel.svg" alt="Chiudi il menu"/>
+            </li>
+          </ul>
+        </div>
+          <button id="right-of-menu" class="menu_btn" title="chiudi il menu">chiudi menu</button>
+      </div>
+      <!--         CONTENT            -->
+      <div id="content">
+        %CONTENUTO_PAGINA%
+      </div>
+      <!--          FOOTER            -->
+      <div id="footer">
+        <a id="torna_su_btn" href="#start">Torna all'inizio della pagina</a>
+        <p id="footer_menu">Menu</p>
+        <ul>
+          %LISTA_MENU%
+        </ul>
+        <p id="copyright">Copyright &#64; 2020 erbalchimia@gmail.com. Tutti i diritti riservati</p>
+      </div>
+    <script type="text/javascript" src="../javascript/design.js"></script>
+    %SCRIPT_BODY%
+  </body>
+</html>
